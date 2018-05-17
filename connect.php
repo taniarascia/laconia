@@ -31,6 +31,8 @@ $pdoOptions = array(
     PDO::ATTR_EMULATE_PREPARES => false
 );
 
+$root = __DIR__;
+
 /**
  * Connect to MySQL and instantiate the PDO object.
  */

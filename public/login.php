@@ -1,6 +1,8 @@
 <?php
 //login.php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 /**
  * Start the session.
  */
@@ -13,16 +15,17 @@ session_start();
 /**
  * Include our MySQL connection.
  */
-require 'connect.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
 
 
 //If the POST var "login" exists (our submit button), then we can
 //assume that the user has submitted the login form.
-if(isset($_POST['login'])){
+if (isset($_POST['login'])){
     
     //Retrieve the field values from our login form.
     $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
     $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
+    $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
     
     //Retrieve the user account information for the given username.
     $sql = "SELECT id, username, password FROM users WHERE username = :username";
@@ -38,11 +41,11 @@ if(isset($_POST['login'])){
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
     //If $row is FALSE.
-    if($user === false){
+    if($user === false) {
         //Could not find a user with that username!
         //PS: You might want to handle this error in a more user-friendly manner!
-        die('Incorrect username / password combination!');
-    } else{
+        die('Incorrect username / password combination! <a href="/laconia/home.php">Back</a>');
+    } else {
         //User account found. Check to see if the given password matches the
         //password hash that we stored in our users table.
         
@@ -62,7 +65,7 @@ if(isset($_POST['login'])){
             
         } else{
             //$validPassword was FALSE. Passwords do not match.
-            die('Incorrect username / password combination!');
+            die('Incorrect username / password combination! <a href="/laconiahome.php">Back</a>');
         }
     }
     
@@ -85,4 +88,5 @@ if(isset($_POST['login'])){
             <input type="submit" name="login" value="Login">
         </form>
     </body>
+    <a href="/">Home</a> <a href="/public/register.php">Register</a>
 </html>

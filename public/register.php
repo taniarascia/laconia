@@ -1,7 +1,9 @@
 <?php
 
 //register.php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 /**
  * Start the session.
  */
@@ -14,7 +16,7 @@ session_start();
 /**
  * Include our MySQL connection.
  */
-require 'connect.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
 
 
 //If the POST var "register" exists (our submit button), then we can
@@ -24,6 +26,7 @@ if(isset($_POST['register'])){
     //Retrieve the field values from our registration form.
     $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
     $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
+    $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
     
     //TO ADD: Error checking (username characters, password length, etc).
     //Basically, you will need to add your own error checking BEFORE
@@ -48,8 +51,8 @@ if(isset($_POST['register'])){
     //TO ADD - Your own method of handling this error. For example purposes,
     //I'm just going to kill the script completely, as error handling is outside
     //the scope of this tutorial.
-    if($row['num'] > 0){
-        die('That username already exists!');
+    if ($row['num'] > 0) {
+        echo 'That username already exists! <a href="/public">Back</a>';
     }
     
     //Hash the password as we do NOT want to store our passwords in plain text.
@@ -57,20 +60,21 @@ if(isset($_POST['register'])){
     
     //Prepare our INSERT statement.
     //Remember: We are inserting a new row into our users table.
-    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+    $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
     $stmt = $pdo->prepare($sql);
     
     //Bind our variables.
     $stmt->bindValue(':username', $username);
     $stmt->bindValue(':password', $passwordHash);
+    $stmt->bindValue(':email', $email);
 
     //Execute the statement and insert the new account.
     $result = $stmt->execute();
     
     //If the signup process is successful.
-    if($result){
+    if ($result) {
         //What you do here is up to you!
-        echo 'Thank you for registering with our website.';
+        echo 'Thank you for registering with our website. <a href="/public/register.php">Login</a>';
     }
     
 }
@@ -88,8 +92,11 @@ if(isset($_POST['register'])){
             <label for="username">Username</label>
             <input type="text" id="username" name="username"><br>
             <label for="password">Password</label>
-            <input type="text" id="password" name="password"><br>
+            <input type="password" id="password" name="password"><br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"><br>
             <input type="submit" name="register" value="Register"></button>
         </form>
+        <a href="/public">Home</a>
     </body>
 </html>
