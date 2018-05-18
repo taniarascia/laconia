@@ -2,6 +2,8 @@
 
 $_SESSION['user_id_reset_pass'] = $userId;
 
+echo $_SESSION['user_id_reset_pass'];
+
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,11 +1,13 @@
 <?php
 
-//home.php
-
-/**
- * Start the session.
- */
 session_start();
+
+if (!isset($_SESSION['logged_in'])) {
+   header("Location: public/login.php");
+   exit();
+}
+
+print_r($_SESSION);
 
 /**
  * Include our MySQL connection.

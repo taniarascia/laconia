@@ -1,16 +1,6 @@
 <?php
-//login.php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-/**
- * Start the session.
- */
-session_start();
 
-/**
- * Include ircmaxell's password_compat library.
- */
+session_start();
 
 /**
  * Include our MySQL connection.
@@ -20,7 +10,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
 
 //If the POST var "login" exists (our submit button), then we can
 //assume that the user has submitted the login form.
-if (isset($_POST['login'])){
+if (isset($_POST['login'])) {
     
     //Retrieve the field values from our login form.
     $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
@@ -60,7 +50,7 @@ if (isset($_POST['login'])){
             $_SESSION['logged_in'] = time();
             
             //Redirect to our protected page, which we called home.php
-            header('Location: home.php');
+            header('Location: /public/home.php');
             exit;
             
         } else{
@@ -88,5 +78,5 @@ if (isset($_POST['login'])){
             <input type="submit" name="login" value="Login">
         </form>
     </body>
-    <a href="/">Home</a> <a href="/public/register.php">Register</a> <a href="/public/forgot-password.php">Forgot Password</a>
+    <a href="/public">Home</a> <a href="/public/register.php">Register</a> <a href="/public/forgot-password.php">Forgot Password</a>
 </html>
