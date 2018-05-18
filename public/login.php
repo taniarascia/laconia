@@ -44,7 +44,7 @@ if (isset($_POST['login'])){
     if($user === false) {
         //Could not find a user with that username!
         //PS: You might want to handle this error in a more user-friendly manner!
-        die('Incorrect username / password combination! <a href="/laconia/home.php">Back</a>');
+        die('Incorrect username / password combination! <a href="/public/home.php">Back</a>');
     } else {
         //User account found. Check to see if the given password matches the
         //password hash that we stored in our users table.
@@ -65,7 +65,7 @@ if (isset($_POST['login'])){
             
         } else{
             //$validPassword was FALSE. Passwords do not match.
-            die('Incorrect username / password combination! <a href="/laconiahome.php">Back</a>');
+            die('Incorrect username / password combination! <a href="/public/home.php">Back</a>');
         }
     }
     
@@ -88,5 +88,5 @@ if (isset($_POST['login'])){
             <input type="submit" name="login" value="Login">
         </form>
     </body>
-    <a href="/">Home</a> <a href="/public/register.php">Register</a>
+    <a href="/">Home</a> <a href="/public/register.php">Register</a> <a href="/public/forgot-password.php">Forgot Password</a>
 </html>

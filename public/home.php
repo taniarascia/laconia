@@ -38,7 +38,6 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-
 <table>
     <tr>
         <th>Username</th>
