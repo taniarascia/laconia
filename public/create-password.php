@@ -2,7 +2,7 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
 
 if (isset($_POST['create'])) {
     $resetPass = $_SESSION['user_id_reset_pass'];
@@ -17,15 +17,15 @@ if (isset($_POST['create'])) {
         $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array("cost" => 12));
         
         $sql = "UPDATE users SET password = :password WHERE id = :id";
-        $statement = $pdo->prepare($sql);
-        $statement->bindValue(':password', $passwordHash);
-        $statement->bindValue(':id', $resetPass);
+        $database->query($sql);
+        $database->bind(':password', $passwordHash);
+        $database->bind(':id', $resetPass);
     
-        $result = $statement->execute();
+        $result = $database->execute();
         
         if ($result) {
             // Success
-            echo 'Your password has been updated. <a href="/public/login.php">Login</a>';
+            $message = 'Your password has been updated. <a href="/public/login.php">Login</a>';
         }
     }
 }
@@ -39,6 +39,11 @@ if (isset($_POST['create'])) {
     </head>
     <body>
         <h1>Create New Password</h1>
+        
+        <?php if ($message) : ?>
+            <p><?= $message; ?>
+        <?php endif; ?>
+
         <form action="create-password.php" method="post">
             <label for="password">Password</label>
             <input type="text" id="password" name="password"><br>

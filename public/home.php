@@ -2,7 +2,7 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])) {
     //User not logged in. Redirect them back to the login.php page.
@@ -10,15 +10,10 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])) {
     exit;
 }
 
-// User logged in
-echo 'You are logged in!';
+$database->query("SELECT * FROM users WHERE id = :id LIMIT 1");
+$database->bind(':id', $_SESSION['user_id']);
 
-$sql = "SELECT * FROM users WHERE id = :id LIMIT 1";
-$statement = $pdo->prepare($sql);
-$statement->bindValue(':id', $_SESSION['user_id']);
-$statement->execute();
-
-$row = $statement->fetch(PDO::FETCH_ASSOC);
+$row = $database->result();  
 
 ?>
 

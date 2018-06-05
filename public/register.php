@@ -2,7 +2,7 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
 
 if (isset($_POST['register'])) {
     
@@ -11,35 +11,35 @@ if (isset($_POST['register'])) {
     $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
     $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
     
-    //TO ADD: Error checking (username characters, password length, etc).
+    // TO ADD: Error checking (username characters, password length, etc).
     
     // Check if username already exists
     $sql = "SELECT COUNT(username) AS num FROM users WHERE username = :username";
-    $statement = $pdo->prepare($sql);
-    $statement->bindValue(':username', $username);
-    $statement->execute();
-    
-    $row = $statement->fetch(PDO::FETCH_ASSOC);
-    
+    $database->query($sql);
+    $database->bind(':username', $username);
+
+    $row = $database->result();
+
     // Username already exists error
     if ($row['num'] > 0) {
-        echo 'That username already exists! <a href="/public">Back</a>';
-    }
+        $message = 'That username already exists! Try again.';
+    } else {
     
-    // Hash the password
-    $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array("cost" => 12));
+        // Hash the password
+        $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array("cost" => 12));
 
-    $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
-    $statement = $pdo->prepare($sql);
-    $statement->bindValue(':username', $username);
-    $statement->bindValue(':password', $passwordHash);
-    $statement->bindValue(':email', $email);
+        $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
+        $database->query($sql);
+        $database->bind(':username', $username);
+        $database->bind(':password', $passwordHash);
+        $database->bind(':email', $email);
 
-    $result = $statement->execute();
-    
-    // User registration successful
-    if ($result) {
-        echo 'Thank you for registering with our website. <a href="/public/login.php">Login</a>';
+        $result = $database->execute();
+        
+        // User registration successful
+        if ($result) {
+            $message = 'Thank you for registering with our website. <a href="/public/login.php">Login</a>';
+        }
     }
 }
 
@@ -52,6 +52,11 @@ if (isset($_POST['register'])) {
     </head>
     <body>
         <h1>Register</h1>
+        
+        <?php if ($message) : ?>
+            <p><?= $message; ?></p>
+        <?php endif; ?>
+
         <form action="register.php" method="post">
             <label for="username">Username</label>
             <input type="text" id="username" name="username"><br>
@@ -61,6 +66,6 @@ if (isset($_POST['register'])) {
             <input type="email" id="email" name="email"><br>
             <input type="submit" name="register" value="Register"></button>
         </form>
-        <a href="/public">Home</a>
+        <a href="/public">Home</a>  <a href="/public/login.php">Login</a>
     </body>
 </html>

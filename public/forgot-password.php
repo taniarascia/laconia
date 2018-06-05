@@ -2,7 +2,7 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
 
 if (isset($_POST['reset'])) {
 
@@ -10,49 +10,50 @@ if (isset($_POST['reset'])) {
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
     
     $sql = "SELECT id, email FROM users WHERE email = :email";
-    $statement = $pdo->prepare($sql);
-    $statement->bindValue(':email', $email);
-    $statement->execute();
+    $database->query($sql);
+    $database->bind(':email', $email);
     
-    $userInfo = $statement->fetch(PDO::FETCH_ASSOC);
+    $userInfo = $database->result();
     
     // Email doesn't exist
     if (empty($userInfo)) {
-        echo 'That email address was not found in our system!';
-        exit;
+        $message = 'That email address was not found in our system!';
+    } else {
+
+        // Set email and id
+        $userEmail = $userInfo['email'];
+        $userId = $userInfo['id'];
+        
+        // Create a secure token for this forgot password request.
+        $token = openssl_random_pseudo_bytes(16);
+        $token = bin2hex($token);
+
+   
+
+        // Insert the request information into password_reset_request table.
+        $sql = "INSERT INTO password_reset_request
+                    (user_id, date_requested, token)
+                VALUES
+                    (:user_id, :date_requested, :token)";
+        
+        $database->query($sql);
+        $database->bind(':user_id', $userId);
+        $database->bind(':date_requested', date("Y-m-d H:i:s"));
+        $database->bind(':token', $token);
+
+        $database->execute();
+        
+        // Get the ID of the row 
+        $passwordRequestId = $database->lastInsertId();
+
+        // Verify forgot password script
+        $verifyScript = 'http://laconia.test/public/forgot-password-process.php';
+        $linkToSend = $verifyScript . '?uid=' . $userId . '&id=' . $passwordRequestId . '&t=' . $token;
+        
+        // This would email in a production site
+        $message = "<a href='$linkToSend'>Click here to reset</a>";
+        }
     }
-    
-    // Set email and id
-    $userEmail = $userInfo['email'];
-    $userId = $userInfo['id'];
-    
-    // Create a secure token for this forgot password request.
-    $token = openssl_random_pseudo_bytes(16);
-    $token = bin2hex($token);
-
-    // Insert the request information into password_reset_request table.
-    $sql = "INSERT INTO password_reset_request
-                (user_id, date_requested, token)
-            VALUES
-                (:user_id, :date_requested, :token)";
-    
-    $statement = $pdo->prepare($sql);
-    $statement->execute(array(
-        "user_id"        => $userId,
-        "date_requested" => date("Y-m-d H:i:s"),
-        "token"          => $token
-    ));
-    
-    // Get the ID of the row 
-    $passwordRequestId = $pdo->lastInsertId();
-
-    // Verify forgot password script
-    $verifyScript = 'http://laconia.test/public/forgot-password-process.php';
-    $linkToSend = $verifyScript . '?uid=' . $userId . '&id=' . $passwordRequestId . '&t=' . $token;
-    
-    echo "<a href='$linkToSend'>$linkToSend</a>";
-    exit;
-}
 
 ?>
 
@@ -63,7 +64,12 @@ if (isset($_POST['reset'])) {
         <title>Forgot Password</title>
     </head>
     <body>
-        <h1>Login</h1>
+        <h1>Forgot Password</h1>
+        
+        <?php if ($message) : ?>
+            <p><?= $message; ?>
+        <?php endif; ?>
+
         <form action="forgot-password.php" method="post">
             <label for="email">Email</label>
             <input type="text" id="email" name="email"><br>

@@ -2,7 +2,7 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
 
 if (isset($_POST['login'])) {
     
@@ -11,21 +11,18 @@ if (isset($_POST['login'])) {
     $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
     $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
     
-    //Retrieve the user account information for the given username.
-    $sql = "SELECT id, username, password FROM users WHERE username = :username";
-    $statement = $pdo->prepare($sql);
-    $statement->bindValue(':username', $username);
-    $statement->execute();
+    // Retrieve the user account information for the given username.
+    $database->query("SELECT id, username, password FROM users WHERE username = :username");
+    $database->bind(':username', $username);
     
-    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    $user = $database->result();
     
     // Could not find a user with that username
     if ($user === false) {
-        echo 'Incorrect username / password combination! <a href="/public/home.php">Back</a>';
-        exit;
+        $message = 'Incorrect username / password combination! <a href="/public/home.php">Back</a>';
     } else {
+
         // User account found.
-        // Verify passwords.
         $validPassword = password_verify($passwordAttempt, $user['password']);
         
         if ($validPassword) {
@@ -37,8 +34,7 @@ if (isset($_POST['login'])) {
             header('Location: /public/home.php');
             exit;
         } else {
-            echo 'Incorrect username / password combination! <a href="/public/login.php">Back</a>';
-            exit;
+            $message = 'Incorrect username / password combination!';
         }
     }
     
@@ -53,6 +49,11 @@ if (isset($_POST['login'])) {
     </head>
     <body>
         <h1>Login</h1>
+
+        <?php if ($message) : ?>
+            <p><?= $message; ?></p>
+        <?php endif; ?>
+
         <form action="login.php" method="post">
             <label for="username">Username</label>
             <input type="text" id="username" name="username"><br>
