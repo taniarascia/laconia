@@ -1,75 +1,57 @@
 <?php
 
+session_start();
+
 require $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
 
 if (isset($_POST['reset'])) {
 
-    //Get the name that is being searched for.
+    // Get form values
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
     
-    //The simple SQL query that we will be running.
-    $sql = "SELECT `id`, `email` FROM `users` WHERE `email` = :email";
-    
-    //Prepare our SELECT statement.
+    $sql = "SELECT id, email FROM users WHERE email = :email";
     $statement = $pdo->prepare($sql);
-    
-    //Bind the $name variable to our :name parameter.
     $statement->bindValue(':email', $email);
-    
-    //Execute the SQL statement.
     $statement->execute();
     
-    //Fetch our result as an associative array.
     $userInfo = $statement->fetch(PDO::FETCH_ASSOC);
     
-    //If $userInfo is empty, it means that the submitted email
-    //address has not been found in our users table.
-    if(empty($userInfo)){
+    // Email doesn't exist
+    if (empty($userInfo)) {
         echo 'That email address was not found in our system!';
         exit;
     }
     
-    //The user's email address and id.
+    // Set email and id
     $userEmail = $userInfo['email'];
     $userId = $userInfo['id'];
     
-    //Create a secure token for this forgot password request.
+    // Create a secure token for this forgot password request.
     $token = openssl_random_pseudo_bytes(16);
     $token = bin2hex($token);
-    
-    //Insert the request information
-    //into our password_reset_request table.
-    
-    //The SQL statement.
-    $insertSql = "INSERT INTO password_reset_request
+
+    // Insert the request information into password_reset_request table.
+    $sql = "INSERT INTO password_reset_request
                 (user_id, date_requested, token)
-                VALUES
+            VALUES
                 (:user_id, :date_requested, :token)";
     
-    //Prepare our INSERT SQL statement.
-    $statement = $pdo->prepare($insertSql);
-    
-    //Execute the statement and insert the data.
+    $statement = $pdo->prepare($sql);
     $statement->execute(array(
-        "user_id" => $userId,
+        "user_id"        => $userId,
         "date_requested" => date("Y-m-d H:i:s"),
-        "token" => $token
+        "token"          => $token
     ));
     
-    //Get the ID of the row we just inserted.
+    // Get the ID of the row 
     $passwordRequestId = $pdo->lastInsertId();
-    
-    
-    //Create a link to the URL that will verify the
-    //forgot password request and allow the user to change their
-    //password.
-    $verifyScript = 'http://sandbox.test/public/forgot-pass.php';
-    
-    //The link that we will send the user via email.
+
+    // Verify forgot password script
+    $verifyScript = 'http://laconia.test/public/forgot-password-process.php';
     $linkToSend = $verifyScript . '?uid=' . $userId . '&id=' . $passwordRequestId . '&t=' . $token;
     
-    //Print out the email for the sake of this tutorial.
-    echo $linkToSend;
+    echo "<a href='$linkToSend'>$linkToSend</a>";
+    exit;
 }
 
 ?>
@@ -88,5 +70,5 @@ if (isset($_POST['reset'])) {
             <input type="submit" name="reset" value="Reset Password">
         </form>
     </body>
-    <a href="/">Home</a> <a href="/public/register.php">Register</a>
+    <a href="/public">Home</a> <a href="/public/register.php">Register</a>
 </html>
