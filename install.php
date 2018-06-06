@@ -11,10 +11,10 @@ $options = [
 
 try {
 	$connection = new PDO('mysql:host=' . DB_HOST, DB_USER, DB_PASS, $options);
-	$sql = file_get_contents('init.sql');
+	$sql = file_get_contents('data/init.sql');
 	$connection->exec($sql);
 	
-	echo 'Success! <a href="/public/register.php">Register a user</a>';
+	echo 'Success! <a href="/register">Register a user</a>';
 } catch(PDOException $error) {
 	echo $sql . "<br>" . $error->getMessage();
 }

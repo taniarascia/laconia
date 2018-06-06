@@ -2,9 +2,12 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
+// Meta
+$page_title = 'Login';
+$title = SITE_NAME . ' - ' . $page_title;
 
 if (isset($_POST['login'])) {
+    $database = new Database();
     
     // Get form values
     $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
@@ -39,28 +42,5 @@ if (isset($_POST['login'])) {
     }
     
 }
- 
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Login</title>
-    </head>
-    <body>
-        <h1>Login</h1>
 
-        <?php if ($message) : ?>
-            <p><?= $message; ?></p>
-        <?php endif; ?>
-
-        <form action="" method="post">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"><br>
-            <input type="submit" name="login" value="Login">
-        </form>
-    </body>
-    <a href="/">Home</a> <a href="/register">Register</a> <a href="/forgot-password">Forgot Password</a>
-</html>
+require $_SERVER['DOCUMENT_ROOT'] . '/public/views/login.view.php';

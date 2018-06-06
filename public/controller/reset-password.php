@@ -2,9 +2,12 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
+// Meta
+$page_title = 'Reset Password';
+$title = SITE_NAME . ' - ' . $page_title;
 
 if (isset($_POST['create'])) {
+    $database = new Database();
     $resetPass = $_SESSION['user_id_reset_pass'];
     
     if (!$resetPass) {
@@ -29,26 +32,5 @@ if (isset($_POST['create'])) {
         }
     }
 }
-?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Create New Password</title>
-    </head>
-    <body>
-        <h1>Create New Password</h1>
-        
-        <?php if ($message) : ?>
-            <p><?= $message; ?>
-        <?php endif; ?>
-
-        <form action="" method="post">
-            <label for="password">Password</label>
-            <input type="text" id="password" name="password"><br>
-            <input type="submit" name="create" value="Create Password">
-        </form>
-    </body>
-    <a href="/public">Home</a> <a href="/register">Register</a> <a href="/forgot-password">Forgot Password</a>
-</html>
+require $_SERVER['DOCUMENT_ROOT'] . '/public/views/reset-password.view.php';

@@ -1,0 +1,23 @@
+{
+    "name": "laconia",
+    "type": "project",
+    "description": "A PHP Application",
+    "keywords": ["php", "application"],
+    "homepage": "https://github.com/taniarascia/laconia",
+    "license": "MIT",
+    "authors": [{
+        "name": "Tania Rascia",
+        "homepage": "https://www.taniarascia.com",
+        "role": "Developer"
+    }],
+    "support": {
+        "issues": "https://github.com/taniarascia/laconia/issues",
+        "source": "https://github.com/taniarascia/laconia"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    },
+    "require": {
+        "php": ">=7.0"
+    }
+}

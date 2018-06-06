@@ -2,9 +2,12 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
+// Meta
+$page_title = 'Forgot Password';
+$title = SITE_NAME . ' - ' . $page_title;
 
 if (isset($_POST['reset'])) {
+    $database = new Database();
 
     // Get form values
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
@@ -47,7 +50,7 @@ if (isset($_POST['reset'])) {
         $passwordRequestId = $database->lastInsertId();
 
         // Verify forgot password script
-        $verifyScript = 'http://laconia.test/public/forgot-password-process.php';
+        $verifyScript = 'http://' . $_SERVER['HTTP_HOST'] . '/forgot-password-process';
         $linkToSend = $verifyScript . '?uid=' . $userId . '&id=' . $passwordRequestId . '&t=' . $token;
         
         // This would email in a production site
@@ -55,26 +58,4 @@ if (isset($_POST['reset'])) {
         }
     }
 
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Forgot Password</title>
-    </head>
-    <body>
-        <h1>Forgot Password</h1>
-        
-        <?php if ($message) : ?>
-            <p><?= $message; ?>
-        <?php endif; ?>
-
-        <form action="" method="post">
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email"><br>
-            <input type="submit" name="reset" value="Reset Password">
-        </form>
-    </body>
-    <a href="/">Home</a> <a href="/register">Register</a>
-</html>
+require $_SERVER['DOCUMENT_ROOT'] . '/public/views/forgot-password.view.php';

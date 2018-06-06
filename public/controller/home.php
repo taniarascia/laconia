@@ -2,6 +2,10 @@
 
 session_start();
 
+// Meta
+$page_title = 'Home';
+$title = SITE_NAME . ' - ' . $page_title;
+
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])) {
     //User not logged in. Redirect them back to the login.php page.
     header('Location: /login');
@@ -14,21 +18,4 @@ $database->bind(':id', $_SESSION['user_id']);
 
 $row = $database->result();  
 
-?>
-
-<h1><?= $row['username']; ?></h1>
-
-<table>
-    <tr>
-        <th>Username</th>
-        <th>Email</th>
-    </tr>
-
-    <tr>
-        <td><?= $row['username']; ?></td>
-        <td><?= $row['email']; ?></td>
-    </tr>
-
-</table>
-
-<a href="/logout">Logout</a>
+require $_SERVER['DOCUMENT_ROOT'] . '/public/views/home.view.php';

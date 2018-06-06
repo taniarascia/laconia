@@ -1,14 +1,12 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . '/config.php';
-
 class Database {
     private $host = DB_HOST;  
     private $user = DB_USER;  
     private $pass = DB_PASS;  
     private $dbname = DB_NAME;  
 
-    private $dbh;  
+    private $handler;  
     private $error;  
 
     private $statement;
@@ -21,14 +19,14 @@ class Database {
         ]; 
         
         try {  
-            $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);  
+            $this->handler = new PDO($dsn, $this->user, $this->pass, $options);  
         } catch (PDOException $e) {  
             $this->error = $e->getMessage();  
         } 
     } 
     
     public function query($query) {  
-        $this->statement = $this->dbh->prepare($query);  
+        $this->statement = $this->handler->prepare($query);  
     }   
 
     public function bind($param, $value, $type = null) {
@@ -78,8 +76,6 @@ class Database {
     }    
 
     public function lastInsertId() {  
-        return $this->dbh->lastInsertId();  
+        return $this->handler->lastInsertId();  
     }  
 }
-
-return $database = new Database();

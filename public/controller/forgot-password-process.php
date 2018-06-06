@@ -2,7 +2,7 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
+$database = new Database();
 
 // User id, token, and request id
 $userId = isset($_GET['uid']) ? trim($_GET['uid']) : '';
@@ -33,5 +33,5 @@ if (empty($requestInfo)) {
 $_SESSION['user_id_reset_pass'] = $userId;
  
 // Redirect them to your reset password form.
-header('Location: /create-password');
+header('Location: /reset-password');
 exit;
