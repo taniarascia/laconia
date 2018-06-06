@@ -33,5 +33,5 @@ if (empty($requestInfo)) {
 $_SESSION['user_id_reset_pass'] = $userId;
  
 // Redirect them to your reset password form.
-header('Location: create-password.php');
+header('Location: /create-password');
 exit;

@@ -70,11 +70,11 @@ if (isset($_POST['reset'])) {
             <p><?= $message; ?>
         <?php endif; ?>
 
-        <form action="forgot-password.php" method="post">
+        <form action="" method="post">
             <label for="email">Email</label>
             <input type="text" id="email" name="email"><br>
             <input type="submit" name="reset" value="Reset Password">
         </form>
     </body>
-    <a href="/public">Home</a> <a href="/public/register.php">Register</a>
+    <a href="/">Home</a> <a href="/register">Register</a>
 </html>

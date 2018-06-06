@@ -8,7 +8,7 @@ if (isset($_POST['create'])) {
     $resetPass = $_SESSION['user_id_reset_pass'];
     
     if (!$resetPass) {
-        header('/public/login.php');
+        header('/login');
         exit;
     } else {
         $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
@@ -25,7 +25,7 @@ if (isset($_POST['create'])) {
         
         if ($result) {
             // Success
-            $message = 'Your password has been updated. <a href="/public/login.php">Login</a>';
+            $message = 'Your password has been updated. <a href="/login">Login</a>';
         }
     }
 }
@@ -44,11 +44,11 @@ if (isset($_POST['create'])) {
             <p><?= $message; ?>
         <?php endif; ?>
 
-        <form action="create-password.php" method="post">
+        <form action="" method="post">
             <label for="password">Password</label>
             <input type="text" id="password" name="password"><br>
             <input type="submit" name="create" value="Create Password">
         </form>
     </body>
-    <a href="/public">Home</a> <a href="/public/register.php">Register</a> <a href="/public/forgot-password.php">Forgot Password</a>
+    <a href="/public">Home</a> <a href="/register">Register</a> <a href="/forgot-password">Forgot Password</a>
 </html>

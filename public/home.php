@@ -6,7 +6,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/class.database.php';
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])) {
     //User not logged in. Redirect them back to the login.php page.
-    header('Location: login.php');
+    header('Location: /login');
     exit;
 }
 
@@ -32,4 +32,4 @@ $row = $database->result();
 
 </table>
 
-<a href="/public/logout.php">Logout</a>
+<a href="/logout">Logout</a>

@@ -38,7 +38,7 @@ if (isset($_POST['register'])) {
         
         // User registration successful
         if ($result) {
-            $message = 'Thank you for registering with our website. <a href="/public/login.php">Login</a>';
+            $message = 'Thank you for registering with our website. <a href="/login">Login</a>';
         }
     }
 }
@@ -57,7 +57,7 @@ if (isset($_POST['register'])) {
             <p><?= $message; ?></p>
         <?php endif; ?>
 
-        <form action="register.php" method="post">
+        <form action="" method="post">
             <label for="username">Username</label>
             <input type="text" id="username" name="username"><br>
             <label for="password">Password</label>
@@ -66,6 +66,6 @@ if (isset($_POST['register'])) {
             <input type="email" id="email" name="email"><br>
             <input type="submit" name="register" value="Register"></button>
         </form>
-        <a href="/public">Home</a>  <a href="/public/login.php">Login</a>
+        <a href="/">Home</a>  <a href="/login">Login</a>
     </body>
 </html>

@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
     
     // Could not find a user with that username
     if ($user === false) {
-        $message = 'Incorrect username / password combination! <a href="/public/home.php">Back</a>';
+        $message = 'Incorrect username / password combination! <a href="/">Back</a>';
     } else {
 
         // User account found.
@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['logged_in'] = time();
             
-            header('Location: /public/home.php');
+            header('Location: /');
             exit;
         } else {
             $message = 'Incorrect username / password combination!';
@@ -54,7 +54,7 @@ if (isset($_POST['login'])) {
             <p><?= $message; ?></p>
         <?php endif; ?>
 
-        <form action="login.php" method="post">
+        <form action="" method="post">
             <label for="username">Username</label>
             <input type="text" id="username" name="username"><br>
             <label for="password">Password</label>
@@ -62,5 +62,5 @@ if (isset($_POST['login'])) {
             <input type="submit" name="login" value="Login">
         </form>
     </body>
-    <a href="/public">Home</a> <a href="/public/register.php">Register</a> <a href="/public/forgot-password.php">Forgot Password</a>
+    <a href="/">Home</a> <a href="/register">Register</a> <a href="/forgot-password">Forgot Password</a>
 </html>

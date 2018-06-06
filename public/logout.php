@@ -6,4 +6,4 @@ unset($_SESSION);
 
 session_destroy();
 
-header('Location: /public/home.php');
+header('Location: /');
