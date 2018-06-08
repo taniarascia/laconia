@@ -6,6 +6,6 @@ class User extends Model
 	{
 		$query = 'SELECT COUNT(username) AS num FROM users WHERE username = :username';
 
-//		$this->db->execute()
+		return (bool) $this->db->execute($query, [$username])->rows();
 	}
 }

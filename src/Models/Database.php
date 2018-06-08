@@ -10,7 +10,8 @@ class Database
 	private $handler;
 	private $error;
 
-	private $statement;
+	private $stmt;
+
 
 	public function __construct()
 	{
@@ -28,65 +29,56 @@ class Database
 	}
 
 
-	public function bind($param, $value, $type = NULL)
-	{
-		if (is_null($type)) {
-			switch (true) {
-				case is_int($value):
-					$type = PDO::PARAM_INT;
-					break;
-				case is_bool($value):
-					$type = PDO::PARAM_BOOL;
-					break;
-				case is_null($value):
-					$type = PDO::PARAM_NULL;
-					break;
-				default:
-					$type = PDO::PARAM_STR;
-			}
-		}
-		$this->statement->bindValue($param, $value, $type);
-	}
-
-
 	public function execute($query, $params = NULL)
 	{
-		$this->statement = $this->handler->prepare($query);
+		$stmt = $this->handler->prepare($query);
 
-		if (!is_null($params)) {
-			//
+		if (!is_null($params) && is_array($params)) {
+			foreach ($params as $name => $value) {
+				if (is_int($value)) {
+					$type = PDO::PARAM_INT;
+				} else if (is_bool($value)) {
+					$type = PDO::PARAM_BOOL;
+				} else if (is_null($value)) {
+					$type = PDO::PARAM_NULL;
+				} else {
+					$type = PDO::PARAM_STR;
+				}
+
+				$stmt->bindValue($name, $value, $type);
+			}
 		}
 
 		try {
-			return $this->statement->execute();
+			$stmt->execute();
+			$this->stmt = $stmt;
 		} catch (PDOException $e) {
 			if ($e->errorInfo[1] == 1062) {
-				$message = 'Duplicate entry';
-				return $message;
+				$this->error = 'Duplicate entry';
+			} else {
+				$this->error = $e->getMessage();
 			}
 		}
+
+		return $this;
 	}
 
 
-	public function result()
+	public function fetch()
 	{
-		$this->execute();
-
-		return $this->statement->fetch(PDO::FETCH_ASSOC);
+		return $this->stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
 
-	public function resultset()
+	public function fetchAll()
 	{
-		$this->execute();
-
-		return $this->statement->fetchAll(PDO::FETCH_ASSOC);
+		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 
-	public function rowCount()
+	public function rows()
 	{
-		return $this->statement->rowCount();
+		return $this->stmt->rowCount();
 	}
 
 
