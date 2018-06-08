@@ -15,7 +15,7 @@ if (isset($_POST['create'])) {
         $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
     
         // Hash the new password
-        $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array("cost" => 12));
+        $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array('cost' => 12));
         
         $sql = "UPDATE users SET password = :password WHERE id = :id";
         $database->query($sql);

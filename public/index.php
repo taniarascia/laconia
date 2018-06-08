@@ -8,6 +8,7 @@ $root = __DIR__ . '/..';
 // Autoload config and classes
 require $root . '/vendor/autoload.php';
 
+// Begin user session
 session_start();
 
 // Routing

@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-<h1><?= $page_title; ?></h1>
+    <h1><?= $page_title; ?></h1>
     <h2>Create New Password</h2>
         
         <?php if ($message) : ?>
