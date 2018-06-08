@@ -7,5 +7,4 @@ define('DB_PASS', 'root');
 define('DB_NAME', 'laconia');  
 
 // Constants
-
 define('SITE_NAME', 'Laconia');

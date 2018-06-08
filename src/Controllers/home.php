@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Meta
 $page_title = 'Home';
 $title = SITE_NAME . ' - ' . $page_title;

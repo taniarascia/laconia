@@ -15,7 +15,8 @@
         "source": "https://github.com/taniarascia/laconia"
     },
     "autoload": {
-        "classmap": ["src/"]
+        "classmap": ["src/"],
+        "config": ["config/"]
     },
     "require": {
         "php": ">=7.0"

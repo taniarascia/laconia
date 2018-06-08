@@ -1,13 +1,11 @@
 <?php
 
-define('DB_HOST', 'localhost');  
-define('DB_USER', 'root');  
-define('DB_PASS', 'root');  
-
 $options = [
     PDO::ATTR_PERSISTENT => true,  
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION  
 ]; 
+
+$db = new Database();
 
 try {
 	$connection = new PDO('mysql:host=' . DB_HOST, DB_USER, DB_PASS, $options);
