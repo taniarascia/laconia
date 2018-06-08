@@ -1,5 +1,7 @@
 <?php
 
+use Laconia\Database;
+
 // Get the directory above public
 $root = __DIR__ . '/..';
 
@@ -8,36 +10,15 @@ require $root . '/vendor/autoload.php';
 
 session_start();
 
-// Router
-switch ($_SERVER['REDIRECT_URL']) {
-    case '/' :
-        require $root . '/src/controller/index.php';
-        break;
-    case '' :
-        require $root . '/src/controller/index.php';
-        break;
-    case '/home':
-        require $root . '/src/controller/home.php';
-        break;
-    case '/login':
-        require $root . '/src/controller/login.php';
-        break;
-    case '/logout':
-        require $root . '/src/controller/logout.php';
-        break;
-    case '/register':
-        require $root . '/src/controller/register.php';
-        break;
-    case '/forgot-password':
-        require $root . '/src/controller/forgot-password.php';
-        break;
-    case '/reset-password':
-        require $root . '/src/controller/reset-password.php';
-        break;
-    case '/forgot-password-process':
-        require $root . '/src/controller/forgot-password-process.php';
-        break;
-    default: 
-        require $root . '/src/404.php';
-        break;
+// Routing
+$redirect = $_SERVER['REDIRECT_URL'];
+$controllerName = ltrim($redirect, '/');
+$controllerPath = $root . "/src/controller/$controllerName.php";
+
+if ($controllerName === '') {
+    require $root . '/src/controller/index.php';
+} elseif (file_exists($controllerPath)) {
+    require $root . "/src/controller/$controllerName.php";
+} else {
+    require $root . '/src/controller/404.php';
 }

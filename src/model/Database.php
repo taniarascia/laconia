@@ -1,5 +1,7 @@
 <?php
 
+namespace Laconia\Database;
+
 class Database 
 {
     private $host = DB_HOST;  

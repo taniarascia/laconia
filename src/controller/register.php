@@ -27,7 +27,7 @@ if (isset($_POST['register'])) {
     } else {
     
         // Hash the password
-        $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array("cost" => 12));
+        $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array('cost' => 12));
 
         $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
         $database->query($sql);
