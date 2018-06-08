@@ -2,88 +2,34 @@
 
 class Database
 {
-	private $host = DB_HOST;
-	private $user = DB_USER;
-	private $pass = DB_PASS;
-	private $dbname = DB_NAME;
+	private static $db;
+	private $pdo;
 
-	private $handler;
-	private $error;
-
-	private $stmt;
-
-
-	public function __construct()
+	private function __construct()
 	{
-		$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
-		$options = [
-			PDO::ATTR_PERSISTENT => true,
-			PDO::ATTR_ERRMODE    => PDO::ERRMODE_EXCEPTION,
+		$opt = [
+			PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+			PDO::ATTR_EMULATE_PREPARES   => false,
 		];
 
-		try {
-			$this->handler = new PDO($dsn, $this->user, $this->pass, $options);
-		} catch (PDOException $e) {
-			$this->error = $e->getMessage();
-		}
+		$dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHAR;
+		$this->pdo = new PDO($dsn, DB_USER, DB_PASS, $opt);
 	}
 
-
-	public function execute($query, $params = NULL)
+	public static function instance()
 	{
-		$stmt = $this->handler->prepare($query);
-
-		if (!is_null($params) && is_array($params)) {
-			foreach ($params as $name => $value) {
-				if (is_int($value)) {
-					$type = PDO::PARAM_INT;
-				} else if (is_bool($value)) {
-					$type = PDO::PARAM_BOOL;
-				} else if (is_null($value)) {
-					$type = PDO::PARAM_NULL;
-				} else {
-					$type = PDO::PARAM_STR;
-				}
-
-				$stmt->bindValue($name, $value, $type);
-			}
+		if (self::$db === NULL) {
+			self::$db = new self;
 		}
 
-		try {
-			$stmt->execute();
-			$this->stmt = $stmt;
-		} catch (PDOException $e) {
-			if ($e->errorInfo[1] == 1062) {
-				$this->error = 'Duplicate entry';
-			} else {
-				$this->error = $e->getMessage();
-			}
-		}
-
-		return $this;
+		return self::$db;
 	}
 
-
-	public function fetch()
+	public function execute($sql, $args = [])
 	{
-		return $this->stmt->fetch(PDO::FETCH_ASSOC);
-	}
-
-
-	public function fetchAll()
-	{
-		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
-	}
-
-
-	public function rows()
-	{
-		return $this->stmt->rowCount();
-	}
-
-
-	public function lastInsertId()
-	{
-		return $this->handler->lastInsertId();
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute($args);
+		return $stmt;
 	}
 }

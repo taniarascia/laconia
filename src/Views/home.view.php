@@ -1,8 +1,8 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-<h1><?= $page_title; ?></h1>
+<h1><?= $this->pageName; ?></h1>
 
-<h2><?= $row['username']; ?></h2>
+<!--<h2>--><?//= $row['username']; ?><!--</h2>-->
 
 <table>
     <tr>
@@ -11,8 +11,8 @@
     </tr>
 
     <tr>
-        <td><?= $row['username']; ?></td>
-        <td><?= $row['email']; ?></td>
+<!--        <td>--><?//= $row['username']; ?><!--</td>-->
+<!--        <td>--><?//= $row['email']; ?><!--</td>-->
     </tr>
 
 </table>
