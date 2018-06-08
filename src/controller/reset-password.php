@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Meta
 $page_title = 'Reset Password';
 $title = SITE_NAME . ' - ' . $page_title;
@@ -33,4 +31,4 @@ if (isset($_POST['create'])) {
     }
 }
 
-require $_SERVER['DOCUMENT_ROOT'] . '/public/views/reset-password.view.php';
+require $root . '/src/views/reset-password.view.php';

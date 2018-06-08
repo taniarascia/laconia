@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Meta
 $page_title = 'Forgot Password';
 $title = SITE_NAME . ' - ' . $page_title;
@@ -31,8 +29,6 @@ if (isset($_POST['reset'])) {
         $token = openssl_random_pseudo_bytes(16);
         $token = bin2hex($token);
 
-   
-
         // Insert the request information into password_reset_request table.
         $sql = "INSERT INTO password_reset_request
                     (user_id, date_requested, token)
@@ -58,4 +54,4 @@ if (isset($_POST['reset'])) {
         }
     }
 
-require $_SERVER['DOCUMENT_ROOT'] . '/public/views/forgot-password.view.php';
+require $root . '/src/views/forgot-password.view.php';

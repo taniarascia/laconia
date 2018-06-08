@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 $database = new Database();
 
 // User id, token, and request id

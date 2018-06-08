@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Meta
 $page_title = 'Login';
 $title = SITE_NAME . ' - ' . $page_title;
@@ -43,4 +41,4 @@ if (isset($_POST['login'])) {
     
 }
 
-require $_SERVER['DOCUMENT_ROOT'] . '/public/views/login.view.php';
+require $root . '/src/views/login.view.php';

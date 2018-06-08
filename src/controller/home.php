@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Meta
 $page_title = 'Home';
 $title = SITE_NAME . ' - ' . $page_title;
@@ -18,4 +16,4 @@ $database->bind(':id', $_SESSION['user_id']);
 
 $row = $database->result();  
 
-require $_SERVER['DOCUMENT_ROOT'] . '/public/views/home.view.php';
+require $root . '/src/views/home.view.php';

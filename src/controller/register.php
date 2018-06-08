@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Meta
 $page_title = 'Register';
 $title = SITE_NAME . ' - ' . $page_title;
@@ -46,4 +44,4 @@ if (isset($_POST['register'])) {
     }
 }
 
-require $_SERVER['DOCUMENT_ROOT'] . '/public/views/register.view.php';
+require $root . '/src/views/register.view.php';
