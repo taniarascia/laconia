@@ -7,7 +7,7 @@ $page_title = 'Forgot Password';
 $title = SITE_NAME . ' - ' . $page_title;
 
 if (isset($_POST['reset'])) {
-    $database = new Database();
+    //$database = new Database();
 
     // Get form values
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';

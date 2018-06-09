@@ -1,18 +1,19 @@
 <?php
 
 session_start();
-require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/credentials.php';
 
-$url = $_SERVER['REDIRECT_URL'] ?? NULL;
+$url = $_SERVER['REDIRECT_URL'] ?? '/';
+$method = $_SERVER['REQUEST_METHOD'];
 
-if (!$url || $url === '/' || $url === '' || $url === '/home') {
-	if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-		(new ExceptionController())->homeView();
-	}
-} else if ($url === '/register') {
-	if ($_SERVER['method'] === 'GET') {
-		(new RegisterController())->view();
-	} else {
-		(new RegisterController())->register();
-	}
+$controller = ucfirst(ltrim($url, '/')) . 'Controller';
+
+if ($url === '' || $url === '/') {
+	(new HomeController())->get();
+} else if (file_exists('../src/Controllers/' . $controller . '.php')) {
+	$controller = new $controller();
+	$method === 'POST' ? $controller->post() : $controller->get();
+} else {
+	(new ExceptionController())->notFound();
 }

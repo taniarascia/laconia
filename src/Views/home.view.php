@@ -1,22 +1,7 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-<h1><?= $this->pageName; ?></h1>
+<div><h2>Hello, <?= $_SESSION['username']; ?>!</h2></div>
 
-<!--<h2>--><?//= $row['username']; ?><!--</h2>-->
-
-<table>
-    <tr>
-        <th>Username</th>
-        <th>Email</th>
-    </tr>
-
-    <tr>
-<!--        <td>--><?//= $row['username']; ?><!--</td>-->
-<!--        <td>--><?//= $row['email']; ?><!--</td>-->
-    </tr>
-
-</table>
-
-<a href="/logout">Logout</a>
+<div><a href="/logout">Logout</a></div>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

@@ -2,7 +2,7 @@
 
 session_start();
 
-$database = new Database();
+//$database = new Database();
 
 // User id, token, and request id
 $userId = isset($_GET['uid']) ? trim($_GET['uid']) : '';

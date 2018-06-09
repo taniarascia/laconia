@@ -4,12 +4,12 @@ class RegisterController extends Controller
 {
 	public $pageName = 'Register';
 
-	public function view()
+	public function get()
 	{
-		require $_SERVER['DOCUMENT_ROOT'] . '/src/views/register.view.php';
+		$this->view('register');
 	}
 
-	public function register()
+	public function post()
 	{
 		$user = new User();
 
@@ -19,13 +19,17 @@ class RegisterController extends Controller
 		$email = !empty($_POST['email']) ? trim($_POST['email']) : NULL;
 
 		if ($user->isUsernameTaken($username)) {
-			die;
+			$this->message('Username already taken');
+			header('Location: /register');
+			exit;
 		}
 
 		$password = password_hash($password, PASSWORD_BCRYPT);
 
-		$user->create([$username, $password, $email]);
+		if ($user->create([$username, $password, $email])) {
+			$this->message('User created successfully');
+		}
 
-		header('Location: /');
+		header('Location: /login');
 	}
 }

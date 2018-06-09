@@ -1,11 +1,5 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-    <h1><?= $this->pageName; ?></h1>
-
-    <?php if (!empty($message)) : ?>
-        <p><?= $message; ?></p>
-    <?php endif; ?>
-
     <form method="post">
         <label for="username">Username</label>
         <input type="text" id="username" name="username"/><br>
