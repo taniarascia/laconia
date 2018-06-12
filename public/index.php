@@ -1,7 +1,5 @@
 <?php
 
-use Laconia\Database;
-
 // Get the directory above public
 $root = __DIR__ . '/..';
 
@@ -13,13 +11,15 @@ session_start();
 
 // Routing
 $redirect = $_SERVER['REDIRECT_URL'];
-$controllerName = ltrim($redirect, '/');
-$controllerPath = $root . "/src/controller/$controllerName.php";
+$controllerName = getControllerName($redirect);
+$controllerPath = $root . "/src/controllers/$controllerName.php";
 
 if ($controllerName === '') {
-    require $root . '/src/controller/index.php';
+    $controller = new Index();
 } elseif (file_exists($controllerPath)) {
-    require $root . "/src/controller/$controllerName.php";
+    $controller = new $controllerName();
 } else {
-    require $root . '/src/controller/404.php';
+    $controller = new ExceptionNotFound();
 }
+
+$controller->show();

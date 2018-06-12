@@ -1,9 +1,9 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-    <h1><?= $page_title; ?></h1>
+    <h1><?= $this->page_title; ?></h1>
     
-    <?php if ($message) : ?>
-        <p><?= $message; ?></p>
+    <?php if ($this->message) : ?>
+        <p><?= $this->message; ?></p>
     <?php endif; ?>
 
     <form action="" method="post">

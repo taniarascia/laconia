@@ -2,7 +2,7 @@
 
     <h1><?= $page_title; ?></h1>
 
-    <h2><?= $row['username']; ?></h2>
+    <h2><?= $this->row['username']; ?></h2>
 
     <table>
         <tr>
@@ -11,8 +11,8 @@
         </tr>
 
         <tr>
-            <td><?= $row['username']; ?></td>
-            <td><?= $row['email']; ?></td>
+            <td><?= $this->row['username']; ?></td>
+            <td><?= $this->row['email']; ?></td>
         </tr>
 
     </table>
