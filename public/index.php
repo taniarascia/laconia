@@ -1,13 +1,12 @@
 <?php
 
+session_start();
+
 // Get the directory above public
 $root = __DIR__ . '/..';
 
 // Autoload config and classes
 require $root . '/vendor/autoload.php';
-
-// Begin user session
-session_start();
 
 // Routing
 $redirect = $_SERVER['REDIRECT_URL'];

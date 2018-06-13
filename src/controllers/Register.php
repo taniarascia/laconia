@@ -8,37 +8,24 @@ class Register extends Controller
 
     public function show() {
         if (isset($_POST['register'])) {
-            $database = new Database();
+            $user = new User();
             
             // Get form values
             $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
-            $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
+            $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
             $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
             
             // TO ADD: Error checking (username characters, password length, etc).
-            
-            // Check if username already exists
-            $sql = "SELECT COUNT(username) AS num FROM users WHERE username = :username";
-            $database->query($sql);
-            $database->bind(':username', $username);
-
-            $row = $database->result();
+            $usernameSearchResults = $user->isUsernameAvailable($username);
 
             // Username already exists error
-            if ($row['num'] > 0) {
+            if ($usernameSearchResults > 0) {
                 $this->message = 'That username already exists! Try again.';
             } else {
             
                 // Hash the password
-                $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array('cost' => 12));
-
-                $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
-                $database->query($sql);
-                $database->bind(':username', $username);
-                $database->bind(':password', $passwordHash);
-                $database->bind(':email', $email);
-
-                $result = $database->execute();
+                $password = $user->encryptPassword($password);
+                $result = $user->registerNewUser($username, $password, $email);
                 
                 // User registration successful
                 if ($result) {

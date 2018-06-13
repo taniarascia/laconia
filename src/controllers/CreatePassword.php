@@ -12,6 +12,7 @@ class CreatePassword extends Controller
             
         if (!$resetPass) {
             header('Location: /login');
+            exit;
         }
 
         if (isset($_POST['create'])) {
@@ -33,6 +34,7 @@ class CreatePassword extends Controller
             if ($result) {
                 // Success
                 $this->message = 'Your password has been updated. <a href="/login">Login</a>';
+                unset($resetPass);
             }
         }
         $this->view('create-password');

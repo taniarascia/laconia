@@ -35,6 +35,7 @@ class ForgotPasswordProcess extends Controller {
         
         // Redirect them to your reset password form.
         header('Location: /create-password');
+        exit;
     }
 }
 

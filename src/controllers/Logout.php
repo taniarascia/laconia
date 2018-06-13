@@ -8,6 +8,6 @@ class Logout extends Controller
 
         session_destroy();
 
-        header('Location: /');
+        $this->redirect('');
     }
 }
