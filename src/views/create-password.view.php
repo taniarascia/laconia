@@ -8,7 +8,7 @@
 
     <form action="" method="post">
         <label for="password">Password</label>
-        <input type="text" id="password" name="password"><br>
+        <input type="password" id="password" name="password"><br>
         <input type="submit" name="create" value="Create Password">
     </form>
 

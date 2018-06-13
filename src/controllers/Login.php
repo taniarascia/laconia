@@ -3,7 +3,6 @@
 class Login extends Controller
 {
     public $page_title = 'Login';
-    public $title = SITE_NAME;
     public $message;
 
     public function get() {
@@ -16,25 +15,19 @@ class Login extends Controller
             $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
             
             // Retrieve the user account information for the given username.
-            $the_user = $user->getUser($username);
+            $userInfo = $user->getUserByUsername($username);
             
             // Could not find a user with that username
-            if (!$the_user) {
+            if (!$userInfo) {
                 $this->message = 'Incorrect username / password combination! <a href="/">Back</a>';
             } else {
-        
                 // User account found.
-                $validPassword = password_verify($password, $the_user['password']);
+                $validPassword = $this->verifyPassword($password, $userInfo['password']);
                 
                 if ($validPassword) {
-                    
-                    // User login session
-                    $_SESSION['user_id'] = $the_user['id'];
-                    $_SESSION['is_logged_in'] = true;
-                    $_SESSION['time_logged_in'] = time();
-
-                    $this->message = $_SESSION['user_id'];
-                    $this->redirect('');
+                    // User login
+                    $this->login($userInfo);
+                    $this->redirect('home');
                 } else {
                     $this->message = 'Incorrect username / password combination!';
                 }

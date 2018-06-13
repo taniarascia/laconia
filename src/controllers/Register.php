@@ -3,7 +3,6 @@
 class Register extends Controller
 {
     public $page_title = 'Register';
-    public $title = SITE_NAME;
     public $message;
 
     public function get() {
@@ -16,39 +15,41 @@ class Register extends Controller
             $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
 
             // Password check:
+            $passwordApproved = true;
 
-            if(!empty($_POST["password"]) && ($_POST["password"] == $_POST["cpassword"])) {
-                $password = test_input($_POST["password"]);
-                $cpassword = test_input($_POST["cpassword"]);
-                if (strlen($_POST["password"]) <= '8') {
-                    $passwordErr = "Your Password Must Contain At Least 8 Characters!";
+            if (!empty($password)) {
+                if (strlen($password) < '8') {
+                    $passwordError = 'Must contain at least 8 characters.';
+                    $passwordApproved = false;
+                } elseif (!preg_match("#[0-9]+#", $password)) {
+                    $passwordError = 'Must contain at least 1 number.';
+                    $passwordApproved = false;
+                } elseif (!preg_match("#[A-Z]+#", $password)) {
+                    $passwordError = 'Must contain at least 1  uppercase letter.';
+                    $passwordApproved = false;
                 }
-                elseif(!preg_match("#[0-9]+#",$password)) {
-                    $passwordErr = "Your Password Must Contain At Least 1 Number!";
+                elseif (!preg_match("#[a-z]+#", $password)) {
+                    $passwordError = 'Must contain one lowercase letter.';
+                    $passwordApproved = false;
                 }
-                elseif(!preg_match("#[A-Z]+#",$password)) {
-                    $passwordErr = "Your Password Must Contain At Least 1 Capital Letter!";
-                }
-                elseif(!preg_match("#[a-z]+#",$password)) {
-                    $passwordErr = "Your Password Must Contain At Least 1 Lowercase Letter!";
-                }
-            }
-            elseif(!empty($_POST["password"])) {
-                $cpasswordErr = "Please Check You've Entered Or Confirmed Your Password!";
             } else {
-                 $passwordErr = "Please enter password   ";
+                $passwordError = "You must include a password.";
+                $passwordApproved = false;
             }
             
-            // TO ADD: Error checking (username characters, password length, etc).
             $usernameSearchResults = $user->isUsernameAvailable($username);
+            $emailSearchResults = $user->isEmailAvailable($email);
 
             // Username already exists error
             if ($usernameSearchResults > 0) {
                 $this->message = 'That username already exists! Try again.';
+            } elseif ($emailSearchResults > 0) {
+                $this->message = 'That email already exists! Try again.';
+            } elseif (!$passwordApproved) {
+                $this->message = $passwordError;
             } else {
-            
                 // Hash the password
-                $password = $user->encryptPassword($password);
+                $password = $this->encryptPassword($password);
                 $result = $user->registerNewUser($username, $password, $email);
                 
                 // User registration successful

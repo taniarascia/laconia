@@ -55,7 +55,7 @@ class Database
          } catch (PDOException $e) {
             if ($e->errorInfo[1] == 1062) {
                 $message = 'Duplicate entry';
-                return $message;
+                exit;
             }
         }
     }  

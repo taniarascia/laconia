@@ -1,39 +1,30 @@
 <?php
-
+ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 class CreatePassword extends Controller
 {
     public $page_title = 'Create New Password';
-    public $title = SITE_NAME;
     public $message;
 
     public function get() {
-        
-        $resetPass = $_SESSION['user_id_reset_pass'];
+        $user = new User();
+        $userId = $_SESSION['user_id_reset_pass'];
             
-        if (!$resetPass) {
-            $this->redirect('login');
+        if (!$userId) {
+            $this->redirect('reset-password');
         }
 
         if (isset($_POST['create'])) {
-            $database = new Database();
-            $resetPass = $_SESSION['user_id_reset_pass'];
-            
-            $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
+            // Get form value
+            $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
         
             // Hash the new password
-            $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array('cost' => 12));
-            
-            $sql = "UPDATE users SET password = :password WHERE id = :id";
-            $database->query($sql);
-            $database->bind(':password', $passwordHash);
-            $database->bind(':id', $resetPass);
-        
-            $result = $database->execute();
+            $passwordHash = $this->encryptPassword($password);
+            $result = $user->resetUserPassword($passwordHash, $userId);
             
             if ($result) {
                 // Success
                 $this->message = 'Your password has been updated. <a href="/login">Login</a>';
-                unset($resetPass);
+                unset($userId);
             }
         }
         $this->view('create-password');
