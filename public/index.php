@@ -10,6 +10,8 @@ require $root . '/vendor/autoload.php';
 
 // Routing
 $redirect = $_SERVER['REDIRECT_URL'];
+$method = $_SERVER['REQUEST_METHOD'];
+
 $controllerName = getControllerName($redirect);
 $controllerPath = $root . "/src/controllers/$controllerName.php";
 
@@ -21,4 +23,8 @@ if ($controllerName === '') {
     $controller = new ExceptionNotFound();
 }
 
-$controller->get();
+if ($method === 'POST') {
+    $controller->post();
+} else {
+    $controller->get();
+}
