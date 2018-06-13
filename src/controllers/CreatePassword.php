@@ -6,13 +6,12 @@ class CreatePassword extends Controller
     public $title = SITE_NAME;
     public $message;
 
-    public function show() {
+    public function get() {
         
         $resetPass = $_SESSION['user_id_reset_pass'];
             
         if (!$resetPass) {
-            header('Location: /login');
-            exit;
+            $this->redirect('login');
         }
 
         if (isset($_POST['create'])) {

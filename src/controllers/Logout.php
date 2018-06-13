@@ -3,7 +3,7 @@
 class Logout extends Controller
 {
 
-    public function show() {
+    public function get() {
         unset($_SESSION);
 
         session_destroy();

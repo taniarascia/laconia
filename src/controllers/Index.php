@@ -2,8 +2,10 @@
 
 class Index extends Controller
 {
-    public function show() {
-        $this->authenticate();
-        $this->redirect('home');
+    public $page_title = 'Home';
+    public $title = SITE_NAME;
+
+    public function get() {
+       $this->view('index'); 
     }
 }

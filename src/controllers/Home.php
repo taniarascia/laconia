@@ -6,7 +6,7 @@ class Home extends Controller
     public $title = SITE_NAME;
     public $row;
 
-    public function show() {
+    public function get() {
 
         $this->authenticate();
 

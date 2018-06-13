@@ -5,7 +5,7 @@ class ExceptionNotFound extends Controller
     public $page_title = '404';
     public $title = SITE_NAME;
 
-    public function show() {
+    public function get() {
         $this->view('404');
     }
 }

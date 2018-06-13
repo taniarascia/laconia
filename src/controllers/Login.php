@@ -6,7 +6,7 @@ class Login extends Controller
     public $title = SITE_NAME;
     public $message;
 
-    public function show() {
+    public function get() {
         if (isset($_POST['login'])) {
             $user = new User();
             
@@ -34,7 +34,6 @@ class Login extends Controller
                     $_SESSION['time_logged_in'] = time();
 
                     $this->message = $_SESSION['user_id'];
-
                     $this->redirect('');
                 } else {
                     $this->message = 'Incorrect username / password combination!';

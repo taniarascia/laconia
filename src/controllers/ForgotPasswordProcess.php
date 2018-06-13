@@ -2,7 +2,7 @@
 
 class ForgotPasswordProcess extends Controller {
 
-    public function show() {
+    public function get() {
         $database = new Database();
 
         // User id, token, and request id

@@ -21,4 +21,4 @@ if ($controllerName === '') {
     $controller = new ExceptionNotFound();
 }
 
-$controller->show();
+$controller->get();

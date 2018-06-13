@@ -6,7 +6,7 @@ class ForgotPassword extends Controller
     public $title = SITE_NAME;
     public $message;
 
-    public function show() {
+    public function get() {
         if (isset($_POST['reset'])) {
             $database = new Database();
 
