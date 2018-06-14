@@ -1,7 +1,9 @@
 <?php
 
 class Session
-{
+{   
+    private $isLoggedIn;
+
     public function __construct() {
         session_start();
     }
@@ -28,10 +30,12 @@ class Session
         }
     }
 
-    public function isLoggedIn($userId) {
-        if ($_SESSION['user_id'] !== $userId || !isset($_SESSION['is_logged_in'])) {
+    public function isLoggedIn() {
+        if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in'])) {
+            $this->isLoggedIn = false;
             return false;
         } else {
+            $this->isLoggedIn = true;
             return true;
         }
     }

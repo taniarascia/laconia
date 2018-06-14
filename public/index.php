@@ -29,3 +29,12 @@ if ($method === 'POST') {
 } else {
     $controller->get();
 }
+
+// Testing, will remove later
+echo "<br><br>Sessions: ";
+print_r($_SESSION);
+
+$loggedIn = $session->isLoggedIn() ? 'Yes' : 'No';
+
+echo "<br>";
+echo "Logged in: {$loggedIn}";
