@@ -17,6 +17,14 @@
 
     </table>
 
-    <a href="/">Index</a> <a href="/logout">Logout</a>
+    <h2>My cards</h2>
+
+    <!-- Card code here -->
+
+    <h2>Create a card</h2>
+
+    <p><a href="/create">Create</a></p>
+
+    <p><a href="/">Index</a> <a href="/logout">Logout</a></p>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

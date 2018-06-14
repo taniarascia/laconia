@@ -12,6 +12,6 @@
         <input type="submit" name="reset" value="Reset Password">
     </form>
 
-    <a href="/">Home</a> <a href="/register">Register</a>
+    <p><a href="/">Home</a> <a href="/register">Register</a></p>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>
