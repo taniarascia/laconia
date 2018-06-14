@@ -16,6 +16,6 @@
         <input type="submit" name="register" value="Register"></button>
     </form>
 
-    <a href="/">Home</a>  <a href="/login">Login</a>
+    <a href="/">Index</a> <a href="/home">Home</a>  <a href="/login">Login</a>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

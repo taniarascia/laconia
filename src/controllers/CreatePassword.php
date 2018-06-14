@@ -7,7 +7,8 @@ class CreatePassword extends Controller
 
     public function post() {
         $user = new User();
-        $userId = $_SESSION['user_id_reset_pass'];
+        $session = new Session();
+        $userId = $session->getSessionValue('user_id_reset_pass');
             
         if (!$userId) {
             $this->redirect('reset-password');
@@ -23,7 +24,7 @@ class CreatePassword extends Controller
         if ($result) {
             // Success
             $this->message = 'Your password has been updated. <a href="/login">Login</a>';
-            unset($userId);
+            $session->deleteSessionValue('user_id_reset_pass');
         }
 
         $this->view('create-password');
@@ -31,10 +32,11 @@ class CreatePassword extends Controller
     
     public function get() {
         $user = new User();
-        $userId = $_SESSION['user_id_reset_pass'];
-            
+        $session = new Session();
+        $userId = $session->getSessionValue('user_id_reset_pass');
+
         if (!$userId) {
-            $this->redirect('reset-password');
+            $this->redirect('forgot-password');
         }
 
         $this->view('create-password');

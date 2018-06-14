@@ -4,10 +4,17 @@ class Register extends Controller
 {
     public $page_title = 'Register';
     public $message;
+    public $loggedIn;
 
     public function post() {
         $user = new User();
         
+        // Make sure user is logged out
+        $session = new Session();
+        $session->logout();
+
+        $session = new Session();
+
         // Get form values
         $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
         $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
@@ -48,12 +55,15 @@ class Register extends Controller
             $this->message = $passwordError;
         } else {
             // Hash the password
-            $password = $this->encryptPassword($password);
-            $result = $user->registerNewUser($username, $password, $email);
+            $passwordHash = $this->encryptPassword($password);
+            $result = $user->registerNewUser($username, $passwordHash, $email);
             
             // User registration successful
             if ($result) {
-                $this->message = 'Thank you for registering with our website. <a href="/login">Login</a>';
+                $userInfo = $user->getUserByUsername($username);
+                $session->login($userInfo);
+
+                $this->redirect('home');
             }
         }
 

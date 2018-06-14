@@ -7,6 +7,7 @@ class Login extends Controller
 
     public function post() {
         $user = new User();
+        $session = new Session();
         
         // Get form values
         $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
@@ -25,7 +26,7 @@ class Login extends Controller
             
             if ($validPassword) {
                 // User login
-                $this->login($userInfo);
+                $session->login($userInfo);
                 $this->redirect('home');
             } else {
                 $this->message = 'Incorrect username / password combination!';

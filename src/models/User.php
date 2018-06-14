@@ -2,11 +2,11 @@
 
 class User extends Model
 {   
-    public function getUser($id) {
+    public function getUser($userId) {
         $query = "SELECT * FROM users WHERE id = :id";
 
         $this->db->query($query);
-        $this->db->bind(':id', $id);
+        $this->db->bind(':id', $userId);
             
         $user = $this->db->result();
 
@@ -14,7 +14,7 @@ class User extends Model
     }
 
     public function getUserByUsername($username) {
-        $query = "SELECT id, username, password FROM users WHERE username = :username";
+        $query = "SELECT * FROM users WHERE username = :username";
 
         $this->db->query($query);
         $this->db->bind(':username', $username);
@@ -25,7 +25,7 @@ class User extends Model
     }
 
     public function getUserByEmail($email) {
-        $query = "SELECT id, email FROM users WHERE email = :email";
+        $query = "SELECT * FROM users WHERE email = :email";
 
         $this->db->query($query);
         $this->db->bind(':email', $email);

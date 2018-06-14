@@ -4,6 +4,7 @@ class ForgotPasswordProcess extends Controller {
 
     public function get() {
         $user = new User();
+        $session = new Session();
 
         // User id, token, and request id
         $userId = isset($_GET['uid']) ? trim($_GET['uid']) : '';
@@ -17,7 +18,7 @@ class ForgotPasswordProcess extends Controller {
             $this->redirect('forgot-password');
         } else {
             // Set session variable
-            $_SESSION['user_id_reset_pass'] = $userId;
+            $session->setPasswordRequestId($userId);
             
             // Redirect them to your reset password form.
             $this->redirect('create-password');

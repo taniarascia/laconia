@@ -17,6 +17,6 @@
 
     </table>
 
-    <a href="/logout">Logout</a>
+    <a href="/">Index</a> <a href="/logout">Logout</a>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

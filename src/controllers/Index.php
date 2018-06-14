@@ -2,9 +2,9 @@
 
 class Index extends Controller
 {
-    public $page_title = 'Home';
+    public $page_title = 'Index';
 
     public function get() {
-       $this->view('index'); 
+        $this->view('index'); 
     }
 }
