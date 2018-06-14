@@ -2,7 +2,6 @@
 
 class User extends Model
 {   
-    // Return user array if user exists
     public function getUser($id) {
         $query = "SELECT * FROM users WHERE id = :id";
 
@@ -14,7 +13,6 @@ class User extends Model
         return $user;
     }
 
-    // Return user array if user exists
     public function getUserByUsername($username) {
         $query = "SELECT id, username, password FROM users WHERE username = :username";
 
@@ -26,7 +24,6 @@ class User extends Model
         return $user;
     }
 
-    // Return user array if user exists
     public function getUserByEmail($email) {
         $query = "SELECT id, email FROM users WHERE email = :email";
 
@@ -38,7 +35,6 @@ class User extends Model
         return $user;
     }
 
-    // Add new user to the database
     public function registerNewUser($username, $password, $email) {
         $query = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
         
@@ -52,7 +48,6 @@ class User extends Model
         return $result;
     }
     
-    // Check if username already exists
     public function isUsernameAvailable($username) {
         $query = "SELECT COUNT(username) AS num FROM users WHERE username = :username";
 
@@ -64,7 +59,6 @@ class User extends Model
         return $result['num'];
     }
 
-    // Check if username already exists
     public function isEmailAvailable($email) {
         $query = "SELECT COUNT(email) AS num FROM users WHERE email = :email";
 
