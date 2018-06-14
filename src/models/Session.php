@@ -30,13 +30,15 @@ class Session
         }
     }
 
-    public function isLoggedIn() {
+    public function isUserLoggedIn() {
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in'])) {
             $this->isLoggedIn = false;
-            return false;
+
+            return $this->isLoggedIn;
         } else {
             $this->isLoggedIn = true;
-            return true;
+            
+            return $this->isLoggedIn;
         }
     }
 

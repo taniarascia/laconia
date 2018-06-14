@@ -8,12 +8,6 @@ class Register extends Controller
 
     public function post() {
         $user = new User();
-        
-        // Make sure user is logged out
-        $session = new Session();
-        $session->logout();
-
-        $session = new Session();
 
         // Get form values
         $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
@@ -54,6 +48,12 @@ class Register extends Controller
         } elseif (!$passwordApproved) {
             $this->message = $passwordError;
         } else {
+            // Make sure user is logged out
+            $session = new Session();
+            $session->logout();
+
+            $session = new Session();
+        
             // Hash the password
             $passwordHash = $this->encryptPassword($password);
             $result = $user->registerNewUser($username, $passwordHash, $email);

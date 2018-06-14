@@ -34,7 +34,7 @@ if ($method === 'POST') {
 echo "<br><br>Sessions: ";
 print_r($_SESSION);
 
-$loggedIn = $session->isLoggedIn() ? 'Yes' : 'No';
+$loggedIn = $session->isUserLoggedIn() ? 'Yes' : 'No';
 
 echo "<br>";
 echo "Logged in: {$loggedIn}";
