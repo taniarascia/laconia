@@ -11,7 +11,7 @@ class CreatePassword extends Controller
         $userId = $session->getSessionValue('user_id_reset_pass');
             
         if (!$userId) {
-            $this->redirect('reset-password');
+            $this->redirect('forgot-password');
         }
 
         // Get form value
