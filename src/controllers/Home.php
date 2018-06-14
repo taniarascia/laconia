@@ -11,6 +11,7 @@ class Home extends Controller
         $session = new Session();
         $session->authenticate();
         
+        // Proceed if authentication passed
         $userInfo = $user->getUser($session->getSessionValue('user_id'));
         
         $this->user = $userInfo;

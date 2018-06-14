@@ -71,6 +71,12 @@ class Register extends Controller
     }
 
     public function get() {
+        $session = new Session();
+        
+        if ($session->isUserLoggedIn()) {
+            $this->redirect('home');
+        }
+        
         $this->view('register');
     }
 }
