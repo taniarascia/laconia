@@ -7,7 +7,7 @@ $root = __DIR__ . '/..';
 require $root . '/vendor/autoload.php';
 
 // Start session
-$session = new Session();
+$session = new Session($_SESSION);
 
 // Routing
 $redirect = $_SERVER['REDIRECT_URL'];
