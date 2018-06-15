@@ -1,8 +1,6 @@
 <?php
 
-class LaconiaList
+class ListClass
 {
-    private $something;
 
-    
 }
