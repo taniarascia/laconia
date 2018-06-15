@@ -14,14 +14,14 @@ $redirect = $_SERVER['REDIRECT_URL'];
 $method = $_SERVER['REQUEST_METHOD'];
 
 $controllerName = getControllerName($redirect);
-$controllerPath = $root . "/src/controllers/$controllerName.php";
+$controllerPath = $root . "/src/controllers/{$controllerName}.php";
 
 if ($controllerName === '') {
-    $controller = new Index();
+    $controller = new Index($session);
 } elseif (file_exists($controllerPath)) {
-    $controller = new $controllerName();
+    $controller = new $controllerName($session);
 } else {
-    $controller = new ExceptionNotFound();
+    $controller = new ExceptionNotFound($session);
 }
 
 if ($method === 'POST') {
@@ -30,11 +30,18 @@ if ($method === 'POST') {
     $controller->get();
 }
 
+
 // Testing, will remove later
+// ========================================================
+
 echo "<br><br>Sessions: ";
 print_r($_SESSION);
 
 $loggedIn = $session->isUserLoggedIn() ? 'Yes' : 'No';
+$userId = $session->getSessionValue('user_id');
+
+$user = new User();
+$whoIsLoggedIn = $user->getUser($userId);
 
 echo "<br>";
-echo "Logged in: {$loggedIn}";
+echo "Logged in: {$loggedIn} {$whoIsLoggedIn['username']}";

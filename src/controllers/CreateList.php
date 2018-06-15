@@ -1,8 +1,9 @@
 <?php
 
-class Home extends Controller
+class CreateList extends Controller
 {
-    public $page_title = 'Home';
+    public $page_title = 'CreateList';
+    public $user;
 
     public function get() {
         $user = new User();
@@ -12,6 +13,6 @@ class Home extends Controller
         $userInfo = $user->getUser($this->session->getSessionValue('user_id'));
         
         $this->user = $userInfo;
-        $this->view('home');
+        $this->view('create-list');
     }
 }

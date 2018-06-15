@@ -49,11 +49,8 @@ class Register extends Controller
             $this->message = $passwordError;
         } else {
             // Make sure user is logged out
-            $session = new Session();
-            $session->logout();
+            $this->session->logout();
 
-            $session = new Session();
-        
             // Hash the password
             $passwordHash = $this->encryptPassword($password);
             $result = $user->registerNewUser($username, $passwordHash, $email);
@@ -61,7 +58,7 @@ class Register extends Controller
             // User registration successful
             if ($result) {
                 $userInfo = $user->getUserByUsername($username);
-                $session->login($userInfo);
+                $this->session->login($userInfo);
 
                 $this->redirect('home');
             }
@@ -71,9 +68,7 @@ class Register extends Controller
     }
 
     public function get() {
-        $session = new Session();
-        
-        if ($session->isUserLoggedIn()) {
+        if ($this->session->isUserLoggedIn()) {
             $this->redirect('home');
         }
         

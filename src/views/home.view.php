@@ -17,13 +17,13 @@
 
     </table>
 
-    <h2>My cards</h2>
+    <h2>My lists</h2>
 
-    <!-- Card code here -->
+    <!-- Existing lists -->
 
-    <h2>Create a card</h2>
+    <h2>Create a list</h2>
 
-    <p><a href="/create">Create</a></p>
+    <p><a href="/create-list">Create</a></p>
 
     <p><a href="/">Index</a> <a href="/logout">Logout</a></p>
 

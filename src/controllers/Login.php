@@ -7,7 +7,6 @@ class Login extends Controller
 
     public function post() {
         $user = new User();
-        $session = new Session();
         
         // Get form values
         $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
@@ -19,14 +18,14 @@ class Login extends Controller
         
         // Could not find a user with that username
         if (!$userInfo) {
-            $this->message = 'Incorrect username / password combination! <a href="/">Back</a>';
+            $this->message = 'Incorrect username / password combination!';
         } else {
             // User account found.
             $validPassword = $this->verifyPassword($password, $userInfo['password']);
             
             if ($validPassword) {
                 // User login
-                $session->login($userInfo);
+                $this->session->login($userInfo);
                 $this->redirect('home');
             } else {
                 $this->message = 'Incorrect username / password combination!';
@@ -37,9 +36,9 @@ class Login extends Controller
     }
 
     public function get() {
-        $session = new Session();
-        
-        if ($session->isUserLoggedIn()) {
+        $isLoggedIn = $this->session->isUserLoggedIn();
+
+        if ($isLoggedIn) {
             $this->redirect('home');
         }
 

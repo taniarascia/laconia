@@ -5,6 +5,10 @@ abstract class Controller
     protected $page_title;
     protected $message;
 
+    public function __construct($session) {
+        $this->session = $session;
+    }
+
     protected function view($view) {
         $view = strtolower($view);
 

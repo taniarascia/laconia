@@ -3,8 +3,7 @@
 class Logout extends Controller
 {
     public function get() {
-        $session = new Session();
-        $session->logout();
+        $this->session->logout();
         $this->redirect('');
     }
 }

@@ -2,18 +2,16 @@
 
 class Session
 {   
-    private $isLoggedIn;
-
     public function __construct() {
-        session_start();
+       if (!isset($_SESSION)) {
+            session_start();
+       }
     }
 
     public function login($user) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['is_logged_in'] = true;
         $_SESSION['time_logged_in'] = time();
-
-        $this->isLoggedIn = true;
     }
 
     public function logout() {
@@ -22,27 +20,19 @@ class Session
         unset($_SESSION['time_logged_in']);
 
         session_destroy();
-
-        $this->isLoggedIn = false;
     }
 
     public function authenticate() {
-        if ($this->isLoggedIn === false) {
-            // User not logged in. 
+        if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in'])) {
             header('Location: /login');
-            exit;
         }
     }
 
     public function isUserLoggedIn() {
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in'])) {
-            $this->isLoggedIn = false;
-
-            return $this->isLoggedIn;
+            return false;
         } else {
-            $this->isLoggedIn = true;
-            
-            return $this->isLoggedIn;
+            return true;
         }
     }
 
