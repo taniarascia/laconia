@@ -53,7 +53,7 @@ class Register extends Controller
 
             // Hash the password
             $passwordHash = $this->encryptPassword($password);
-            $result = $user->registerNewUser($username, $passwordHash, $email);
+            $result = $user->registerNewUser($username, $passwordHash, $email, 'user');
             
             // User registration successful
             if ($result) {
@@ -68,7 +68,9 @@ class Register extends Controller
     }
 
     public function get() {
-        if ($this->session->isUserLoggedIn()) {
+        $isLoggedIn = $this->session->isUserLoggedIn();
+
+        if ($isLoggedIn) {
             $this->redirect('home');
         }
         

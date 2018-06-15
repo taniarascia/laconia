@@ -35,13 +35,14 @@ class User extends Model
         return $user;
     }
 
-    public function registerNewUser($username, $password, $email) {
-        $query = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
+    public function registerNewUser($username, $password, $email, $role) {
+        $query = "INSERT INTO users (username, password, email, role) VALUES (:username, :password, :email, :role)";
         
         $this->db->query($query);
         $this->db->bind(':username', $username);
         $this->db->bind(':password', $password);
         $this->db->bind(':email', $email);
+        $this->db->bind(':role', $role);
 
         $result = $this->db->execute();
 
