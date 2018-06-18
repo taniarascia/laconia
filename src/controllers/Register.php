@@ -8,11 +8,11 @@ class Register extends Controller
 
     public function post() {
         $user = new User();
+        $post = filter_post();
 
-        // Get form values
-        $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
-        $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
-        $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
+        $username = $post['username'];
+        $password = $post['password'];
+        $email = $post['email'];
 
         // Password check:
         $passwordApproved = true;

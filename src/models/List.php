@@ -13,7 +13,7 @@ class ListClass extends Model
         return $lists;
     }
 
-    public function createList($user, $title, $listItems) {
+    public function createList($user, $title, $post) {
 
         $query = "INSERT INTO lists (user_id, title, created) VALUES (:user_id, :title, :created)";
         
@@ -24,18 +24,21 @@ class ListClass extends Model
 
         $result = $this->db->execute();
 
+        // Get id of list we just created
         $listId = $this->db->lastInsertId();
 
-        foreach ($listItems as $item) {
-            $query = "INSERT INTO list_items (user_id, list_id, name, created) VALUES (:user_id, :list_id, :name, :created)";
-            
-            $this->db->query($query);
-            $this->db->bind(':user_id', $user['id']);
-            $this->db->bind(':list_id', $listId);
-            $this->db->bind(':name', $item);
-            $this->db->bind(':created', date("Y-m-d H:i:s"));
-    
-            $this->db->execute();
+        foreach ($post as $key => $value) {
+            if ($key !== 'title') {
+                $query = "INSERT INTO list_items (user_id, list_id, name, created) VALUES (:user_id, :list_id, :name, :created)";
+                
+                $this->db->query($query);
+                $this->db->bind(':user_id', $user['id']);
+                $this->db->bind(':list_id', $listId);
+                $this->db->bind(':name', $value);
+                $this->db->bind(':created', date("Y-m-d H:i:s"));
+        
+                $this->db->execute();
+            }
         }
 
         return $result;

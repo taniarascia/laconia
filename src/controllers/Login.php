@@ -7,11 +7,11 @@ class Login extends Controller
 
     public function post() {
         $user = new User();
-        
-        // Get form values
-        $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
-        $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
-        $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
+        $post = filter_post();
+
+        $username = $post['username'];
+        $password = $post['password'];
+        $email = $post['email'];
         
         // Retrieve the user account information for the given username.
         $userInfo = $user->getUserByUsername($username);

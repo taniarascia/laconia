@@ -8,10 +8,9 @@ class ForgotPassword extends Controller
     public function post() {
         $db = new Database();
         $user = new User();
+        $post = filter_post();
 
-        // Get form values
-        $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-        $userInfo = $user->getUserByEmail($email);
+        $userInfo = $user->getUserByEmail($post['email']);
 
         // Email doesn't exist
         if (empty($userInfo)) {
@@ -31,7 +30,7 @@ class ForgotPassword extends Controller
             $linkToSend = $verifyScript . '?uid=' . $userInfo['id'] . '&id=' . $passwordRequestId . '&t=' . $token;
             
             // This would email in a production site
-            $this->message = "<a href='$linkToSend'>Click here to reset</a>";
+            $this->message = "<a href='{$linkToSend}'>Click here to reset</a>";
         }
 
         $this->view('forgot-password');

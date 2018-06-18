@@ -8,3 +8,17 @@ function getControllerName($path) {
     
     return $path;                      
 }
+
+function filter_post() {
+    $post = filter_input_array(INPUT_POST);
+    $post = array_map('trim', $post);
+    
+    return $post;
+}
+
+function filter_get() {
+    $get = filter_input_array(INPUT_GET);
+    $get = array_map('trim', $get);
+    
+    return $get;
+}
