@@ -1,5 +1,6 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
-
+<style>input { display: block; width: 200px; }</style>
+    
     <h1><?= $this->page_title; ?></h1>
 
     <?php if ($this->message) : ?>
@@ -9,11 +10,11 @@
     <form action="" method="post">
         <div>
             <label>Title</label><br>
-            <input type="text" name="title">
+            <input type="text" name="title" value="Title testing">
         </div>
         <div id="list-items">
             <label>List</label><br>
-            <input type="text" name="0" value="Start typing..."><br>
+            <input type="text" name="0">
         </div>
         <input type="submit">
     </form>
