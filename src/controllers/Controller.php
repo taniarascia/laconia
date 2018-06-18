@@ -9,6 +9,12 @@ abstract class Controller
         $this->session = $session;
     }
 
+    public function getScript($filename) {
+        $file = strtolower($filename);
+
+        return 'http://' . $_SERVER['HTTP_HOST'] . '/js/' . $file . '.js';
+    }
+
     protected function view($view) {
         $view = strtolower($view);
 

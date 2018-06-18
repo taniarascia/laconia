@@ -11,10 +11,9 @@
             <label>Title</label><br>
             <input type="text" name="title">
         </div>
-        <div>
+        <div id="list-items">
             <label>List</label><br>
-            <input type="text" name="list_item_1" value="1"><br>
-            <input type="text" name="list_item_2" value="2">
+            <input type="text" name="0" value="Start typing..."><br>
         </div>
         <input type="submit">
     </form>

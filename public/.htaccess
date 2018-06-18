@@ -2,4 +2,6 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME}% !-d
 RewriteCond %{REQUEST_FILENAME}% !-f
+RewriteRule \.(js|css)$ - [L]
 RewriteRule ^(.+)$ index.php [QSA,L]
+
