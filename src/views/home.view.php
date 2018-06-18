@@ -19,7 +19,13 @@
 
     <h2>My lists</h2>
 
-    <!-- Existing lists -->
+    <ul>
+    <?php foreach ($this->lists as $list) : ?>
+
+        <li><a href="/edit-list/<?= $list['id']; ?>"><?= $list['title']; ?></a></li>
+
+    <?php endforeach ?>
+    </ul>
 
     <h2>Create a list</h2>
 

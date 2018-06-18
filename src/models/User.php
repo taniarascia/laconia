@@ -80,7 +80,7 @@ class User extends Model
         
         $this->db->query($query);
         $this->db->bind(':user_id', $userId);
-        $this->db->bind(':date_requested', date("Y-m-d H:i:s"));
+        $this->db->bind(':date_requested', date('Y-m-d H:i:s'));
         $this->db->bind(':token', $token);
 
         $result = $this->db->execute();

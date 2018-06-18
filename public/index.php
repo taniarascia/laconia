@@ -1,5 +1,4 @@
 <?php
-
 // Get the directory above public
 $root = __DIR__ . '/..';
 
