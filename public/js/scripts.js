@@ -1,6 +1,6 @@
 var listItems = document.getElementById('list-items');
 var form = document.querySelector('form');
-var url = window.location.href;
+var counter = 0;
 
 function supressShiftEnter(event) {
     //shift enter is pressed
@@ -16,11 +16,15 @@ function supressShiftEnter(event) {
 listItems.addEventListener('keydown', event => {
     if (event.keyCode == 13 && !event.shiftKey) {
         event.preventDefault();
+
+        counter++;
+
         var input = document.createElement('input');
-        input.type = 'text';
-        input.name = event.target.name++;
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', `list_item_${counter}`);
 
         event.target.parentNode.appendChild(input);
+        
         input.focus();
     }
 });
@@ -31,12 +35,3 @@ form.addEventListener('submit', event => {
         event.preventDefault();
     }
 });
-
-    // const formData = new FormData(form);
-
-    // fetch(url, {
-    //     method: 'POST',
-    //     body: formData
-    // }).then(response => {
-    //     console.log(response);
-    // });

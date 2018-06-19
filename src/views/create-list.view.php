@@ -1,5 +1,5 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
-<style>input { display: block; width: 200px; }</style>
+<style>input { display: block; width: 250px; }</style>
     
     <h1><?= $this->page_title; ?></h1>
 
@@ -8,13 +8,11 @@
     <?php endif; ?>
 
     <form action="" method="post">
-        <div>
-            <label>Title</label><br>
-            <input type="text" name="title" value="Title testing">
-        </div>
+        <label>Title</label>
+        <input type="text" name="title">
+        <label>List</label>
         <div id="list-items">
-            <label>List</label><br>
-            <input type="text" name="0">
+            <input type="text" name="list_item_0">
         </div>
         <input type="submit">
     </form>

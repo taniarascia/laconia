@@ -29,7 +29,7 @@ class ListClass extends Model
 
         // Create list_items entries
         foreach ($post as $key => $value) {
-            if ($key !== 'title') {
+            if ($key !== 'title' && $value !== '') {
                 $query = "INSERT INTO list_items (user_id, list_id, name, created) VALUES (:user_id, :list_id, :name, :created)";
                 
                 $this->db->query($query);
