@@ -1,13 +1,35 @@
 <?php
-
+ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 class Register extends Controller
 {
     public $page_title = 'Register';
     public $message;
     public $loggedIn;
+    public $errorList = '';
+    public $passwordErrors = [];
 
-    public function validatePassword() {
-        
+    public function validatePassword($password) {
+        if (!empty($password)) {
+            switch ($password) {
+                case (strlen($password) < '8') :
+                    $this->passwordErrors[] = 'Password must contain at least 8 characters.';
+                case (!preg_match("#[0-9]+#", $password)) :
+                    $this->passwordErrors[] = 'Password must contain at least 1 number.';
+                case (!preg_match("#[A-Z]+#", $password)) :
+                    $this->passwordErrors[] = 'Password must contain at least 1  uppercase letter.';
+                case (!preg_match("#[a-z]+#", $password)) :
+                    $this->passwordErrors[] = 'Password must contain one lowercase letter.';
+            }
+        } else {
+            $this->passwordErrors[] = "You must include a password.";
+        }
+    }
+
+    public function getPasswordErrors($errors) {
+        foreach ($this->passwordErrors as $error) {
+            $this->errorList .= $error . ' ';
+        }
+        return $this->errorList;
     }
 
     public function post() {
@@ -17,30 +39,8 @@ class Register extends Controller
         $username = $post['username'];
         $password = $post['password'];
         $email = $post['email'];
-
-        // Password check:
-        $passwordApproved = true;
-
-        if (!empty($password)) {
-            if (strlen($password) < '8') {
-                $passwordError = 'Must contain at least 8 characters.';
-                $passwordApproved = false;
-            } elseif (!preg_match("#[0-9]+#", $password)) {
-                $passwordError = 'Must contain at least 1 number.';
-                $passwordApproved = false;
-            } elseif (!preg_match("#[A-Z]+#", $password)) {
-                $passwordError = 'Must contain at least 1  uppercase letter.';
-                $passwordApproved = false;
-            }
-            elseif (!preg_match("#[a-z]+#", $password)) {
-                $passwordError = 'Must contain one lowercase letter.';
-                $passwordApproved = false;
-            }
-        } else {
-            $passwordError = "You must include a password.";
-            $passwordApproved = false;
-        }
         
+        $this->validatePassword($password);
         $usernameSearchResults = $user->isUsernameAvailable($username);
         $emailSearchResults = $user->isEmailAvailable($email);
 
@@ -49,8 +49,9 @@ class Register extends Controller
             $this->message = 'That username already exists! Try again.';
         } elseif ($emailSearchResults > 0) {
             $this->message = 'That email already exists! Try again.';
-        } elseif (!$passwordApproved) {
-            $this->message = $passwordError;
+        } elseif (!empty($this->passwordErrors)) {
+            $this->errorList = $this->getPasswordErrors($this->passwordErrors);
+            $this->message = $this->errorList;
         } else {
             // Make sure user is logged out
             $this->session->logout();
