@@ -2,7 +2,6 @@
 
 namespace Laconia;
 
-use Laconia;
 use \PDO;
 
 class Database 
