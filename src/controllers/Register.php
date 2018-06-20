@@ -6,6 +6,10 @@ class Register extends Controller
     public $message;
     public $loggedIn;
 
+    public function validatePassword() {
+        
+    }
+
     public function post() {
         $user = new User();
         $post = filter_post();

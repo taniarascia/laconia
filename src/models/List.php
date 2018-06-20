@@ -13,6 +13,17 @@ class ListClass extends Model
         return $lists;
     }
 
+    public function getListById($id) {
+        $query = "SELECT * FROM lists WHERE list_id = :lost_id";
+
+        $this->db->query($query);
+        $this->db->bind(':list_id', $listId);
+            
+        $list = $this->db->result();
+
+        return $list;
+    }
+
     public function createList($user, $title, $post) {
         // Create list entry
         $query = "INSERT INTO lists (user_id, title, created) VALUES (:user_id, :title, :created)";
