@@ -1,5 +1,7 @@
 <?php
 
+use Laconia\User;
+
 class Register extends Controller
 {
     public $page_title = 'Register';
@@ -8,7 +10,7 @@ class Register extends Controller
     public $errorList = '';
     public $passwordErrors = [];
 
-    protected function validatePassword($password) {
+    public function validatePassword($password) {
         if (!empty($password)) {
             switch ($password) {
                 case (strlen($password) < '8') :
@@ -16,7 +18,7 @@ class Register extends Controller
                 case (!preg_match("#[0-9]+#", $password)) :
                     $this->passwordErrors[] = 'Password must contain at least 1 number.';
                 case (!preg_match("#[A-Z]+#", $password)) :
-                    $this->passwordErrors[] = 'Password must contain at least 1  uppercase letter.';
+                    $this->passwordErrors[] = 'Password must contain at least 1 uppercase letter.';
                 case (!preg_match("#[a-z]+#", $password)) :
                     $this->passwordErrors[] = 'Password must contain one lowercase letter.';
             }
@@ -25,7 +27,7 @@ class Register extends Controller
         }
     }
 
-    protected function getPasswordErrors($errors) {
+    public function getPasswordErrors($errors) {
         foreach ($this->passwordErrors as $error) {
             $this->errorList .= $error . ' ';
         }

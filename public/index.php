@@ -52,8 +52,20 @@ echo "Logged in: {$loggedIn} {$whoIsLoggedIn['username']}";
 /**
  * TODO:
  * 
- * - Clean up password validation code
+ * X Clean up password validation code
  * X Allow user to create a list with list items - laconia.test/create-list
+ * - Edit-list pages that are actually editable
  * - Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?
  * - Add JavaScript to XHR validation and POSTing
+ * - Settings page
+ * - Top navigation bar when logged in
+ * - CSS styles
+ * 
+ * SOURCES:
+ * 
+ * - Password reset: http://thisinterestsme.com/php-reset-password-form/
+ * - Login: http://thisinterestsme.com/php-user-registration-form/
+ * - PDO class: https://www.culttt.com/2012/10/01/roll-your-own-pdo-php-class/
+ * - Password validation: https://stackoverflow.com/questions/22544250/php-password-validation/22544286
+ * - Editing: https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog
  */
