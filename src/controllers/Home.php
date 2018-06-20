@@ -1,5 +1,9 @@
 <?php
 
+use Laconia\User;
+use Laconia\ListClass;
+
+
 class Home extends Controller
 {
     public $page_title = 'Home';

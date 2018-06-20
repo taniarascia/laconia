@@ -1,4 +1,8 @@
 <?php
+
+use Laconia\Session;
+use Laconia\User;
+
 // Get the directory above public
 $root = __DIR__ . '/..';
 

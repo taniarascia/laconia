@@ -1,5 +1,8 @@
 <?php
 
+use Laconia\User;
+use Laconia\ListClass;
+
 class CreateList extends Controller
 {
     public $page_title = 'Create List';

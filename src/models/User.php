@@ -1,5 +1,9 @@
 <?php
 
+namespace Laconia;
+
+use Laconia\Model;
+
 class User extends Model
 {   
     public function getUser($userId) {

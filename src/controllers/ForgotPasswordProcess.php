@@ -1,7 +1,6 @@
 <?php
 
 class ForgotPasswordProcess extends Controller {
-
     public function get() {
         $user = new User();
         $get = filter_get();

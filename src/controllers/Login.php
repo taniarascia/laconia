@@ -1,5 +1,7 @@
 <?php
 
+use Laconia\User;
+
 class Login extends Controller
 {
     public $page_title = 'Login';

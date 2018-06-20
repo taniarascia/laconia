@@ -1,5 +1,9 @@
 <?php
 
+namespace Laconia;
+
+use Laconia\Model;
+
 class ListClass extends Model
 {
     public function getListsByUser($user) {

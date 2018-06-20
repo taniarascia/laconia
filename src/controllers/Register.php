@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+
 class Register extends Controller
 {
     public $page_title = 'Register';
@@ -8,7 +8,7 @@ class Register extends Controller
     public $errorList = '';
     public $passwordErrors = [];
 
-    public function validatePassword($password) {
+    protected function validatePassword($password) {
         if (!empty($password)) {
             switch ($password) {
                 case (strlen($password) < '8') :
@@ -25,7 +25,7 @@ class Register extends Controller
         }
     }
 
-    public function getPasswordErrors($errors) {
+    protected function getPasswordErrors($errors) {
         foreach ($this->passwordErrors as $error) {
             $this->errorList .= $error . ' ';
         }
@@ -46,9 +46,9 @@ class Register extends Controller
 
         // Username already exists error
         if ($usernameSearchResults > 0) {
-            $this->message = 'That username already exists! Try again.';
+            $this->message = 'That username already exists!';
         } elseif ($emailSearchResults > 0) {
-            $this->message = 'That email already exists! Try again.';
+            $this->message = 'That email already exists!';
         } elseif (!empty($this->passwordErrors)) {
             $this->errorList = $this->getPasswordErrors($this->passwordErrors);
             $this->message = $this->errorList;

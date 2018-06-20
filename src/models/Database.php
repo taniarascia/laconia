@@ -1,5 +1,10 @@
 <?php
 
+namespace Laconia;
+
+use Laconia;
+use \PDO;
+
 class Database 
 {
     private $host = DB_HOST;  

@@ -1,5 +1,9 @@
 <?php
 
+namespace Laconia;
+
+use Laconia;
+
 class Session
 {   
     public function __construct() {
