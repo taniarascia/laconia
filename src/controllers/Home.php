@@ -6,7 +6,7 @@ class Home extends Controller
     public $lists;
 
     public function get() {
-        $user = new User();
+        $user = new User(); 
         $list = new ListClass();
         $this->session->authenticate();
         

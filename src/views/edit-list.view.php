@@ -5,7 +5,7 @@
         <ul>
         <?php foreach ($this->editList as $list) : ?>
 
-            <li><?= $list['name']; ?></a></li>
+            <li><?= $list['name']; ?></a></li> 
 
         <?php endforeach ?>
         </ul>

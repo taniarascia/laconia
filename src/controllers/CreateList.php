@@ -6,7 +6,7 @@ class CreateList extends Controller
     public $user;
     public $message;
 
-    public function post() {
+    public function post() { 
         $user = new User();
         $list = new ListClass();
         $post = filter_post();
