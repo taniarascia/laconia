@@ -1,8 +1,6 @@
 <?php
 
-define('DB_HOST', 'localhost');  
-define('DB_USER', 'root');  
-define('DB_PASS', 'root');  
+require 'config/credentials.php';
 
 $options = [
     PDO::ATTR_PERSISTENT => true,  
@@ -14,7 +12,7 @@ try {
 	$sql = file_get_contents('data/init.sql');
 	$connection->exec($sql);
 	
-	echo 'Success! <a href="/register">Register a user</a>';
+	echo 'Success! Laconia is ready to use.' . "\n";
 } catch(PDOException $error) {
-	echo $sql . "<br>" . $error->getMessage();
+	echo $sql . $error->getMessage();
 }
