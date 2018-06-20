@@ -4,10 +4,12 @@ class EditList extends Controller
 {
     public $page_title = 'Edit List';
     public $user;
-    public $message;
+    public $editList;
 
     public function get() {
         $user = new User();
+        $list = new ListClass();
+
         $this->session->authenticate();
         // Proceed if authentication passed
         $userInfo = $user->getUser($this->session->getSessionValue('user_id'));
@@ -15,7 +17,7 @@ class EditList extends Controller
 
         $get = filter_get();
 
-        $result = $list->getListById($userInfo, $get['list_id'], $post);
+        $this->editList = $list->getListById($get['list_id']);
 
         $this->view('edit-list');
     }

@@ -49,7 +49,7 @@ echo "Logged in: {$loggedIn} {$whoIsLoggedIn['username']}";
  * TODO:
  * 
  * - Clean up password validation code
- * - Allow user to create a list with list items - laconia.test/create-list
+ * X Allow user to create a list with list items - laconia.test/create-list
  * - Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?
  * - Add JavaScript to XHR validation and POSTing
  */

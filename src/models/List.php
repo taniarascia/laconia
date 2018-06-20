@@ -14,12 +14,12 @@ class ListClass extends Model
     }
 
     public function getListById($id) {
-        $query = "SELECT * FROM lists WHERE list_id = :lost_id";
+        $query = "SELECT * FROM list_items WHERE list_id = :list_id";
 
         $this->db->query($query);
-        $this->db->bind(':list_id', $listId);
+        $this->db->bind(':list_id', $id);
             
-        $list = $this->db->result();
+        $list = $this->db->resultset();
 
         return $list;
     }

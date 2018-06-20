@@ -1,7 +1,7 @@
 {
   "name": "laconia.test",
   "version": "1.0.0",
-  "description": "Simple vanilla MVC app.",
+  "description": "A PHP Application",
   "main": "index.js",
   "directories": {
     "test": "tests"

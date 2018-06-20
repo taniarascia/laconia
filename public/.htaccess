@@ -3,5 +3,9 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME}% !-d
 RewriteCond %{REQUEST_FILENAME}% !-f
 RewriteRule \.(js|css)$ - [L]
+RewriteRule ^/?edit-list/(.*?)/?$ /edit-list?list_id=$1 [L]
 RewriteRule ^(.+)$ index.php [QSA,L]
 
+# Display edit-list/1 instead of edit-list?list_id=1
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /create-list\?list_id=([^\&\ ]+)
+RewriteRule ^/?create-list$ /create-list/%1? [L,R=301]

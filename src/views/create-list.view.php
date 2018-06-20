@@ -1,5 +1,4 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
-<style>input { display: block; width: 250px; }</style>
     
     <h1><?= $this->page_title; ?></h1>
 
