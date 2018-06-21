@@ -17,6 +17,16 @@ class User extends Model
         return $user;
     }
 
+    public function getAllUsers() {
+        $query = "SELECT * FROM users";
+
+        $this->db->query($query);
+            
+        $users = $this->db->resultset();
+
+        return $users;
+    }
+
     public function getUserByUsername($username) {
         $query = "SELECT * FROM users WHERE username = :username";
 
