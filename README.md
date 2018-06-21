@@ -24,3 +24,9 @@ A PHP Application.
 - MVC
 - OOP
 - Routing
+
+## Testing
+
+How to run a test:
+
+`./vendor/bin/phpunit ./tests/HelloWorldTest`
