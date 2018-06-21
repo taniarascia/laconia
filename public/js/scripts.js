@@ -13,25 +13,40 @@ function supressShiftEnter(event) {
     }
 }
 
-listItems.addEventListener('keydown', event => {
-    if (event.keyCode == 13 && !event.shiftKey) {
-        event.preventDefault();
+if (listItems) {
+    listItems.addEventListener('keydown', event => {
+        if (event.keyCode == 13 && !event.shiftKey) {
+            event.preventDefault();
 
-        counter++;
+            counter++;
 
-        var input = document.createElement('input');
-        input.setAttribute('type', 'text');
-        input.setAttribute('name', `list_item_${counter}`);
+            var input = document.createElement('input');
+            input.setAttribute('type', 'text');
+            input.setAttribute('name', `list_item_${counter}`);
 
-        event.target.parentNode.appendChild(input);
-        
-        input.focus();
-    }
-});
+            event.target.parentNode.appendChild(input);
 
+            input.focus();
+        }
+    });
+}
 
-form.addEventListener('submit', event => {
-    if (event.keyCode == 13) {
-        event.preventDefault();
-    }
-});
+// if (form) {
+//     form.addEventListener('submit', event => {
+//         event.preventDefault();
+
+//         var formData = new FormData(form);
+//         var request = new XMLHttpRequest();
+//         var url = window.location.href;
+
+//         request.open('POST', url);
+//         request.onreadystatechange = function () {
+//             if (request.readyState == 4 && request.status == 200) {
+//                 document.getElementById('message').textContent = request.responseText;
+//             } else {
+//                 document.getElementById('message').textContent = request.responseText;
+//             }
+//         }
+//         request.send(formData);
+//     });
+// }

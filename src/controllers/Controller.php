@@ -43,6 +43,14 @@ abstract class Controller
         return $validPassword;
     }
 
+    protected function isApprovedUsername($username) {
+        if (in_array($username, DISALLOWED_USERNAMES)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     protected function validatePassword($password) {
         if (!empty($password)) {
             if (strlen($password) < '8') {
