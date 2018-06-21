@@ -1,5 +1,6 @@
 <?php
 
+use Laconia\Controller;
 use Laconia\ListClass;
 
 class CreateList extends Controller

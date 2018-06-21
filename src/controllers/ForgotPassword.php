@@ -1,5 +1,7 @@
 <?php
 
+use Laconia\Controller;
+
 class ForgotPassword extends Controller
 {
     public $page_title = 'Forgot Password';

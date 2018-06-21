@@ -1,5 +1,7 @@
 <?php
 
+namespace Laconia;
+
 abstract class Controller
 { 
     protected $page_title;

@@ -1,8 +1,7 @@
 <?php
 
-use Laconia\User;
+use Laconia\Controller;
 use Laconia\ListClass;
-
 
 class Home extends Controller
 {

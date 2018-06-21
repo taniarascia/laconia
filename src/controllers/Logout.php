@@ -1,5 +1,7 @@
 <?php
 
+use Laconia\Controller;
+
 class Logout extends Controller
 {
     public function get() {

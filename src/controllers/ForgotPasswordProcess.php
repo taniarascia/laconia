@@ -1,5 +1,7 @@
 <?php
 
+use Laconia\Controller;
+
 class ForgotPasswordProcess extends Controller {
     public function get() {
         $get = filter_get();

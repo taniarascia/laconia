@@ -1,5 +1,7 @@
 <?php
 
+use Laconia\Controller;
+
 class CreatePassword extends Controller
 {
     public $page_title = 'Create New Password';

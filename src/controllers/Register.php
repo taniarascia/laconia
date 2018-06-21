@@ -1,6 +1,6 @@
 <?php
 
-use Laconia\User;
+use Laconia\Controller;
 
 class Register extends Controller
 {

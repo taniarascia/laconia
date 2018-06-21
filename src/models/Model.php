@@ -2,8 +2,6 @@
 
 namespace Laconia;
 
-use Laconia;
-
 abstract class Model
 {
 	protected $db;
