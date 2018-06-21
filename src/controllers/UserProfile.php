@@ -12,6 +12,8 @@ class UserProfile extends Controller
         $list = new ListClass();
         $get = filter_get();
 
+        print_r($get);
+
         $userInfo = $this->userControl->getUserByUsername($get['user_id']);
         $this->user = $userInfo;
 

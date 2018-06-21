@@ -17,6 +17,10 @@ $userControl = new User();
 $redirect = $_SERVER['REDIRECT_URL'];
 $method = $_SERVER['REQUEST_METHOD'];
 
+// $u = ltrim($redirect, '/');
+// $username = $userControl->getUserByUsername(ltrim($u));
+// if ($username) {$controller = new UserProfile($session, $userControl);)};
+
 $controllerName = getControllerName($redirect);
 $controllerPath = $root . "/src/controllers/{$controllerName}.php";
 
