@@ -7,6 +7,7 @@ class ForgotPassword extends Controller
 {
     public $page_title = 'Forgot Password';
     public $message;
+    public $success = false;
 
     public function post() {
         $db = new Database();
@@ -18,6 +19,7 @@ class ForgotPassword extends Controller
         if (empty($userInfo)) {
             $this->message = 'That email address was not found in our system!';
         } else {
+            $this->success = true;
             // Create a secure token for this forgot password request.
             $token = openssl_random_pseudo_bytes(16);
             $token = bin2hex($token);
@@ -44,7 +46,7 @@ class ForgotPassword extends Controller
         if ($isLoggedIn) {
             $this->redirect('home');
         }
-        
+
         $this->view('forgot-password');
     }
 }

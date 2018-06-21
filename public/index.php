@@ -48,7 +48,7 @@ $userControl = new User();
 $whoIsLoggedIn = $userControl->getUser($userId);
 
 echo "<br>";
-echo "Logged in: {$loggedIn} {$whoIsLoggedIn['username']}";
+echo "Logged in: {$loggedIn} - {$whoIsLoggedIn['username']}";
 
 /**
  * TODO:
