@@ -8,7 +8,6 @@ class Login extends Controller
     public $message;
 
     public function post() {
-        $user = new User();
         $post = filter_post();
 
         $username = $post['username'];
@@ -16,7 +15,7 @@ class Login extends Controller
         $email = $post['email'];
         
         // Retrieve the user account information for the given username.
-        $userInfo = $user->getUserByUsername($username);
+        $userInfo = $this->userControl->getUserByUsername($username);
         
         // Could not find a user with that username
         if (!$userInfo) {

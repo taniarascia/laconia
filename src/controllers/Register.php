@@ -35,7 +35,6 @@ class Register extends Controller
     }
 
     public function post() {
-        $user = new User();
         $post = filter_post();
 
         $username = $post['username'];
@@ -43,8 +42,8 @@ class Register extends Controller
         $email = $post['email'];
         
         $this->validatePassword($password);
-        $usernameSearchResults = $user->isUsernameAvailable($username);
-        $emailSearchResults = $user->isEmailAvailable($email);
+        $usernameSearchResults = $this->userControl->isUsernameAvailable($username);
+        $emailSearchResults = $this->userControl->isEmailAvailable($email);
 
         // Username already exists error
         if ($usernameSearchResults > 0) {
@@ -60,11 +59,11 @@ class Register extends Controller
 
             // Hash the password
             $passwordHash = $this->encryptPassword($password);
-            $result = $user->registerNewUser($username, $passwordHash, $email, 'user');
+            $result = $this->userControl->registerNewUser($username, $passwordHash, $email, 'user');
             
             // User registration successful
             if ($result) {
-                $userInfo = $user->getUserByUsername($username);
+                $userInfo = $this->userControl->getUserByUsername($username);
                 $this->session->login($userInfo);
 
                 $this->redirect('home');

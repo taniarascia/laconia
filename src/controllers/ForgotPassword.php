@@ -7,10 +7,9 @@ class ForgotPassword extends Controller
 
     public function post() {
         $db = new Database();
-        $user = new User();
         $post = filter_post();
 
-        $userInfo = $user->getUserByEmail($post['email']);
+        $userInfo = $this->userControl->getUserByEmail($post['email']);
 
         // Email doesn't exist
         if (empty($userInfo)) {
@@ -20,7 +19,7 @@ class ForgotPassword extends Controller
             $token = openssl_random_pseudo_bytes(16);
             $token = bin2hex($token);
             
-            $request = $user->createPasswordRequest($userInfo['id'], $token);
+            $request = $this->userControl->createPasswordRequest($userInfo['id'], $token);
             
             // Get the ID of the row 
             $passwordRequestId = $db->lastInsertId();

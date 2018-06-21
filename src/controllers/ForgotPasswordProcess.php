@@ -2,10 +2,9 @@
 
 class ForgotPasswordProcess extends Controller {
     public function get() {
-        $user = new User();
         $get = filter_get();
         
-        $requestInfo = $user->verifyPasswordRequest($get['uid'], $get['id'], $get['t']);
+        $requestInfo = $this->userControl->verifyPasswordRequest($get['uid'], $get['id'], $get['t']);
         
         // Check if valid request
         if (empty($requestInfo)) {

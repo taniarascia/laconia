@@ -6,7 +6,6 @@ class CreatePassword extends Controller
     public $message;
 
     public function post() {
-        $user = new User();
         $userId = $this->session->getSessionValue('user_id_reset_pass');
             
         if (!$userId) {
@@ -18,7 +17,7 @@ class CreatePassword extends Controller
     
         // Hash the new password
         $passwordHash = $this->encryptPassword($password);
-        $result = $user->resetUserPassword($passwordHash, $userId);
+        $result = $this->userControl->resetUserPassword($passwordHash, $userId);
         
         if ($result) {
             // Success
@@ -30,7 +29,6 @@ class CreatePassword extends Controller
     }
     
     public function get() {
-        $user = new User();
         $userId = $this->session->getSessionValue('user_id_reset_pass');
 
         if (!$userId) {

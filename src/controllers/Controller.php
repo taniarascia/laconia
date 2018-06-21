@@ -5,8 +5,9 @@ abstract class Controller
     protected $page_title;
     protected $message;
 
-    public function __construct($session) {
+    public function __construct($session, $userControl) {
         $this->session = $session;
+        $this->userControl = $userControl;
     }
 
     public function getScript($filename) {

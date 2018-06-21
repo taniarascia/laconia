@@ -10,7 +10,8 @@ $root = __DIR__ . '/..';
 require $root . '/vendor/autoload.php';
 
 // Start session
-$session = new Session($_SESSION);
+$session = new Session();
+$userControl = new User();
 
 // Routing
 $redirect = $_SERVER['REDIRECT_URL'];
@@ -20,11 +21,11 @@ $controllerName = getControllerName($redirect);
 $controllerPath = $root . "/src/controllers/{$controllerName}.php";
 
 if ($controllerName === '') {
-    $controller = new Index($session);
+    $controller = new Index($session, $userControl);
 } elseif (file_exists($controllerPath)) {
-    $controller = new $controllerName($session);
+    $controller = new $controllerName($session, $userControl);
 } else {
-    $controller = new ExceptionNotFound($session);
+    $controller = new ExceptionNotFound($session, $userControl);
 }
 
 if ($method === 'POST') {
@@ -43,8 +44,8 @@ print_r($_SESSION);
 $loggedIn = $session->isUserLoggedIn() ? 'Yes' : 'No';
 $userId = $session->getSessionValue('user_id');
 
-$user = new User();
-$whoIsLoggedIn = $user->getUser($userId);
+$userControl = new User();
+$whoIsLoggedIn = $userControl->getUser($userId);
 
 echo "<br>";
 echo "Logged in: {$loggedIn} {$whoIsLoggedIn['username']}";
