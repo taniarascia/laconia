@@ -6,11 +6,13 @@
         <p><?= $this->message; ?>
     <?php endif; ?>
 
+    <?php if (!$this->success) : ?>
     <form action="" method="post">
         <label for="password">Password</label>
         <input type="password" id="password" name="password"><br>
         <input type="submit" name="create" value="Create Password">
     </form>
+    <?php endif; ?>
 
     <p><a href="/home">Home</a> </p>
 

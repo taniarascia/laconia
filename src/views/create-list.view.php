@@ -16,6 +16,6 @@
         <input type="submit">
     </form>
 
-    <a href="/home">Home</a>
+    <p><a href="/home">Home</a><p>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

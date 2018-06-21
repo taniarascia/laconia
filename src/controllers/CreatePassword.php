@@ -6,25 +6,36 @@ class CreatePassword extends Controller
 {
     public $page_title = 'Create New Password';
     public $message;
+    public $errorList = '';
+    public $passwordErrors = [];
+    public $success = false;
 
     public function post() {
         $userId = $this->session->getSessionValue('user_id_reset_pass');
-            
+        $post = filter_post();
+
         if (!$userId) {
             $this->redirect('forgot-password');
         }
 
-        // Get form value
-        $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
+        $password = $post['password'];
+
+        $this->passwordErrors = array();
+        $this->validatePassword($password);
     
-        // Hash the new password
-        $passwordHash = $this->encryptPassword($password);
-        $result = $this->userControl->resetUserPassword($passwordHash, $userId);
-        
-        if ($result) {
-            // Success
-            $this->message = 'Your password has been updated. <a href="/login">Login</a>';
-            $this->session->deleteSessionValue('user_id_reset_pass');
+        if (!empty($this->passwordErrors)) {
+            $this->errorList = $this->getPasswordErrors($this->passwordErrors);
+            $this->message = $this->errorList;
+        } else {
+            $passwordHash = $this->encryptPassword($password);
+            $result = $this->userControl->resetUserPassword($passwordHash, $userId);
+            
+            if ($result) {
+                // Success
+                $this->success = true;
+                $this->message = 'Your password has been updated.';
+                $this->session->deleteSessionValue('user_id_reset_pass');
+            }
         }
 
         $this->view('create-password');

@@ -42,4 +42,30 @@ abstract class Controller
         
         return $validPassword;
     }
+
+    protected function validatePassword($password) {
+        if (!empty($password)) {
+            if (strlen($password) < '8') {
+                $this->passwordErrors[] = 'Password must contain at least 8 characters.';
+            }
+            if (!preg_match("#[0-9]+#", $password)) {
+                $this->passwordErrors[] = 'Password must contain at least 1 number.';
+            }
+            if (!preg_match("#[A-Z]+#", $password)) {
+                $this->passwordErrors[] = 'Password must contain at least 1 uppercase letter.';
+            }
+            if (!preg_match("#[a-z]+#", $password)) {
+                $this->passwordErrors[] = 'Password must contain one lowercase letter.';
+            }
+        } else {
+            $this->passwordErrors[] = "You must include a password.";
+        }
+    }
+
+    protected function getPasswordErrors($errors) {
+        foreach ($this->passwordErrors as $error) {
+            $this->errorList .= $error . ' ';
+        }
+        return $this->errorList;
+    }
 }

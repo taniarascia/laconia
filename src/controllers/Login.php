@@ -22,9 +22,9 @@ class Login extends Controller
             $this->message = 'Incorrect username / password combination!';
         } else {
             // User account found.
-            $validPassword = $this->verifyPassword($password, $userInfo['password']);
+            $correctPassword = $this->verifyPassword($password, $userInfo['password']);
             
-            if ($validPassword) {
+            if ($correctPassword) {
                 // User login
                 $this->session->login($userInfo);
                 $this->redirect('home');

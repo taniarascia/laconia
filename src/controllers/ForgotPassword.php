@@ -1,6 +1,7 @@
 <?php
 
 use Laconia\Controller;
+use Laconia\Database;
 
 class ForgotPassword extends Controller
 {
@@ -38,6 +39,12 @@ class ForgotPassword extends Controller
     }
 
     public function get() {
+        $isLoggedIn = $this->session->isUserLoggedIn();
+
+        if ($isLoggedIn) {
+            $this->redirect('home');
+        }
+        
         $this->view('forgot-password');
     }
 }

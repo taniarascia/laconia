@@ -14,6 +14,6 @@
         <input type="submit" name="login" value="Login">
     </form>
 
-    <a href="/">Index</a> <a href="/home">Home</a> <a href="/register">Register</a> <a href="/forgot-password">Forgot Password</a>
+    <p><a href="/">Index</a> <a href="/home">Home</a> <a href="/register">Register</a> <a href="/forgot-password">Forgot Password</a></p>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>
