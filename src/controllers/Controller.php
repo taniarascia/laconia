@@ -51,28 +51,48 @@ abstract class Controller
         }
     }
 
+    protected function validateUsername($username) {
+        if (!empty($username)) {
+            if (strlen($username) < '4') {
+                $this->usernameErrors[] = USERNAME_TOO_SHORT;
+            }
+            if (!preg_match("([A-Za-z0-9\-\_]+)\b", $username)) {
+                $this->usernameErrors[] = USERNAME_CONTAINS_DISALLOWED;
+            }
+        } else {
+            $this->usernameErrors[] = USERNAME_MISSING;
+        }
+    }
+
     protected function validatePassword($password) {
         if (!empty($password)) {
             if (strlen($password) < '8') {
-                $this->passwordErrors[] = 'Password must contain at least 8 characters.';
+                $this->passwordErrors[] = PASSWORD_TOO_SHORT;
             }
             if (!preg_match("#[0-9]+#", $password)) {
-                $this->passwordErrors[] = 'Password must contain at least 1 number.';
+                $this->passwordErrors[] = PASSWORD_NEEDS_NUMBER;
             }
             if (!preg_match("#[A-Z]+#", $password)) {
-                $this->passwordErrors[] = 'Password must contain at least 1 uppercase letter.';
+                $this->passwordErrors[] = PASSWORD_NEEDS_UPPERCASE;
             }
             if (!preg_match("#[a-z]+#", $password)) {
-                $this->passwordErrors[] = 'Password must contain one lowercase letter.';
+                $this->passwordErrors[] = PASSWORD_NEEDS_LOWERCASE;
             }
         } else {
-            $this->passwordErrors[] = "You must include a password.";
+            $this->passwordErrors[] = PASSWORD_MISSING;
         }
+    }
+
+    protected function getUsernameErrors($errors) {
+        foreach ($this->usernameErrors as $error) {
+            $this->errorList .= $error . '<br>';
+        }
+        return $this->errorList;
     }
 
     protected function getPasswordErrors($errors) {
         foreach ($this->passwordErrors as $error) {
-            $this->errorList .= $error . ' ';
+            $this->errorList .= $error . '<br>';
         }
         return $this->errorList;
     }

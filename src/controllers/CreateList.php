@@ -22,7 +22,7 @@ class CreateList extends Controller
         $result = $list->createList($userInfo, $post['title'], $post);
 
         if ($result) {
-            $this->message = 'List created.';
+            $this->message = LIST_CREATE_SUCCESS;
         }
 
         $this->view('create-list');

@@ -5,10 +5,9 @@ use Laconia\Controller;
 class Register extends Controller
 {
     public $page_title = 'Register';
-    public $message = '';
-    public $pErrorList = '';
+    public $message;
+    public $errorList = '';
     public $passwordErrors = [];
-    public $uErrorList = '';
     public $usernameErrors = [];
 
     public function post() {
@@ -19,25 +18,37 @@ class Register extends Controller
         $email = $post['email'];
         
         $this->validatePassword($password);
+        $this->validateUsername($username);
+
         $usernameSearchResults = $this->userControl->isUsernameAvailable($username);
         $emailSearchResults = $this->userControl->isEmailAvailable($email);
         $isApprovedUsername = $this->isApprovedUsername($username);
 
-        // Username already exists error
-        if ($usernameSearchResults > 0) {
-            $this->message .= 'That username already exists!';
+        // Empty email field
+        if (empty($post['email'])) {
+            $this->message = EMAIL_MISSING;
         }
+        // Username already exists in the database
+        elseif ($usernameSearchResults > 0) {
+            $this->message = USERNAME_EXISTS;
+        }
+        // Username does matches with a disallowed username
         elseif (!$isApprovedUsername) {
-            $this->message .= 'Username not approved';
+            $this->message = USERNAME_NOT_APPROVED;
         } 
-        // Email already exists
+        // Email already exists in the database
         elseif ($emailSearchResults > 0) {
-            $this->message .= 'That email already exists!';
+            $this->message = EMAIL_EXISTS;
         } 
         // Password failed validation
         elseif (!empty($this->passwordErrors)) {
-            $this->pErrorList = $this->getPasswordErrors($this->passwordErrors);
-            $this->message = $this->pErrorList;
+            $this->errorList = $this->getPasswordErrors($this->passwordErrors);
+            $this->message = $this->errorList;
+        } 
+        // Username failed validation
+        elseif (!empty($this->usernameErrors)) {
+            $this->errorList = $this->getUsernameErrors($this->usernameErrors);
+            $this->message = $this->errorList;
         } else {
             // Hash the password
             $passwordHash = $this->encryptPassword($password);

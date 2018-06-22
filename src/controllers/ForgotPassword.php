@@ -17,7 +17,7 @@ class ForgotPassword extends Controller
 
         // Email doesn't exist
         if (empty($userInfo)) {
-            $this->message = 'That email address was not found in our system!';
+            $this->message = EMAIL_NOT_EXISTS;
         } else {
             $this->success = true;
             // Create a secure token for this forgot password request.
