@@ -4,10 +4,17 @@ A PHP Application.
 
 ## Instructions
 
-- Have Apache, MySQL, and PHP installed and running
-- Point a server root to `/public`.
-- If using MAMP: add `export PATH=/Applications/MAMP/bin/php/php7.2.1/bin:$PATH` to `.bash_profile`.
-- Run `php install.php` in the root directory to create the database
+- Install Apache, MySQL and PHP
+ - If using MAMP: add `export PATH=/Applications/MAMP/bin/php/php7.2.1/bin:$PATH` to `.bash_profile` to run PHP from the command line.
+- Install composer:
+
+```
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+- Point `laconia.server`` to `/public`.
+- Run `php install.php` in the root directory to initialize the database.
 - Run `composer install`.
 - Explore.
 
@@ -18,6 +25,7 @@ A PHP Application.
 - Logout
 - Reset password
 - Create list
+- View public profiles
 
 ## Learning
 
