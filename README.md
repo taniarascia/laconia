@@ -13,7 +13,7 @@ curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 ```
 
-- Point `laconia.server`` to `/public`.
+- Point `laconia.server` to `/public`.
 - Run `php install.php` in the root directory to initialize the database.
 - Run `composer install`.
 - Explore.
