@@ -1,5 +1,6 @@
 <?php
 
+
 use Laconia\Session;
 use Laconia\User;
 
@@ -17,10 +18,8 @@ $userControl = new User();
 $redirect = $_SERVER['REDIRECT_URL'];
 $method = $_SERVER['REQUEST_METHOD'];
 
-// $u = ltrim($redirect, '/');
-// $username = $userControl->getUserByUsername(ltrim($u));
-// if ($username) {$controller = new UserProfile($session, $userControl);)};
-
+$u = ltrim($redirect, '/');
+$username = $userControl->getUserByUsername(ltrim($u));
 $controllerName = getControllerName($redirect);
 $controllerPath = $root . "/src/controllers/{$controllerName}.php";
 
@@ -28,6 +27,8 @@ if ($controllerName === '') {
     $controller = new Index($session, $userControl);
 } elseif (file_exists($controllerPath)) {
     $controller = new $controllerName($session, $userControl);
+} elseif ($username) {
+    $controller = new UserProfile($session, $userControl);
 } else {
     $controller = new ExceptionNotFound($session, $userControl);
 }

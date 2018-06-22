@@ -7,7 +7,7 @@
     <ul>
     <?php foreach ($this->users as $user) : ?>
 
-        <li><a href="/u/<?= $user['username']; ?>"><?= $user['username']; ?></a></li>
+        <li><a href="/<?= $user['username']; ?>"><?= $user['username']; ?></a></li>
  
     <?php endforeach ?>
     </ul>
