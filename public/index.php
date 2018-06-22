@@ -1,6 +1,5 @@
 <?php
 
-
 use Laconia\Session;
 use Laconia\User;
 
@@ -18,21 +17,38 @@ $userControl = new User();
 $redirect = $_SERVER['REDIRECT_URL'];
 $method = $_SERVER['REQUEST_METHOD'];
 
-$u = ltrim($redirect, '/');
-$username = $userControl->getUserByUsername(ltrim($u));
+// Get the path after the hostname
+$path = ltrim($redirect, '/');
+
+// Check if path matches a user
+$username = $userControl->getUserByUsername(ltrim($path));
+
+// Get controller name by converting URL of dashes
+// (such as forgot-password) to uppercase class names
+// (such as ForgotPassword) and assign to the proper
+// controller based on URL.
 $controllerName = getControllerName($redirect);
 $controllerPath = $root . "/src/controllers/{$controllerName}.php";
 
+// Load index page first
 if ($controllerName === '') {
     $controller = new Index($session, $userControl);
-} elseif (file_exists($controllerPath)) {
+}
+// If the controller exists, route to the proper controlller 
+elseif (file_exists($controllerPath)) { // to do: add approved filenames
     $controller = new $controllerName($session, $userControl);
-} elseif ($username) {
+}
+// If path matches user in the database, route to the public
+// user profile.
+elseif ($username) {
     $controller = new UserProfile($session, $userControl);
-} else {
+} 
+// If all else fails, 404.
+else {
     $controller = new ExceptionNotFound($session, $userControl);
 }
 
+// Detect if method is GET or POST and route accordingly.
 if ($method === 'POST') {
     $controller->post();
 } else {
@@ -61,7 +77,7 @@ echo "Logged in: {$loggedIn} - {$whoIsLoggedIn['username']}";
  * X Clean up password validation code
  * X Allow user to create a list with list items - laconia.test/create-list
  * - Edit-list pages that are actually editable
- * - Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?
+ * X Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?
  * - Add JavaScript to XHR validation and POSTing
  * - Settings page
  * - Top navigation bar when logged in
