@@ -112,8 +112,8 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 - [ ] Create a user settings page
 - [ ] Create a top navigation bar when logged in
 - [ ] Add CSS styles
-- [ ] Make Sass watch
 - [ ] Add JavaScript to XHR validation and form submission
+- [x] Make Sass watch
 - [x] Clean up password validation code
 - [x] Allow user to create a list with list items - laconia.test/create-list
 - [x] Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?

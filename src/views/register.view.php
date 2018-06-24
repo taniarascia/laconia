@@ -2,8 +2,8 @@
 
     <h1><?= $this->page_title; ?></h1>
     
-    <?php if ($this->message) : ?>
-        <p><?= $this->message; ?></p>
+    <?php if (!empty($this->message)) : ?>
+        <p><?= $this->message; ?>
     <?php endif; ?>
 
     <form action="" method="post">
