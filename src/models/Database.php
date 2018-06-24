@@ -1,7 +1,6 @@
 <?php
 
 namespace Laconia;
-
 use \PDO;
 
 class Database 
