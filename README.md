@@ -2,7 +2,7 @@
 
 ### An MVC application written in plain PHP without libraries or frameworks
 
- [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?)](http://makeapullrequest.com) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+ [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?)](http://gitub.com/taniarascia/laconia/compare) [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://php.net/)
 
 Laconia is a personal project to learn the fundamentals of programming and modern webapp development from scratch. The main goals of my project are to learn MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) paradigm, routing, modern development practices, and how to tie it all together to make a functional webapp. 
 
@@ -85,14 +85,15 @@ laconia/
 
 ## Usage
 
-## Features
+In Laconia, you can register an account, log in, log out, reset your password, create and edit lists, and view public profiles.
 
-- Register
-- Login
-- Logout
-- Reset password
-- Create list
-- View public profiles
+- `/register` - Register a new user
+- `/login` - Login to user account
+- `/logout` - Logout of user session
+- `/reset-password` - Reset password and create a new password
+- `/create-list` - Create a new list
+- `/edit-list/:list_id` - Edit an existing list
+- `/:username` - View public profile
 
 ## Testing
 
@@ -129,3 +130,5 @@ I've used a combination of many tutorials and StackOverflow posts to create this
 ## License
 
 The code is open source and available under the [MIT License](LICENSE).
+
+Written and maintained by Tania Rascia.
