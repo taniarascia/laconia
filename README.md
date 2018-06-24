@@ -131,4 +131,4 @@ I've used a combination of many tutorials and StackOverflow posts to create this
 
 The code is open source and available under the [MIT License](LICENSE).
 
-Written and maintained by Tania Rascia.
+Written and maintained by [Tania Rascia](https://www.taniarascia.com).
