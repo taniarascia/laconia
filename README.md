@@ -21,7 +21,7 @@ It is assumed you know how to install a LAMP stack. For macOS and Windows local 
 If using MAMP, add MAMP to the PHP command line by adding this line to `.bash_profile`.
 
 ```bash
-export PATH=/Applications/MAMP/bin/php/php7.2.1/bin:$PATH` to `.bash_profile
+export PATH=/Applications/MAMP/bin/php/php7.2.1/bin:$PATH
 ```
 
 ### Install Composer
