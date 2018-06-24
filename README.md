@@ -17,6 +17,7 @@ sudo mv composer.phar /usr/local/bin/composer
 - Run `php install.php` in the root directory to initialize the database.
 - Run `composer install`.
 - Explore.
+- `npm run sass` to use Sass.
 
 ## Features
 

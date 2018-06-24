@@ -1,13 +1,16 @@
 {
-  "name": "laconia.test",
+  "name": "laconia",
   "version": "1.0.0",
   "description": "A PHP Application",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
+  "dependencies": {
+    "node-sass": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "node ./tasks/sass.js"
   },
   "repository": {
     "type": "git",
