@@ -14,5 +14,5 @@ try {
 	
 	echo 'Success! Laconia is ready to use.' . "\n";
 } catch(PDOException $error) {
-	echo $sql . $error->getMessage();
+	echo $sql . $error->getMessage() . "\n";
 }

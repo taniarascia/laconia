@@ -15,7 +15,7 @@ class ForgotPasswordProcess extends Controller {
             // Set session variable
             $this->session->setPasswordRequestId($get['uid']);
             
-            // Redirect them to your reset password form.
+            // Redirect them to reset password form.
             $this->redirect('create-password');
         }
     }

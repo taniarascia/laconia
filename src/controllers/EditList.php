@@ -13,6 +13,7 @@ class EditList extends Controller
         $list = new ListClass();
 
         $this->session->authenticate();
+        
         // Proceed if authentication passed
         $userInfo = $this->userControl->getUser($this->session->getSessionValue('user_id'));
         $this->user = $userInfo;

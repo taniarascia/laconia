@@ -54,44 +54,52 @@ abstract class Controller
     protected function validateUsername($username) {
         if (!empty($username)) {
             if (strlen($username) < '4') {
-                $this->usernameErrors[] = USERNAME_TOO_SHORT;
+                $this->errors[] = USERNAME_TOO_SHORT;
             }
-            if (!preg_match("([A-Za-z0-9\-\_]+)\b", $username)) {
-                $this->usernameErrors[] = USERNAME_CONTAINS_DISALLOWED;
+            // Match a-z, A-Z, 1-9, -, _. ^[\w-]+$
+            if (!preg_match("/^[a-z0-9 .\-]+$/i", $username)) {
+                $this->errors[] = USERNAME_CONTAINS_DISALLOWED;
             }
         } else {
-            $this->usernameErrors[] = USERNAME_MISSING;
+            $this->errors[] = USERNAME_MISSING;
         }
     }
 
     protected function validatePassword($password) {
         if (!empty($password)) {
             if (strlen($password) < '8') {
-                $this->passwordErrors[] = PASSWORD_TOO_SHORT;
+                $this->errors[] = PASSWORD_TOO_SHORT;
             }
             if (!preg_match("#[0-9]+#", $password)) {
-                $this->passwordErrors[] = PASSWORD_NEEDS_NUMBER;
+                $this->errors[] = PASSWORD_NEEDS_NUMBER;
             }
             if (!preg_match("#[A-Z]+#", $password)) {
-                $this->passwordErrors[] = PASSWORD_NEEDS_UPPERCASE;
+                $this->errors[] = PASSWORD_NEEDS_UPPERCASE;
             }
             if (!preg_match("#[a-z]+#", $password)) {
-                $this->passwordErrors[] = PASSWORD_NEEDS_LOWERCASE;
+                $this->errors[] = PASSWORD_NEEDS_LOWERCASE;
             }
         } else {
-            $this->passwordErrors[] = PASSWORD_MISSING;
+            $this->errors[] = PASSWORD_MISSING;
         }
     }
 
-    protected function getUsernameErrors($errors) {
-        foreach ($this->usernameErrors as $error) {
-            $this->errorList .= $error . '<br>';
+    protected function validateEmail($email) {
+        if (!empty($email)) {
+            // Remove all illegal characters from email
+            $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+            // Validate e-mail
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $this->errors[] = EMAIL_NOT_VALID;
+            }
+        } else {
+            $this->errors[] = EMAIL_MISSING;
         }
-        return $this->errorList;
     }
 
-    protected function getPasswordErrors($errors) {
-        foreach ($this->passwordErrors as $error) {
+    protected function getErrors($errors) {
+        foreach ($errors as $error) {
             $this->errorList .= $error . '<br>';
         }
         return $this->errorList;

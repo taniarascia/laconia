@@ -7,8 +7,32 @@ class Register extends Controller
     public $page_title = 'Register';
     public $message;
     public $errorList = '';
-    public $passwordErrors = [];
-    public $usernameErrors = [];
+    public $errors = [];
+
+    public function validateNewUser($username, $password, $email) {
+        // Make sure password passes proper testing, username does not
+        // contain special characters, and email is valid.
+        $this->validatePassword($password);
+        $this->validateUsername($username);
+        $this->validateEmail($email);
+
+        $usernameSearchResults = $this->userControl->isUsernameAvailable($username);
+        $emailSearchResults = $this->userControl->isEmailAvailable($email);
+        $isApprovedUsername = $this->isApprovedUsername($username);
+
+        // Username already exists in the database
+        if ($usernameSearchResults > 0) {
+            $this->message = USERNAME_EXISTS;
+        }
+        // Email already exists in the database
+        elseif ($emailSearchResults > 0) {
+            $this->message = EMAIL_EXISTS;
+        } 
+        // Username does matches with a disallowed username
+        elseif (!$isApprovedUsername) {
+            $this->message = USERNAME_NOT_APPROVED;
+        } 
+    }
 
     public function post() {
         $post = filter_post();
@@ -16,38 +40,11 @@ class Register extends Controller
         $username = $post['username'];
         $password = $post['password'];
         $email = $post['email'];
-        
-        $this->validatePassword($password);
-        $this->validateUsername($username);
 
-        $usernameSearchResults = $this->userControl->isUsernameAvailable($username);
-        $emailSearchResults = $this->userControl->isEmailAvailable($email);
-        $isApprovedUsername = $this->isApprovedUsername($username);
+        $this->validateNewUser($username, $password, $email);
 
-        // Empty email field
-        if (empty($post['email'])) {
-            $this->message = EMAIL_MISSING;
-        }
-        // Username already exists in the database
-        elseif ($usernameSearchResults > 0) {
-            $this->message = USERNAME_EXISTS;
-        }
-        // Username does matches with a disallowed username
-        elseif (!$isApprovedUsername) {
-            $this->message = USERNAME_NOT_APPROVED;
-        } 
-        // Email already exists in the database
-        elseif ($emailSearchResults > 0) {
-            $this->message = EMAIL_EXISTS;
-        } 
-        // Password failed validation
-        elseif (!empty($this->passwordErrors)) {
-            $this->errorList = $this->getPasswordErrors($this->passwordErrors);
-            $this->message = $this->errorList;
-        } 
-        // Username failed validation
-        elseif (!empty($this->usernameErrors)) {
-            $this->errorList = $this->getUsernameErrors($this->usernameErrors);
+        if (!empty($this->errors)) {
+            $this->errorList = $this->getErrors($this->errors);
             $this->message = $this->errorList;
         } else {
             // Hash the password

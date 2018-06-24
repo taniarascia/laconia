@@ -7,7 +7,7 @@ class CreatePassword extends Controller
     public $page_title = 'Create New Password';
     public $message;
     public $errorList = '';
-    public $passwordErrors = [];
+    public $errors = [];
     public $success = false;
 
     public function post() {
@@ -20,11 +20,11 @@ class CreatePassword extends Controller
 
         $password = $post['password'];
 
-        $this->passwordErrors = array();
+        $this->errors = array();
         $this->validatePassword($password);
     
-        if (!empty($this->passwordErrors)) {
-            $this->errorList = $this->getPasswordErrors($this->passwordErrors);
+        if (!empty($this->errors)) {
+            $this->errorList = $this->getErrors($this->errors);
             $this->message = $this->errorList;
         } else {
             $passwordHash = $this->encryptPassword($password);

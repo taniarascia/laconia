@@ -1,5 +1,32 @@
 <?php
 
+/*!
+ * Laconia 
+ * 
+ * An MVC application written in plain PHP without libraries or frameworks.
+ * 
+ * PHP Version 7.2
+ * 
+ * @version 1.0
+ * @author  Tania Rascia
+ * @license https://github.com/taniarascia/laconia/blob/master/LICENSE MIT License
+ * @link    https://github.com/taniarascia/laconia
+ * @issues  https://github.com/taniarascia/laconia/issues
+ * @since   March 14, 2018 
+ * 
+ * Laconia is a personal project to learn the fundamentals of programming and 
+ * modern webapp development from scratch. The main goals of my project are to learn 
+ * MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) 
+ * paradigm, routing, modern development practices, and how to tie it all together
+ * to make a functional webapp. 
+ * 
+ * Laconia runs on PHP 7.2 and MySQL. It uses composer to autoload classes and 
+ * configuration and utility files, as well as future tests through PHPUnit.
+ * Node is used to compile Sass to CSS via npm scripts.
+ * 
+ * Please feel free to fork, use, comment, critique, suggest, improve or help in any way.
+ */
+
 use Laconia\Session;
 use Laconia\User;
 
@@ -9,7 +36,7 @@ $root = __DIR__ . '/..';
 // Autoload config and classes
 require $root . '/vendor/autoload.php';
 
-// Start session
+// Initialize session and user models
 $session = new Session();
 $userControl = new User();
 
@@ -54,40 +81,3 @@ if ($method === 'POST') {
 } else {
     $controller->get();
 }
-
-
-// Testing, will remove later
-// ========================================================
-
-echo "<br><br>Sessions: ";
-print_r($_SESSION);
-
-$loggedIn = $session->isUserLoggedIn() ? 'Yes' : 'No';
-$userId = $session->getSessionValue('user_id');
-
-$userControl = new User();
-$whoIsLoggedIn = $userControl->getUser($userId);
-
-echo "<br>";
-echo "Logged in: {$loggedIn} - {$whoIsLoggedIn['username']}";
-
-/**
- * TODO:
- * 
- * X Clean up password validation code
- * X Allow user to create a list with list items - laconia.test/create-list
- * - Edit-list pages that are actually editable
- * X Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?
- * - Add JavaScript to XHR validation and POSTing
- * - Settings page
- * - Top navigation bar when logged in
- * - CSS styles
- * 
- * SOURCES:
- * 
- * - Password reset: http://thisinterestsme.com/php-reset-password-form/
- * - Login: http://thisinterestsme.com/php-user-registration-form/
- * - PDO class: https://www.culttt.com/2012/10/01/roll-your-own-pdo-php-class/
- * - Password validation: https://stackoverflow.com/questions/22544250/php-password-validation/22544286
- * - Editing: https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog
- */

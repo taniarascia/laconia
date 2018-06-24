@@ -40,6 +40,7 @@ define('USERNAME_CONTAINS_DISALLOWED', 'Your username cannot contain special cha
 define('EMAIL_EXISTS', 'That email already exists.');
 define('EMAIL_NOT_EXISTS', 'That email address was not found in our system!');
 define('EMAIL_MISSING', 'You must include an email address.');
+define('EMAIL_NOT_VALID', 'This is not a valid email address.');
 
 // Lists
 define('LIST_CREATE_SUCCESS', 'List successfully created!');

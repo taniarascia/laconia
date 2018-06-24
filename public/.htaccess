@@ -2,14 +2,13 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME}%  !-d
 RewriteCond %{REQUEST_FILENAME}%  !-f
-RewriteRule \.(js|css)$           -                            [L]
-RewriteRule ^/?edit-list/(.*?)/?$ /edit-list?list_id=$1        [L]
-RewriteRule ^(.*)$                index.php?username-router=$1 [QSA,L]
-RewriteRule ^(.+)$                index.php                    [QSA,L] 
 
-# RewriteRule ^([^/]+)$ /user-profile?user_id=$1
-# Display edit-list/1 instead of edit-list?list_id=1
-# RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /edit-list\?list_id=([^\&\ ]+)
-# RewriteRule ^/?edit-list$ /edit-list/%1? [L,R=301]
-# RewriteRule ^/?u/(.*?)/?$ /user-profile?user_id=$1 [L]
-# RewriteRule ^\/u\/(?)$ /$1
+# Do not route static files in the public directory
+RewriteRule \.(js|css)$           -                            [L]
+
+# Route /edit-list/$ to /edit-list?list_id=$ 
+RewriteRule ^/?edit-list/(.*?)/?$ /edit-list?list_id=$1        [L]
+
+# Route everything else to index.php in the public directory
+# Note: username-router get variable used for public user profiles
+RewriteRule ^(.*)$                index.php?username-router=$1 [QSA,L]

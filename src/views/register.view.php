@@ -12,7 +12,7 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password"><br>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email"><br>
+        <input type="text" id="email" name="email"><br>
         <input type="submit" name="register" value="Register"></button>
     </form>
 
