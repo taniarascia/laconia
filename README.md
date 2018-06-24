@@ -2,7 +2,7 @@
 
 ### An MVC application written in plain PHP without libraries or frameworks
 
- [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) [![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?)](http://makeapullrequest.com) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+ [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?)](http://makeapullrequest.com) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 Laconia is a personal project to learn the fundamentals of programming and modern webapp development from scratch. The main goals of my project are to learn MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) paradigm, routing, modern development practices, and how to tie it all together to make a functional webapp. 
 
@@ -49,8 +49,39 @@ Create a virtual host called `laconia.server`. The server should point to the `/
 - Run `php install.php` in the root directory to initialize the database.
 - Run `composer install` to autoload classes and configuration.
 - Run `npm install` to allow use of Sass
-
 - In order to run Sass, use `npm run sass`.
+
+Laconia is all set up and ready to use!
+
+## Project Structure
+
+The entire program flows through `/public/index.php`, and the rest of the project is a directory below public.
+
+```bash
+laconia/        
+  . git           # Git source directory
+  assets/         # Uncompiled raw SCSS, JavaScript
+  config/         # Database credentials, utility helpers, and other configuration
+  data/           # SQL database files
+  node_modules/   # Node.js front end dependencies
+  public/         # Publicly accessible files
+      css/        # Compiled, ready-to-use styles
+      js/         # Compiled, ready-to-use scripts
+      index.php   # Main entry point for the entire application
+  src/            # PHP source code
+     controllers/ # Controller classes
+     models/      # Model classes
+     views/       # Views
+  tasks/          # npm tasks, such as compiling Sass
+  tests/          # Unit tests
+  vendor/         # Composer files and 3rd party packages
+  .gitignore      # Files to be ignored in the repository
+  composer.json   # Composer dependency file
+  install.php     # Database installation script
+  LICENSE         # MIT License file
+  package.json    # npm dependency file
+  README.md       # Brief documentation
+```
 
 ## Usage
 
@@ -73,13 +104,13 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
-- [] Comment all code (in progresss)
-- [] Allow users to edit their own lists
-- [] Create a user settings page
-- [] Create a top navigation bar when logged in
-- [] Add CSS styles
-- [] Make Sass watch
-- [] Add JavaScript to XHR validation and form submission
+- [ ] Comment all code (in progresss)
+- [ ] Allow users to edit their own lists
+- [ ] Create a user settings page
+- [ ] Create a top navigation bar when logged in
+- [ ] Add CSS styles
+- [ ] Make Sass watch
+- [ ] Add JavaScript to XHR validation and form submission
 - [x] Clean up password validation code
 - [x] Allow user to create a list with list items - laconia.test/create-list
 - [x] Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?
@@ -93,6 +124,7 @@ I've used a combination of many tutorials and StackOverflow posts to create this
 - [How to make a PDO class](https://www.culttt.com/2012/10/01/roll-your-own-pdo-php-class/)
 - [How to validate passwords](https://stackoverflow.com/questions/22544250/php-password-validation/22544286)
 - [General structure of a PHP application](https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog)
+- [Directory structure example](https://php.earth/docs/faq/misc/structure)
 
 ## License
 
