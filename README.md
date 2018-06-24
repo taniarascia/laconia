@@ -55,45 +55,47 @@ Laconia is all set up and ready to use!
 
 ## Project Structure
 
-The entire program flows through `/public/index.php`, and the rest of the project is a directory below public.
+The entire program flows through `/public/index.php`, and the rest of the project is a directory above public.
 
 ```bash
 laconia/        
-  . git           # Git source directory
-  assets/         # Uncompiled raw SCSS, JavaScript
-  config/         # Database credentials, utility helpers, and other configuration
-  data/           # SQL database files
-  node_modules/   # Node.js front end dependencies
-  public/         # Publicly accessible files
-      css/        # Compiled, ready-to-use styles
-      js/         # Compiled, ready-to-use scripts
-      index.php   # Main entry point for the entire application
-  src/            # PHP source code
-     controllers/ # Controller classes
-     models/      # Model classes
-     views/       # Views
-  tasks/          # npm tasks, such as compiling Sass
-  tests/          # Unit tests
-  vendor/         # Composer files and 3rd party packages
-  .gitignore      # Files to be ignored in the repository
-  composer.json   # Composer dependency file
-  install.php     # Database installation script
-  LICENSE         # MIT License file
-  package.json    # npm dependency file
-  README.md       # Brief documentation
+  .git             # Git source directory
+  assets/          # Uncompiled raw SCSS, JavaScript
+  config/          # Database credentials, utility helpers, and other configuration
+  data/            # SQL database files
+  node_modules/    # Node.js front end dependencies
+  public/          # Publicly accessible files
+      css/         # Compiled, ready-to-use styles
+      js/          # Compiled, ready-to-use scripts
+      index.php    # Main entry point for the entire application
+  src/             # PHP source code
+      controllers/ # Controller classes
+      models/      # Model classes
+      views/       # Views
+  tests/           # Unit tests
+  vendor/          # Composer files and 3rd party packages
+  .gitignore       # Files to be ignored in the repository
+  composer.json    # Composer dependency file
+  install.php      # Database installation script
+  LICENSE          # MIT License file
+  package.json     # npm dependency file
+  README.md        # Brief documentation
 ```
 
 ## Usage
 
 In Laconia, you can register an account, log in, log out, reset your password, create and edit lists, and view public profiles.
 
+- `/` - Index
 - `/register` - Register a new user
 - `/login` - Login to user account
+- `/home` - Logged in home screen
 - `/logout` - Logout of user session
 - `/reset-password` - Reset password and create a new password
 - `/create-list` - Create a new list
 - `/edit-list/:list_id` - Edit an existing list
 - `/:username` - View public profile
+- `/404` - Any not found redirects to 404.
 
 ## Testing
 

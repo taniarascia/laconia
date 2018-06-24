@@ -10,7 +10,7 @@
     "node-sass": "*"
   },
   "scripts": {
-    "sass": "node ./tasks/sass.js"
+    "sass": "node-sass -w -r ./assets/scss/ -o ./public/css/"
   },
   "repository": {
     "type": "git",
