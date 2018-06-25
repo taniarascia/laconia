@@ -8,14 +8,13 @@
             </a>
         </div>
         <div class="navigation-links">
-            <a href="/view-users">View Users</a>
             <?php if ($this->session->isUserLoggedIn()) : ?>
                 <a href="/home">Home</a>
+                <a href="/create-list">Create List</a>
                 <a href="/logout">Logout</a>
             <?php else : ?>
-                <a href="/login">Login</a>
-                <a href="/register">Register</a>
-                <a href="/forgot-password">Forgot Password</a>
+                <a href="/login" class="button">Login</a>
+                <a href="/register" class="button">Register</a>
             <?php endif; ?>
         </div>
     </section>

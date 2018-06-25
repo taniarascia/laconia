@@ -107,13 +107,20 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
-- [ ] Disallow spaces in usernames, disallow multiple same usernames with different casing
-- [ ] Comment all code (in progresss)
-- [ ] Allow users to edit their own lists
+- [ ] Disallow spaces in usernames
+- [ ] Comment all code
 - [ ] Create a user settings page
-- [ ] Create a top navigation bar when logged in
-- [ ] Add CSS styles
+- [ ] Make view for public user lists
 - [ ] Add JavaScript to XHR validation and form submission
+- [ ] Allow users to add or delete list items in edit mode
+- [ ] Allow users to delete list items in add mode
+- [ ] Prevent adding new list items if post is empty
+- [ ] Email empty password forgot
+- [ ] Fix issue with trailing slash in URL
+- [x] Allow users to edit their own lists
+- [x] Create a top navigation bar when logged in
+- [x] Add CSS styles
+- [x] Disallow multiple same usernames with different casing
 - [x] Make Sass watch
 - [x] Clean up password validation code
 - [x] Allow user to create a list with list items - laconia.test/create-list

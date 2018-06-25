@@ -25,14 +25,11 @@
                 justify-content: center;
                 align-items: center;
                 font-family: $heading-font-family;
-                color: white;
+                color: $primary-color;
                 font-weight: 700;
-                font-size: 1.2rem;
-                .brand-icon {
-                    display: block;
-                    height: 20px;
-                    width: 20px;
-                    margin: 0 10px 0;
+                font-size: 1.4rem;
+                &:hover {
+                    color: lighten($primary-color, 10%);
                 }
             }
         }
@@ -48,6 +45,11 @@
                 color: $primary-color;
                 font-weight: 700;
                 padding: 15px;
+                &.button {
+                    color: $accent-color;
+                    font-family: $font-family;
+                    margin: 0 5px;
+                }
                 &.navigation-social {
                     font-size: 1.2rem;
                     padding: 15px 8px;

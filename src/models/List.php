@@ -40,17 +40,30 @@ class ListClass extends Model
      * Return multiple results.
      */
 
-    public function getListById($id) {
+    public function getListItemsByListId($listId) {
         $query = "SELECT * 
                   FROM list_items 
                   WHERE list_id = :list_id";
 
         $this->db->query($query);
-        $this->db->bind(':list_id', $id);
+        $this->db->bind(':list_id', $listId);
             
         $lists = $this->db->resultset();
 
         return $lists;
+    }
+
+    public function getListByListId($listId) {
+        $query = "SELECT * 
+                  FROM lists
+                  WHERE id = :list_id";
+
+        $this->db->query($query);
+        $this->db->bind(':list_id', $listId);
+            
+        $list = $this->db->result();
+
+        return $list;
     }
 
     /**
@@ -93,5 +106,23 @@ class ListClass extends Model
         }
 
         return $result;
+    }
+
+    public function editList($post, $listId) {
+        foreach ($post as $key => $value) {
+            $query = "UPDATE list_items 
+                      SET name = :name 
+                      WHERE id = :id AND
+                            list_id = :list_id";
+            
+            $this->db->query($query);
+            $this->db->bind(':name', $value);
+            $this->db->bind(':id', $key);
+            $this->db->bind(':list_id', $listId);
+
+            $this->db->execute();
+        }
+
+        return $this->db->rowCount();
     }
 }

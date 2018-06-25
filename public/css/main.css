@@ -732,7 +732,7 @@ dd {
 .button, a.button, button, [type=submit], [type=reset], [type=button] {
   -webkit-appearance: none;
   display: inline-block;
-  border: 1px solid #C35531;
+  border: 0px solid #C35531;
   border-radius: 0;
   background: #C35531;
   color: #ffffff;
@@ -749,13 +749,13 @@ dd {
   line-height: 1; }
 
 .button:hover, a.button:hover, button:hover, [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
-  border: 1px solid #9a4327;
-  background: #9a4327;
+  border: 0px solid #9a4327;
+  background: #d47353;
   color: #ffffff;
   text-decoration: none; }
 
 .button:focus, .button:active, a.button:focus, a.button:active, button:focus, button:active, [type=submit]:focus, [type=submit]:active, [type=reset]:focus, [type=reset]:active, [type=button]:focus, [type=button]:active {
-  border: 1px solid #9a4327;
+  border: 0px solid #9a4327;
   background: #9a4327;
   color: #ffffff;
   text-decoration: none; }
@@ -944,14 +944,11 @@ caption {
         justify-content: center;
         align-items: center;
         font-family: "Quattrocento", -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-        color: white;
+        color: #C35531;
         font-weight: 700;
-        font-size: 1.2rem; }
-        .navigation-outer .navigation .navigation-brand a .brand-icon {
-          display: block;
-          height: 20px;
-          width: 20px;
-          margin: 0 10px 0; }
+        font-size: 1.4rem; }
+        .navigation-outer .navigation .navigation-brand a:hover {
+          color: #d47353; }
     .navigation-outer .navigation .navigation-links {
       justify-self: end;
       display: flex;
@@ -964,35 +961,18 @@ caption {
         color: #C35531;
         font-weight: 700;
         padding: 15px; }
+        .navigation-outer .navigation .navigation-links a.button {
+          color: #231F20;
+          font-family: "Quattrocento Sans", -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+          margin: 0 5px; }
         .navigation-outer .navigation .navigation-links a.navigation-social {
           font-size: 1.2rem;
           padding: 15px 8px; }
 
 /* Layout
   =============== */
-.hero-content {
-  display: grid;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10%;
-  max-height: 60vh;
-  min-height: 400px; }
-
 .lead {
   font-size: 1.4rem; }
 
-.quick-grid {
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: repeat(3, 1fr); }
-  .quick-grid .quick-grid-item {
-    text-align: center;
-    border: 1px solid #dedede;
-    padding: 30px; }
-    .quick-grid .quick-grid-item img {
-      display: block;
-      width: 75px;
-      height: 75px;
-      margin: 0 auto 15px; }
+h1 {
+  padding-top: 30px; }

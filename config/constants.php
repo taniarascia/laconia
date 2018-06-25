@@ -44,3 +44,4 @@ define('EMAIL_NOT_VALID', 'This is not a valid email address.');
 
 // Lists
 define('LIST_CREATE_SUCCESS', 'List successfully created!');
+define('LIST_UPDATE_SUCCESS', 'List successfully updated!');

@@ -15,7 +15,8 @@
             <input type="password" id="password" name="password">
             <label for="email">Email</label>
             <input type="text" id="email" name="email">
-            <input type="submit" name="register" value="Register"></button>
+            <input type="submit" name="register" value="Register">
+            <a class="button" href="/forgot-password">Forgot Password?</a>
         </form>
 
     </div>

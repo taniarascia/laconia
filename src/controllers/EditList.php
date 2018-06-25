@@ -6,8 +6,30 @@ use Laconia\ListClass;
 class EditList extends Controller
 {
     public $page_title = 'Edit List';
-    public $user;
     public $editList;
+    public $listTitle;
+    public $message;
+
+    public function post() {
+        $list = new ListClass();
+
+        $this->session->authenticate();
+        
+        // Proceed if authentication passed
+        $get = filter_get();
+        $post = filter_post();
+
+        $rowsAffected = $list->editList($post, $get['list_id']);
+
+        if ($rowsAffected > 0) {
+            $this->message = LIST_UPDATE_SUCCESS;
+        }
+
+        $this->editList = $list->getListItemsByListId($get['list_id']);
+        $this->listTitle = $list->getListByListId($get['list_id']);
+
+        $this->view('edit-list');
+    }
 
     public function get() {
         $list = new ListClass();
@@ -15,12 +37,9 @@ class EditList extends Controller
         $this->session->authenticate();
         
         // Proceed if authentication passed
-        $userInfo = $this->userControl->getUser($this->session->getSessionValue('user_id'));
-        $this->user = $userInfo;
-
         $get = filter_get();
-
-        $this->editList = $list->getListById($get['list_id']);
+        $this->editList = $list->getListItemsByListId($get['list_id']);
+        $this->listTitle = $list->getListByListId($get['list_id']);
 
         $this->view('edit-list');
     }
