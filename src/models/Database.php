@@ -1,5 +1,11 @@
 <?php
 
+/** Database Class
+ * 
+ * Initiates connection to the database and simplify PDO functions.
+ * 
+ */
+
 namespace Laconia;
 use \PDO;
 

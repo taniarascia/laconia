@@ -1,0 +1,34 @@
+/* Layout
+  =============== */
+
+.hero-content {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10%;
+  max-height: 60vh;
+  min-height: 400px;
+}
+
+.lead {
+  font-size: 1.4rem;
+}
+
+.quick-grid {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  .quick-grid-item {
+    text-align: center;
+    border: 1px solid $border-color;
+    padding: $padding;
+    img {
+      display: block;
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 15px;
+    }
+  }
+}

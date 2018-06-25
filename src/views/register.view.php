@@ -1,21 +1,23 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-    <h1><?= $this->page_title; ?></h1>
-    
-    <?php if (!empty($this->message)) : ?>
-        <p><?= $this->message; ?>
-    <?php endif; ?>
+    <div class="small-container">
 
-    <form action="" method="post">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password"><br>
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email"><br>
-        <input type="submit" name="register" value="Register"></button>
-    </form>
+        <h1><?= $this->page_title; ?></h1>
+        
+        <?php if (!empty($this->message)) : ?>
+            <p><?= $this->message; ?>
+        <?php endif; ?>
 
-    <p><a href="/">Index</a> <a href="/home">Home</a>  <a href="/login">Login</a></p>
+        <form action="" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email">
+            <input type="submit" name="register" value="Register"></button>
+        </form>
+
+    </div>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

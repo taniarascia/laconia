@@ -1,36 +1,38 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-    <h1><?= $this->page_title; ?></h1>
+    <div class="small-container">
 
-    <h2><?= $this->user['username']; ?></h2>
+        <h1><?= $this->page_title; ?></h1>
 
-    <table>
-        <tr>
-            <th>Username</th>
-            <th>Email</th>
-        </tr>
+        <h2><?= $this->user['username']; ?></h2>
 
-        <tr>
-            <td><?= $this->user['username']; ?></td>
-            <td><?= $this->user['email']; ?></td>
-        </tr>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
 
-    </table>
+            <tr>
+                <td><?= $this->user['username']; ?></td>
+                <td><?= $this->user['email']; ?></td>
+            </tr>
 
-    <h2>My lists</h2>
+        </table>
 
-    <ul>
-    <?php foreach ($this->lists as $list) : ?>
+        <h2>My lists</h2>
 
-        <li><a href="/edit-list/<?= $list['id']; ?>"><?= $list['title']; ?></a></li>
+        <ul>
+        <?php foreach ($this->lists as $list) : ?>
 
-    <?php endforeach ?>
-    </ul>
+            <li><a href="/edit-list/<?= $list['id']; ?>"><?= $list['title']; ?></a></li>
 
-    <h2>Create a list</h2>
+        <?php endforeach ?>
+        </ul>
 
-    <p><a href="/create-list">Create</a></p>
+        <h2>Create a list</h2>
 
-    <p><a href="/">Index</a> <a href="/logout">Logout</a></p>
+        <p><a class="button" href="/create-list">Create</a></p>
+
+    </div>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

@@ -6,6 +6,7 @@ abstract class Controller
 { 
     protected $page_title;
     protected $message;
+    protected $session;
 
     public function __construct($session, $userControl) {
         $this->session = $session;
@@ -16,6 +17,12 @@ abstract class Controller
         $file = strtolower($filename);
 
         return 'http://' . $_SERVER['HTTP_HOST'] . '/js/' . $file . '.js';
+    }
+
+    public function getStylesheet($filename) {
+        $file = strtolower($filename);
+
+        return 'http://' . $_SERVER['HTTP_HOST'] . '/css/' . $file . '.css';
     }
 
     protected function view($view) {
