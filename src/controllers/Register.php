@@ -22,15 +22,15 @@ class Register extends Controller
 
         // Username already exists in the database
         if ($usernameSearchResults > 0) {
-            $this->message = USERNAME_EXISTS;
+            $this->errors[] = USERNAME_EXISTS;
         }
         // Email already exists in the database
         elseif ($emailSearchResults > 0) {
-            $this->message = EMAIL_EXISTS;
+            $this->errors[] = EMAIL_EXISTS;
         } 
         // Username does matches with a disallowed username
         elseif (!$isApprovedUsername) {
-            $this->message = USERNAME_NOT_APPROVED;
+            $this->errors[] = USERNAME_NOT_APPROVED;
         } 
     }
 
