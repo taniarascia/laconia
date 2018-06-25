@@ -1,6 +1,7 @@
 <?php
 
-/** Database Class
+/** 
+ * Database Class
  * 
  * Initiates connection to the database and simplify PDO functions.
  * 

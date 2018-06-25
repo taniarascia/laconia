@@ -1,6 +1,7 @@
 <?php
 
-/** Session Class
+/** 
+ * Session Class
  * 
  * Determine and modify the state of user authentication.
  * 

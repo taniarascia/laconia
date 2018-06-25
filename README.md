@@ -107,6 +107,7 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
+- [ ] Disallow spaces in usernames, disallow multiple same usernames with different casing
 - [ ] Comment all code (in progresss)
 - [ ] Allow users to edit their own lists
 - [ ] Create a user settings page
