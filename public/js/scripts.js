@@ -33,6 +33,7 @@ if (formSubmit) {
         const request = new XMLHttpRequest();
         const url = window.location.href;
         const messageContainer = document.querySelector('#message');
+        const messageExists = document.querySelector('p.message');
         const message = document.createElement('p');
             message.classList.add('message'); 
 
@@ -40,8 +41,12 @@ if (formSubmit) {
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status == 200) {
                 if (request.responseText) {
-                    messageContainer.appendChild(message)
-                    message.textContent = request.responseText;
+                    if (!messageExists) {
+                        messageContainer.appendChild(message);
+                        message.textContent = request.responseText
+                    } else {
+                        messageExists.textContent = request.responseText;
+                    }
                 } else {
                     window.location.href = '/home';
                 }
