@@ -129,10 +129,19 @@ class ListClass extends Model
 
     public function editList($post, $listId) 
     {
+        $query = "UPDATE lists
+                  SET title = :title
+                  WHERE id = :list_id";
+
+        $this->db->query($query);
+        $this->db->bind(':title', $post['title']);
+        $this->db->bind(':list_id', $listId);
+        $this->db->execute();
+
         foreach ($post as $key => $value) {
             if ($value !== '') {
                 $query = "UPDATE list_items 
-                          SET name = :name 
+                          SET name = :name
                           WHERE id = :id AND
                                 list_id = :list_id";
                 

@@ -4,6 +4,7 @@
 main {
     min-height: calc(100vh - 170px);
 }
+
 .lead {
     font-size: 1.4rem;
 }
@@ -31,7 +32,8 @@ main {
     font-size: 1.1rem;
 }
 
-.flex-grid, .flex-list {
+.flex-grid,
+.flex-list {
     display: flex;
     flex-wrap: wrap;
     margin-left: -10px;
@@ -45,7 +47,7 @@ main {
         border: 1px solid #dedede;
         background: $accent-color;
         margin: 10px;
-        color: rgba(255,255,255,.9);
+        color: rgba(255, 255, 255, .9);
         &:hover {
             background: lighten($accent-color, 5%);
         }
@@ -68,7 +70,8 @@ main {
     .list-options {
         display: flex;
         justify-content: center;
-        a, input {
+        a,
+        input {
             margin: 0 2px;
         }
     }
@@ -86,4 +89,13 @@ main {
     .list-item {
         margin-bottom: 0;
     }
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 5%;
+    justify-items: center;
+    align-items: center;
+    padding: 15px 30px;
 }

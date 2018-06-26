@@ -5,12 +5,14 @@
     <section class="content-section">
         <div class="tiny-container">
 
-            <h2><?= $this->listTitle['title']; ?></h2>
-
             <?php include __DIR__ . '/partials/message.php'; ?>
 
             <form id="form-edit-list" action="" method="post">
+
+                <label for="title">Title</label>
+                <input type="text" name="title" value="<?= $this->listTitle['title']; ?>">
             
+                <label>List items</label>
                 <?php foreach ($this->editList as $list) : ?>
                     <input type="text" name="<?= $list['id']; ?>" value="<?= $list['name']; ?>">
                 <?php endforeach ?>

@@ -1,6 +1,5 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS and IE text size adjust after device orientation change,
@@ -8,25 +7,22 @@
  */
 
 html {
-	-ms-text-size-adjust: 100%;
-	/* 2 */
-	-webkit-text-size-adjust: 100%;
-	/* 2 */
+    -ms-text-size-adjust: 100%;
+    /* 2 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
 }
-
 
 /**
  * Remove default margin.
  */
 
 body {
-	margin: 0;
+    margin: 0;
 }
-
 
 /* HTML5 display definitions
    ========================================================================== */
-
 
 /**
  * Correct `block` display not defined for any HTML5 element in IE 8/9.
@@ -47,9 +43,8 @@ menu,
 nav,
 section,
 summary {
-	display: block;
+    display: block;
 }
-
 
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
@@ -60,12 +55,11 @@ audio,
 canvas,
 progress,
 video {
-	display: inline-block;
-	/* 1 */
-	vertical-align: baseline;
-	/* 2 */
+    display: inline-block;
+    /* 1 */
+    vertical-align: baseline;
+    /* 2 */
 }
-
 
 /**
  * Prevent modern browsers from displaying `audio` without controls.
@@ -73,10 +67,9 @@ video {
  */
 
 audio:not([controls]) {
-	display: none;
-	height: 0;
+    display: none;
+    height: 0;
 }
-
 
 /**
  * Address `[hidden]` styling not present in IE 8/9/10.
@@ -85,13 +78,11 @@ audio:not([controls]) {
 
 [hidden],
 template {
-	display: none;
+    display: none;
 }
-
 
 /* Links
    ========================================================================== */
-
 
 /**
  * Remove the gray background color from active links in IE 10.
@@ -108,13 +99,11 @@ a {
 
 a:active,
 a:hover {
-	outline: 0;
+    outline: 0;
 }
-
 
 /* Text-level semantics
    ========================================================================== */
-
 
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
@@ -131,9 +120,8 @@ abbr[title] {
 
 b,
 strong {
-	font-weight: bold;
+    font-weight: bold;
 }
-
 
 /**
  * Address styling not present in Safari and Chrome.
@@ -176,46 +164,41 @@ small {
 
 sub,
 sup {
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 
 sup {
-	top: -0.5em;
+    top: -0.5em;
 }
 
 sub {
-	bottom: -0.25em;
+    bottom: -0.25em;
 }
-
 
 /* Embedded content
    ========================================================================== */
-
 
 /**
  * Remove border when inside `a` element in IE 8/9/10.
  */
 
 img {
-	border: 0;
+    border: 0;
 }
-
 
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
 
 svg:not(:root) {
-	overflow: hidden;
+    overflow: hidden;
 }
-
 
 /* Grouping content
    ========================================================================== */
-
 
 /**
  * Address margin not present in IE 8/9 and Safari.
@@ -230,19 +213,17 @@ figure {
  */
 
 hr {
-	box-sizing: content-box;
-	height: 0;
+    box-sizing: content-box;
+    height: 0;
 }
-
 
 /**
  * Contain overflow in all browsers.
  */
 
 pre {
-	overflow: auto;
+    overflow: auto;
 }
-
 
 /**
  * Address odd `em`-unit font size rendering in all browsers.
@@ -259,12 +240,10 @@ samp {
 /* Forms
    ========================================================================== */
 
-
 /**
  * Known limitation: by default, Chrome and Safari on OS X allow very limited
  * styling of `select`, unless a `border` property is set.
  */
-
 
 /**
  * 1. Correct color not being inherited.
@@ -336,9 +315,8 @@ input[type="submit"] {
 
 button[disabled],
 html input[disabled] {
-	cursor: default;
+    cursor: default;
 }
-
 
 /**
  * Remove inner padding and border in Firefox 4+.
@@ -346,10 +324,9 @@ html input[disabled] {
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
+    border: 0;
+    padding: 0;
 }
-
 
 /**
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
@@ -451,7 +428,6 @@ optgroup {
 
 /* Tables
    ========================================================================== */
-
 
 /**
  * Remove most spacing between table cells.

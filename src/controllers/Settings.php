@@ -17,10 +17,12 @@ class Settings extends Controller
 
         // Get user by session value
         $userId = $this->session->getSessionValue('user_id');
-        $this->user = $this->userControl->getUser($userId);
 
         // Update settings
         $this->userControl->updateUserSettings($post, $userId);
+
+        // Load new settings
+        $this->user = $this->userControl->getUser($userId);
 
         $this->view('settings');
     }

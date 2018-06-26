@@ -1002,12 +1002,14 @@ main {
   padding: 30px;
   font-size: 1.1rem; }
 
-.flex-grid, .flex-list {
+.flex-grid,
+.flex-list {
   display: flex;
   flex-wrap: wrap;
   margin-left: -10px;
   margin-right: -10px; }
-  .flex-grid .items, .flex-list .items {
+  .flex-grid .items,
+  .flex-list .items {
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
@@ -1017,24 +1019,32 @@ main {
     background: #231F20;
     margin: 10px;
     color: rgba(255, 255, 255, 0.9); }
-    .flex-grid .items:hover, .flex-list .items:hover {
+    .flex-grid .items:hover,
+    .flex-list .items:hover {
       background: #312b2c; }
-  .flex-grid a.button, .flex-list a.button {
+  .flex-grid a.button,
+  .flex-list a.button {
     margin-bottom: 0; }
-  .flex-grid .list-item, .flex-list .list-item {
+  .flex-grid .list-item,
+  .flex-list .list-item {
     display: block;
     font-size: 1.4rem;
     font-weight: 700;
     align-items: center;
     margin-bottom: 2rem;
     text-align: center; }
-    .flex-grid .list-item:hover, .flex-list .list-item:hover {
+    .flex-grid .list-item:hover,
+    .flex-list .list-item:hover {
       color: #da9780;
       text-decoration: none; }
-  .flex-grid .list-options, .flex-list .list-options {
+  .flex-grid .list-options,
+  .flex-list .list-options {
     display: flex;
     justify-content: center; }
-    .flex-grid .list-options a, .flex-grid .list-options input, .flex-list .list-options a, .flex-list .list-options input {
+    .flex-grid .list-options a,
+    .flex-grid .list-options input,
+    .flex-list .list-options a,
+    .flex-list .list-options input {
       margin: 0 2px; }
 
 .flex-list {
@@ -1047,3 +1057,11 @@ main {
     align-items: center; }
   .flex-list .list-item {
     margin-bottom: 0; }
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 5%;
+  justify-items: center;
+  align-items: center;
+  padding: 15px 30px; }
