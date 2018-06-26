@@ -219,7 +219,7 @@ abstract class Controller
     protected function getErrors($errors) 
     {
         foreach ($errors as $error) {
-            $this->errorList .= $error . '<br>';
+            $this->errorList .= $error . "\n";
         }
         return $this->errorList;
     }

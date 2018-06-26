@@ -21,23 +21,27 @@ class Login extends Controller
         
         // Could not find a user with that username
         if (!$this->user) {
-            $this->message = LOGIN_FAIL;
-            echo $this->message;
+            $this->message = USERNAME_NOT_EXISTS;
+
+            echo json_encode($this->message);
+            exit;
         } else {
             // User account found
             $correctPassword = $this->verifyPassword($password, $this->user['password']);
             
             if ($correctPassword) {
-                // User login
+                //User login
                 $this->session->login($this->user);
-                //$this->redirect('home');
+                $this->message = 'Proceed';
+
+                echo json_encode($this->message);
+                exit;
             } else {
                 $this->message = LOGIN_FAIL;
-                echo $this->message;
+                echo json_encode($this->message);
+                exit;
             }
         }
-
-        //$this->view('login');
     }
 
     public function get() 

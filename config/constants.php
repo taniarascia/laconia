@@ -36,6 +36,7 @@ define('PASSWORD_MISSING', 'You must include a password');
 
 // Username validation
 define('USERNAME_EXISTS', 'That username already exists');
+define('USERNAME_NOT_EXISTS', 'That username does not exist');
 define('USERNAME_NOT_APPROVED', 'That username is not approved');
 define('USERNAME_MISSING', 'You must include a username');
 define('USERNAME_TOO_SHORT', 'Username must contain at least 3 characters');
