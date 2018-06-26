@@ -1,7 +1,9 @@
 <?php
 
+// Site
 define('SITE_NAME', 'Laconia');
 
+// Reserved names
 define('DISALLOWED_USERNAMES', [
     'create',
     'create-list',
@@ -36,7 +38,8 @@ define('PASSWORD_MISSING', 'You must include a password');
 define('USERNAME_EXISTS', 'That username already exists');
 define('USERNAME_NOT_APPROVED', 'That username is not approved');
 define('USERNAME_MISSING', 'You must include a username');
-define('USERNAME_TOO_SHORT', 'Username must contain at least 4 characters');
+define('USERNAME_TOO_SHORT', 'Username must contain at least 3 characters');
+define('USERNAME_TOO_LONG', 'Username must be shorter than 50 characters');
 define('USERNAME_CONTAINS_DISALLOWED', 'Your username cannot contain special characters');
 
 // Email validation
@@ -49,3 +52,6 @@ define('EMAIL_NOT_VALID', 'Email address is not valid');
 define('LIST_CREATE_SUCCESS', 'List successfully created');
 define('LIST_CREATE_FAIL', 'Your list was not created! Please fill out all fields');
 define('LIST_UPDATE_SUCCESS', 'List successfully updated');
+
+// Settings
+define('SETTINGS_UPDATE_SUCCESS', 'Settings successfully updated!');

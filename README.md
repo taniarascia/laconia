@@ -91,7 +91,8 @@ In Laconia, you can register an account, log in, log out, reset your password, c
 - `/login` - Login to user account
 - `/home` - Logged in home screen
 - `/logout` - Logout of user session
-- `/reset-password` - Reset password and create a new password
+- `/forgot-password` - Get a password reset link
+- `/create-password` - Create a new passowrd
 - `/create` - Create a new list
 - `/edit/:list_id` - Edit an existing list
 - `/:username` - View public profile

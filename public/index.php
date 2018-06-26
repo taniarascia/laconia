@@ -38,12 +38,10 @@ $userControl = new User();
 // Routing
 $redirect = $_SERVER['REDIRECT_URL'];
 $method = $_SERVER['REQUEST_METHOD'];
-
-// Get the path after the hostname
 $path = ltrim($redirect, '/');
 
 // Check if path matches a user
-$username = $userControl->getUserByUsername(ltrim($path));
+$username = $userControl->getUserByUsername($path);
 
 // Get controller name by converting URL of dashes
 // (such as forgot-password) to uppercase class names

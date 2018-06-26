@@ -5,18 +5,20 @@
     <section class="content-section">
         <div class="tiny-container">
 
-        <h2>Create a list</h2>
-        <p>Press <kbd>SHIFT</kbd> + <kbd>ENTER</kbd> to add a new list item.</p>
+            <h2>Create a list</h2>
+            <p>Press <kbd>SHIFT</kbd> + <kbd>ENTER</kbd> to add a new list item.</p>
 
-        <?php include __DIR__ . '/partials/message.php'; ?>
+            <?php include __DIR__ . '/partials/message.php'; ?>
 
-            <form id="create" action="" method="post">
-                <label>Title</label>
-                <input type="text" name="title">
+            <form id="form-create-list" action="" method="post">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+                
                 <label>List items</label>
                 <div id="list-items">
                     <input type="text" id="0" name="list_item_0">
                 </div>
+
                 <input type="submit" value="Create">
                 <a href="/home" class="button">Back</a>
             </form>

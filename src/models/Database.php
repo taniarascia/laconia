@@ -5,6 +5,10 @@
  * 
  * Initiates connection to the database and simplify PDO functions.
  * 
+ * The Database class will be initialized with the credentials 
+ * of the SQL database, and will create a new PDO instance. The
+ * rest of the model classes will access it by extending the Model class,
+ * as $this->db.
  */
 
 namespace Laconia;
@@ -22,6 +26,12 @@ class Database
 
     private $statement;
 
+    /**
+     * Initialize the PDO connection. Set the handler as
+     * the new instance to be used throughout each additional
+     * function.
+     */
+
     public function __construct() {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;  
         $options = [
@@ -35,10 +45,19 @@ class Database
             $this->error = $e->getMessage();  
         } 
     } 
+
+    /**
+     * Prepare a statement.
+     */
     
     public function query($query) {  
         $this->statement = $this->handler->prepare($query);  
-    }   
+    }
+    
+    /**
+     * Bind the variables to the proper type. Allows
+     * for integer, string, null, and boolean.
+     */
 
     public function bind($param, $value, $type = null) {
         if (is_null($type)) {  
@@ -59,22 +78,31 @@ class Database
         $this->statement->bindValue($param, $value, $type);   
     } 
 
+    /**
+     * Execute a prepared statement.
+     */
+
     public function execute() {  
         try {
             return $this->statement->execute();  
-         } catch (PDOException $e) {
-            if ($e->errorInfo[1] == 1062) {
-                $message = 'Duplicate entry';
-                exit;
-            }
-        }
-    }  
+         } catch (PDOException $e) {  
+            $this->error = $e->getMessage();  
+        } 
+    }
+    
+    /**
+     * Fetch a single row as a result of a query.
+     */
 
     public function result() {  
         $this->execute(); 
          
         return $this->statement->fetch(PDO::FETCH_ASSOC);  
     } 
+
+    /**
+     * Fetch a set of rows as a result of a query.
+     */
     
     public function resultset() {  
         $this->execute();  
@@ -82,9 +110,17 @@ class Database
         return $this->statement->fetchAll(PDO::FETCH_ASSOC);  
     }
 
+    /**
+     * Get the row count of the statement.
+     */
+
     public function rowCount(){  
         return $this->statement->rowCount();  
-    }    
+    } 
+    
+    /**
+     * Get the id of the last inserted item into the database.
+     */
 
     public function lastInsertId() {  
         return $this->handler->lastInsertId();  

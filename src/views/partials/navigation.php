@@ -9,6 +9,7 @@
             </a>
         </div>
         <div class="navigation-links">
+
             <?php if ($this->session->isUserLoggedIn()) : ?>
                 <a href="/home">Home</a>
                 <a href="/create">Create List</a>
@@ -18,6 +19,7 @@
                 <a href="/login" class="button">Login</a>
                 <a href="/register" class="button">Register</a>
             <?php endif; ?>
+
         </div>
     </section>
 </div>

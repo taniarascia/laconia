@@ -12,7 +12,6 @@
  * From here, we can get information on any user by their user ID, 
  * username, or email, or we can get a list of all users. This class
  * also includes calls to the password request table.
- * 
  */
 
 namespace Laconia;
@@ -154,6 +153,31 @@ class User extends Model
         $result = $this->db->result();
 
         return $result['num'];
+    }
+
+    /**
+     * Update the settings of a user.
+     * Return a boolean.
+     */
+
+    public function updateUserSettings($post, $userId) {
+        $query = "UPDATE users 
+                  SET fullname = :fullname ,
+                      location = :location,
+                      email = :email, 
+                      description = :description
+                  WHERE id = :user_id";
+        
+        $this->db->query($query);
+        $this->db->bind(':fullname', $post['fullname']);
+        $this->db->bind(':location', $post['location']);
+        $this->db->bind(':email', $post['email']);
+        $this->db->bind(':description', $post['description']);
+        $this->db->bind(':user_id', $userId);
+    
+        $result = $this->db->execute();
+
+        return $result;
     }
 
     /**

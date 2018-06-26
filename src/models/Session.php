@@ -9,7 +9,6 @@
  * data in the `users` table, the Session class is used to check the 
  * state of a user's authentication. Laconia uses the PHP session 
  * superglobal to determine if a user is logged in or not.
- * 
  */
 
 namespace Laconia;
