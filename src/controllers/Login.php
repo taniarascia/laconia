@@ -22,6 +22,7 @@ class Login extends Controller
         // Could not find a user with that username
         if (!$this->user) {
             $this->message = LOGIN_FAIL;
+            echo $this->message;
         } else {
             // User account found
             $correctPassword = $this->verifyPassword($password, $this->user['password']);
@@ -29,13 +30,14 @@ class Login extends Controller
             if ($correctPassword) {
                 // User login
                 $this->session->login($this->user);
-                $this->redirect('home');
+                //$this->redirect('home');
             } else {
                 $this->message = LOGIN_FAIL;
+                echo $this->message;
             }
         }
 
-        $this->view('login');
+        //$this->view('login');
     }
 
     public function get() 

@@ -10,7 +10,7 @@
 
             <?php include __DIR__ . '/partials/message.php'; ?>
 
-            <form id="form-login" action="" method="post">
+            <form id="form-login">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username">
 

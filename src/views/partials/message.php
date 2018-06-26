@@ -1,3 +1,5 @@
-<?php if (!empty($this->message)) : ?>
-    <p class="message"><?= $this->message; ?>
-<?php endif; ?>
+<div id="message">
+    <?php if (!empty($this->message)) : ?>
+        <p class="message"><?= $this->message; ?></p>
+    <?php endif; ?>
+</div>

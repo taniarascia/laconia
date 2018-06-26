@@ -1,5 +1,4 @@
-const listItems = document.getElementById('list-items');
-const form = document.querySelector('form');
+const listItems = document.querySelector('#message');
 let counter = 0;
 
 if (listItems) {
@@ -24,22 +23,33 @@ if (listItems) {
     });
 }
 
-    // if (form) {
-    //     form.addEventListener('submit', event => {
-    //         event.preventDefault();
+const formSubmit = document.querySelector('#form-login');
 
-    //         var formData = new FormData(form);
-    //         var request = new XMLHttpRequest();
-    //         var url = window.location.href;
+if (formSubmit) {
+    formSubmit.addEventListener('submit', event => {
+        event.preventDefault();
 
-    //         request.open('POST', url);
-    //         request.onreadystatechange = function () {
-    //             if (request.readyState == 4 && request.status == 200) {
-    //                 document.getElementById('message').textContent = request.responseText;
-    //             } else {
-    //                 document.getElementById('message').textContent = request.responseText;
-    //             }
-    //         }
-    //         request.send(formData);
-    //     });
-    // }
+        const formData = new FormData(formSubmit);
+        const request = new XMLHttpRequest();
+        const url = window.location.href;
+        const messageContainer = document.querySelector('#message');
+        const message = document.createElement('p');
+            message.classList.add('message'); 
+
+        request.open('POST', url);
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                if (request.responseText) {
+                    messageContainer.appendChild(message)
+                    message.textContent = request.responseText;
+                } else {
+                    window.location.href = '/home';
+                }
+            } else {
+                message.textContent = 'Something went wrong...';
+                return;
+            }
+        }
+        request.send(formData);
+    });
+}
