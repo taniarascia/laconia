@@ -62,29 +62,45 @@ if (formSubmit || formRegister) {
     });
 }
 
-// Doesn't work
-//fetch(url, 
-//     { 
-//         method: 'POST',
-//         body: formData
-//     } 
-// )
-// .then(response => {
-//     return response.json();
-// })
-// .then(data => { 
-//     if (data !== 'Proceed') {
-//         if (!messageExists) {
-//             messageContainer.appendChild(message);
-//             message.textContent = data;
-//         } else {
-//             messageExists.textContent = data;
-//         }
-//     } else {
-//         window.location.href = '/home';
-//     }
-// })
-// .catch(error => {
-//     console.log(error);
-//     message.textContent = error;
-// });
+const post = () => {
+        return new Promise((resolve, reject) => {
+                request.open('POST', url);
+                request.onreadystatechange = function () {
+                    if (request.readyState == 4 && request.status == 200 && request.responseText === '"Proceed"') {
+                        resolve(request.responseText);
+                    } else {
+                        reject('Something Went Wrong');
+                    }
+                }
+                request.send(formData);
+            });
+        }
+
+        post().then(response => { /* ... DOM logic */ }).catch(error => { /* handle error */ })
+
+        // Doesn't work
+        //fetch(url, 
+        //     { 
+        //         method: 'POST',
+        //         body: formData
+        //     } 
+        // )
+        // .then(response => {
+        //     return response.json();
+        // })
+        // .then(data => { 
+        //     if (data !== 'Proceed') {
+        //         if (!messageExists) {
+        //             messageContainer.appendChild(message);
+        //             message.textContent = data;
+        //         } else {
+        //             messageExists.textContent = data;
+        //         }
+        //     } else {
+        //         window.location.href = '/home';
+        //     }
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        //     message.textContent = error;
+        // });
