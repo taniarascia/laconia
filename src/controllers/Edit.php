@@ -10,7 +10,8 @@ class Edit extends Controller
     public $listTitle;
     public $message;
 
-    public function post() {
+    public function post() 
+    {
         $get = filter_get();
         $post = filter_post();
         $list = new ListClass();
@@ -32,7 +33,8 @@ class Edit extends Controller
         $this->view('edit');
     }
 
-    public function get() {
+    public function get() 
+    {
         $get = filter_get();
         $list = new ListClass();
 

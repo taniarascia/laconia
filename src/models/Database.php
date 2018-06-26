@@ -32,7 +32,8 @@ class Database
      * function.
      */
 
-    public function __construct() {
+    public function __construct() 
+    {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;  
         $options = [
             PDO::ATTR_PERSISTENT => true,  
@@ -50,7 +51,8 @@ class Database
      * Prepare a statement.
      */
     
-    public function query($query) {  
+    public function query($query) 
+    {  
         $this->statement = $this->handler->prepare($query);  
     }
     
@@ -59,7 +61,8 @@ class Database
      * for integer, string, null, and boolean.
      */
 
-    public function bind($param, $value, $type = null) {
+    public function bind($param, $value, $type = null) 
+    {
         if (is_null($type)) {  
             switch (true) {  
                 case is_int($value):  
@@ -82,7 +85,8 @@ class Database
      * Execute a prepared statement.
      */
 
-    public function execute() {  
+    public function execute() 
+    {  
         try {
             return $this->statement->execute();  
          } catch (PDOException $e) {  
@@ -94,7 +98,8 @@ class Database
      * Fetch a single row as a result of a query.
      */
 
-    public function result() {  
+    public function result() 
+    {  
         $this->execute(); 
          
         return $this->statement->fetch(PDO::FETCH_ASSOC);  
@@ -104,7 +109,8 @@ class Database
      * Fetch a set of rows as a result of a query.
      */
     
-    public function resultset() {  
+    public function resultset() 
+    {  
         $this->execute();  
 
         return $this->statement->fetchAll(PDO::FETCH_ASSOC);  
@@ -114,7 +120,8 @@ class Database
      * Get the row count of the statement.
      */
 
-    public function rowCount(){  
+    public function rowCount()
+    {  
         return $this->statement->rowCount();  
     } 
     
@@ -122,7 +129,8 @@ class Database
      * Get the id of the last inserted item into the database.
      */
 
-    public function lastInsertId() {  
+    public function lastInsertId() 
+    {  
         return $this->handler->lastInsertId();  
     }  
 }

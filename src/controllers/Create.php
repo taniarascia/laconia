@@ -10,7 +10,8 @@ class Create extends Controller
     public $message;
     public $session;
 
-    public function post() { 
+    public function post() 
+    { 
         $list = new ListClass();
         $post = filter_post();
 
@@ -33,7 +34,8 @@ class Create extends Controller
         $this->view('create');
     }
 
-    public function get() {
+    public function get() 
+    {
         // Proceed if authentication passed
         $this->session->authenticate();
         

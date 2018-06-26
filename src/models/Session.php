@@ -21,7 +21,8 @@ class Session
      * 
      */
 
-    public function __construct() {
+    public function __construct() 
+    {
        if (!isset($_SESSION)) {
             session_start();
        }
@@ -33,7 +34,8 @@ class Session
      * 
      */
 
-    public function login($user) {
+    public function login($user) 
+    {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['is_logged_in'] = true;
         $_SESSION['time_logged_in'] = time();
@@ -43,7 +45,8 @@ class Session
      * Unset all session variables and destroy the session.
      */
 
-    public function logout() {
+    public function logout() 
+    {
         unset($_SESSION['is_logged_in']);
         unset($_SESSION['user_id']);
         unset($_SESSION['time_logged_in']);
@@ -56,7 +59,8 @@ class Session
      * if not.
      */
 
-    public function authenticate() {
+    public function authenticate() 
+    {
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in'])) {
             header('Location: /login');
         }
@@ -66,7 +70,8 @@ class Session
      * Return true if user is logged in.
      */
 
-    public function isUserLoggedIn() {
+    public function isUserLoggedIn() 
+    {
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in'])) {
             return false;
         } else {
@@ -79,7 +84,8 @@ class Session
      * one who initiated the request.
      */
 
-    public function setPasswordRequestId($userId) {
+    public function setPasswordRequestId($userId) 
+    {
         $_SESSION['user_id_reset_pass'] = $userId;
     }
 
@@ -87,7 +93,8 @@ class Session
      * Set a session value.
      */
 
-    public function setSessionValue($key, $value) {
+    public function setSessionValue($key, $value) 
+    {
         $_SESSION[$key] = $value;
     }
 
@@ -95,7 +102,8 @@ class Session
      * Unset a session value.
      */
 
-    public function deleteSessionValue($key) {
+    public function deleteSessionValue($key) 
+    {
         unset($_SESSION[$key]);
     }
 
@@ -104,7 +112,8 @@ class Session
      * Return value or null.
      */
 
-    public function getSessionValue($key) {
+    public function getSessionValue($key) 
+    {
         return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
     }
 }

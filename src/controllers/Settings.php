@@ -9,7 +9,8 @@ class Settings extends Controller
     public $message;
     public $user;
 
-    public function post() {
+    public function post() 
+    {
         $this->session->authenticate();
         $get = filter_get();
         $post = filter_post();
@@ -24,7 +25,8 @@ class Settings extends Controller
         $this->view('settings');
     }
 
-    public function get() {
+    public function get() 
+    {
         $this->session->authenticate();
         $get = filter_get();
         

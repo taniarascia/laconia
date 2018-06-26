@@ -10,7 +10,8 @@ class ForgotPassword extends Controller
     public $user;
     public $success = false;
 
-    public function post() {
+    public function post() 
+    {
         $post = filter_post();
         $db = new Database();
 
@@ -43,7 +44,8 @@ class ForgotPassword extends Controller
         $this->view('forgot-password');
     }
 
-    public function get() {
+    public function get() 
+    {
         $isLoggedIn = $this->session->isUserLoggedIn();
 
         if ($isLoggedIn) {

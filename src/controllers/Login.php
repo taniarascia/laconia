@@ -8,7 +8,8 @@ class Login extends Controller
     public $user;
     public $message;
 
-    public function post() {
+    public function post() 
+    {
         $post = filter_post();
 
         $username = $post['username'];
@@ -37,7 +38,8 @@ class Login extends Controller
         $this->view('login');
     }
 
-    public function get() {
+    public function get() 
+    {
         $isLoggedIn = $this->session->isUserLoggedIn();
 
         if ($isLoggedIn) {

@@ -9,7 +9,8 @@ class Home extends Controller
     public $lists;
     public $user;
 
-    public function post() {
+    public function post() 
+    {
         $post = filter_post();
         $list = new ListClass();
 
@@ -30,7 +31,8 @@ class Home extends Controller
         $this->view('home');
     }
 
-    public function get() {
+    public function get() 
+    {
         $list = new ListClass();
 
         // Proceed if authentication passed

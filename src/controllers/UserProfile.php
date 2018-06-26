@@ -10,7 +10,8 @@ class UserProfile extends Controller
     public $lists;
     public $list;
 
-    public function get() {
+    public function get() 
+    {
         $get = filter_get();
         $this->list = new ListClass();
 

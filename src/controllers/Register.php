@@ -10,9 +10,13 @@ class Register extends Controller
     public $errorList = '';
     public $errors = [];
 
-    public function validateNewUser($username, $password, $email) {
-        // Make sure password passes proper testing, username does not
-        // contain special characters, and email is valid.
+    /**
+     * Make sure password passes proper testing, username does not
+     * contain special characters, and email is valid.
+     */
+
+    public function validateNewUser($username, $password, $email) 
+    {
         $this->validatePassword($password);
         $this->validateUsername($username);
         $this->validateEmail($email);
@@ -35,7 +39,8 @@ class Register extends Controller
         } 
     }
 
-    public function post() {
+    public function post() 
+    {
         $post = filter_post();
 
         $username = $post['username'];
@@ -66,7 +71,8 @@ class Register extends Controller
         $this->view('register');
     }
 
-    public function get() {
+    public function get() 
+    {
         $isLoggedIn = $this->session->isUserLoggedIn();
 
         if ($isLoggedIn) {

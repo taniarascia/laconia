@@ -4,7 +4,8 @@ use Laconia\Controller;
 
 class Logout extends Controller
 {
-    public function get() {
+    public function get() 
+    {
         $this->session->logout();
         $this->redirect('');
     }

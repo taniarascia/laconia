@@ -24,7 +24,8 @@ abstract class Controller
      * Initialize controller with Session and User classes.
      */
 
-    public function __construct($session, $userControl) {
+    public function __construct($session, $userControl) 
+    {
         $this->session = $session;
         $this->userControl = $userControl;
     }
@@ -34,7 +35,8 @@ abstract class Controller
      * Returns a URL.
      */
 
-    protected function getScript($filename) {
+    protected function getScript($filename) 
+    {
         $file = strtolower($filename);
 
         return 'http://' . $_SERVER['HTTP_HOST'] . '/js/' . $file . '.js';
@@ -45,7 +47,8 @@ abstract class Controller
      * Returns a URL.
      */
 
-    protected function getStylesheet($filename) {
+    protected function getStylesheet($filename) 
+    {
         $file = strtolower($filename);
 
         return 'http://' . $_SERVER['HTTP_HOST'] . '/css/' . $file . '.css';
@@ -56,7 +59,8 @@ abstract class Controller
      * Requires a file.
      */
 
-    protected function view($view) {
+    protected function view($view) 
+    {
         $view = strtolower($view);
 
         require_once $_SERVER['DOCUMENT_ROOT'] . '/../src/views/' . $view . '.view.php';
@@ -67,7 +71,8 @@ abstract class Controller
      * Returns a Boolean.
      */
 
-    protected function isIndex() {
+    protected function isIndex() 
+    {
         $redirect = ltrim($_SERVER['REDIRECT_URL'], '/');
         
         return $redirect === '';
@@ -78,7 +83,8 @@ abstract class Controller
      * Returns a Boolean.
      */
 
-    protected function isPage($view) {
+    protected function isPage($view) 
+    {
         $view = strtolower($view);
 
         $redirect = ltrim($_SERVER['REDIRECT_URL'], '/');
@@ -90,7 +96,8 @@ abstract class Controller
      * Redirects to the specified page.
      */
 
-    protected function redirect($view) {
+    protected function redirect($view) 
+    {
         $view = strtolower($view);
 
         header('Location: /' . $view );
@@ -102,7 +109,8 @@ abstract class Controller
      * Returns hashed password.
      */
 
-    protected function encryptPassword($password) {
+    protected function encryptPassword($password) 
+    {
         $passwordHash = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12));
         
         return $passwordHash;
@@ -113,7 +121,8 @@ abstract class Controller
      * Return a Boolean.
      */   
 
-    protected function verifyPassword($submittedPassword, $password) {
+    protected function verifyPassword($submittedPassword, $password) 
+    {
         $validPassword = password_verify($submittedPassword, $password);
         
         return $validPassword;
@@ -124,7 +133,8 @@ abstract class Controller
      * Return a Boolean.
      */
 
-    protected function isApprovedUsername($username) {
+    protected function isApprovedUsername($username) 
+    {
         $approved = in_array($username, DISALLOWED_USERNAMES) ? false : true;
 
         return $approved;
@@ -136,7 +146,8 @@ abstract class Controller
      * Return an error or null.
      */
 
-    protected function validateUsername($username) {
+    protected function validateUsername($username) 
+    {
         if (!empty($username)) {
             if (strlen($username) < '3') {
                 $this->errors[] = USERNAME_TOO_SHORT;
@@ -159,7 +170,8 @@ abstract class Controller
      * Return an error or null.
      */
 
-    protected function validatePassword($password) {
+    protected function validatePassword($password) 
+    {
         if (!empty($password)) {
             if (strlen($password) < '8') {
                 $this->errors[] = PASSWORD_TOO_SHORT;
@@ -184,7 +196,8 @@ abstract class Controller
      * Return an error or null.
      */
 
-    protected function validateEmail($email) {
+    protected function validateEmail($email) 
+    {
         if (!empty($email)) {
             // Remove all illegal characters from email
             $email = filter_var($email, FILTER_SANITIZE_EMAIL);
@@ -203,7 +216,8 @@ abstract class Controller
      * Return a string.
      */
 
-    protected function getErrors($errors) {
+    protected function getErrors($errors) 
+    {
         foreach ($errors as $error) {
             $this->errorList .= $error . '<br>';
         }

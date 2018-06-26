@@ -3,7 +3,8 @@
 use Laconia\Controller;
 
 class ForgotPasswordProcess extends Controller {
-    public function get() {
+    public function get() 
+    {
         $get = filter_get();
         $requestInfo = $this->userControl->verifyPasswordRequest($get['uid'], $get['id'], $get['t']);
         

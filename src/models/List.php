@@ -22,7 +22,8 @@ class ListClass extends Model
      * Returns multiple results.
      */
 
-    public function getListsByUser($user) {
+    public function getListsByUser($user) 
+    {
         $query = "SELECT * 
                   FROM lists 
                   WHERE user_id = :user_id
@@ -41,7 +42,8 @@ class ListClass extends Model
      * Returns one result.
      */
 
-    public function getListByListId($listId) {
+    public function getListByListId($listId) 
+    {
         $query = "SELECT * 
                   FROM lists
                   WHERE id = :list_id";
@@ -59,7 +61,8 @@ class ListClass extends Model
      * Return multiple results.
      */
 
-    public function getListItemsByListId($listId) {
+    public function getListItemsByListId($listId) 
+    {
         $query = "SELECT * 
                   FROM list_items 
                   WHERE list_id = :list_id";
@@ -77,7 +80,8 @@ class ListClass extends Model
      * Returns boolean result of original list creation.
      */
 
-    public function createList($user, $title, $post) {
+    public function createList($user, $title, $post) 
+    {
         if (empty($title) || empty($post['list_item_0'])) {
             return false;
         } else {
@@ -123,7 +127,8 @@ class ListClass extends Model
      * Return number
      */
 
-    public function editList($post, $listId) {
+    public function editList($post, $listId) 
+    {
         foreach ($post as $key => $value) {
             if ($value !== '') {
                 $query = "UPDATE list_items 
@@ -148,7 +153,8 @@ class ListClass extends Model
      * Return a boolean.
      */
 
-    public function deleteList($listId) {
+    public function deleteList($listId) 
+    {
         $query = "DELETE FROM lists
                   WHERE id = :id";
         

@@ -24,7 +24,8 @@ class User extends Model
      * Return a single row.
      */
 
-    public function getUser($userId) {
+    public function getUser($userId) 
+    {
         $query = "SELECT * 
                   FROM users 
                   WHERE id = :id 
@@ -43,7 +44,8 @@ class User extends Model
      * Return multiple rows.
      */
 
-    public function getAllUsers() {
+    public function getAllUsers() 
+    {
         $query = "SELECT * FROM users";
 
         $this->db->query($query);
@@ -58,7 +60,8 @@ class User extends Model
      * Return a single row.
      */
 
-    public function getUserByUsername($username) {
+    public function getUserByUsername($username) 
+    {
         $query = "SELECT * 
                   FROM users 
                   WHERE username = :username 
@@ -77,7 +80,8 @@ class User extends Model
      * Return a single row.
      */
 
-    public function getUserByEmail($email) {
+    public function getUserByEmail($email) 
+    {
         $query = "SELECT * 
                   FROM users 
                   WHERE email = :email 
@@ -97,7 +101,8 @@ class User extends Model
      * Returns true if successful.
      */
 
-    public function registerNewUser($username, $password, $email, $role) {
+    public function registerNewUser($username, $password, $email, $role) 
+    {
         $query = "INSERT INTO users 
                       (username, password, email, role) 
                   VALUES 
@@ -120,7 +125,8 @@ class User extends Model
      * Return a boolean.
      */
 
-    public function isUsernameAvailable($username) {
+    public function isUsernameAvailable($username) 
+    {
         $username = strtolower($username);
         $query = "SELECT COUNT(username) 
                   AS num 
@@ -141,7 +147,8 @@ class User extends Model
      * Return a boolean.
      */
 
-    public function isEmailAvailable($email) {
+    public function isEmailAvailable($email) 
+    {
         $query = "SELECT COUNT(email) 
                   AS num 
                   FROM users 
@@ -160,7 +167,8 @@ class User extends Model
      * Return a boolean.
      */
 
-    public function updateUserSettings($post, $userId) {
+    public function updateUserSettings($post, $userId) 
+    {
         $query = "UPDATE users 
                   SET fullname = :fullname ,
                       location = :location,
@@ -186,7 +194,8 @@ class User extends Model
      * Return a boolean.
      */
 
-    public function createPasswordRequest($userId, $token) {
+    public function createPasswordRequest($userId, $token) 
+    {
         $query = "INSERT INTO password_reset_request
                     (user_id, date_requested, token)
                   VALUES
@@ -209,7 +218,8 @@ class User extends Model
      * Return the matching result.
      */
 
-    public function verifyPasswordRequest($userId, $passwordRequestId, $token) {
+    public function verifyPasswordRequest($userId, $passwordRequestId, $token) 
+    {
         $query = "SELECT id, user_id, date_requested 
                   FROM password_reset_request
                   WHERE 
@@ -233,7 +243,8 @@ class User extends Model
      * Return a boolean.
      */
 
-    public function resetUserPassword($passwordHash, $userId) {
+    public function resetUserPassword($passwordHash, $userId) 
+    {
         $query = "UPDATE users 
                   SET password = :password 
                   WHERE id = :id";

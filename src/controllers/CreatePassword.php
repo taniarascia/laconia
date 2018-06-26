@@ -10,7 +10,8 @@ class CreatePassword extends Controller
     public $errors = [];
     public $success = false;
 
-    public function post() {
+    public function post() 
+    {
         $post = filter_post();
 
         // Get user id from protected session
@@ -51,7 +52,8 @@ class CreatePassword extends Controller
         $this->view('create-password');
     }
     
-    public function get() {
+    public function get() 
+    {
         // Get user id from protected session
         $userId = $this->session->getSessionValue('user_id_reset_pass');
         
