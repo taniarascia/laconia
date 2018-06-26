@@ -69,9 +69,8 @@ abstract class Controller
 
     protected function isIndex() {
         $redirect = ltrim($_SERVER['REDIRECT_URL'], '/');
-        $isIndex = $redirect === '' ? true : false;
         
-        return $isIndex;
+        return $redirect === '';
     }
 
     /**
@@ -83,9 +82,8 @@ abstract class Controller
         $view = strtolower($view);
 
         $redirect = ltrim($_SERVER['REDIRECT_URL'], '/');
-        $isPage = $redirect === $view ? true : false;
         
-        return $isPage;
+        return $redirect === $view;
     } 
 
     /**
