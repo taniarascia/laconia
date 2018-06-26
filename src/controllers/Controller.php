@@ -31,6 +31,16 @@ abstract class Controller
         require_once $_SERVER['DOCUMENT_ROOT'] . '/../src/views/' . $view . '.view.php';
     }
 
+    protected function isIndex() {
+        $redirect = ltrim($_SERVER['REDIRECT_URL'], '/');
+        
+        if ($redirect === '') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     protected function redirect($view) {
         $view = strtolower($view);
 
@@ -64,7 +74,7 @@ abstract class Controller
                 $this->errors[] = USERNAME_TOO_SHORT;
             }
             // Match a-z, A-Z, 1-9, -, _. ^[\w-]+$
-            if (!preg_match("/^[a-z0-9 .\-]+$/i", $username)) {
+            if (!preg_match("/^[a-zA-Z\d-_]+$/i", $username)) {
                 $this->errors[] = USERNAME_CONTAINS_DISALLOWED;
             }
         } else {

@@ -5,17 +5,20 @@ use Laconia\ListClass;
 
 class UserProfile extends Controller
 {
-    public $page_title = 'Profile';
+    public $page_title;
     public $user;
+    public $lists;
+    public $list;
 
     public function get() {
-        $list = new ListClass();
+        $this->list = new ListClass();
         $get = filter_get();
 
         $userInfo = $this->userControl->getUserByUsername($get['username-router']);
         $this->user = $userInfo;
 
-        $this->lists = $list->getListsByUser($userInfo);
+        $this->lists = $this->list->getListsByUser($userInfo);
+        $this->page_title = $this->user['username'];
 
         $this->view('user-profile');
     }

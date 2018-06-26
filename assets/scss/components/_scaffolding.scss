@@ -207,6 +207,11 @@ dd {
 	margin-right: auto;
 }
 
+.tiny-container {
+	@extend .container;
+	max-width: $x-small;
+}
+
 // Small container
 .small-container {
 	@extend .container;

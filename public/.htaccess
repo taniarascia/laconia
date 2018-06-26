@@ -4,10 +4,10 @@ RewriteCond %{REQUEST_FILENAME}%  !-d
 RewriteCond %{REQUEST_FILENAME}%  !-f
 
 # Do not route static files in the public directory
-RewriteRule \.(js|css)$           -                            [L]
+RewriteRule \.(js|css|svg|gif|jpg|jpeg|png)$ -                 [L]
 
-# Route /edit-list/$ to /edit-list?list_id=$ 
-RewriteRule ^/?edit-list/(.*?)/?$ /edit-list?list_id=$1        [L]
+# Route /edit/$ to /edit?list_id=$ 
+RewriteRule ^/?edit/(.*?)/?$ /edit?list_id=$1        [L]
 
 # Route everything else to index.php in the public directory
 # Note: username-router get variable used for public user profiles

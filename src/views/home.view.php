@@ -1,45 +1,41 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-    <div class="small-container">
+<?php include __DIR__ . '/partials/page-header.php'; ?>
 
-        <h1><?= $this->page_title; ?></h1>
+    <section class="content-section">
+        <div class="tiny-container text-center">
 
-        <h2><?= $this->user['username']; ?></h2>
+        <p>Welcome to Laconia, <?= $this->user['username']; ?>! This is your user panel. You can create a list, view and edit your lists, or change your settings.</p>
+        
+        <p>
+            <a class="button" href="/create">Create a List</a>
+            <a class="button" href="/<?=$this->user['username']; ?>">View Profile</a>
+            <a class="button" href="/settings">Edit Settings</a>
+        </p>
+        </div>
 
-        <table>
-            <tr>
-                <th>Username</th>
-                <th>Email</th>
-            </tr>
+        <?php if (!empty($this->lists)) : ?>
+        
+        <div class="small-container">
 
-            <tr>
-                <td><?= $this->user['username']; ?></td>
-                <td><?= $this->user['email']; ?></td>
-            </tr>
+            <div class="flex-list">
+                <?php foreach ($this->lists as $list) : ?>
+                <div class="items">
+                    <div class="list-item"><?= $list['title']; ?></div>
+                    <div class="list-options">
+                        <a href="/edit/<?= $list['id']; ?>" class="button">Edit</a>
+                        <form action="" method="post">
+                            <input type="submit" name="delete" value="Delete">
+                            <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
+                        </form>
+                    </div>
+                </div>
+                <?php endforeach ?>
+            </div>
+        </div>
 
-        </table>
+        <?php endif; ?>
 
-        <h2>My lists</h2>
-
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>View</th>
-                <th>Edit</th>
-            </tr>
-            <?php foreach ($this->lists as $list) : ?>
-                <tr>
-                    <td><?= $list['title']; ?></td>
-                    <td><a href="<?= $this->user['username']; ?>/list/<?= $list['id']; ?>">View</a></td>
-                    <td><a href="/edit-list/<?= $list['id']; ?>">Edit</a></td>
-                </tr>
-            <?php endforeach ?>
-        </table>
-
-        <h2>Create a list</h2>
-
-        <p><a class="button" href="/create-list">Create</a></p>
-
-    </div>
+    </section>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

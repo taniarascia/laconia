@@ -1,17 +1,33 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-    <div class="small-container">
-        
-        <h1><?= $this->user['username']; ?></h1>
+<?php include __DIR__ . '/partials/page-header.php'; ?>
+    
+    <section class="content-section">
+        <div class="small-container">
 
-        <h2>Lists</h2>
+           <?php if (!empty($this->lists)) : ?>
+           <h2>Lists</h2>
+            <p>Check out the lists <?= $this->user['username']; ?> made!</p>
 
-        <ul>
-        <?php foreach ($this->lists as $list) : ?>
-            <li><a href="<?= $this->user['username']; ?>/list/<?= $list['id']; ?>"><?= $list['title']; ?></a></li>
-        <?php endforeach ?>
-        </ul>
-        
-    </div>
+            <div class="flex-grid">
+                <?php foreach ($this->lists as $list) : ?>
+                <div class="items">
+                    <a class="list-item" href="<?= $this->user['username']; ?>/list/<?= $list['id']; ?>"><?= $list['title']; ?></a>
+                    
+                    <ul>
+                    <?php foreach ($this->list->getListItemsByListId($list['id']) as $listItem) : ?>
+                        <li><?= $listItem['name']; ?></li>
+                    <?php endforeach; ?>
+                    </ul>
+                
+                    
+                </div>
+                <?php endforeach ?>
+            </div>
+        </div>
+
+        <?php endif; ?>
+        </div>
+    </section>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

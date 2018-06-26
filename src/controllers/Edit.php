@@ -3,7 +3,7 @@
 use Laconia\Controller;
 use Laconia\ListClass;
 
-class EditList extends Controller
+class Edit extends Controller
 {
     public $page_title = 'Edit List';
     public $editList;
@@ -28,7 +28,7 @@ class EditList extends Controller
         $this->editList = $list->getListItemsByListId($get['list_id']);
         $this->listTitle = $list->getListByListId($get['list_id']);
 
-        $this->view('edit-list');
+        $this->view('edit');
     }
 
     public function get() {
@@ -41,6 +41,6 @@ class EditList extends Controller
         $this->editList = $list->getListItemsByListId($get['list_id']);
         $this->listTitle = $list->getListByListId($get['list_id']);
 
-        $this->view('edit-list');
+        $this->view('edit');
     }
 }

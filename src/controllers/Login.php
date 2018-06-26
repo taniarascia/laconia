@@ -19,7 +19,7 @@ class Login extends Controller
         
         // Could not find a user with that username
         if (!$userInfo) {
-            $this->message = 'Incorrect username / password combination!';
+            $this->message = LOGIN_FAIL;
         } else {
             // User account found.
             $correctPassword = $this->verifyPassword($password, $userInfo['password']);

@@ -4,7 +4,7 @@
 
  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?)](http://gitub.com/taniarascia/laconia/compare) [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://php.net/)
 
-Laconia is a personal project to learn the fundamentals of programming and modern webapp development from scratch. The main goals of my project are to learn MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) paradigm, routing, modern development practices, and how to tie it all together to make a functional webapp. 
+Laconia is a personal project created by Tania Rascia to learn the fundamentals of programming and modern web development from scratch. The main goals of the project are to learn MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) paradigm, routing, modern development practices, and how to tie it all together to make a functional web app. 
 
 Laconia runs on PHP 7.2 and MySQL. It uses composer to autoload classes and  configuration and utility files, as well as future tests through PHPUnit. Node is used to compile Sass to CSS via npm scripts.
 
@@ -92,8 +92,8 @@ In Laconia, you can register an account, log in, log out, reset your password, c
 - `/home` - Logged in home screen
 - `/logout` - Logout of user session
 - `/reset-password` - Reset password and create a new password
-- `/create-list` - Create a new list
-- `/edit-list/:list_id` - Edit an existing list
+- `/create` - Create a new list
+- `/edit/:list_id` - Edit an existing list
 - `/:username` - View public profile
 - `/404` - Any not found redirects to 404.
 
@@ -107,15 +107,15 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
-- [ ] Disallow spaces in usernames
+- [x] Disallow spaces in usernames
 - [ ] Comment all code
 - [ ] Create a user settings page
-- [ ] Make view for public user lists
+- [x] Make view for public user lists
 - [ ] Add JavaScript to XHR validation and form submission
 - [ ] Allow users to add or delete list items in edit mode
 - [ ] Allow users to delete list items in add mode
-- [ ] Prevent adding new list items if post is empty
-- [ ] Email empty password forgot
+- [x] Prevent adding new list items if post is empty
+- [x] Email empty password forgot
 - [ ] Fix issue with trailing slash in URL
 - [x] Allow users to edit their own lists
 - [x] Create a top navigation bar when logged in
@@ -123,7 +123,7 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 - [x] Disallow multiple same usernames with different casing
 - [x] Make Sass watch
 - [x] Clean up password validation code
-- [x] Allow user to create a list with list items - laconia.test/create-list
+- [x] Allow user to create a list with list items - laconia.test/create
 - [x] Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?
 
 ## Sources

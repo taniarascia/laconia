@@ -15,16 +15,11 @@
  * @since   March 14, 2018 
  * 
  * Laconia is a personal project to learn the fundamentals of programming and 
- * modern webapp development from scratch. The main goals of my project are to learn 
+ * modern web app development from scratch. The main goals of my project are to learn 
  * MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) 
  * paradigm, routing, modern development practices, and how to tie it all together
- * to make a functional webapp. 
+ * to make a functional web app. 
  * 
- * Laconia runs on PHP 7.2 and MySQL. It uses composer to autoload classes and 
- * configuration and utility files, as well as future tests through PHPUnit.
- * Node is used to compile Sass to CSS via npm scripts.
- * 
- * Please feel free to fork, use, comment, critique, suggest, improve or help in any way.
  */
 
 use Laconia\Session;

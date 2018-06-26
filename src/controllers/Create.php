@@ -3,7 +3,7 @@
 use Laconia\Controller;
 use Laconia\ListClass;
 
-class CreateList extends Controller
+class Create extends Controller
 {
     public $page_title = 'Create List';
     public $user;
@@ -23,9 +23,11 @@ class CreateList extends Controller
 
         if ($result) {
             $this->message = LIST_CREATE_SUCCESS;
+        } else {
+            $this->message = LIST_CREATE_FAIL;
         }
 
-        $this->view('create-list');
+        $this->view('create');
     }
 
     public function get() {
@@ -35,6 +37,6 @@ class CreateList extends Controller
         $userInfo = $this->userControl->getUser($this->session->getSessionValue('user_id'));
         
         $this->user = $userInfo;
-        $this->view('create-list');
+        $this->view('create');
     }
 }

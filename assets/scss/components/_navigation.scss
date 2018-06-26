@@ -12,7 +12,7 @@
         grid-gap: 5%;
         justify-items: center;
         align-items: center;
-        padding: $padding;
+        padding: 15px 30px;
         a {
             text-decoration: none;
         }
@@ -29,7 +29,7 @@
                 font-weight: 700;
                 font-size: 1.4rem;
                 &:hover {
-                    color: lighten($primary-color, 10%);
+                    color: lighten($primary-color, 15%);
                 }
             }
         }
@@ -49,10 +49,14 @@
                     color: $accent-color;
                     font-family: $font-family;
                     margin: 0 5px;
+                    align-self: center;
+                    padding: 15px 20px;
+                    &:hover {
+                        color: $accent-color;
+                    }
                 }
-                &.navigation-social {
-                    font-size: 1.2rem;
-                    padding: 15px 8px;
+                &:hover {
+                    color: lighten($primary-color, 15%);
                 }
             }
         }

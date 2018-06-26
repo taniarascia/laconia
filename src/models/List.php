@@ -25,7 +25,8 @@ class ListClass extends Model
     public function getListsByUser($user) {
         $query = "SELECT * 
                   FROM lists 
-                  WHERE user_id = :user_id";
+                  WHERE user_id = :user_id
+                  ORDER BY created DESC";
 
         $this->db->query($query);
         $this->db->bind(':user_id', $user['id']);
@@ -33,6 +34,24 @@ class ListClass extends Model
         $lists = $this->db->resultset();
 
         return $lists;
+    }
+
+    /**
+     * Retrieve a single list associated with a user. 
+     * Returns one result.
+     */
+
+    public function getListByListId($listId) {
+        $query = "SELECT * 
+                  FROM lists
+                  WHERE id = :list_id";
+
+        $this->db->query($query);
+        $this->db->bind(':list_id', $listId);
+            
+        $list = $this->db->result();
+
+        return $list;
     }
 
     /** 
@@ -53,76 +72,110 @@ class ListClass extends Model
         return $lists;
     }
 
-    public function getListByListId($listId) {
-        $query = "SELECT * 
-                  FROM lists
-                  WHERE id = :list_id";
-
-        $this->db->query($query);
-        $this->db->bind(':list_id', $listId);
-            
-        $list = $this->db->result();
-
-        return $list;
-    }
-
     /**
      * Create a new list and add all associated list items.
      * Returns boolean result of original list creation.
      */
 
     public function createList($user, $title, $post) {
-        $query = "INSERT INTO lists 
-                      (user_id, title, created) 
-                  VALUES 
-                      (:user_id, :title, :created)";
-        
-        $this->db->query($query);
-        $this->db->bind(':user_id', $user['id']);
-        $this->db->bind(':title', $title);
-        $this->db->bind(':created', date("Y-m-d H:i:s"));
+        if (empty($title) || empty($post['list_item_0'])) {
+            return false;
+        } else {
+            $query = "INSERT INTO lists 
+                        (user_id, title, created) 
+                      VALUES 
+                        (:user_id, :title, :created)";
+            
+            $this->db->query($query);
+            $this->db->bind(':user_id', $user['id']);
+            $this->db->bind(':title', $title);
+            $this->db->bind(':created', date("Y-m-d H:i:s"));
 
-        $result = $this->db->execute();
+            $result = $this->db->execute();
 
-        // Get id of list we just created
-        $listId = $this->db->lastInsertId();
+            // Get id of list we just created
+            $listId = $this->db->lastInsertId();
 
-        // Create list_items entries
+            // Create list_items entries
+            foreach ($post as $key => $value) {
+                if ($key !== 'title' && $value !== '') {
+                    $query = "INSERT INTO list_items 
+                                (user_id, list_id, name, created) 
+                              VALUES 
+                                (:user_id, :list_id, :name, :created)";
+                    
+                    $this->db->query($query);
+                    $this->db->bind(':user_id', $user['id']);
+                    $this->db->bind(':list_id', $listId);
+                    $this->db->bind(':name', $value);
+                    $this->db->bind(':created', date("Y-m-d H:i:s"));
+            
+                    $this->db->execute();
+                }
+            }
+
+            return $result;
+        }
+    }
+
+    /**
+     * Edit an existing list.
+     * Return number
+     */
+
+    public function editList($post, $listId) {
         foreach ($post as $key => $value) {
-            if ($key !== 'title' && $value !== '') {
-                $query = "INSERT INTO list_items 
-                              (user_id, list_id, name, created) 
-                          VALUES 
-                              (:user_id, :list_id, :name, :created)";
+            if ($value !== '') {
+                $query = "UPDATE list_items 
+                          SET name = :name 
+                          WHERE id = :id AND
+                                list_id = :list_id";
                 
                 $this->db->query($query);
-                $this->db->bind(':user_id', $user['id']);
-                $this->db->bind(':list_id', $listId);
                 $this->db->bind(':name', $value);
-                $this->db->bind(':created', date("Y-m-d H:i:s"));
-        
+                $this->db->bind(':id', $key);
+                $this->db->bind(':list_id', $listId);
+
                 $this->db->execute();
             }
         }
 
-        return $result;
+        return $this->db->rowCount();
     }
 
-    public function editList($post, $listId) {
-        foreach ($post as $key => $value) {
-            $query = "UPDATE list_items 
-                      SET name = :name 
-                      WHERE id = :id AND
-                            list_id = :list_id";
-            
-            $this->db->query($query);
-            $this->db->bind(':name', $value);
-            $this->db->bind(':id', $key);
-            $this->db->bind(':list_id', $listId);
+    /**
+     * Delete a list and all associated list items.
+     * Return a boolean.
+     */
 
+    public function deleteList($listId) {
+        $query = "DELETE FROM lists
+                  WHERE id = :id";
+        
+        $this->db->query($query);
+        $this->db->bind(':id', $listId);
+
+        $result = $this->db->execute();
+
+        $query = "SELECT * 
+                  FROM list_items
+                  WHERE list_id = :list_id";
+
+        $this->db->query($query);
+        $this->db->bind(':list_id', $listId);
+        $this->db->execute();
+
+        $lists = $this->db->resultset();
+        
+        foreach ($lists as $list) {
+            $query = "DELETE FROM list_items
+                      WHERE list_id = :list_id";
+
+            $this->db->query($query);
+            $this->db->bind(':list_id', $listId);
             $this->db->execute();
         }
 
-        return $this->db->rowCount();
+        return $result;
     }
 }
