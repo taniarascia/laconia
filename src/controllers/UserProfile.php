@@ -11,13 +11,12 @@ class UserProfile extends Controller
     public $list;
 
     public function get() {
-        $this->list = new ListClass();
         $get = filter_get();
+        $this->list = new ListClass();
 
-        $userInfo = $this->userControl->getUserByUsername($get['username-router']);
-        $this->user = $userInfo;
+        $this->user = $this->userControl->getUserByUsername($get['username-router']);
 
-        $this->lists = $this->list->getListsByUser($userInfo);
+        $this->lists = $this->list->getListsByUser($this->user);
         $this->page_title = $this->user['username'];
 
         $this->view('user-profile');

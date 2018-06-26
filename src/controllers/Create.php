@@ -8,18 +8,21 @@ class Create extends Controller
     public $page_title = 'Create List';
     public $user;
     public $message;
+    public $session;
 
     public function post() { 
         $list = new ListClass();
         $post = filter_post();
 
+        // Proceed if authentication passed
         $this->session->authenticate();
         
-        // Proceed if authentication passed
-        $userInfo = $this->userControl->getUser($this->session->getSessionValue('user_id'));
-        $this->user = $userInfo;
+        // Get user info from session
+        $userId = $this->session->getSessionValue('user_id');
+        $this->user = $this->userControl->getUser($userId);
         
-        $result = $list->createList($userInfo, $post['title'], $post);
+        // Create a new list
+        $result = $list->createList($this->user, $post['title'], $post);
 
         if ($result) {
             $this->message = LIST_CREATE_SUCCESS;
@@ -31,12 +34,13 @@ class Create extends Controller
     }
 
     public function get() {
+        // Proceed if authentication passed
         $this->session->authenticate();
         
-        // Proceed if authentication passed
-        $userInfo = $this->userControl->getUser($this->session->getSessionValue('user_id'));
+        // Get user info from session
+        $userId = $this->session->getSessionValue('user_id');
+        $this->user = $this->userControl->getUser($userId);
         
-        $this->user = $userInfo;
         $this->view('create');
     }
 }

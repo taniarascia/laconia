@@ -6,7 +6,7 @@
 
 Laconia is a personal project created by Tania Rascia to learn the fundamentals of programming and modern web development from scratch. The main goals of the project are to learn MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) paradigm, routing, modern development practices, and how to tie it all together to make a functional web app. 
 
-Laconia runs on PHP 7.2 and MySQL. It uses composer to autoload classes and  configuration and utility files, as well as future tests through PHPUnit. Node is used to compile Sass to CSS via npm scripts.
+Laconia runs on PHP 7.2 and MySQL. It uses Composer to autoload classes and  configuration and utility files, as well as future tests through PHPUnit. Node.js is used to compile Sass to CSS via npm scripts. The CSS framework is [Primitive](https://taniarascia.github.io/primitive), which doesn't count as a framework because I made it from scratch as well.
 
 Please feel free to fork, use, comment, critique, suggest, improve or help in any way.
 
@@ -46,7 +46,7 @@ Create a virtual host called `laconia.server`. The server should point to the `/
 
 ### Run install script
 
-- Run `php install.php` in the root directory to initialize the database.
+- Run `php bin/install.php` in the root directory to initialize the database.
 - Run `composer install` to autoload classes and configuration.
 - Run `npm install` to allow use of Sass
 - In order to run Sass, use `npm run sass`.
@@ -61,6 +61,7 @@ The entire program flows through `/public/index.php`, and the rest of the projec
 laconia/        
   .git             # Git source directory
   assets/          # Uncompiled raw SCSS, JavaScript
+  bin/             # Command line scripts
   config/          # Database credentials, utility helpers, and other configuration
   data/            # SQL database files
   node_modules/    # Node.js front end dependencies
@@ -92,7 +93,9 @@ In Laconia, you can register an account, log in, log out, reset your password, c
 - `/home` - Logged in home screen
 - `/logout` - Logout of user session
 - `/forgot-password` - Get a password reset link
-- `/create-password` - Create a new passowrd
+- `/create-password` - Create a new password
+- `/view-users` - View all users
+- `/settings` - Edit user settings
 - `/create` - Create a new list
 - `/edit/:list_id` - Edit an existing list
 - `/:username` - View public profile
@@ -108,16 +111,17 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
-- [x] Disallow spaces in usernames
-- [ ] Comment all code
-- [ ] Create a user settings page
-- [x] Make view for public user lists
-- [ ] Add JavaScript to XHR validation and form submission
+- [ ] Make router class
 - [ ] Allow users to add or delete list items in edit mode
 - [ ] Allow users to delete list items in add mode
+- [ ] Add JavaScript to XHR validation and form submission
+- [ ] Fix issue with trailing slash in URL
+- [x] Disallow spaces in usernames
+- [x] Comment all code
+- [x] Create a user settings page
+- [x] Make view for public user lists
 - [x] Prevent adding new list items if post is empty
 - [x] Email empty password forgot
-- [ ] Fix issue with trailing slash in URL
 - [x] Allow users to edit their own lists
 - [x] Create a top navigation bar when logged in
 - [x] Add CSS styles

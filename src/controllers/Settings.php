@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+
 use Laconia\Controller;
 use Laconia\ListClass;
 
@@ -7,17 +7,19 @@ class Settings extends Controller
 {
     public $page_title = 'Settings';
     public $message;
+    public $user;
 
     public function post() {
         $this->session->authenticate();
         $get = filter_get();
         $post = filter_post();
-        $userId = $this->session->getSessionValue('user_id');
 
+        // Get user by session value
+        $userId = $this->session->getSessionValue('user_id');
+        $this->user = $this->userControl->getUser($userId);
+
+        // Update settings
         $this->userControl->updateUserSettings($post, $userId);
-        
-        $userInfo = $this->userControl->getUser($userId);
-        $this->user = $userInfo;
 
         $this->view('settings');
     }
@@ -26,9 +28,9 @@ class Settings extends Controller
         $this->session->authenticate();
         $get = filter_get();
         
+        // Get user by session value
         $userId = $this->session->getSessionValue('user_id');
-        $userInfo = $this->userControl->getUser($userId);
-        $this->user = $userInfo;
+        $this->user = $this->userControl->getUser($userId);
 
         $this->view('settings');
     }

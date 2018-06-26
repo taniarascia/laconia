@@ -19,7 +19,6 @@
  * MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) 
  * paradigm, routing, modern development practices, and how to tie it all together
  * to make a functional web app. 
- * 
  */
 
 use Laconia\Session;

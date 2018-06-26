@@ -5,6 +5,7 @@ use Laconia\Controller;
 class Login extends Controller
 {
     public $page_title = 'Login';
+    public $user;
     public $message;
 
     public function post() {
@@ -14,22 +15,22 @@ class Login extends Controller
         $password = $post['password'];
         $email = $post['email'];
         
-        // Retrieve the user account information for the given username.
-        $userInfo = $this->userControl->getUserByUsername($username);
+        // Retrieve the user account information for the given username
+        $this->user = $this->userControl->getUserByUsername($username);
         
         // Could not find a user with that username
-        if (!$userInfo) {
+        if (!$this->user) {
             $this->message = LOGIN_FAIL;
         } else {
-            // User account found.
-            $correctPassword = $this->verifyPassword($password, $userInfo['password']);
+            // User account found
+            $correctPassword = $this->verifyPassword($password, $this->user['password']);
             
             if ($correctPassword) {
                 // User login
-                $this->session->login($userInfo);
+                $this->session->login($this->user);
                 $this->redirect('home');
             } else {
-                $this->message = 'Incorrect username / password combination!';
+                $this->message = LOGIN_FAIL;
             }
         }
 

@@ -6,6 +6,7 @@ class Register extends Controller
 {
     public $page_title = 'Register';
     public $message;
+    public $user;
     public $errorList = '';
     public $errors = [];
 
@@ -41,8 +42,10 @@ class Register extends Controller
         $password = $post['password'];
         $email = $post['email'];
 
+        // Validate username, password, and email
         $this->validateNewUser($username, $password, $email);
 
+        // Show errors if any tests failed
         if (!empty($this->errors)) {
             $this->errorList = $this->getErrors($this->errors);
             $this->message = $this->errorList;
@@ -53,8 +56,8 @@ class Register extends Controller
             
             // User registration successful
             if ($result) {
-                $userInfo = $this->userControl->getUserByUsername($username);
-                $this->session->login($userInfo);
+                $this->user = $this->userControl->getUserByUsername($username);
+                $this->session->login($this->user);
 
                 $this->redirect('home');
             }

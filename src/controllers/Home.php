@@ -10,30 +10,37 @@ class Home extends Controller
     public $user;
 
     public function post() {
+        $post = filter_post();
         $list = new ListClass();
+
+        // Proceed if authentication passed
         $this->session->authenticate();
 
-        $userInfo = $this->userControl->getUser($this->session->getSessionValue('user_id'));
-        
-        $this->user = $userInfo;
-        $post = filter_post();
+        $userId = $this->session->getSessionValue('user_id');
+        $this->user = $this->userControl->getUser($userId);
 
+        // Delete list item
         if ($post['delete']) {
             $list->deleteList($post['list_id']);
         }
-        $this->lists = $list->getListsByUser($userInfo);
+
+        // Get updated lists
+        $this->lists = $list->getListsByUser($this->user);
 
         $this->view('home');
     }
 
     public function get() {
         $list = new ListClass();
+
+        // Proceed if authentication passed
         $this->session->authenticate();
         
-        $userInfo = $this->userControl->getUser($this->session->getSessionValue('user_id'));
-        
-        $this->user = $userInfo;
-        $this->lists = $list->getListsByUser($userInfo);
+        $userId = $this->session->getSessionValue('user_id');
+        $this->user = $this->userControl->getUser($userId);
+
+        // Get lists
+        $this->lists = $list->getListsByUser($this->user);
 
         $this->view('home');
     }
