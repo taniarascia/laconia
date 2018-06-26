@@ -12,7 +12,7 @@
             <div class="flex-grid">
                 <?php foreach ($this->lists as $list) : ?>
                 <div class="items">
-                    <a class="list-item" href="<?= $this->user['username']; ?>/list/<?= $list['id']; ?>"><?= $list['title']; ?></a>
+                    <div class="list-item"><?= $list['title']; ?></div>
                     
                     <ul>
                     <?php foreach ($this->list->getListItemsByListId($list['id']) as $listItem) : ?>
