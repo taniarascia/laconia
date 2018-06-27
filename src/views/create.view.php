@@ -10,11 +10,11 @@
 
             <?php include __DIR__ . '/partials/message.php'; ?>
 
-            <form id="form-create-list" action="" method="post">
+            <form id="form-create-list">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title">
                 
-                <label>List items</label>
+                <label for="list-items">List items</label>
                 <div id="list-items">
                     <input type="text" id="0" name="list_item_0">
                 </div>

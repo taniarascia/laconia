@@ -31,7 +31,8 @@ class Create extends Controller
             $this->message = LIST_CREATE_FAIL;
         }
 
-        $this->view('create');
+        echo $this->message;
+        exit;
     }
 
     public function get() 

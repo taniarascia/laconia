@@ -10,7 +10,7 @@
             <form id="form-edit-list" action="" method="post">
 
                 <label for="title">Title</label>
-                <input type="text" name="title" value="<?= $this->listTitle['title']; ?>">
+                <input type="text" id="title" name="title" value="<?= $this->listTitle['title']; ?>">
             
                 <label>List items</label>
                 <?php foreach ($this->editList as $list) : ?>

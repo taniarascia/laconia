@@ -69,6 +69,7 @@ if (form) {
         const username = document.querySelector('#username');
         const password = document.querySelector('#password');
         const email = document.querySelector('#email');
+        const title = document.querySelector('#title');
         const inputs = document.querySelectorAll('input');
 
         const showMessage = (data => {
@@ -92,7 +93,10 @@ if (form) {
         if (email && email.value === '') {
             email.classList.add('has-error');
         }
-        if (username && username.value === '' || password && password.value === '' || email && email.value === '') {
+        if (title && title.value === '') {
+            title.classList.add('has-error');
+        }
+        if (username && username.value === '' || password && password.value === '' || email && email.value === '' || title && title.value === '') {
             return;
         }
 
@@ -110,8 +114,8 @@ if (form) {
                     case 'form-forgot-password':
                     case 'form-create-password':
                     case 'form-settings':
+                    case 'form-create-list':
                     case 'form-delete-list':
-                        console.log(data);
                         showMessage(data);
                         if (data === 'Your password has been updated') {
                             thisForm.remove();
