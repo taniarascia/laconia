@@ -111,7 +111,12 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
-- [x] JavaScript Validation:
+- [ ] Make router class
+- [ ] Fix issue with trailing slash in URL
+- [ ] Allow users to add or delete list items in edit mode
+- [ ] Allow users to delete list items in add mode
+- [ ] Email empty password forgot - PHP Mailer
+- [x] Validate through JavaScript and send all POST requests through JavaScript instead of page reload
     - [x] Login
     - [x] Register
     - [x] Forgot Password
@@ -121,25 +126,29 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
     - [x] Delete
     - [x] Settings
 - [x] Do not allow > 255 chars for lists    
-- [ ] Make router class
-- [ ] Fix issue with trailing slash in URL
-- [ ] Allow users to add or delete list items in edit mode
-- [ ] Allow users to delete list items in add mode
 - [x] Add ability to delete a user account
 - [x] Disallow spaces in usernames
 - [x] Comment all code
 - [x] Create a user settings page
 - [x] Make view for public user lists
 - [x] Prevent adding new list items if post is empty
-- [x] Email empty password forgot
-- [x] Allow users to edit their own lists
 - [x] Create a top navigation bar when logged in
-- [x] Add CSS styles
+- [x] Add CSS styles (Primitive)
 - [x] Disallow multiple same usernames with different casing
 - [x] Make Sass watch
+- [x] Integrate Composer for autoloading of classes and config
 - [x] Clean up password validation code
-- [x] Allow user to create a list with list items - laconia.test/create
+- [x] Allow users to edit their own lists - /edit
+- [x] Allow user to create a list with list items - /create
 - [x] Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?
+- [x] Make routing dynamic based on incoming pathname and existing files, rather than a switch with each filename
+- [x] Separate POST and GET into different functions - do not display POST code in GET view
+- [x] Turn all controllers into classes
+- [x] Route all URLs through index.php
+- [x] Separate views into partials
+- [x] Separate business logic (controller) from HTML (view)
+- [x] Add ability to reset password of users
+- [x] Add ability to log in, log out, and register a user
 
 ## Sources
 
