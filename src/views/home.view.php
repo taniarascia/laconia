@@ -19,6 +19,9 @@
         <div class="small-container">
 
             <h2>My lists</h2>
+
+            <?php include __DIR__ . '/partials/message.php'; ?>
+
             <div class="flex-list">
 
                 <?php foreach ($this->lists as $list) : ?>
@@ -26,9 +29,10 @@
                     <div class="list-item"><?= $list['title']; ?></div>
                     <div class="list-options">
                         <a href="/edit/<?= $list['id']; ?>" class="button">Edit</a>
-                        <form id="form-delete-list" action="" method="post">
-                            <input type="submit" name="delete" value="Delete">
+                        <form id="form-delete-list">
+                            <input type="hidden" name="delete">
                             <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
+                            <input type="submit" value="Delete">
                         </form>
                     </div>
                 </div>

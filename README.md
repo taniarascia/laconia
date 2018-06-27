@@ -118,8 +118,8 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
     - [x] Create Password
     - [ ] Create List
     - [ ] Edit List
-    - [ ] Delete
-    - [ ] Settings
+    - [ ] Delete: redo this as a link to delete-list
+    - [x] Settings
 - [ ] Make router class
 - [ ] Allow users to add or delete list items in edit mode
 - [ ] Allow users to delete list items in add mode

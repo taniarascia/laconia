@@ -64,6 +64,7 @@ if (form) {
         const url = window.location.href;
         const thisForm = event.target;
         const formId = event.target.id;
+        const formClass = event.target.className;
 
         const username = document.querySelector('#username');
         const password = document.querySelector('#password');
@@ -108,9 +109,15 @@ if (form) {
                         break;
                     case 'form-forgot-password':
                     case 'form-create-password':
+                    case 'form-settings':
+                    case 'form-delete-list':
+                        console.log(data);
                         showMessage(data);
                         if (data === 'Your password has been updated') {
                             thisForm.remove();
+                        }
+                        if (data === 'List deleted') {
+                            thisForm.parentNode.parentNode.remove();
                         }
                         break;
                 }

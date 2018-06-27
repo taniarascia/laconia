@@ -19,16 +19,16 @@ class Home extends Controller
 
         $userId = $this->session->getSessionValue('user_id');
         $this->user = $this->userControl->getUser($userId);
-
+        
         // Delete list item
-        if ($post['delete']) {
+        if (isset($post['delete'])) {
             $list->deleteList($post['list_id']);
+            // Get updated lists
+            $this->lists = $list->getListsByUser($this->user);
+    
+            $this->message = LIST_DELETE_SUCCESS;
+            echo $this->message;
         }
-
-        // Get updated lists
-        $this->lists = $list->getListsByUser($this->user);
-
-        $this->view('home');
     }
 
     public function get() 

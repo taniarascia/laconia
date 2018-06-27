@@ -24,7 +24,9 @@ class Settings extends Controller
         // Load new settings
         $this->user = $this->userControl->getUser($userId);
 
-        $this->view('settings');
+        $this->message = SETTINGS_UPDATE_SUCCESS;
+        
+        echo $this->message;
     }
 
     public function get() 

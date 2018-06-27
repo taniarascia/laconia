@@ -9,7 +9,7 @@
 
             <?php include __DIR__ . '/partials/message.php'; ?>
 
-            <form id="form-settings" action="" method="post">
+            <form id="form-settings">
                 <label for="fullname">Full name</label>
                 <input type="text" name="fullname" id="fullname" value="<?= $this->user['fullname']; ?>">
 
