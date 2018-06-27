@@ -6,6 +6,7 @@
 const makeRequest = (method, url, data) => {
     return new Promise((resolve, reject) => {
         var request = new XMLHttpRequest();
+
         request.open(method, url);
         request.onload = function () {
             if (this.status >= 200 && this.status < 300) {
@@ -17,12 +18,14 @@ const makeRequest = (method, url, data) => {
                 });
             }
         };
+
         request.onerror = function () {
             reject({
                 status: this.status,
                 statusText: request.statusText
             });
         };
+        
         request.send(data);
     });
 }

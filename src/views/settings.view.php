@@ -3,7 +3,7 @@
 <?php include __DIR__ . '/partials/page-header.php'; ?>
 
     <section class="content-section">
-        <div class="tiny-container">
+        <div class="small-container">
             <h2><?= $this->user['username']; ?></h2>
             <p>Welcome to your settings page. Here you can update your email address and other information on your profile.</p> 
 

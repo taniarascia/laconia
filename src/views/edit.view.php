@@ -3,7 +3,7 @@
 <?php include __DIR__ . '/partials/page-header.php'; ?>
 
     <section class="content-section">
-        <div class="tiny-container">
+        <div class="small-container">
 
             <?php include __DIR__ . '/partials/message.php'; ?>
 

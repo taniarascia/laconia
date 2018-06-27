@@ -3,7 +3,7 @@
 <?php include __DIR__ . '/partials/page-header.php'; ?>
     
     <section class="content-section">
-        <div class="tiny-container text-center">
+        <div class="small-container">
         
             <h2><?= $this->user['username']; ?></h2>
             <?php if (!empty($this->user['fullname'])) : ?>
@@ -32,13 +32,15 @@
                 <div class="flex-grid">
                     <?php foreach ($this->lists as $list) : ?>
                     <div class="items">
-                        <div class="list-item"><?= $list['title']; ?></div>
+                        <div class="list-title"><?= $list['title']; ?></div>
                         
-                        <ul>
-                        <?php foreach ($this->list->getListItemsByListId($list['id']) as $listItem) : ?>
-                            <li><?= $listItem['name']; ?></li>
-                        <?php endforeach; ?>
-                        </ul>
+                        <div class="list-items">
+                            <ul>
+                            <?php foreach ($this->list->getListItemsByListId($list['id']) as $listItem) : ?>
+                                <li><?= $listItem['name']; ?></li>
+                            <?php endforeach; ?>
+                            </ul>
+                        </div>
                         
                     </div>
                     <?php endforeach ?>

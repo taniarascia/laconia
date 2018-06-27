@@ -11,13 +11,14 @@ main {
 
 .page-header {
     background: $primary-color;
-    text-align: center;
     padding: 30px;
     h1 {
         padding: 0 30px;
-        font-size: 3rem; 
+        font-size: 3rem;
         font-weight: 400;
         font-family: $display;
+        max-width: $small;
+        margin: 0 auto;
     }
 }
 
@@ -47,47 +48,36 @@ main {
     border: 1px solid $error;
 }
 
-.flex-grid,
-.flex-list {
+.flex-grid {
     display: flex;
     flex-wrap: wrap;
     margin-left: -10px;
     margin-right: -10px;
     .items {
-        padding: 40px 20px;
         display: flex;
+        border: 1px solid $border-color;
         flex-direction: column;
         flex: 1 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
-        border: 1px solid #dedede;
-        background: $accent-color;
+        border: 1px solid $border-color;
         margin: 10px;
-        color: rgba(255, 255, 255, .9);
-        &:hover {
-            background: lighten($accent-color, 5%);
-        }
     }
     a.button {
         margin-bottom: 0;
     }
-    .list-item {
+    .list-title {
         display: block;
         font-size: 1.4rem;
         font-weight: 700;
         align-items: center;
-        margin-bottom: 2rem;
         text-align: center;
-        &:hover {
-            color: lighten($primary-color, 15%);
-            text-decoration: none;
-        }
+        padding: 15px;
+        color: white;
+        background: $primary-color;
     }
-    .list-options {
-        display: flex;
-        justify-content: center;
-        a,
-        input {
-            margin: 0 2px;
+    .list-items {
+        padding: 15px;
+        ul {
+            margin-bottom: 0;
         }
     }
 }
@@ -95,14 +85,32 @@ main {
 .flex-list {
     flex-direction: column;
     .items {
+        display: flex;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $border-color;
+        margin: 10px;
         flex-direction: row;
         flex: auto;
         max-width: 100%;
         justify-content: space-between;
         align-items: center;
     }
-    .list-item {
+    a.button {
         margin-bottom: 0;
+    }
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    align-items: center;
+    margin-bottom: 0;
+    text-align: center;
+    .list-options {
+        display: flex;
+        justify-content: center;
+        a,
+        input {
+            margin: 0 2px;
+        }
     }
 }
 

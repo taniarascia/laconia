@@ -3,7 +3,7 @@
 <?php include __DIR__ . '/partials/page-header.php'; ?>
 
     <section class="content-section">
-        <div class="tiny-container text-center">
+        <div class="small-container">
 
             <p>Welcome to Laconia, <?= $this->user['username']; ?>! This is your user panel. You can create a list, view and edit your lists, or change your settings.</p>
             
@@ -18,6 +18,7 @@
         
         <div class="small-container">
 
+            <h2>My lists</h2>
             <div class="flex-list">
 
                 <?php foreach ($this->lists as $list) : ?>

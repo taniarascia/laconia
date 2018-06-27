@@ -3,7 +3,7 @@
 <?php include __DIR__ . '/partials/page-header.php'; ?>
  
     <section class="content-section">
-        <div class="tiny-container">
+        <div class="small-container">
 
             <h2>Create a new password</h2>
             <p>Make sure your password conforms to all proper security standards.</p>

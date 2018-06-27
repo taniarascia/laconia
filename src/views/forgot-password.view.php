@@ -3,7 +3,7 @@
 <?php include __DIR__ . '/partials/page-header.php'; ?>
 
     <section class="content-section">
-        <div class="tiny-container">
+        <div class="small-container">
 
             <h2>Forgot your password?</h2>
             <p>Enter the email address you signed up with and we'll email you a link to reset your password. Or, we would, but I haven't coded that yet.</p>
