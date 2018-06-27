@@ -24,9 +24,20 @@ class Settings extends Controller
         // Load new settings
         $this->user = $this->userControl->getUser($userId);
 
-        $this->message = SETTINGS_UPDATE_SUCCESS;
+        if (isset($post['email'])) {
+            $this->message = SETTINGS_UPDATE_SUCCESS;
+         
+            echo $this->message;
+        }
+
+        if (isset($post['delete_user'])) {
+            $this->userControl->deleteUser($userId);
+            $this->session->logout();
+
+            $this->message = USER_DELETED;
         
-        echo $this->message;
+            echo $this->message;
+        }
     }
 
     public function get() 

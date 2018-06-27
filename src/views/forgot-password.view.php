@@ -16,6 +16,7 @@
 
                 <input type="submit" value="Reset Password">
             </form>
+            
         </div>
     </section>
     

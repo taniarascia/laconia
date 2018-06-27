@@ -24,8 +24,7 @@ class Home extends Controller
         if (isset($post['delete'])) {
             $list->deleteList($post['list_id']);
             // Get updated lists
-            $this->lists = $list->getListsByUser($this->user);
-    
+
             $this->message = LIST_DELETE_SUCCESS;
             echo $this->message;
         }

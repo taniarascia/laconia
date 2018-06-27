@@ -24,13 +24,15 @@ class Edit extends Controller
 
         if ($rowsAffected > 0) {
             $this->message = LIST_UPDATE_SUCCESS;
+
+            echo $this->message;
+            exit;
+        } else {
+            $this->message = LIST_UPDATE_FAIL;
+
+            echo $this->message;
+            exit;
         }
-
-        // Get updated values
-        $this->editList = $list->getListItemsByListId($get['list_id']);
-        $this->listTitle = $list->getListByListId($get['list_id']);
-
-        $this->view('edit');
     }
 
     public function get() 

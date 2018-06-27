@@ -189,6 +189,38 @@ class User extends Model
     }
 
     /**
+     * Delete a user and all associated list items.
+     * Return a boolean.
+     */
+
+    public function deleteUser($userId) 
+    {
+        $query = "DELETE FROM users
+                  WHERE id = :id";
+        
+        $this->db->query($query);
+        $this->db->bind(':id', $userId);
+
+        $result = $this->db->execute();
+
+        $query = "DELETE FROM list_items
+                    WHERE user_id = :user_id";
+
+        $this->db->query($query);
+        $this->db->bind(':user_id', $userId);
+        $this->db->execute();
+
+        $query = "DELETE FROM lists
+                    WHERE user_id = :user_id";
+
+        $this->db->query($query);
+        $this->db->bind(':user_id', $userId);
+        $this->db->execute();
+
+        return $result;
+    }
+
+    /**
      * Query the database for usernames to ensure a new
      * user registration does not override an existing user.
      * Return a boolean.

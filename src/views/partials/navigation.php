@@ -23,4 +23,3 @@
         </div>
     </section>
 </div>
-<div class="pattern-border"></div>

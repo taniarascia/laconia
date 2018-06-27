@@ -172,24 +172,12 @@ class ListClass extends Model
 
         $result = $this->db->execute();
 
-        $query = "SELECT * 
-                  FROM list_items
-                  WHERE list_id = :list_id";
+        $query = "DELETE FROM list_items
+                    WHERE list_id = :list_id";
 
         $this->db->query($query);
         $this->db->bind(':list_id', $listId);
         $this->db->execute();
-
-        $lists = $this->db->resultset();
-        
-        foreach ($lists as $list) {
-            $query = "DELETE FROM list_items
-                      WHERE list_id = :list_id";
-
-            $this->db->query($query);
-            $this->db->bind(':list_id', $listId);
-            $this->db->execute();
-        }
 
         return $result;
     }

@@ -29,8 +29,8 @@
                     <div class="list-item"><?= $list['title']; ?></div>
                     <div class="list-options">
                         <a href="/edit/<?= $list['id']; ?>" class="button">Edit</a>
-                        <form id="form-delete-list">
-                            <input type="hidden" name="delete">
+                        <form id="form-delete-list_<?= $list['id']; ?>">
+                            <input type="hidden" name="delete" value="true">
                             <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
                             <input type="submit" value="Delete">
                         </form>

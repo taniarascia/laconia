@@ -53,7 +53,11 @@ define('EMAIL_NOT_VALID', 'Email address is not valid');
 define('LIST_CREATE_SUCCESS', 'List successfully created');
 define('LIST_CREATE_FAIL', 'Your list was not created! Please fill out all fields');
 define('LIST_UPDATE_SUCCESS', 'List successfully updated');
+define('LIST_UPDATE_FAIL', 'List was not updated');
 define('LIST_DELETE_SUCCESS', 'List deleted');
 
 // Settings
 define('SETTINGS_UPDATE_SUCCESS', 'Settings successfully updated!');
+
+// User
+define('USER_DELETED', 'User deleted');

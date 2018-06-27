@@ -22,8 +22,9 @@
                 <div><strong>Contact</strong>: <a href="mailto:<?= $this->user['email']; ?>"><?= $this->user['email']; ?></a></div>
             <?php endif; ?>
 
-            </div>
-            <div class="small-container">
+        </div>
+
+        <div class="small-container">
 
             <?php if (!empty($this->lists)) : ?>
             <h2>Lists</h2>
@@ -46,6 +47,7 @@
                     <?php endforeach ?>
                 </div>
             <?php endif; ?>
+
         </div>
     </section>
 

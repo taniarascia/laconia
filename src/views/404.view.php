@@ -4,7 +4,9 @@
 
     <section class="content-section">
         <div class="small-container">
+
             <h2 class="text-center">Not found.</p>
+            
         </div>
     </section>
 

@@ -4,7 +4,8 @@
 
     <section class="content-section">
         <div class="small-container">
-            <h2><?= $this->user['username']; ?></h2>
+
+            <h2>User profile</h2>
             <p>Welcome to your settings page. Here you can update your email address and other information on your profile.</p> 
 
             <?php include __DIR__ . '/partials/message.php'; ?>
@@ -23,6 +24,15 @@
                 <textarea name="description" id="description" cols="30" rows="10"><?= $this->user['description']; ?></textarea>
 
                 <input type="submit" value="Update"> <a class="button" href="/home">Back</a>
+            </form>
+
+            <h2>Delete account</h2>
+            <p>Warning! There is no undoing this action! All of your user data and associated list data will be permanently removed from the database.</p>
+
+            <form id="form-delete-user">
+                <input type="hidden" name="delete_user" value="true">
+                <input type="hidden" name="list_id" value="<?= $this->user['id']; ?>">
+                <input type="submit" value="Delete">
             </form>
 
         </div>

@@ -8,7 +8,7 @@ CREATE TABLE `list_items` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
   `list_id` int(11) unsigned NOT NULL,
-  `name` varchar(255) NOT NULL DEFAULT '',
+  `name` varchar(100) NOT NULL DEFAULT '',
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS `lists`;
 CREATE TABLE `lists` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
-  `title` varchar(255) NOT NULL DEFAULT '',
+  `title` varchar(100) NOT NULL DEFAULT '',
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -36,13 +36,13 @@ CREATE TABLE `password_reset_request` (
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fullname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `location` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `role` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `role` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

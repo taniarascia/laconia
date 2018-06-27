@@ -7,10 +7,9 @@
 
             <?php include __DIR__ . '/partials/message.php'; ?>
 
-            <form id="form-edit-list" action="" method="post">
-
+            <form id="form-edit-list">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" value="<?= $this->listTitle['title']; ?>">
+                <input type="text" id="title" name="title" value="<?= $this->listTitle['title']; ?>">I
             
                 <label>List items</label>
                 <?php foreach ($this->editList as $list) : ?>
@@ -18,8 +17,8 @@
                 <?php endforeach ?>
 
                 <input type="submit" value="Update"> <a class="button" href="/home">Back</a>
-            
             </form>
+
         </div>
     </section>
 

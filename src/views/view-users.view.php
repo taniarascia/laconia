@@ -4,6 +4,7 @@
 
     <section class="content-section">
         <div class="small-container">
+            
             <h1>View all users</h1>
             <p>In a real application, it wouldn't really make sense to just list all your users. But for ease of testing, I made this page.</p>
             
