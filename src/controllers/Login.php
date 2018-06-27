@@ -14,7 +14,6 @@ class Login extends Controller
 
         $username = $post['username'];
         $password = $post['password'];
-        $email = $post['email'];
         
         // Retrieve the user account information for the given username
         $this->user = $this->userControl->getUserByUsername($username);
@@ -23,7 +22,7 @@ class Login extends Controller
         if (!$this->user) {
             $this->message = USERNAME_NOT_EXISTS;
 
-            echo json_encode($this->message);
+            echo $this->message;
             exit;
         } else {
             // User account found
@@ -34,11 +33,11 @@ class Login extends Controller
                 $this->session->login($this->user);
                 $this->message = 'Proceed';
 
-                echo json_encode($this->message);
+                echo $this->message;
                 exit;
             } else {
                 $this->message = LOGIN_FAIL;
-                echo json_encode($this->message);
+                echo $this->message;
                 exit;
             }
         }

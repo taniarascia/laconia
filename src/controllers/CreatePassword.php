@@ -35,6 +35,9 @@ class CreatePassword extends Controller
         if (!empty($this->errors)) {
             $this->errorList = $this->getErrors($this->errors);
             $this->message = $this->errorList;
+
+            echo $this->message;
+            exit;
         } 
         // Create new password 
         else {
@@ -44,12 +47,15 @@ class CreatePassword extends Controller
             if ($result) {
                 // Success
                 $this->success = true;
-                $this->message = 'Your password has been updated.';
+                $this->message = PASSWORD_UPDATED;
+
+                echo $this->message;
+
+                // Make sure they can't keep resetting it
                 $this->session->deleteSessionValue('user_id_reset_pass');
+                exit;
             }
         }
-
-        $this->view('create-password');
     }
     
     public function get() 

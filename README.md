@@ -111,10 +111,18 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
+- [ ] JavaScript Validation:
+    - [x] Login
+    - [x] Register
+    - [x] Forgot Password
+    - [x] Create Password
+    - [ ] Create List
+    - [ ] Edit List
+    - [ ] Delete
+    - [ ] Settings
 - [ ] Make router class
 - [ ] Allow users to add or delete list items in edit mode
 - [ ] Allow users to delete list items in add mode
-- [ ] Add JavaScript to XHR validation and form submission
 - [ ] Fix issue with trailing slash in URL
 - [x] Disallow spaces in usernames
 - [x] Comment all code
@@ -141,6 +149,7 @@ I've used a combination of many tutorials and StackOverflow posts to create this
 - [How to validate passwords](https://stackoverflow.com/questions/22544250/php-password-validation/22544286)
 - [General structure of a PHP application](https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog)
 - [Directory structure example](https://php.earth/docs/faq/misc/structure)
+- [Promisify XHR](https://stackoverflow.com/questions/30008114/how-do-i-promisify-native-xhr)
 
 ## License
 

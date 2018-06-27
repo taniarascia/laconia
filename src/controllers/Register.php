@@ -55,7 +55,7 @@ class Register extends Controller
             $this->errorList = $this->getErrors($this->errors);
             $this->message = $this->errorList;
             
-            echo json_encode($this->message);
+            echo $this->message;
             exit;
         } else {
             // Hash the password
@@ -68,9 +68,8 @@ class Register extends Controller
                 $this->session->login($this->user);
                 $this->message = 'Proceed';
 
-                echo json_encode($this->message);
+                echo $this->message;
                 exit;
-
             }
         }
 

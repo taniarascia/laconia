@@ -1,4 +1,34 @@
+/** 
+ * Laconia JavaScript
+ */
+
+// Promisified XHR
+const makeRequest = (method, url, data) => {
+    return new Promise((resolve, reject) => {
+        var request = new XMLHttpRequest();
+        request.open(method, url);
+        request.onload = function () {
+            if (this.status >= 200 && this.status < 300) {
+                resolve(request.response);
+            } else {
+                reject({
+                    status: this.status,
+                    statusText: request.statusText
+                });
+            }
+        };
+        request.onerror = function () {
+            reject({
+                status: this.status,
+                statusText: request.statusText
+            });
+        };
+        request.send(data);
+    });
+}
+
 const listItems = document.querySelector('#message');
+const form = document.querySelector('form');
 let counter = 0;
 
 if (listItems) {
@@ -23,84 +53,67 @@ if (listItems) {
     });
 }
 
-const formSubmit = document.querySelector('#form-login');
-const formRegister = document.querySelector('#form-register');
-
-if (formSubmit || formRegister) {
-    const form = document.querySelector('form');
+if (form) {
     form.addEventListener('submit', event => {
         event.preventDefault();
 
         const formData = new FormData(form);
-        const request = new XMLHttpRequest();
         const url = window.location.href;
-        const messageContainer = document.querySelector('#message');
-        const messageExists = document.querySelector('p.message');
-        const message = document.createElement('p');
-        message.classList.add('message');
+        const thisForm = event.target;
+        const formId = event.target.id;
 
-        request.open('POST', url);
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                console.log(request);
-                if (request.responseText !== '"Proceed"') {
-                    if (!messageExists) {
-                        messageContainer.appendChild(message)
-                        message.textContent = JSON.parse(request.responseText);
-                    } else {
-                        messageExists.textContent = JSON.parse(request.responseText);
-                    }
-                } else {
-                    window.location.href = '/home';
-                }
-            } else {
-                message.textContent = 'Something went wrong';
-                return;
+        const username = document.querySelector('#username');
+        const password = document.querySelector('#password');
+        const email = document.querySelector('#email');
+        const inputs = document.querySelectorAll('input');
+
+        const showMessage = (data => {
+            const message = document.querySelector('.message');
+            message.textContent = data;
+            message.style.display = 'block';
+        });
+
+        inputs.forEach(input => {
+            input.onfocus = function () {
+                this.classList.remove('has-error')
             }
+        });
+
+        if (username && username.value === '') {
+            username.classList.add('has-error');
         }
-        request.send(formData);
+        if (password && password.value === '') {
+            password.classList.add('has-error');
+        }
+        if (email && email.value === '') {
+            email.classList.add('has-error');
+        }
+        if (username && username.value === '' || password && password.value === '' || email && email.value === '') {
+            return;
+        }
+
+        makeRequest('POST', url, formData)
+            .then(data => {
+                switch (formId) {
+                    case 'form-register':
+                    case 'form-login':
+                        if (data !== 'Proceed') {
+                            showMessage(data);
+                        } else {
+                            window.location.href = '/home';
+                        }
+                        break;
+                    case 'form-forgot-password':
+                    case 'form-create-password':
+                        showMessage(data);
+                        if (data === 'Your password has been updated') {
+                            thisForm.remove();
+                        }
+                        break;
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error.statusText);
+            });
     });
 }
-
-const post = () => {
-        return new Promise((resolve, reject) => {
-                request.open('POST', url);
-                request.onreadystatechange = function () {
-                    if (request.readyState == 4 && request.status == 200 && request.responseText === '"Proceed"') {
-                        resolve(request.responseText);
-                    } else {
-                        reject('Something Went Wrong');
-                    }
-                }
-                request.send(formData);
-            });
-        }
-
-        post().then(response => { /* ... DOM logic */ }).catch(error => { /* handle error */ })
-
-        // Doesn't work
-        //fetch(url, 
-        //     { 
-        //         method: 'POST',
-        //         body: formData
-        //     } 
-        // )
-        // .then(response => {
-        //     return response.json();
-        // })
-        // .then(data => { 
-        //     if (data !== 'Proceed') {
-        //         if (!messageExists) {
-        //             messageContainer.appendChild(message);
-        //             message.textContent = data;
-        //         } else {
-        //             messageExists.textContent = data;
-        //         }
-        //     } else {
-        //         window.location.href = '/home';
-        //     }
-        // })
-        // .catch(error => {
-        //     console.log(error);
-        //     message.textContent = error;
-        // });

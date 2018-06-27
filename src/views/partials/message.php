@@ -1,5 +1,5 @@
-<div id="message">
+<div class="message">
     <?php if (!empty($this->message)) : ?>
-        <p class="message"><?= $this->message; ?></p>
+        <?= $this->message; ?>
     <?php endif; ?>
 </div>

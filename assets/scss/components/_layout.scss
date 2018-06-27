@@ -15,9 +15,17 @@ main {
     padding: 30px;
     h1 {
         padding: 0 30px;
-        font-size: 5rem;
+        font-size: 3rem; 
         font-weight: 400;
         font-family: $display;
+    }
+}
+
+@include large-breakpoint {
+    .page-header {
+        h1 {
+            font-size: 5rem;
+        }
     }
 }
 
@@ -27,9 +35,16 @@ main {
 }
 
 .message {
-    background: $secondary-color;
-    padding: 30px;
+    border: 4px double darken($secondary-color, 20%);
+    background: lighten($secondary-color, 10%);
+    padding: 15px;
     font-size: 1.1rem;
+    white-space: pre-wrap;
+    display: none;
+}
+
+.has-error {
+    border: 1px solid $error;
 }
 
 .flex-grid,

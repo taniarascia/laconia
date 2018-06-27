@@ -10,7 +10,7 @@
 
             <?php include __DIR__ . '/partials/message.php'; ?>
 
-            <form id="form-register" action="" method="post">
+            <form id="form-register">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username">
 
@@ -20,7 +20,7 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email">
 
-                <input type="submit" name="register" value="Register">
+                <input type="submit" value="Register">
                 <a class="button" href="/forgot-password">Forgot Password?</a>
             </form>
         </div>

@@ -10,11 +10,11 @@
 
             <?php include __DIR__ . '/partials/message.php'; ?>
 
-            <form id="form-forgot-password" action="" method="post">
+            <form id="form-forgot-password">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email">
 
-                <input type="submit" name="reset" value="Reset Password">
+                <input type="submit" value="Reset Password">
             </form>
         </div>
     </section>
