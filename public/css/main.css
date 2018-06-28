@@ -1105,6 +1105,7 @@ textarea.has-error:active {
     font-size: 1.6rem;
     font-weight: 700; }
   .comments p {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    white-space: pre-wrap; }
   .comments:last-of-type {
     border-bottom: 0; }

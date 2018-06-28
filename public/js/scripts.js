@@ -2,33 +2,6 @@
  * Laconia JavaScript
  */
 
-const getClosest = function (elem, selector) {
-
-    // Element.matches() polyfill
-    if (!Element.prototype.matches) {
-        Element.prototype.matches =
-            Element.prototype.matchesSelector ||
-            Element.prototype.mozMatchesSelector ||
-            Element.prototype.msMatchesSelector ||
-            Element.prototype.oMatchesSelector ||
-            Element.prototype.webkitMatchesSelector ||
-            function (s) {
-                var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-                    i = matches.length;
-                while (--i >= 0 && matches.item(i) !== this) {}
-                return i > -1;
-            };
-    }
-
-    // Get closest match
-    for (; elem && elem !== document; elem = elem.parentNode) {
-        if (elem.matches(selector)) return elem;
-    }
-
-    return null;
-
-};
-
 // Promisified XHR
 const makeRequest = (method, url, data) => {
     return new Promise((resolve, reject) => {
@@ -41,7 +14,7 @@ const makeRequest = (method, url, data) => {
             } else {
                 reject({
                     status: this.status,
-                    statusText: request.statusText
+                    statusText: request.statusText,
                 });
             }
         };
@@ -49,15 +22,13 @@ const makeRequest = (method, url, data) => {
         request.onerror = function () {
             reject({
                 status: this.status,
-                statusText: request.statusText
+                statusText: request.statusText,
             });
         };
 
         request.send(data);
     });
 }
-
-
 
 // Create new list items with shift + tab
 const listItems = document.querySelector('#list-items');
@@ -101,6 +72,7 @@ if (forms) {
             const password = document.querySelector('#password');
             const email = document.querySelector('#email');
             const title = document.querySelector('#title');
+            const comments = document.querySelector('#comments');
             const inputs = document.querySelectorAll('input');
 
             const showMessage = (data => {
@@ -152,7 +124,6 @@ if (forms) {
                         case 'form-edit-list':
                         case 'form-delete-user':
                             showMessage(data);
-
                             // Remove password form on create-password
                             if (data === 'Your password has been updated') {
                                 thisForm.remove();
@@ -170,6 +141,28 @@ if (forms) {
                             // Clear inputs on create form
                             if (data === 'User deleted') {
                                 window.location.href = '/';
+                            }
+                            break;
+                        case 'form-comments':
+                            if (data === 'Nice try') {
+                                showMessage(data);
+                            } else {
+                                // Display comment
+                                const arr = JSON.parse(data);
+
+                                const uname = document.createElement('a');
+                                uname.href = `${window.location.href + arr[0]}`;
+                                uname.textContent = arr[0];
+
+                                const comment = document.createElement('p');
+                                comment.textContent = arr[1];
+
+                                const commentContainer = document.createElement('div');
+                                commentContainer.classList.add('comments');
+                                commentContainer.appendChild(uname);
+                                commentContainer.appendChild(comment);
+
+                                comments.appendChild(commentContainer);
                             }
                             break;
                         default:

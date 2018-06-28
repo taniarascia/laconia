@@ -112,6 +112,8 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 ## Todos
 
 - [x] Comment board
+- [x] Make sure users can't comment as someone else
+- [x] Instant display of comment state in the DOM
 - [ ] Allow users to add or delete list items in edit mode
 - [ ] Allow users to delete list items in add mode
 - [ ] Email empty password forgot - PHP Mailer
@@ -162,6 +164,7 @@ I've used a combination of many tutorials and StackOverflow posts to create this
 - [General structure of a PHP application](https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog)
 - [Directory structure example](https://php.earth/docs/faq/misc/structure)
 - [Promisify XHR](https://stackoverflow.com/questions/30008114/how-do-i-promisify-native-xhr)
+- [MVC concepts and routing class](https://github.com/laracasts/The-PHP-Practitioner-Full-Source-Code/)
 
 ## License
 

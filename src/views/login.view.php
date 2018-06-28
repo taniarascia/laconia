@@ -1,26 +1,28 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
 <?php include __DIR__ . '/partials/page-header.php'; ?>
-    
-    <section class="content-section">
-        <div class="small-container">
 
-            <h1><?= $this->page_title; ?></h1>
-            <p>Thanks for coming back!</p>    
+<section class="content-section">
+    <div class="small-container">
 
-            <?php include __DIR__ . '/partials/message.php'; ?>
+        <h1>
+            <?= $this->page_title; ?>
+        </h1>
+        <p>Thanks for coming back!</p>
 
-            <form id="form-login">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username">
+        <?php include __DIR__ . '/partials/message.php'; ?>
 
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+        <form id="form-login">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
 
-                <input type="submit" value="Login">
-            </form>
-            
-        </div>
-    </section>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+
+            <input type="submit" value="Login">
+        </form>
+
+    </div>
+</section>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>

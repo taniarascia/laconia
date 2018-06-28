@@ -62,3 +62,6 @@ define('SETTINGS_UPDATE_SUCCESS', 'Settings successfully updated!');
 
 // User
 define('USER_DELETED', 'User deleted');
+
+// Comments
+define('USERNAME_NOT_MATCHES', 'Nice try');
