@@ -6,7 +6,8 @@
  * Return a string.
  */
 
-function getControllerName($path) {
+function getControllerName($path) 
+{
     $path = ltrim($path, '/');                                        // Strip trailing whitespace
     $path = ucfirst($path);                                           // Capitalize first letter
     $path = implode('-', array_map('ucfirst', explode('-', $path)));  // Capitalize all hyphenated words
@@ -20,7 +21,8 @@ function getControllerName($path) {
  * Return an array.
  */
 
-function filter_post() {
+function filter_post() 
+{
     $post = filter_input_array(INPUT_POST);
     $post = array_map('trim', $post);
     
@@ -32,9 +34,24 @@ function filter_post() {
  * Return an array.
  */
 
-function filter_get() {
+function filter_get() 
+{
     $get = filter_input_array(INPUT_GET);
     $get = array_map('trim', $get);
     
     return $get;
+}
+
+function getUri() 
+{
+    $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+    
+    return $uri;
+}
+
+function getMethod() 
+{
+    $method = $_SERVER['REQUEST_METHOD'];
+    
+    return $method;
 }

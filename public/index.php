@@ -21,47 +21,8 @@
  * to make a functional web app. 
  */
 
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
-// Get the directory above public
 $root = __DIR__ . '/..';
+
 require $root . '/vendor/autoload.php';
 
-$url = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-$method = $_SERVER['REQUEST_METHOD'];
-
-Router::load($root . '/src/routes.php')->direct($url, $method);
-
-// // Check if path matches a user
-// $username = $userControl->getUserByUsername($path);
-
-// // Get controller name by converting URL of dashes
-// // (such as forgot-password) to uppercase class names
-// // (such as ForgotPassword) and assign to the proper
-// // controller based on URL.
-// $controllerName = getControllerName($redirect);
-// $controllerPath = $root . "/src/controllers/{$controllerName}.php";
-
-// // Load index page first
-// if ($controllerName === '') {
-//     $controller = new Index($session, $userControl);
-// }
-// // If the controller exists, route to the proper controlller 
-// elseif (file_exists($controllerPath)) { // to do: add approved filenames
-//     $controller = new $controllerName($session, $userControl);
-// }
-// // If path matches user in the database, route to the public
-// // user profile.
-// elseif ($username) {
-//     $controller = new UserProfile($session, $userControl);
-// } 
-// // If all else fails, 404.
-// else {
-//     $controller = new ExceptionNotFound($session, $userControl);
-// }
-
-// // Detect if method is GET or POST and route accordingly.
-// if ($method === 'POST') {
-//     $controller->post();
-// } else {
-//     $controller->get();
-// }
+Router::load($root . '/src/routes.php')->direct(getUri(), getMethod());
