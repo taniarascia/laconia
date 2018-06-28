@@ -41,20 +41,37 @@ if (listItems) {
             event.preventDefault();
 
             const lastTextInput = document.getElementById(counter);
-            if (lastTextInput && lastTextInput.value !== '') {
+            if (lastTextInput && lastTextInput.value !== '' || !lastTextInput) {
                 counter++;
+
+                const inputGroup = document.createElement('div');
+                inputGroup.classList.add('input-group');
 
                 const input = document.createElement('input');
                 input.setAttribute('type', 'text');
                 input.setAttribute('id', counter);
                 input.setAttribute('name', `list_item_${counter}`);
 
-                event.target.parentNode.appendChild(input);
+                const deleteButton = document.createElement('div');
+                deleteButton.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+                deleteButton.classList.add('delete-list-item');
+
+                inputGroup.appendChild(input);
+                inputGroup.appendChild(deleteButton);
+
+                const listItems = event.target.parentNode.parentNode;
+                listItems.appendChild(inputGroup);
+
+                deleteButton.addEventListener('click', event => {
+                    inputGroup.remove();
+                });
 
                 input.focus();
+
             }
         }
     });
+
 }
 
 // Process all forms

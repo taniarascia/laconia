@@ -160,3 +160,19 @@ main {
         border-bottom: 0;
     }
 }
+
+#list-items {
+    .input-group {
+        position: relative;
+    }
+    .delete-list-item {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        z-index: 10;
+        &:hover {
+            color: $error;
+        }
+    }
+}

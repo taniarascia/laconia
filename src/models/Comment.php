@@ -36,13 +36,14 @@ class Comment extends Model
     public function insertComment($username, $comment) 
     {
         $query = "INSERT INTO comments 
-                      (username, comment) 
+                      (username, comment, created) 
                   VALUES 
-                      (:username, :comment)";
+                      (:username, :comment, :created)";
         
         $this->db->query($query);
         $this->db->bind(':username', $username);
         $this->db->bind(':comment', $comment);
+        $this->db->bind(':created', date("Y-m-d H:i:s"));
 
         $result = $this->db->execute();
 

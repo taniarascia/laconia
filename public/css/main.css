@@ -954,6 +954,7 @@ caption {
           color: #da9780; }
     .navigation-outer .navigation .navigation-links {
       justify-self: end;
+      align-items: center;
       display: flex;
       width: 100%;
       justify-content: flex-end;
@@ -1109,3 +1110,15 @@ textarea.has-error:active {
     white-space: pre-wrap; }
   .comments:last-of-type {
     border-bottom: 0; }
+
+#list-items .input-group {
+  position: relative; }
+
+#list-items .delete-list-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 10; }
+  #list-items .delete-list-item:hover {
+    color: #9C2924; }

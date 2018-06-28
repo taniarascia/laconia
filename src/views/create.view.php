@@ -20,7 +20,9 @@
 
             <label for="list-items">List items</label>
             <div id="list-items">
-                <input type="text" id="0" name="list_item_0">
+                <div class="input-group">
+                    <input type="text" id="0" name="list_item_0">
+                </div>
             </div>
 
             <input type="submit" value="Create">

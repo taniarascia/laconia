@@ -15,10 +15,15 @@
             <label for="title">Title</label>
             <input type="text" id="title" name="title" value="<?= $this->listTitle['title']; ?>">
 
-            <label>List items</label>
-            <?php foreach ($this->editList as $list) : ?>
-            <input type="text" name="<?= $list['id']; ?>" value="<?= $list['name']; ?>">
-            <?php endforeach ?>
+            <label for="list-items">List items</label>
+            <div id="list-items">
+                
+                <?php foreach ($this->editList as $list) : ?>
+                    <div class="input-group">
+                        <input type="text" name="<?= $list['id']; ?>" value="<?= $list['name']; ?>">
+                        <div class="delete-list-item"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                <?php endforeach ?>
 
             <input type="submit" value="Update">
             <a class="button" href="/home">Back</a>
