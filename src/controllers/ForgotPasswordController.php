@@ -1,4 +1,6 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 use Laconia\Controller;
 use Laconia\Database;
@@ -13,7 +15,7 @@ class ForgotPasswordController extends Controller
     public function post() 
     {
         $post = filter_post();
-        $email = $post['email'];
+        $email = FILTER_VALIDATE_EMAIL($post['email']);
         $db = new Database();
 
         $this->user = $this->userControl->getUserByEmail($email);
@@ -39,9 +41,18 @@ class ForgotPasswordController extends Controller
             // Create URL for password script
             $url = "http://{$_SERVER['HTTP_HOST']}/reset-password";
             $passwordResetLink = "{$url}?uid={$this->user['id']}&id={$passwordRequestId}&t={$token}";
+
+            @mail(
+                $email, 
+                'Password Reset', 
+                "Here is your password reset link: {$passwordResetLink}", 
+                'From: no-reply@taniarascia.com' . "\r\n" .
+                'Reply-To: no-reply@taniarascia.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion(),
+                null);
             
             // This would email in a production site
-            $this->message = $passwordResetLink;
+            $this->message = PASSWORD_EMAIL_SENT;
 
             echo $this->message;
         }
