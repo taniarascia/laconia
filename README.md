@@ -111,7 +111,7 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
-- [ ] Comment board
+- [x] Comment board
 - [ ] Allow users to add or delete list items in edit mode
 - [ ] Allow users to delete list items in add mode
 - [ ] Email empty password forgot - PHP Mailer

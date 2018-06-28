@@ -6,7 +6,7 @@
         <div class="small-container">
 
             <h1><?= $this->page_title; ?></h1>
-            <p>Enter the email address you signed up with and we'll email you a link to reset your password. Or, we would, but I haven't coded that yet.</p>
+            <p>Enter the email address you signed up with and we'll email you a link to reset your password. Or, we would, but I haven't coded that yet. Just paste the link for now.</p>
 
             <?php include __DIR__ . '/partials/message.php'; ?>
 
