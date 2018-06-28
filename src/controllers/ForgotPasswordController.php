@@ -40,6 +40,7 @@ class ForgotPasswordController extends Controller
             $url = "http://{$_SERVER['HTTP_HOST']}/reset-password";
             $passwordResetLink = "{$url}?uid={$this->user['id']}&id={$passwordRequestId}&t={$token}";
 
+            // TODO: a better password sending process
             @mail(
                 $email, 
                 'Password Reset', 
@@ -49,7 +50,6 @@ class ForgotPasswordController extends Controller
                 'X-Mailer: PHP/' . phpversion(),
                 null);
             
-            // This would email in a production site
             $this->message = PASSWORD_EMAIL_SENT;
 
             echo $this->message;

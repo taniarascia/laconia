@@ -1,8 +1,8 @@
 {
     "name": "laconia",
     "type": "project",
-    "description": "A PHP Application",
-    "keywords": ["php", "application"],
+    "description": "An MVC PHP Application",
+    "keywords": ["php", "application", "mvc", "scratch", "php7", "oop", "model-view-controller", "object-oriented-programming", "mysql", "pdo", "web app"],
     "homepage": "https://github.com/taniarascia/laconia",
     "license": "MIT",
     "authors": [{
