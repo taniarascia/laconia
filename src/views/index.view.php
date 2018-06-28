@@ -21,8 +21,6 @@
 
         <h2>Comments</h2>
 
-        <?php include __DIR__ . '/partials/message.php'; ?>
-
         <?php if (!$this->comments) : ?>
         <p>No comments yet! Sign in to leave a comment.</p>
         <?php else : ?>
@@ -41,6 +39,8 @@
 
         <?php if ($this->isLoggedIn) : ?>
         <h3>Leave a comment</h3>
+        <?php include __DIR__ . '/partials/message.php'; ?>
+
         <form id="form-comments">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" value="<?= $this->user['username']; ?>" readonly>

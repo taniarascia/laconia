@@ -153,8 +153,8 @@ class ListClass extends Model
                 $this->db->execute();
             }
         }
-
-        return $this->db->rowCount();
+        
+        return $this->db->execute();
     }
 
     /**

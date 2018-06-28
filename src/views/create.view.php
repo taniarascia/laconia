@@ -20,7 +20,7 @@
 
             <label for="list-items">List items</label>
             <div id="list-items">
-                <div class="input-group">
+                <div class="input-group" id="first-group">
                     <input type="text" id="0" name="list_item_0">
                 </div>
             </div>

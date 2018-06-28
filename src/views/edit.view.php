@@ -19,11 +19,12 @@
             <div id="list-items">
                 
                 <?php foreach ($this->editList as $list) : ?>
-                    <div class="input-group">
+                    <div class="input-group" id="first-group">
                         <input type="text" name="<?= $list['id']; ?>" value="<?= $list['name']; ?>">
-                        <div class="delete-list-item"><i class="fa fa-times" aria-hidden="true"></i></div>
                     </div>
                 <?php endforeach ?>
+
+            </div>
 
             <input type="submit" value="Update">
             <a class="button" href="/home">Back</a>

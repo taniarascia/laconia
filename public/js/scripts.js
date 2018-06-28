@@ -33,9 +33,11 @@ const makeRequest = (method, url, data) => {
 // Create new list items with shift + tab
 const listItems = document.querySelector('#list-items');
 const forms = document.querySelectorAll('form');
+const formCreate = document.querySelector('#form-create');
+const deleteButtons = document.querySelectorAll('.delete-list-item');
 let counter = 0;
 
-if (listItems) {
+if (listItems && formCreate) {
     listItems.addEventListener('keydown', event => {
         if (event.keyCode == 13 && event.shiftKey) {
             event.preventDefault();
@@ -67,11 +69,9 @@ if (listItems) {
                 });
 
                 input.focus();
-
             }
         }
     });
-
 }
 
 // Process all forms
@@ -91,6 +91,7 @@ if (forms) {
             const title = document.querySelector('#title');
             const comments = document.querySelector('#comments');
             const inputs = document.querySelectorAll('input');
+            const inputGroups = document.querySelectorAll('.input-group');
 
             const showMessage = (data => {
                 const message = document.querySelector('.message');
@@ -151,6 +152,11 @@ if (forms) {
                                 inputs.forEach(input => {
                                     if (input.type == 'text' && input.id != 'title' && input.id != 0) {
                                         input.remove();
+                                    }
+                                });
+                                inputGroups.forEach(group => {
+                                    if (!group.hasAttribute('id', 'first-group')) {
+                                        group.remove();
                                     }
                                 });
                                 title.focus();
