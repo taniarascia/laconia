@@ -89,6 +89,7 @@ if (forms) {
             const password = document.querySelector('#password');
             const email = document.querySelector('#email');
             const title = document.querySelector('#title');
+            const comment = document.querySelector('#comment');
             const comments = document.querySelector('#comments');
             const inputs = document.querySelectorAll('input');
             const inputGroups = document.querySelectorAll('.input-group');
@@ -117,10 +118,16 @@ if (forms) {
             if (title && title.value === '') {
                 title.classList.add('has-error');
             }
-            if (username && username.value === '' ||
+            if (comment && comment.value === '') {
+                comment.classList.add('has-error');
+            }
+            if (
+                username && username.value === '' ||
                 password && password.value === '' ||
                 email && email.value === '' ||
-                title && title.value === '') {
+                title && title.value === '' ||
+                comment && comment.value === ''
+            ) {
                 return;
             }
 

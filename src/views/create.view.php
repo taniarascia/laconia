@@ -26,7 +26,6 @@
             </div>
 
             <input type="submit" value="Create">
-            <a href="/home" class="button">Back</a>
         </form>
 
     </div>

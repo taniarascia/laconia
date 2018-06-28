@@ -20,9 +20,12 @@
         </p>
 
         <h2>Comments</h2>
+        <?php if (!$this->isLoggedIn) : ?>
+            <p>I'd love to hear your comments. Sign in to leave a comment!</p>
+        <?php endif; ?>
 
         <?php if (!$this->comments) : ?>
-        <p>No comments yet! Sign in to leave a comment.</p>
+        <p>No comments yet! </p>
         <?php else : ?>
 
         <div id="comments">

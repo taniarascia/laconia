@@ -23,9 +23,7 @@
             <input type="text" name="email" id="email" value="<?= $this->user['email']; ?>">
 
             <label for="description">Descripton</label>
-            <textarea name="description" id="description" cols="30" rows="10">
-                <?= $this->user['description']; ?>
-            </textarea>
+            <textarea name="description" id="description" cols="30" rows="10"><?= $this->user['description']; ?></textarea>
 
             <input type="submit" value="Update">
             <a class="button" href="/home">Back</a>

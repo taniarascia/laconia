@@ -27,7 +27,6 @@
             </div>
 
             <input type="submit" value="Update">
-            <a class="button" href="/home">Back</a>
         </form>
 
     </div>

@@ -5,19 +5,21 @@
 <section class="content-section">
     <div class="small-container">
 
-        <h2>
+        <h1>
             <?= $this->user['username']; ?>
-        </h2>
+        </h1>
         <?php if (!empty($this->user['fullname'])) : ?>
-        <div class="lead">
+        <div>
+            <strong>Full Name</strong>:
             <?= $this->user['fullname']; ?>
         </div>
         <?php endif; ?>
 
         <?php if (!empty($this->user['description'])) : ?>
-        <p>
+        <div>
+            <strong>About</strong>:
             <?= $this->user['description']; ?>
-        </p>
+        </div>
         <?php endif; ?>
 
         <?php if (!empty($this->user['location'])) : ?>

@@ -13,7 +13,8 @@ class ForgotPasswordController extends Controller
     public function post() 
     {
         $post = filter_post();
-        $email = FILTER_VALIDATE_EMAIL($post['email']);
+        $email = filter_var($post['email'], FILTER_VALIDATE_EMAIL);
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
         $db = new Database();
 
         $this->user = $this->userControl->getUserByEmail($email);
@@ -41,16 +42,16 @@ class ForgotPasswordController extends Controller
             $passwordResetLink = "{$url}?uid={$this->user['id']}&id={$passwordRequestId}&t={$token}";
 
             // TODO: a better password sending process
-            @mail(
-                $email, 
-                'Password Reset', 
-                "Here is your password reset link: {$passwordResetLink}", 
-                'From: no-reply@taniarascia.com' . "\r\n" .
-                'Reply-To: no-reply@taniarascia.com' . "\r\n" .
-                'X-Mailer: PHP/' . phpversion(),
-                null);
+            // @mail(
+            //     $email, 
+            //     'Password Reset', 
+            //     "Here is your password reset link: {$passwordResetLink}", 
+            //     'From: no-reply@taniarascia.com' . "\r\n" .
+            //     'Reply-To: no-reply@taniarascia.com' . "\r\n" .
+            //     'X-Mailer: PHP/' . phpversion(),
+            //     null);
             
-            $this->message = PASSWORD_EMAIL_SENT;
+            $this->message = $passwordResetLink;
 
             echo $this->message;
         }
