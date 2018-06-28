@@ -5,11 +5,13 @@
     <section class="content-section">
         <div class="small-container">
 
+            <h1><?= $this->page_title; ?></h1>
+
             <?php include __DIR__ . '/partials/message.php'; ?>
 
             <form id="form-edit-list">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" value="<?= $this->listTitle['title']; ?>">I
+                <input type="text" id="title" name="title" value="<?= $this->listTitle['title']; ?>">
             
                 <label>List items</label>
                 <?php foreach ($this->editList as $list) : ?>

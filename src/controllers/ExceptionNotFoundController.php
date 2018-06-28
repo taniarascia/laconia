@@ -2,7 +2,7 @@
 
 use Laconia\Controller;
 
-class ExceptionNotFound extends Controller
+class ExceptionNotFoundController extends Controller
 {
     public $page_title = '404';
 

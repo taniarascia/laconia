@@ -5,7 +5,7 @@
     <section class="content-section">
         <div class="small-container">
 
-            <h2>Sign in</h2>
+            <h1><?= $this->page_title; ?></h1>
             <p>Thanks for coming back!</p>    
 
             <?php include __DIR__ . '/partials/message.php'; ?>

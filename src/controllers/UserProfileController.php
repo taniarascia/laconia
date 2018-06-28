@@ -3,7 +3,7 @@
 use Laconia\Controller;
 use Laconia\ListClass;
 
-class UserProfile extends Controller
+class UserProfileController extends Controller
 {
     public $page_title;
     public $user;
@@ -13,7 +13,6 @@ class UserProfile extends Controller
     public function get() 
     {
         $get = filter_get();
-        $this->list = new ListClass();
 
         $this->user = $this->userControl->getUserByUsername($get['username-router']);
 

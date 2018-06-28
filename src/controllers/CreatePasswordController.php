@@ -2,7 +2,7 @@
 
 use Laconia\Controller;
 
-class CreatePassword extends Controller
+class CreatePasswordController extends Controller
 {
     public $page_title = 'Create New Password';
     public $message;
@@ -13,7 +13,6 @@ class CreatePassword extends Controller
     public function post() 
     {
         $post = filter_post();
-
         // Get user id from protected session
         $userId = $this->session->getSessionValue('user_id_reset_pass');
         
@@ -62,6 +61,7 @@ class CreatePassword extends Controller
     {
         // Get user id from protected session
         $userId = $this->session->getSessionValue('user_id_reset_pass');
+        echo $userId;
         
         // If user is not logged in, redirect to forgot password page
         if (!$userId) {

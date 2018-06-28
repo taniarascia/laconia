@@ -3,7 +3,7 @@
 use Laconia\Controller;
 use Laconia\Database;
 
-class ForgotPassword extends Controller
+class ForgotPasswordController extends Controller
 {
     public $page_title = 'Forgot Password';
     public $message;
@@ -28,24 +28,22 @@ class ForgotPassword extends Controller
         // Email exists, proceed
         else {
             $this->success = true;
+
             // Create a secure token for this forgot password request.
             $token = openssl_random_pseudo_bytes(16);
             $token = bin2hex($token);
             
             $request = $this->userControl->createPasswordRequest($this->user['id'], $token);
-            
-            // Get the ID of the row 
             $passwordRequestId = $db->lastInsertId();
 
-            // Verify forgot password script
-            $verifyScript = 'http://' . $_SERVER['HTTP_HOST'] . '/forgot-password-process';
-            $linkToSend = $verifyScript . '?uid=' . $this->user['id'] . '&id=' . $passwordRequestId . '&t=' . $token;
+            // Create URL for password script
+            $url = "http://{$_SERVER['HTTP_HOST']}/reset-password";
+            $passwordResetLink = "{$url}?uid={$this->user['id']}&id={$passwordRequestId}&t={$token}";
             
             // This would email in a production site
-            $this->message = $linkToSend;
+            $this->message = $passwordResetLink;
 
             echo $this->message;
-            exit;
         }
     }
 

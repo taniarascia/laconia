@@ -111,11 +111,12 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
-- [ ] Make router class
-- [ ] Fix issue with trailing slash in URL
+- [ ] Comment board
 - [ ] Allow users to add or delete list items in edit mode
 - [ ] Allow users to delete list items in add mode
 - [ ] Email empty password forgot - PHP Mailer
+- [x] Make router class
+- [x] Fix issue with trailing slash in URL
 - [x] Validate through JavaScript and send all POST requests through JavaScript instead of page reload
     - [x] Login
     - [x] Register

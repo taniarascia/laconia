@@ -3,45 +3,42 @@
 use Laconia\Controller;
 use Laconia\ListClass;
 
-class Home extends Controller
+class HomeController extends Controller
 {
     public $page_title = 'Home';
     public $lists;
+    public $list;
     public $user;
 
     public function post() 
     {
-        $post = filter_post();
-        $list = new ListClass();
-
-        // Proceed if authentication passed
-        $this->session->authenticate();
-
         $userId = $this->session->getSessionValue('user_id');
+        $this->session->authenticate($userId);
+        
+        $post = filter_post();
+        
         $this->user = $this->userControl->getUser($userId);
         
         // Delete list item
         if (isset($post['delete'])) {
-            $list->deleteList($post['list_id']);
-            // Get updated lists
-
+            $this->list->deleteList($post['list_id']);
+            
             $this->message = LIST_DELETE_SUCCESS;
             echo $this->message;
+            exit;
         }
     }
 
     public function get() 
     {
-        $list = new ListClass();
-
-        // Proceed if authentication passed
-        $this->session->authenticate();
-        
         $userId = $this->session->getSessionValue('user_id');
+        // Proceed if authentication passed
+        $this->session->authenticate($userId);
+        
         $this->user = $this->userControl->getUser($userId);
 
         // Get lists
-        $this->lists = $list->getListsByUser($this->user);
+        $this->lists = $this->list->getListsByUser($this->user);
 
         $this->view('home');
     }

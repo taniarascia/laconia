@@ -59,9 +59,9 @@ class Session
      * if not.
      */
 
-    public function authenticate() 
+    public function authenticate($userId) 
     {
-        if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in'])) {
+        if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in']) || $userId !== $_SESSION['user_id']) {
             header('Location: /login');
         }
     }

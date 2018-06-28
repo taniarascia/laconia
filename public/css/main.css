@@ -473,12 +473,12 @@ h5 {
   h3:not(:first-child),
   h4:not(:first-child),
   h5:not(:first-child) {
-    margin: 1.5rem 0; }
+    margin: 0 0 1.5rem 0; }
 
 h1:not(:first-child),
 h2:not(:first-child),
 h3:not(:first-child) {
-  margin-top: 2rem; }
+  margin-top: 3rem; }
 
 h1 {
   font-size: 1.75rem; }
@@ -934,7 +934,8 @@ caption {
     grid-gap: 5%;
     justify-items: center;
     align-items: center;
-    padding: 15px 30px; }
+    padding: 15px 30px;
+    height: 100px; }
     .navigation-outer .navigation a {
       text-decoration: none; }
     .navigation-outer .navigation .navigation-brand {
@@ -977,7 +978,7 @@ caption {
 /* Layout
   =============== */
 main {
-  min-height: calc(100vh - 170px); }
+  min-height: calc(100vh - 220px); }
 
 .lead {
   font-size: 1.4rem; }
@@ -1052,7 +1053,7 @@ textarea.has-error:active {
   .flex-list .items {
     display: flex;
     padding-bottom: 10px;
-    margin: 10px;
+    margin: 10px 0;
     flex-direction: row;
     flex: auto;
     max-width: 100%;
@@ -1096,3 +1097,14 @@ textarea.has-error:active {
     color: #d4876d; }
     .site-footer a:hover {
       color: #e0a794; }
+
+.comments {
+  padding: 10px 0;
+  border-bottom: 1px solid #dedede; }
+  .comments a {
+    font-size: 1.6rem;
+    font-weight: 700; }
+  .comments p {
+    margin-bottom: 0; }
+  .comments:last-of-type {
+    border-bottom: 0; }

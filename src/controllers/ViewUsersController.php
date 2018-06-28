@@ -2,7 +2,7 @@
 
 use Laconia\Controller;
 
-class ViewUsers extends Controller
+class ViewUsersController extends Controller
 {
     public $page_title = "View Users";
     public $users;

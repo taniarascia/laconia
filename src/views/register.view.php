@@ -5,8 +5,8 @@
     <section class="content-section">
         <div class="small-container">
 
-            <h2>Create a new account</h2>
-            <p>Are you ready?</p>
+            <h1><?= $this->page_title; ?></h1>
+            <p>Thanks for signing up! I appreciate it.</p>
 
             <?php include __DIR__ . '/partials/message.php'; ?>
 

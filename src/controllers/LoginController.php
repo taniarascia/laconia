@@ -2,7 +2,7 @@
 
 use Laconia\Controller;
 
-class Login extends Controller
+class LoginController extends Controller
 {
     public $page_title = 'Login';
     public $user;

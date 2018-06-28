@@ -19,15 +19,18 @@ abstract class Controller
     protected $message;
     protected $session;
     protected $userControl;
+    protected $list;
 
     /**
-     * Initialize controller with Session and User classes.
+     * Initialize controller with Session, User, Comment, and List classes.
      */
 
-    public function __construct($session, $userControl) 
+    public function __construct($session, $userControl, $list, $comment) 
     {
         $this->session = $session;
         $this->userControl = $userControl;
+        $this->list = $list;
+        $this->comment = $comment;
     }
 
     /**

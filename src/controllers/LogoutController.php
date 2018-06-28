@@ -2,7 +2,7 @@
 
 use Laconia\Controller;
 
-class Logout extends Controller
+class LogoutController extends Controller
 {
     public function get() 
     {

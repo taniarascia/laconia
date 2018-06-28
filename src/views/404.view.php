@@ -5,7 +5,8 @@
     <section class="content-section">
         <div class="small-container">
 
-            <h2 class="text-center">Not found.</p>
+            <h1><?= $this->page_title; ?></h1>
+            <p>Not found.</p>
             
         </div>
     </section>

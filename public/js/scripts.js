@@ -160,6 +160,12 @@ if (forms) {
                             // Clear inputs on create form
                             if (data === 'List successfully created') {
                                 thisForm.reset();
+                                inputs.forEach(input => {
+                                    if (input.type == 'text' && input.id != 'title' && input.id != 0) {
+                                        input.remove();
+                                    }
+                                });
+                                title.focus();
                             }
                             // Clear inputs on create form
                             if (data === 'User deleted') {

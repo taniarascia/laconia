@@ -5,7 +5,7 @@
     <section class="content-section">
         <div class="small-container">
 
-            <h2>Create a list</h2>
+            <h1><?= $this->page_title; ?></h1>
             <p>Press <kbd>SHIFT</kbd> + <kbd>ENTER</kbd> to add a new list item.</p>
 
             <?php include __DIR__ . '/partials/message.php'; ?>

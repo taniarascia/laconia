@@ -2,7 +2,7 @@
   =============== */
 
 main {
-    min-height: calc(100vh - 170px);
+    min-height: calc(100vh - 220px);
 }
 
 .lead {
@@ -88,7 +88,7 @@ main {
     .items {
         display: flex;
         padding-bottom: 10px;
-        margin: 10px;
+        margin: 10px 0;
         flex-direction: row;
         flex: auto;
         max-width: 100%;
@@ -142,5 +142,20 @@ main {
         &:hover {
             color: lighten($primary-color, 20%);
         }
+    }
+}
+
+.comments {
+    padding: 10px 0;
+    border-bottom: 1px solid $border-color;
+    a {
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+    p {
+        margin-bottom: 0;
+    }
+    &:last-of-type {
+        border-bottom: 0;
     }
 }

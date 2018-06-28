@@ -5,7 +5,7 @@
     <section class="content-section">
         <div class="small-container">
 
-            <h2>User profile</h2>
+            <h1><?= $this->page_title; ?></h1>
             <p>Welcome to your settings page. Here you can update your email address and other information on your profile.</p> 
 
             <?php include __DIR__ . '/partials/message.php'; ?>

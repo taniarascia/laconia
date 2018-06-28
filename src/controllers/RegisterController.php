@@ -2,7 +2,7 @@
 
 use Laconia\Controller;
 
-class Register extends Controller
+class RegisterController extends Controller
 {
     public $page_title = 'Register';
     public $message;

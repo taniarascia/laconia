@@ -45,7 +45,7 @@ h5 {
     line-height: $heading-line-height;
     color: $heading-font-color;
     &:not(:first-child) {
-        margin: 1.5rem 0;
+        margin: 0 0 1.5rem 0;
     }
 }
 
@@ -53,7 +53,7 @@ h5 {
 h1:not(:first-child),
 h2:not(:first-child),
 h3:not(:first-child) {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 // Heading individual styles

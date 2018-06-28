@@ -22,6 +22,7 @@ define('DISALLOWED_USERNAMES', [
     'register',
     'forgot-password',
     'forgot-password-process',
+    'reset-password'
 ]);
 
 // Login

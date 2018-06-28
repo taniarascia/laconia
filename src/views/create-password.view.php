@@ -5,7 +5,7 @@
     <section class="content-section">
         <div class="small-container">
 
-            <h2>Create a new password</h2>
+            <h1><?= $this->page_title; ?></h1>
             <p>Make sure your password conforms to all proper security standards.</p>
 
             <?php include __DIR__ . '/partials/message.php'; ?>

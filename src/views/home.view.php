@@ -5,12 +5,14 @@
     <section class="content-section">
         <div class="small-container">
 
+            <h1><?= $this->page_title; ?></h1>
+
             <p>Welcome to Laconia, <?= $this->user['username']; ?>! This is your user panel. You can create a list, view and edit your lists, or change your settings.</p>
             
+            <h2>My profile</h2>
+            <p>View your public profile.</p>
             <p>
-                <a class="button" href="/create">Create a List</a>
-                <a class="button" href="/<?=$this->user['username']; ?>">View Profile</a>
-                <a class="button" href="/settings">Edit Settings</a>
+                <a class="button" href="/<?= strtolower($this->user['username']); ?>">View Profile</a>
             </p>
         </div>
 
