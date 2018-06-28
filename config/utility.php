@@ -1,22 +1,6 @@
 <?php
 
 /**
- * Get controller name, which is PascalCase, from URLs, which
- * are kebab-case.
- * Return a string.
- */
-
-function getControllerName($path) 
-{
-    $path = ltrim($path, '/');                                        // Strip trailing whitespace
-    $path = ucfirst($path);                                           // Capitalize first letter
-    $path = implode('-', array_map('ucfirst', explode('-', $path)));  // Capitalize all hyphenated words
-    $path = str_replace('-', '', $path);                              // Remove dashes     
-    
-    return $path;                      
-}
-
-/**
  * Get filtered $_POST values.
  * Return an array.
  */
@@ -42,12 +26,21 @@ function filter_get()
     return $get;
 }
 
+/**
+ * Get URI path.
+ * Return a string.
+ */
+
 function getUri() 
 {
     $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
     
     return $uri;
 }
+
+/** Get request method.
+ * Return a string.
+ */
 
 function getMethod() 
 {

@@ -931,13 +931,13 @@ caption {
     max-width: 650px;
     display: grid;
     grid-template-columns: repeat(2, auto);
-    grid-gap: 5%;
+    grid-gap: 3%;
     justify-items: center;
     align-items: center;
-    padding: 15px 30px;
-    height: 100px; }
+    padding: 15px 15px; }
     .navigation-outer .navigation a {
-      text-decoration: none; }
+      text-decoration: none;
+      line-height: 1.2rem; }
     .navigation-outer .navigation .navigation-brand {
       justify-self: start;
       align-items: center;
@@ -949,32 +949,55 @@ caption {
         font-family: "Quattrocento", -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
         color: #c96645;
         font-weight: 700;
-        font-size: 1.4rem; }
+        font-size: 1rem; }
         .navigation-outer .navigation .navigation-brand a:hover {
           color: #da9780; }
     .navigation-outer .navigation .navigation-links {
-      justify-self: end;
-      align-items: center;
-      display: flex;
-      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-gap: 10%;
       justify-content: flex-end;
+      justify-self: end;
+      justify-items: flex-start;
+      align-items: center;
+      width: 100%;
       background: #231F20; }
       .navigation-outer .navigation .navigation-links a {
         display: block;
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: #c96645;
         font-weight: 700;
-        padding: 15px; }
+        padding: 5px; }
         .navigation-outer .navigation .navigation-links a.button {
           color: #231F20;
           font-family: "Quattrocento Sans", -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-          margin: 0 5px;
+          margin: 0 2px;
           align-self: center;
-          padding: 15px 20px; }
+          padding: 10px;
+          font-size: .9rem;
+          width: 100%; }
           .navigation-outer .navigation .navigation-links a.button:hover {
             color: #231F20; }
         .navigation-outer .navigation .navigation-links a:hover {
           color: #da9780; }
+
+@media (min-width: 500px) {
+  .navigation-outer .navigation {
+    grid-gap: 5%;
+    padding: 15px 30px;
+    height: 100px; }
+    .navigation-outer .navigation .navigation-brand a {
+      font-size: 1.4rem; }
+    .navigation-outer .navigation .navigation-links {
+      display: flex; }
+      .navigation-outer .navigation .navigation-links a {
+        font-size: 1.2rem;
+        padding: 15px; }
+        .navigation-outer .navigation .navigation-links a.button {
+          margin: 0 5px;
+          padding: 15px 20px;
+          font-size: 1rem;
+          width: auto; } }
 
 /* Layout
   =============== */

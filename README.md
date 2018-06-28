@@ -111,9 +111,8 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
-- [ ] Make nav responsive
-- [ ] Email empty password forgot - PHP Mailer
-- [ ] Upload images in user profile
+- [x] Make nav responsive
+- [x] Email empty password forgot - PHP Mailer
 - [x] Comment board
 - [x] Make sure users can't comment as someone else
 - [x] Instant display of comment state in the DOM

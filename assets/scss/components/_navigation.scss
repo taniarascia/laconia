@@ -9,13 +9,13 @@
         max-width: $small;
         display: grid;
         grid-template-columns: repeat(2, auto);
-        grid-gap: 5%;
+        grid-gap: 3%;
         justify-items: center;
         align-items: center;
-        padding: 15px 30px;
-        height: 100px;
+        padding: 15px 15px;
         a {
             text-decoration: none;
+            line-height: 1.2rem;
         }
         .navigation-brand {
             justify-self: start;
@@ -28,37 +28,70 @@
                 font-family: $heading-font-family;
                 color: $primary-color;
                 font-weight: 700;
-                font-size: 1.4rem;
+                font-size: 1rem;
                 &:hover {
                     color: lighten($primary-color, 15%);
                 }
             }
         }
         .navigation-links {
-            justify-self: end;
-            align-items: center;
-            display: flex;
-            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            grid-gap: 10%;
             justify-content: flex-end;
+            justify-self: end;
+            justify-items: flex-start;
+            align-items: center;
+            width: 100%;
             background: $accent-color;
             a {
                 display: block;
-                font-size: 1.2rem;
+                font-size: 1rem;
                 color: $primary-color;
                 font-weight: 700;
-                padding: 15px;
+                padding: 5px;
                 &.button {
                     color: $accent-color;
                     font-family: $font-family;
-                    margin: 0 5px;
+                    margin: 0 2px;
                     align-self: center;
-                    padding: 15px 20px;
+                    padding: 10px;
+                    font-size: .9rem;
+                    width: 100%;
                     &:hover {
                         color: $accent-color;
                     }
                 }
                 &:hover {
                     color: lighten($primary-color, 15%);
+                }
+            }
+        }
+    }
+}
+
+@include small-breakpoint {
+    .navigation-outer {
+        .navigation {
+            grid-gap: 5%;
+            padding: 15px 30px;
+            height: 100px;
+            .navigation-brand {
+                a {
+                    font-size: 1.4rem;
+                }
+            }
+            .navigation-links {
+                display: flex;
+                a {
+                    font-size: 1.2rem;
+                    padding: 15px;
+                    &.button {
+                        margin: 0 5px;
+                        padding: 15px 20px;
+                        font-size: 1rem;
+                        width: auto;
+                    }
                 }
             }
         }
