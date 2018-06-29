@@ -20,7 +20,7 @@
  * paradigm, routing, modern development practices, and how to tie it all together
  * to make a functional web app. 
  */
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+
 $root = __DIR__ . '/..';
 
 require $root . '/vendor/autoload.php';
