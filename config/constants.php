@@ -65,6 +65,7 @@ define('USER_DELETED', 'User deleted');
 
 // Comments
 define('USERNAME_NOT_MATCHES', 'Nice try');
+define('DUPLICATE_COMMENT', 'This is a duplicate comment');
 
 // Forgot password
 define('PASSWORD_EMAIL_SENT', 'A link to reset your password has been sent to your email address.');

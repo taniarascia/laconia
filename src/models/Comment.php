@@ -29,6 +29,23 @@ class Comment extends Model
     }
 
     /**
+     * Check for spam by getting the last comment.
+     * Return a result.
+     */
+
+    public function getLastComment() {
+        $query = "SELECT * 
+                  FROM comments
+                  ORDER BY id DESC LIMIT 1";
+
+        $this->db->query($query);
+
+        $comment = $this->db->result();
+
+        return $comment;
+    }
+
+    /**
      * Insert a new comment.
      * Returns a Boolean.
      */

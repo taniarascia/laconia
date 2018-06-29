@@ -130,7 +130,7 @@ if (forms) {
                             }
                             break;
                         case 'form-comments':
-                            if (data === 'Nice try') {
+                            if (data === 'Nice try' || data === 'This is a duplicate comment') {
                                 showMessage(data);
                             } else {
                                 while (thisForm.firstChild) thisForm.removeChild(thisForm.firstChild);

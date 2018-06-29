@@ -1,6 +1,7 @@
 <?php 
 
 use Laconia\Controller;
+use Laconia\Database;
 
 class IndexController extends Controller
 {
@@ -13,12 +14,20 @@ class IndexController extends Controller
     public $commentArray = [];
 
     public function post() 
-    {
+    {   
+        $db = new Database();
         $post = filter_post();
         $this->isLoggedIn = $this->session->isUserLoggedIn();
 
         $userId = $this->session->getSessionValue('user_id');
         $this->user = $this->userControl->getUser($userId);
+
+        $lastComment = $this->comment->getLastComment();
+
+        if ($lastComment['comment'] === $post['comment']) {
+            $this->message = DUPLICATE_COMMENT;
+            exit;
+        }
 
         // Make sure people don't change the POST value to comment as someone else
         if ($this->isLoggedIn && $this->user['username'] === $post['username']) {
