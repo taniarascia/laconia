@@ -20,6 +20,7 @@
             <input type="password" id="password" name="password">
 
             <input type="submit" value="Login">
+            <a class="button" href="/forgot-password">Forgot Password?</a>
         </form>
 
     </div>

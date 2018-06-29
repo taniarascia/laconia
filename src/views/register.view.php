@@ -23,7 +23,6 @@
             <input type="email" id="email" name="email">
 
             <input type="submit" value="Register">
-            <a class="button" href="/forgot-password">Forgot Password?</a>
         </form>
 
     </div>
