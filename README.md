@@ -12,7 +12,7 @@ Please feel free to fork, use, comment, critique, suggest, improve or help in an
 
 ## Installation
 
-View the [live test](https://laconia.test) or install a local copy with the instructions below.
+View the [live test](https://laconia.site) or install a local copy with the instructions below.
 
 ### Install Apache, MySQL, and PHP
 
