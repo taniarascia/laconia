@@ -39,38 +39,10 @@ let counter = 0;
 
 if (listItems && formCreate) {
     listItems.addEventListener('keydown', event => {
-        if (event.keyCode == 13 && event.shiftKey) {
             event.preventDefault();
 
-            const lastTextInput = document.getElementById(counter);
-            if (lastTextInput && lastTextInput.value !== '' || !lastTextInput) {
-                counter++;
-
-                const inputGroup = document.createElement('div');
-                inputGroup.classList.add('input-group');
-
-                const input = document.createElement('input');
-                input.setAttribute('type', 'text');
-                input.setAttribute('id', counter);
-                input.setAttribute('name', `list_item_${counter}`);
-
-                const deleteButton = document.createElement('div');
-                deleteButton.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
-                deleteButton.classList.add('delete-list-item');
-
-                inputGroup.appendChild(input);
-                inputGroup.appendChild(deleteButton);
-
-                const listItems = event.target.parentNode.parentNode;
-                listItems.appendChild(inputGroup);
-
-                deleteButton.addEventListener('click', event => {
-                    inputGroup.remove();
-                });
-
-                input.focus();
-            }
-        }
+            const input = document.querySelector('list_item_0');
+            input.focus();
     });
 }
 
@@ -118,16 +90,10 @@ if (forms) {
             if (title && title.value === '') {
                 title.classList.add('has-error');
             }
-            if (comment && comment.value === '') {
-                comment.classList.add('has-error');
-            }
-            if (
-                username && username.value === '' ||
+            if (username && username.value === '' ||
                 password && password.value === '' ||
                 email && email.value === '' ||
-                title && title.value === '' ||
-                comment && comment.value === ''
-            ) {
+                title && title.value === '') {
                 return;
             }
 
@@ -156,16 +122,6 @@ if (forms) {
                             // Clear inputs on create form
                             if (data === 'List successfully created') {
                                 thisForm.reset();
-                                inputs.forEach(input => {
-                                    if (input.type == 'text' && input.id != 'title' && input.id != 0) {
-                                        input.remove();
-                                    }
-                                });
-                                inputGroups.forEach(group => {
-                                    if (!group.hasAttribute('id', 'first-group')) {
-                                        group.remove();
-                                    }
-                                });
                                 title.focus();
                             }
                             // Clear inputs on create form
@@ -177,6 +133,13 @@ if (forms) {
                             if (data === 'Nice try') {
                                 showMessage(data);
                             } else {
+                                while (thisForm.firstChild) thisForm.removeChild(thisForm.firstChild);
+                                const message = document.createElement('div');
+                                message.classList.add('message');
+                                message.textContent = 'Your comment has been posted!';
+                                message.style.display = 'block';
+                                thisForm.appendChild(message);
+
                                 // Display comment
                                 const arr = JSON.parse(data);
 
@@ -184,13 +147,13 @@ if (forms) {
                                 uname.href = `${window.location.href + arr[0]}`;
                                 uname.textContent = arr[0];
 
-                                const comment = document.createElement('p');
-                                comment.textContent = arr[1];
+                                const ucomment = document.createElement('p');
+                                ucomment.textContent = arr[1];
 
                                 const commentContainer = document.createElement('div');
                                 commentContainer.classList.add('comments');
                                 commentContainer.appendChild(uname);
-                                commentContainer.appendChild(comment);
+                                commentContainer.appendChild(ucomment);
 
                                 comments.appendChild(commentContainer);
                             }
