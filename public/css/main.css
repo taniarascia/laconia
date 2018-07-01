@@ -955,7 +955,7 @@ caption {
     .navigation-outer .navigation .navigation-links {
       display: grid;
       grid-template-columns: repeat(2, auto);
-      grid-gap: 10%;
+      grid-gap: 5%;
       justify-content: flex-end;
       justify-self: end;
       justify-items: flex-start;
@@ -996,7 +996,7 @@ caption {
         .navigation-outer .navigation .navigation-links a.button {
           margin: 0 5px;
           padding: 15px 20px;
-          font-size: 1rem;
+          font-size: 1.2rem;
           width: auto; } }
 
 /* Layout
@@ -1053,7 +1053,7 @@ textarea.has-error:active {
     display: flex;
     border: 1px solid #dedede;
     flex-direction: column;
-    flex: 1 1 calc(50% - 20px);
+    flex: 1 1 100%;
     border: 1px solid #dedede;
     margin: 10px; }
   .flex-grid a.button {
@@ -1104,7 +1104,7 @@ textarea.has-error:active {
 
 .section-grid {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(1, auto);
   grid-gap: 5%;
   justify-items: center;
   align-items: center;

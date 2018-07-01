@@ -42,7 +42,7 @@ abstract class Controller
     {
         $file = strtolower($filename);
 
-        return 'https://' . $_SERVER['HTTP_HOST'] . '/js/' . $file . '.js';
+        return 'http://' . $_SERVER['HTTP_HOST'] . '/js/' . $file . '.js';
     }
 
     /**
@@ -54,11 +54,11 @@ abstract class Controller
     {
         $file = strtolower($filename);
 
-        return 'https://' . $_SERVER['HTTP_HOST'] . '/css/' . $file . '.css';
+        return 'http://' . $_SERVER['HTTP_HOST'] . '/css/' . $file . '.css';
     }
 
     /**
-     * Retireve a view URL by filename.
+     * Retrieve a view URL by filename.
      * Requires a file.
      */
 

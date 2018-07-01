@@ -8,9 +8,7 @@
         <h1>
             <?= $this->page_title; ?>
         </h1>
-        <p>Press
-            <kbd>SHIFT</kbd> +
-            <kbd>ENTER</kbd> to add a new list item.</p>
+        <p>Create your top five list!</p>
 
         <?php include __DIR__ . '/partials/message.php'; ?>
 
@@ -20,9 +18,11 @@
 
             <label for="list-items">List items</label>
             <div id="list-items">
+            <?php for ($i = 0; $i < 5; $i++) : ?>
                 <div class="input-group" id="first-group">
-                    <input type="text" id="0" name="list_item_0">
+                    <input type="text" id="<?= $i; ?>" name="list_item_<?= $i; ?>">
                 </div>
+            <?php endfor; ?>
             </div>
 
             <input type="submit" value="Create">

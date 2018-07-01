@@ -37,7 +37,7 @@
         .navigation-links {
             display: grid;
             grid-template-columns: repeat(2, auto);
-            grid-gap: 10%;
+            grid-gap: 5%;
             justify-content: flex-end;
             justify-self: end;
             justify-items: flex-start;
@@ -53,7 +53,7 @@
                 &.button {
                     color: $accent-color;
                     font-family: $font-family;
-                    margin: 0 2px;
+                    margin: 0 2px; 
                     align-self: center;
                     padding: 10px;
                     font-size: .9rem;
@@ -89,7 +89,7 @@
                     &.button {
                         margin: 0 5px;
                         padding: 15px 20px;
-                        font-size: 1rem;
+                        font-size: 1.2rem;
                         width: auto;
                     }
                 }
