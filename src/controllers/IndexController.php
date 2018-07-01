@@ -5,7 +5,7 @@ use Laconia\Database;
 
 class IndexController extends Controller
 {
-    public $page_title = 'A Modern PHP App';
+    public $pageTitle = 'A Modern PHP App';
     public $message;
     public $user;
     public $session;

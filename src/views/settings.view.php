@@ -6,7 +6,7 @@
     <div class="small-container">
 
         <h1>
-            <?= $this->page_title; ?>
+            <?= $this->pageTitle; ?>
         </h1>
         <p>Welcome to your settings page. Here you can update your email address and other information on your profile.</p>
 

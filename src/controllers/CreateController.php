@@ -5,7 +5,7 @@ use Laconia\ListClass;
 
 class CreateController extends Controller
 {
-    public $page_title = 'Create List';
+    public $pageTitle = 'Create List';
     public $user;
     public $message;
     public $session;

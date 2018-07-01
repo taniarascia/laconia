@@ -5,7 +5,7 @@ use Laconia\ListClass;
 
 class EditController extends Controller
 {
-    public $page_title = 'Edit List';
+    public $pageTitle = 'Edit List';
     public $editList;
     public $listTitle;
     public $message;

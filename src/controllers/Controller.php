@@ -15,7 +15,7 @@ namespace Laconia;
 
 abstract class Controller
 { 
-    protected $page_title;
+    protected $pageTitle;
     protected $message;
     protected $session;
     protected $userControl;

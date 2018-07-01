@@ -5,7 +5,7 @@ use Laconia\Database;
 
 class ForgotPasswordController extends Controller
 {
-    public $page_title = 'Forgot Password';
+    public $pageTitle = 'Forgot Password';
     public $message;
     public $user;
     public $success = false;

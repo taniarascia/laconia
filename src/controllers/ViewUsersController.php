@@ -4,7 +4,7 @@ use Laconia\Controller;
 
 class ViewUsersController extends Controller
 {
-    public $page_title = "View Users";
+    public $pageTitle = "View Users";
     public $users;
 
     public function get() 

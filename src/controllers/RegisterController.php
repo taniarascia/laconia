@@ -4,7 +4,7 @@ use Laconia\Controller;
 
 class RegisterController extends Controller
 {
-    public $page_title = 'Register';
+    public $pageTitle = 'Register';
     public $message;
     public $user;
     public $errorList = '';

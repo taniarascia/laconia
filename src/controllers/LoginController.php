@@ -4,7 +4,7 @@ use Laconia\Controller;
 
 class LoginController extends Controller
 {
-    public $page_title = 'Login';
+    public $pageTitle = 'Login';
     public $user;
     public $message;
 

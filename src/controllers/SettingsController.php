@@ -5,7 +5,7 @@ use Laconia\ListClass;
 
 class SettingsController extends Controller
 {
-    public $page_title = 'Settings';
+    public $pageTitle = 'Settings';
     public $message;
     public $user;
 

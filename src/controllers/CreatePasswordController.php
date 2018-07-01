@@ -4,7 +4,7 @@ use Laconia\Controller;
 
 class CreatePasswordController extends Controller
 {
-    public $page_title = 'Create New Password';
+    public $pageTitle = 'Create New Password';
     public $message;
     public $errorList = '';
     public $errors = [];

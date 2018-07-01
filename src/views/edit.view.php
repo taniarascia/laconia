@@ -6,7 +6,7 @@
     <div class="small-container">
 
         <h1>
-            <?= $this->page_title; ?>
+            <?= $this->pageTitle; ?>
         </h1>
 
         <?php include __DIR__ . '/partials/message.php'; ?>

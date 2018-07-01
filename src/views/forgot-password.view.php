@@ -6,7 +6,7 @@
     <div class="small-container">
 
         <h1>
-            <?= $this->page_title; ?>
+            <?= $this->pageTitle; ?>
         </h1>
         <p>Enter the email address you signed up with and we'll email you a link to reset your password. (Actually, I'll just paste a URL here since mail is tricky and annoying)</p>
 

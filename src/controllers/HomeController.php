@@ -5,7 +5,7 @@ use Laconia\ListClass;
 
 class HomeController extends Controller
 {
-    public $page_title = 'Home';
+    public $pageTitle = 'Home';
     public $lists;
     public $list;
     public $user;
