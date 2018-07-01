@@ -42,7 +42,7 @@ abstract class Controller
     {
         $file = strtolower($filename);
 
-        return 'http://' . $_SERVER['HTTP_HOST'] . '/js/' . $file . '.js';
+        return 'https://' . $_SERVER['HTTP_HOST'] . '/js/' . $file . '.js';
     }
 
     /**
@@ -54,7 +54,7 @@ abstract class Controller
     {
         $file = strtolower($filename);
 
-        return 'http://' . $_SERVER['HTTP_HOST'] . '/css/' . $file . '.css';
+        return 'https://' . $_SERVER['HTTP_HOST'] . '/css/' . $file . '.css';
     }
 
     /**
