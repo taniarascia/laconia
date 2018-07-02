@@ -1,7 +1,7 @@
 {
   "name": "laconia",
   "version": "1.0.0",
-  "description": "A PHP Application",
+  "description": "An MVC PHP Application",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -16,9 +16,9 @@
     "type": "git",
     "url": "git+https://github.com/taniarascia/laconia.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["php", "mvc", "oop"],
+  "author": "Tania Rascia",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/taniarascia/laconia/issues"
   },
