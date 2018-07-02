@@ -33,6 +33,10 @@ abstract class Controller
         $this->comment = $comment;
     }
 
+    public function escape($html) {
+        return htmlspecialchars($html, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    }
+
     /**
      * Shortcut to retrieve JavaScript file from the /js/ directory.
      * Returns a URL.
