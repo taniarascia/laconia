@@ -12,7 +12,8 @@
 
         <?php include __DIR__ . '/partials/message.php'; ?>
 
-        <form id="form-create-password" action="" method="post">
+        <form id="form-create-password">
+            <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
 

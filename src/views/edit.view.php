@@ -12,6 +12,7 @@
         <?php include __DIR__ . '/partials/message.php'; ?>
 
         <form id="form-edit-list">
+            <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" value="<?= $this->listTitle['title']; ?>">
 

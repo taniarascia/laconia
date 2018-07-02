@@ -26,6 +26,15 @@ class Session
        if (!isset($_SESSION)) {
             session_start();
        }
+       if (empty($_SESSION['csrf'])) {
+            if (function_exists('random_bytes')) {
+                $_SESSION['csrf'] = bin2hex(random_bytes(32));
+            } else if (function_exists('mcrypt_create_iv')) {
+                $_SESSION['csrf'] = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+            } else {
+                $_SESSION['csrf'] = bin2hex(openssl_random_pseudo_bytes(32));
+            }
+        }
     }
 
     /**
@@ -78,6 +87,17 @@ class Session
             return true;
         }
     }
+
+    /**
+     * Validate CSRF 
+     */
+
+     public function validateCSRF($csrf) {
+        if (!hash_equals($_SESSION['csrf'], $csrf)) {
+            header('Location: /login');
+            exit;
+        }
+     }
 
     /**
      * Set session to test if user resetting password is the same

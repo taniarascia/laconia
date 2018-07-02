@@ -13,6 +13,7 @@
         <?php include __DIR__ . '/partials/message.php'; ?>
 
         <form id="form-forgot-password">
+            <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
             <label for="email">Email</label>
             <input type="email" id="email" name="email">
 

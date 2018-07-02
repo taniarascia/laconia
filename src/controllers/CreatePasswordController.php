@@ -9,12 +9,14 @@ class CreatePasswordController extends Controller
     public $errorList = '';
     public $errors = [];
     public $success = false;
+    public $csrf;
 
     public function post() 
     {
         $post = filter_post();
         // Get user id from protected session
         $userId = $this->session->getSessionValue('user_id_reset_pass');
+        $this->session->validateCSRF($post['csrf']);
         
         // If user is not logged in, redirect to forgot password page
         if (!$userId) {
@@ -61,7 +63,7 @@ class CreatePasswordController extends Controller
     {
         // Get user id from protected session
         $userId = $this->session->getSessionValue('user_id_reset_pass');
-        echo $userId;
+        $this->csrf = $this->session->getSessionValue('csrf');
         
         // If user is not logged in, redirect to forgot password page
         if (!$userId) {

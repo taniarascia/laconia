@@ -102,7 +102,7 @@ class ListClass extends Model
 
             // Create list_items entries
             foreach ($post as $key => $value) {
-                if ($key !== 'title' && $value !== '') {
+                if ($key !== 'title' && $key !== 'csrf' && $value !== '') {
                     $query = "INSERT INTO list_items 
                                 (user_id, list_id, name, created) 
                               VALUES 
@@ -139,7 +139,7 @@ class ListClass extends Model
         $this->db->execute();
 
         foreach ($post as $key => $value) {
-            if ($value !== '') {
+            if ($value !== '' && $key !== 'csrf') {
                 $query = "UPDATE list_items 
                           SET name = :name
                           WHERE id = :id AND

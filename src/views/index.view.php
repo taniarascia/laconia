@@ -45,6 +45,7 @@
         <?php include __DIR__ . '/partials/message.php'; ?>
 
         <form id="form-comments">
+            <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" value="<?= $this->user['username']; ?>" readonly>
 

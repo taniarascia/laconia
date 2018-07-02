@@ -9,10 +9,13 @@ class ForgotPasswordController extends Controller
     public $message;
     public $user;
     public $success = false;
+    public $csrf;
 
     public function post() 
     {
         $post = filter_post();
+        $this->session->validateCSRF($post['csrf']);
+
         $email = filter_var($post['email'], FILTER_VALIDATE_EMAIL);
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
         $db = new Database();
@@ -60,6 +63,7 @@ class ForgotPasswordController extends Controller
     public function get() 
     {
         $isLoggedIn = $this->session->isUserLoggedIn();
+        $this->csrf = $this->session->getSessionValue('csrf');
 
         if ($isLoggedIn) {
             $this->redirect('home');

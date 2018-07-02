@@ -8,15 +8,16 @@ class SettingsController extends Controller
     public $pageTitle = 'Settings';
     public $message;
     public $user;
+    public $csrf;
 
     public function post() 
     {
+        $get = filter_get();
+        $post = filter_post();
         // Get user by session value
         $userId = $this->session->getSessionValue('user_id');
         $this->session->authenticate($userId);
-        
-        $get = filter_get();
-        $post = filter_post();
+        $this->session->validateCSRF($post['csrf']);
        
         if (isset($post['delete_user'])) {
             $this->userControl->deleteUser($userId);
@@ -43,6 +44,7 @@ class SettingsController extends Controller
     {
         $userId = $this->session->getSessionValue('user_id');
         $this->session->authenticate($userId);
+        $this->csrf = $this->session->getSessionValue('csrf');
 
         $get = filter_get();
         

@@ -13,6 +13,7 @@
         <?php include __DIR__ . '/partials/message.php'; ?>
 
         <form id="form-settings">
+            <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
             <label for="fullname">Full name</label>
             <input type="text" name="fullname" id="fullname" value="<?= $this->user['fullname']; ?>">
 
@@ -24,7 +25,7 @@
 
             <label for="description">Description</label>
             <textarea name="description" id="description" cols="30" rows="10"><?= $this->user['description']; ?></textarea>
-
+        
             <input type="submit" value="Update">
             <a class="button" href="/home">Back</a>
         </form>
@@ -34,6 +35,7 @@
             from the database.</p>
 
         <form id="form-delete-user">
+            <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
             <input type="hidden" name="delete_user" value="true">
             <input type="hidden" name="list_id" value="<?= $this->user['id']; ?>">
             <input type="submit" value="Delete">

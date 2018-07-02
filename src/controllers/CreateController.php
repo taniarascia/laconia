@@ -10,10 +10,12 @@ class CreateController extends Controller
     public $message;
     public $session;
     public $list;
+    public $csrf;
 
     public function post() 
     { 
         $post = filter_post();
+        $this->session->validateCSRF($post['csrf']);
 
         // Get user info from session
         $userId = $this->session->getSessionValue('user_id');
@@ -39,9 +41,10 @@ class CreateController extends Controller
         // Get user info from session
         $userId = $this->session->getSessionValue('user_id');
         $this->session->authenticate($userId);
+        $this->csrf = $this->session->getSessionValue('csrf');
 
         $this->user = $this->userControl->getUser($userId);
-        
+
         $this->view('create');
     }
 }

@@ -7,13 +7,16 @@ class LoginController extends Controller
     public $pageTitle = 'Login';
     public $user;
     public $message;
+    public $csrf;
 
     public function post() 
     {
         $post = filter_post();
+        //$this->session->validateCSRF($post['csrf']);
 
         $username = $post['username'];
         $password = $post['password'];
+        
         
         // Retrieve the user account information for the given username
         $this->user = $this->userControl->getUserByUsername($username);
@@ -46,6 +49,7 @@ class LoginController extends Controller
     public function get() 
     {
         $isLoggedIn = $this->session->isUserLoggedIn();
+        $this->csrf = $this->session->getSessionValue('csrf');
 
         if ($isLoggedIn) {
             $this->redirect('home');

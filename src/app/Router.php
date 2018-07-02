@@ -81,7 +81,12 @@ class Router
             return $this->callAction(
                 ...explode('@', $this->routes[$requestType][$uri])
             );
-        } 
+        } else {
+            return $this->callAction(
+                ...explode('@', $this->routes[$requestType]['404'])
+            );
+        }
+
         throw new Exception('No route defined for this URI.');
     }
 

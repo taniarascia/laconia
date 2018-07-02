@@ -20,9 +20,8 @@
  * paradigm, routing, modern development practices, and how to tie it all together
  * to make a functional web app. 
  */
-
 $root = __DIR__ . '/..';
 
 require $root . '/vendor/autoload.php';
 
-Router::load($root . '/src/routes.php')->direct(getUri(), getMethod());
+Router::load($root . '/src/app/routes.php')->direct(getUri(), getMethod());

@@ -12,16 +12,19 @@ class IndexController extends Controller
     public $comments;
     public $isLoggedIn;
     public $commentArray = [];
+    public $csrf;
 
     public function post() 
     {   
         $db = new Database();
         $post = filter_post();
+        $this->session->validateCSRF($post['csrf']);
         $this->isLoggedIn = $this->session->isUserLoggedIn();
 
         $userId = $this->session->getSessionValue('user_id');
-        $this->user = $this->userControl->getUser($userId);
 
+        $this->user = $this->userControl->getUser($userId);
+        
         $lastComment = $this->comment->getLastComment();
 
         if ($lastComment['comment'] === $post['comment']) {
@@ -53,6 +56,7 @@ class IndexController extends Controller
 
         $userId = $this->session->getSessionValue('user_id');
         $this->user = $this->userControl->getUser($userId);
+        $this->csrf = $this->session->getSessionValue('csrf');
 
         $this->comments = $this->comment->getComments();
         $this->view('index'); 

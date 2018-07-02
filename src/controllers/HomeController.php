@@ -9,13 +9,15 @@ class HomeController extends Controller
     public $lists;
     public $list;
     public $user;
+    public $csrf;
 
     public function post() 
     {
-        $userId = $this->session->getSessionValue('user_id');
-        $this->session->authenticate($userId);
-        
         $post = filter_post();
+        $this->session->validateCSRF($post['csrf']);
+        $userId = $this->session->getSessionValue('user_id');
+        
+        $this->session->authenticate($userId);
         
         $this->user = $this->userControl->getUser($userId);
         
@@ -36,6 +38,7 @@ class HomeController extends Controller
         $this->session->authenticate($userId);
         
         $this->user = $this->userControl->getUser($userId);
+        $this->csrf = $this->session->getSessionValue('csrf');
 
         // Get lists
         $this->lists = $this->list->getListsByUser($this->user);

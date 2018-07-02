@@ -37,6 +37,7 @@
                 <div class="list-options">
                     <a href="/edit/<?= $list['id']; ?>" class="button">Edit</a>
                     <form id="form-delete-list_<?= $list['id']; ?>">
+                        <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
                         <input type="hidden" name="delete" value="true">
                         <input type="hidden" name="list_id" value="<?= $list['id']; ?>">
                         <input type="submit" value="Delete">

@@ -9,6 +9,7 @@ class RegisterController extends Controller
     public $user;
     public $errorList = '';
     public $errors = [];
+    public $csrf;
 
     /**
      * Make sure password passes proper testing, username does not
@@ -42,6 +43,7 @@ class RegisterController extends Controller
     public function post() 
     {
         $post = filter_post();
+        $this->session->validateCSRF($post['csrf']);
 
         $username = $post['username'];
         $password = $post['password'];
@@ -79,6 +81,7 @@ class RegisterController extends Controller
     public function get() 
     {
         $isLoggedIn = $this->session->isUserLoggedIn();
+        $this->csrf = $this->session->getSessionValue('csrf');
 
         if ($isLoggedIn) {
             $this->redirect('home');

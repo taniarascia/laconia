@@ -10,11 +10,13 @@ class EditController extends Controller
     public $listTitle;
     public $message;
     public $list;
+    public $csrf;
 
     public function post() 
     {
         $get = filter_get();
         $post = filter_post();
+        $this->session->validateCSRF($post['csrf']);
 
         $this->listTitle = $this->list->getListByListId($get['list_id']);
         $listUserId = $this->listTitle['user_id'];
@@ -46,6 +48,7 @@ class EditController extends Controller
         
         // Proceed if authentication passed
         $this->session->authenticate($listUserId);
+        $this->csrf = $this->session->getSessionValue('csrf');
         
         // Get list values
         $this->editList = $this->list->getListItemsByListId($get['list_id']);

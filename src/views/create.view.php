@@ -13,6 +13,7 @@
         <?php include __DIR__ . '/partials/message.php'; ?>
 
         <form id="form-create-list">
+            <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
             <label for="title">Title</label>
             <input type="text" name="title" id="title">
 
