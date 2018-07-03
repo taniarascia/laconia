@@ -16,6 +16,7 @@
         <p>Please feel free to fork, use, comment, critique, suggest, improve or help in any way.</p>
 
         <p>
+	    <a class="button" href="https://github.com/taniarascia/laconia">View Source</a>
             <a class="button" href="/view-users">View Users</a>
         </p>
 
