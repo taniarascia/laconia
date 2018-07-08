@@ -29,15 +29,6 @@
         </div>
         <?php endif; ?>
 
-        <?php if (!empty($this->user['email'])) : ?>
-        <div>
-            <strong>Contact</strong>:
-            <a href="mailto:<?= $this->user['email']; ?>">
-                <?= $this->user['email']; ?>
-            </a>
-        </div>
-        <?php endif; ?>
-
     </div>
 
     <div class="small-container">
