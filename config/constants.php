@@ -31,6 +31,7 @@ define('LOGIN_FAIL', 'Incorrect username / password combination!');
 // Password validation
 define('PASSWORD_TOO_SHORT', 'Password must contain at least 8 characters');
 define('PASSWORD_NEEDS_NUMBER', 'Password must contain at least 1 number');
+define('PASSWORD_NEEDS_LOWERCASE', 'Password must contain at least 1 lowercase letter');
 define('PASSWORD_NEEDS_UPPERCASE', 'Password must contain at least 1 uppercase letter');
 define('PASSWORD_MISSING', 'You must include a password');
 define('PASSWORD_UPDATED', 'Your password has been updated');
