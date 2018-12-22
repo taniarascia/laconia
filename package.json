@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "node-sass": "*"
+    "node-sass": "^4.11.0"
   },
   "scripts": {
     "sass": "node-sass -w -r ./assets/scss/ -o ./public/css/"
@@ -16,7 +16,19 @@
     "type": "git",
     "url": "git+https://github.com/taniarascia/laconia.git"
   },
-  "keywords": ["php", "application", "mvc", "scratch", "php7", "oop", "model-view-controller", "object-oriented-programming", "mysql", "pdo", "web app"],
+  "keywords": [
+    "php",
+    "application",
+    "mvc",
+    "scratch",
+    "php7",
+    "oop",
+    "model-view-controller",
+    "object-oriented-programming",
+    "mysql",
+    "pdo",
+    "web app"
+  ],
   "author": "Tania Rascia",
   "license": "MIT",
   "bugs": {
