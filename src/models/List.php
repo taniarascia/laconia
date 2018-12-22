@@ -9,7 +9,6 @@
  * and each entry is inserted into the `list_items` table. List items are
  * associated to a list by the `list_id` column. 
  */
-
 namespace Laconia;
 use Laconia\Model;
 
@@ -21,7 +20,6 @@ class ListClass extends Model
      * the entire user as a parameter, using the `id` column.
      * Returns multiple results.
      */
-
     public function getListsByUser($user) 
     {
         $query = "SELECT * 
@@ -41,7 +39,6 @@ class ListClass extends Model
      * Retrieve a single list associated with a user. 
      * Returns one result.
      */
-
     public function getListByListId($listId) 
     {
         $query = "SELECT * 
@@ -60,7 +57,6 @@ class ListClass extends Model
      * Retrieve all lists by `list_id`.
      * Return multiple results.
      */
-
     public function getListItemsByListId($listId) 
     {
         $query = "SELECT * 
@@ -79,7 +75,6 @@ class ListClass extends Model
      * Create a new list and add all associated list items.
      * Returns boolean result of original list creation.
      */
-
     public function createList($user, $title, $post) 
     {
         if (empty($title) || empty($post['list_item_0'])) {
@@ -126,7 +121,6 @@ class ListClass extends Model
      * Edit an existing list.
      * Return number
      */
-
     public function editList($post, $listId) 
     {
         $query = "UPDATE lists
@@ -161,7 +155,6 @@ class ListClass extends Model
      * Delete a list and all associated list items.
      * Return a boolean.
      */
-
     public function deleteList($listId) 
     {
         $query = "DELETE FROM lists

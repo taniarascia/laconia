@@ -7,7 +7,7 @@ RewriteCond %{REQUEST_FILENAME}%  !-f
 RewriteRule \.(js|css|svg|gif|jpg|jpeg|png)$ -                 [L]
 
 # Route /edit/$ to /edit?list_id=$ 
-RewriteRule ^/?edit/(.*?)/?$ /edit?list_id=$1        [L]
+RewriteRule ^/?edit/(.*?)/?$                 /edit?list_id=$1  [L]
 
 # Route everything else to index.php in the public directory
 # Note: username-router get variable used for public user profiles

@@ -10,7 +10,6 @@
  * state of a user's authentication. Laconia uses the PHP session 
  * superglobal to determine if a user is logged in or not.
  */
-
 namespace Laconia;
 
 class Session
@@ -20,7 +19,6 @@ class Session
      * Initialize the session with class instantiation.
      * 
      */
-
     public function __construct() 
     {
        if (!isset($_SESSION)) {
@@ -42,7 +40,6 @@ class Session
      * was authenticated.
      * 
      */
-
     public function login($user) 
     {
         $_SESSION['user_id'] = $user['id'];
@@ -53,7 +50,6 @@ class Session
     /**
      * Unset all session variables and destroy the session.
      */
-
     public function logout() 
     {
         unset($_SESSION['is_logged_in']);
@@ -67,7 +63,6 @@ class Session
      * Determine if user is logged in, and redirect to the login screen
      * if not.
      */
-
     public function authenticate($userId) 
     {
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in']) || $userId !== $_SESSION['user_id']) {
@@ -78,7 +73,6 @@ class Session
     /**
      * Return true if user is logged in.
      */
-
     public function isUserLoggedIn() 
     {
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_logged_in'])) {
@@ -91,7 +85,6 @@ class Session
     /**
      * Validate CSRF 
      */
-
      public function validateCSRF($csrf) {
         if (!hash_equals($_SESSION['csrf'], $csrf)) {
             header('Location: /login');
@@ -103,7 +96,6 @@ class Session
      * Set session to test if user resetting password is the same
      * one who initiated the request.
      */
-
     public function setPasswordRequestId($userId) 
     {
         $_SESSION['user_id_reset_pass'] = $userId;
@@ -112,7 +104,6 @@ class Session
     /**
      * Set a session value.
      */
-
     public function setSessionValue($key, $value) 
     {
         $_SESSION[$key] = $value;
@@ -121,7 +112,6 @@ class Session
     /**
      * Unset a session value.
      */
-
     public function deleteSessionValue($key) 
     {
         unset($_SESSION[$key]);
@@ -131,7 +121,6 @@ class Session
      * Obtain a session value by key.
      * Return value or null.
      */
-
     public function getSessionValue($key) 
     {
         return isset($_SESSION[$key]) ? $_SESSION[$key] : null;

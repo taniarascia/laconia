@@ -9,7 +9,6 @@
  * 
  * @link https://github.com/laracasts/The-PHP-Practitioner-Full-Source-Code/blob/master/core/Router.php
  */
-
 use Laconia\Session;
 use Laconia\ListClass;
 use Laconia\User;
@@ -20,7 +19,6 @@ class Router
     /**
      * All registered routes.
      */
-
     public $routes = [
         'GET' => [],
         'POST' => []
@@ -29,7 +27,6 @@ class Router
     /**
      * Load a user's routes file.
      */
-
     public static function load($file)
     {
         $router = new static;
@@ -41,7 +38,6 @@ class Router
     /**
      * Register a GET route.
      */
-
     public function get($uri, $controller)
     {
         $this->routes['GET'][$uri] = $controller;
@@ -50,7 +46,6 @@ class Router
     /**
      * Register a POST route.
      */
-
     public function post($uri, $controller)
     {
         $this->routes['POST'][$uri] = $controller;
@@ -59,7 +54,6 @@ class Router
     /**
      * Load the requested URI's associated controller method.
      */
-
     public function direct($uri, $requestType)
     {
         $userControl = new User;
@@ -93,7 +87,6 @@ class Router
     /**
      * Load and call the relevant controller action.
      */
-    
     protected function callAction($controller, $action)
     {
         $session = new Session;

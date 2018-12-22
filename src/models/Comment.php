@@ -5,7 +5,6 @@
  * 
  * Interact with comments.
  */
-
 namespace Laconia;
 use Laconia\Model;
 
@@ -15,7 +14,6 @@ class Comment extends Model
      * Select all comments.
      * Returns multiple rows.
      */
-
     public function getComments() 
     {
         $query = "SELECT * 
@@ -32,7 +30,6 @@ class Comment extends Model
      * Check for spam by getting the last comment.
      * Return a result.
      */
-
     public function getLastComment() {
         $query = "SELECT * 
                   FROM comments
@@ -49,7 +46,6 @@ class Comment extends Model
      * Insert a new comment.
      * Returns a Boolean.
      */
-
     public function insertComment($username, $comment) 
     {
         $query = "INSERT INTO comments 

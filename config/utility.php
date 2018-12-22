@@ -4,7 +4,6 @@
  * Get filtered $_POST values.
  * Return an array.
  */
-
 function filter_post() 
 {
     $post = filter_input_array(INPUT_POST);
@@ -18,7 +17,6 @@ function filter_post()
  * Get filtered $_GET values.
  * Return an array.
  */
-
 function filter_get() 
 {
     $get = filter_input_array(INPUT_GET);
@@ -32,7 +30,6 @@ function filter_get()
  * Get URI path.
  * Return a string.
  */
-
 function getUri() 
 {
     $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
@@ -43,7 +40,6 @@ function getUri()
 /** Get request method.
  * Return a string.
  */
-
 function getMethod() 
 {
     $method = $_SERVER['REQUEST_METHOD'];

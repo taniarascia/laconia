@@ -10,7 +10,6 @@
  * to interact with the database without having to create
  * a new instance in each class.
  */
-
 namespace Laconia;
 
 abstract class Model

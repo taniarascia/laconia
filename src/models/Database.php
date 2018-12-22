@@ -10,7 +10,6 @@
  * rest of the model classes will access it by extending the Model class,
  * as $this->db.
  */
-
 namespace Laconia;
 use \PDO;
 
@@ -31,7 +30,6 @@ class Database
      * the new instance to be used throughout each additional
      * function.
      */
-
     public function __construct() 
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;  
@@ -50,7 +48,6 @@ class Database
     /**
      * Prepare a statement.
      */
-    
     public function query($query) 
     {  
         $this->statement = $this->handler->prepare($query);  
@@ -60,7 +57,6 @@ class Database
      * Bind the variables to the proper type. Allows
      * for integer, string, null, and boolean.
      */
-
     public function bind($param, $value, $type = null) 
     {
         if (is_null($type)) {  
@@ -84,7 +80,6 @@ class Database
     /**
      * Execute a prepared statement.
      */
-
     public function execute() 
     {  
         try {
@@ -97,7 +92,6 @@ class Database
     /**
      * Fetch a single row as a result of a query.
      */
-
     public function result() 
     {  
         $this->execute(); 
@@ -108,7 +102,6 @@ class Database
     /**
      * Fetch a set of rows as a result of a query.
      */
-    
     public function resultset() 
     {  
         $this->execute();  
@@ -119,7 +112,6 @@ class Database
     /**
      * Get the row count of the statement.
      */
-
     public function rowCount()
     {  
         return $this->statement->rowCount();  
@@ -128,7 +120,6 @@ class Database
     /**
      * Get the id of the last inserted item into the database.
      */
-
     public function lastInsertId() 
     {  
         return $this->handler->lastInsertId();  

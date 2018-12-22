@@ -10,7 +10,7 @@ Please feel free to fork, use, comment, critique, suggest, improve or help in an
 
 ## Installation
 
-View the [live test](https://laconia.site) or install a local copy with the instructions below.
+View the [live site](https://laconia.site) or install a local copy with the instructions below.
 
 ### Install Apache, MySQL, and PHP
 
@@ -109,6 +109,7 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
+- [ ] Write a post about creating an MVC framework from scratch 
 - [x] Set up SSL and put on a live server
 - [x] Make nav responsive
 - [x] Email empty password forgot - PHP Mailer

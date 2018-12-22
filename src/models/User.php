@@ -13,7 +13,6 @@
  * username, or email, or we can get a list of all users. This class
  * also includes calls to the password request table.
  */
-
 namespace Laconia;
 use Laconia\Model;
 
@@ -23,7 +22,6 @@ class User extends Model
      * Select all data from a single user by user ID.
      * Return a single row.
      */
-
     public function getUser($userId) 
     {
         $query = "SELECT * 
@@ -43,7 +41,6 @@ class User extends Model
      * Select all user data from all users.
      * Return multiple rows.
      */
-
     public function getAllUsers() 
     {
         $query = "SELECT * FROM users";
@@ -59,7 +56,6 @@ class User extends Model
      * Select all data from a single user by username.
      * Return a single row.
      */
-
     public function getUserByUsername($username) 
     {
         $query = "SELECT * 
@@ -79,7 +75,6 @@ class User extends Model
      * Select all data from a single user by email address.
      * Return a single row.
      */
-
     public function getUserByEmail($email) 
     {
         $query = "SELECT * 
@@ -100,7 +95,6 @@ class User extends Model
      * data into the users table.
      * Returns true if successful.
      */
-
     public function registerNewUser($username, $password, $email, $role) 
     {
         $query = "INSERT INTO users 
@@ -124,7 +118,6 @@ class User extends Model
      * user registration does not override an existing user.
      * Return a boolean.
      */
-
     public function isUsernameAvailable($username) 
     {
         $username = strtolower($username);
@@ -146,7 +139,6 @@ class User extends Model
      * user registration does not override an existing user.
      * Return a boolean.
      */
-
     public function isEmailAvailable($email) 
     {
         $query = "SELECT COUNT(email) 
@@ -166,7 +158,6 @@ class User extends Model
      * Update the settings of a user.
      * Return a boolean.
      */
-
     public function updateUserSettings($post, $userId) 
     {
         $query = "UPDATE users 
@@ -192,7 +183,6 @@ class User extends Model
      * Delete a user and all associated list items.
      * Return a boolean.
      */
-
     public function deleteUser($userId) 
     {
         $query = "DELETE FROM users
@@ -225,7 +215,6 @@ class User extends Model
      * user registration does not override an existing user.
      * Return a boolean.
      */
-
     public function createPasswordRequest($userId, $token) 
     {
         $query = "INSERT INTO password_reset_request
@@ -249,7 +238,6 @@ class User extends Model
      * based on the GET variables passed through.
      * Return the matching result.
      */
-
     public function verifyPasswordRequest($userId, $passwordRequestId, $token) 
     {
         $query = "SELECT id, user_id, date_requested 
@@ -274,7 +262,6 @@ class User extends Model
      * change.
      * Return a boolean.
      */
-
     public function resetUserPassword($passwordHash, $userId) 
     {
         $query = "UPDATE users 

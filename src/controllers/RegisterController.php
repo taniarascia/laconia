@@ -15,7 +15,6 @@ class RegisterController extends Controller
      * Make sure password passes proper testing, username does not
      * contain special characters, and email is valid.
      */
-
     public function validateNewUser($username, $password, $email) 
     {
         $this->validatePassword($password);
