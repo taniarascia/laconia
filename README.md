@@ -1,12 +1,22 @@
-# Laconia
+# Laconia [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-### An MVC application written in plain PHP without libraries or frameworks
+An MVC framework written without libraries or frameworks (PHP).
+
+## Motivation
 
 Laconia is a personal project created by Tania Rascia to learn the fundamentals of programming and modern web development from scratch. The main goals of the project are to learn MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) paradigm, routing, authentication, security, modern development practices, and how to tie it all together to make a functional web app. 
 
-Laconia runs on PHP 7.2 and MySQL. It uses Composer to autoload classes and  configuration and utility files, as well as future tests through PHPUnit. Node.js is used to compile Sass to CSS via npm scripts. I utilized [Primitive](https://taniarascia.github.io/primitive), my Sass workflow, for the styles.
+Laconia runs on PHP 7.2 and MySQL. It uses Composer to autoload classes, configuration and utility files, as well as future tests through PHPUnit. Node.js is used to compile Sass to CSS via npm scripts. The CSS framework [Primitive](https://taniarascia.github.io/primitive) was used for the design.
 
-Please feel free to fork, use, comment, critique, suggest, improve or help in any way.
+Here are some of the concepts I learned while writing this program:
+
+- **Authentication** – logging in, logging out, resetting a password, having private content/dashboard hidden from anonymous users
+- **Security and validation** – encrypted passwords and hashing, parameter binding with SQL, making sure users cannot be overridden, making sure no spam or empty content can go through, making sure passwords and usernames have the proper characters
+- **Routing** – Redirecting to URLs based on incoming request method and URI path, creating public user profiles in the root directory, creating dynamic pages based on GET requests
+- **Object-oriented programming** – I had never used a class in a working application before writing this app, so I learned a lot about constructors, inheritance, and abstract classes
+- **Composer** – I had no prior experience using Composer, so I wanted to find out why it was the standard in modern PHP development. I used it for autoloading classes and configuration.
+- **Database schema** – how to structure a database to relate information easily between the tables, i.e. linking lists and list items, users and user comments, etc.
+Sessions and Users – how to easily deal with sessions, users, and authentication.
 
 ## Installation
 
@@ -14,7 +24,7 @@ View the [live site](https://laconia.site) or install a local copy with the inst
 
 ### Install Apache, MySQL, and PHP
 
-It is assumed you know how to install a LAMP stack. For macOS and Windows local development, I would recommend downloading [MAMP](https://www.mamp.info/en/) for a sandboxed environment. You can [set up virtual hosts](https://www.taniarascia.com/setting-up-virtual-hosts/).
+It is assumed you already know how to install a LAMP stack. For macOS and Windows local development, I would recommend downloading [MAMP](https://www.mamp.info/en/) for a sandboxed environment. You can [set up virtual hosts](https://www.taniarascia.com/setting-up-virtual-hosts/) as well.
 
 If using MAMP, add MAMP to the PHP command line by adding this line to `.bash_profile`.
 
@@ -33,7 +43,7 @@ sudo mv composer.phar /usr/local/bin/composer
 
 ### Set up server
 
-Create a virtual host called `laconia.server`. The server should point to the `/public` directory. For me, `httpd-vhosts.conf` looks like this.
+Create a virtual host called `laconia.server`. The server should point to the `/public` directory. Your `httpd-vhosts.conf` will look like this:
 
 ```apacheconf
 <VirtualHost *:80>
@@ -46,8 +56,8 @@ Create a virtual host called `laconia.server`. The server should point to the `/
 
 - Run `php bin/install.php` in the root directory to initialize the database.
 - Run `composer install` to autoload classes and configuration.
-- Run `npm install` to allow use of Sass
-- In order to run Sass, use `npm run sass`.
+- Run `npm install` to use Sass
+- To run Sass, use `npm run sass`.
 
 Laconia is all set up and ready to use!
 
@@ -83,7 +93,7 @@ laconia/
 
 ## Usage
 
-In Laconia, you can register an account, log in, log out, reset your password, create and edit lists, and view public profiles.
+Laconia is a simple list-making website. You can register an account, log in, log out, reset your password, create and edit lists, and view public profiles.
 
 - `/` - Index
 - `/register` - Register a new user
@@ -109,7 +119,7 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 
 ## Todos
 
-- [ ] Write a post about creating an MVC framework from scratch 
+- [ ] Write "Everything I Learned Writing an MVC Framework from Scratch"
 - [x] Set up SSL and put on a live server
 - [x] Make nav responsive
 - [x] Email empty password forgot - PHP Mailer
@@ -153,7 +163,7 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 - [x] Add ability to reset password of users
 - [x] Add ability to log in, log out, and register a user
 
-## Sources
+## Acknowledgements
 
 I've used a combination of many tutorials and StackOverflow posts to create this project. These have been the most important.
 
@@ -166,8 +176,14 @@ I've used a combination of many tutorials and StackOverflow posts to create this
 - [Promisify XHR](https://stackoverflow.com/questions/30008114/how-do-i-promisify-native-xhr)
 - [MVC concepts and routing class](https://github.com/laracasts/The-PHP-Practitioner-Full-Source-Code/)
 
+## Contributing
+
+Please feel free to fork, comment, critique, or submit a pull request.
+
+## Author 
+
+- [Tania Rascia](https://www.taniarascia.com)
+
 ## License
 
-The code is open source and available under the [MIT License](LICENSE).
-
-Written and maintained by [Tania Rascia](https://www.taniarascia.com).
+This project is open source and available under the [MIT License](LICENSE).

@@ -1,8 +1,16 @@
 {
   "name": "laconia",
   "version": "1.0.0",
-  "description": "An MVC PHP Application",
+  "description": "An MVC framework written without libraries or frameworks (PHP).",
+  "author": {
+    "name": "Tania Rascia",
+    "email": "me@taniarascia.com",
+    "url": "https://www.taniarascia.com"
+  },
+  "homepage": "https://laconia.site",
   "main": "index.js",
+  "repository": "github:taniarascia/laconia",
+  "bugs": "https://github.com/taniarascia/laconia/issues",
   "directories": {
     "test": "tests"
   },
@@ -12,13 +20,11 @@
   "scripts": {
     "sass": "node-sass -w -r ./assets/scss/ -o ./public/css/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/taniarascia/laconia.git"
-  },
+
   "keywords": [
     "php",
     "application",
+    "framework",
     "mvc",
     "scratch",
     "php7",
@@ -29,10 +35,5 @@
     "pdo",
     "web app"
   ],
-  "author": "Tania Rascia",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/taniarascia/laconia/issues"
-  },
-  "homepage": "https://github.com/taniarascia/laconia#readme"
+  "license": "MIT"
 }

@@ -4,11 +4,6 @@
  * Controller Class
  * 
  * Connects the database and session models to the front-end views
- * 
- * The Controller class directs traffic to the proper view, and
- * contains common functions used throughout the routes. It is
- * initialized with the Session and User database models, giving 
- * each extended controller the ability to access those databases.
  */
 namespace Laconia;
 
