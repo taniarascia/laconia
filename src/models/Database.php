@@ -33,6 +33,7 @@ class Database
     public function __construct() 
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;  
+       
         $options = [
             PDO::ATTR_PERSISTENT => true,  
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION  

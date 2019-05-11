@@ -53,7 +53,7 @@ class IndexController extends Controller
     public function get() 
     {
         $this->isLoggedIn = $this->session->isUserLoggedIn();
-
+  
         $userId = $this->session->getSessionValue('user_id');
         $this->user = $this->userControl->getUser($userId);
         $this->csrf = $this->session->getSessionValue('csrf');
