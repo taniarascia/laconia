@@ -1,4 +1,4 @@
-# 🏺 Laconia [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+# Laconia [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A modern MVC framework written in PHP without libraries or frameworks.
 
