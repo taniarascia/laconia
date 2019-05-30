@@ -1,22 +1,6 @@
-# Laconia [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+# 🏺 Laconia [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A modern MVC framework written without libraries or frameworks (PHP).
-
-## Motivation
-
-Laconia is a personal project created by Tania Rascia to learn the fundamentals of programming and modern web development from scratch. The main goals of the project are to learn MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) paradigm, routing, authentication, security, modern development practices, and how to tie it all together to make a functional web app. 
-
-Laconia runs on PHP 7.2 and MySQL. It uses Composer to autoload classes, configuration and utility files, as well as future tests through PHPUnit. Node.js is used to compile Sass to CSS via npm scripts. The CSS framework [Primitive](https://taniarascia.github.io/primitive) was used for the design.
-
-Here are some of the concepts I learned while writing this program:
-
-- **Authentication** – logging in, logging out, resetting a password, having private content/dashboard hidden from anonymous users
-- **Security and validation** – encrypted passwords and hashing, parameter binding with SQL, making sure users cannot be overridden, making sure no spam or empty content can go through, making sure passwords and usernames have the proper characters
-- **Routing** – Redirecting to URLs based on incoming request method and URI path, creating public user profiles in the root directory, creating dynamic pages based on GET requests
-- **Object-oriented programming** – I had never used a class in a working application before writing this app, so I learned a lot about constructors, inheritance, and abstract classes
-- **Composer** – I had no prior experience using Composer, so I wanted to find out why it was the standard in modern PHP development. I used it for autoloading classes and configuration.
-- **Database schema** – how to structure a database to relate information easily between the tables, i.e. linking lists and list items, users and user comments, etc.
-Sessions and Users – how to easily deal with sessions, users, and authentication.
+A modern MVC framework written in PHP without libraries or frameworks.
 
 ## Installation
 
@@ -60,6 +44,22 @@ Create a virtual host called `laconia.server`. The server should point to the `/
 - To run Sass, use `npm run sass`.
 
 Laconia is all set up and ready to use!
+
+## Motivation
+
+Laconia is a personal project created by Tania Rascia to learn the fundamentals of programming and modern web development from scratch. The main goals of the project are to learn MVC (Model View Controller) architecture, the OOP (Object-Oriented Programming) paradigm, routing, authentication, security, modern development practices, and how to tie it all together to make a functional web app. 
+
+Laconia runs on PHP 7.2 and MySQL. It uses Composer to autoload classes, configuration and utility files, as well as future tests through PHPUnit. Node.js is used to compile Sass to CSS via npm scripts. The CSS framework [Primitive](https://taniarascia.github.io/primitive) was used for the design.
+
+Here are some of the concepts I learned while writing this program:
+
+- **Authentication** – logging in, logging out, resetting a password, having private content/dashboard hidden from anonymous users
+- **Security and validation** – encrypted passwords and hashing, parameter binding with SQL, making sure users cannot be overridden, making sure no spam or empty content can go through, making sure passwords and usernames have the proper characters
+- **Routing** – Redirecting to URLs based on incoming request method and URI path, creating public user profiles in the root directory, creating dynamic pages based on GET requests
+- **Object-oriented programming** – I had never used a class in a working application before writing this app, so I learned a lot about constructors, inheritance, and abstract classes
+- **Composer** – I had no prior experience using Composer, so I wanted to find out why it was the standard in modern PHP development. I used it for autoloading classes and configuration.
+- **Database schema** – how to structure a database to relate information easily between the tables, i.e. linking lists and list items, users and user comments, etc.
+Sessions and Users – how to easily deal with sessions, users, and authentication.
 
 ## Project Structure
 
@@ -116,52 +116,6 @@ Laconia uses PHPUnit for unit testing. Tests will go in the `/tests` directory. 
 ```bash
 ./vendor/bin/phpunit ./tests/HelloWorldTest
 ```
-
-## Todos
-
-- [ ] Write "Everything I Learned Writing an MVC Framework from Scratch"
-- [x] Set up SSL and put on a live server
-- [x] Make nav responsive
-- [x] Email empty password forgot - PHP Mailer
-- [x] Comment board
-- [x] Make sure users can't comment as someone else
-- [x] Instant display of comment state in the DOM
-- [x] Allow users to delete list items in add mode
-- [x] Make router class
-- [x] Fix issue with trailing slash in URL
-- [x] Validate through JavaScript and send all POST requests through JavaScript instead of page reload
-    - [x] Login
-    - [x] Register
-    - [x] Forgot Password
-    - [x] Create Password
-    - [x] Create List
-    - [x] Edit List
-    - [x] Delete
-    - [x] Settings
-- [x] Do not allow > 255 chars for lists    
-- [x] Add ability to delete a user account
-- [x] Disallow spaces in usernames
-- [x] Comment all code
-- [x] Create a user settings page
-- [x] Make view for public user lists
-- [x] Prevent adding new list items if post is empty
-- [x] Create a top navigation bar when logged in
-- [x] Add CSS styles (Primitive)
-- [x] Disallow multiple same usernames with different casing
-- [x] Make Sass watch
-- [x] Integrate Composer for autoloading of classes and config
-- [x] Clean up password validation code
-- [x] Allow users to edit their own lists - /edit
-- [x] Allow user to create a list with list items - /create
-- [x] Create public facing user profile - laconia.test/$username - will require Apache redirects? or PHP redirects?
-- [x] Make routing dynamic based on incoming pathname and existing files, rather than a switch with each filename
-- [x] Separate POST and GET into different functions - do not display POST code in GET view
-- [x] Turn all controllers into classes
-- [x] Route all URLs through index.php
-- [x] Separate views into partials
-- [x] Separate business logic (controller) from HTML (view)
-- [x] Add ability to reset password of users
-- [x] Add ability to log in, log out, and register a user
 
 ## Acknowledgements
 
