@@ -20,7 +20,6 @@
   "scripts": {
     "sass": "node-sass -w -r ./assets/scss/ -o ./public/css/"
   },
-
   "keywords": [
     "php",
     "application",
