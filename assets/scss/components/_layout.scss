@@ -164,8 +164,7 @@ main {
   @extend .small-container;
   @extend .card;
   max-width: 500px;
-  margin: 0 1rem;
-  h3 {
+  h3 { 
     margin-top: 0;
     color: $primary-color;
     font-size: 1.5rem;

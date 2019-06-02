@@ -1135,8 +1135,7 @@ main {
     min-height: auto; }
 
 .form-container {
-  max-width: 500px;
-  margin: 0 1rem; }
+  max-width: 500px; }
   .form-container h3 {
     margin-top: 0;
     color: #eb7e49;
