@@ -1,5 +1,7 @@
 <?php
 
+define('PROTOCOL', 'http://');
+
 // Site
 define('SITE_NAME', 'Laconia');
 
