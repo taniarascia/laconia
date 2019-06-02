@@ -47,7 +47,7 @@ $line-height: 1.6;
 // Headings
 $heading-font-color: #0e0c0c;
 $heading-font-weight: 700;
-$heading-font-family: 'Mandali', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial,
+$heading-font-family: 'Hind', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial,
   sans-serif;
 $heading-line-height: 1.3;
 $display: 'Montserrat Alternates', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
@@ -88,9 +88,9 @@ $button-background: $primary-color;
 $button-background-hover: darken($button-background, 8%);
 $button-color: #ffffff;
 $button-font-weight: 600;
-$button-font-family: 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, Helvetica Neue,
+$button-font-family: 'Mandali', -apple-system, BlinkMacSystemFont, Helvetica Neue,
   Helvetica, Arial, sans-serif;
-$button-font-size: 1rem;
+$button-font-size: 1.1rem;
 $button-border-width: 2px;
 $button-border-style: solid;
 $button-border-color: $button-background;

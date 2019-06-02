@@ -2,7 +2,7 @@
 
 <section class="content-section content-accent">
     <div class="small-container text-center">
-        <h1 class="display">
+        <h1>
             <?= $this->user['username']; ?>
         </h1>
 
