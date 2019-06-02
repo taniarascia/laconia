@@ -938,7 +938,7 @@ caption {
     margin-left: auto;
     margin-right: auto;
     max-width: 1150px;
-    padding: .5rem; }
+    padding: 0.5rem; }
     .navigation-outer .navigation a {
       text-decoration: none;
       line-height: 1.2rem; }
@@ -960,8 +960,8 @@ caption {
         .navigation-outer .navigation .navigation-brand a:hover {
           color: #eb7e49; }
       .navigation-outer .navigation .navigation-brand .logo {
-        height: 50px;
-        width: 50px; }
+        height: 30px;
+        width: 30px; }
     .navigation-outer .navigation .navigation-links {
       display: flex;
       align-items: center;
@@ -972,7 +972,8 @@ caption {
         font-size: 1rem;
         color: white;
         font-weight: 400;
-        padding: 1rem;
+        padding: 0.5rem;
+        text-align: center;
         flex: 1; }
         .navigation-outer .navigation .navigation-links a.button {
           font-family: "Mandali", -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -981,7 +982,8 @@ caption {
           padding: 10px;
           font-size: 0.9rem;
           width: 100%;
-          color: white !important; }
+          color: white !important;
+          margin: 0 1rem; }
         .navigation-outer .navigation .navigation-links a:hover {
           color: #eb7e49; }
 
@@ -996,6 +998,9 @@ caption {
     height: 80px; }
     .navigation-outer .navigation .navigation-brand a {
       font-size: 1.8rem; }
+    .navigation-outer .navigation .navigation-brand .logo {
+      height: 50px;
+      width: 50px; }
     .navigation-outer .navigation .navigation-links {
       justify-content: flex-end; }
       .navigation-outer .navigation .navigation-links a {
@@ -1066,6 +1071,7 @@ main {
 
 @media (min-width: 750px) {
   .flex-grid .lists {
+    width: auto;
     min-width: calc(25% - 20px); } }
 
 .flex-list {

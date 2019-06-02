@@ -7,7 +7,7 @@
     margin-left: auto;
     margin-right: auto;
     max-width: $large;
-    padding: .5rem;
+    padding: 0.5rem;
     a {
       text-decoration: none;
       line-height: 1.2rem;
@@ -33,8 +33,8 @@
         }
       }
       .logo {
-        height: 50px;
-        width: 50px;
+        height: 30px;
+        width: 30px;
       }
     }
     .navigation-links {
@@ -47,7 +47,8 @@
         font-size: 1rem;
         color: rgba(255, 255, 255, 1);
         font-weight: 400;
-        padding: 1rem;
+        padding: 0.5rem;
+        text-align: center;
         flex: 1;
         &.button {
           font-family: $font-family;
@@ -57,6 +58,7 @@
           font-size: 0.9rem;
           width: 100%;
           color: white !important;
+          margin: 0 1rem;
         }
         &:hover {
           color: $primary-color;
@@ -79,6 +81,10 @@
       .navigation-brand {
         a {
           font-size: 1.8rem;
+        }
+        .logo {
+          height: 50px;
+          width: 50px;
         }
       }
       .navigation-links {

@@ -75,6 +75,7 @@ main {
 @include small-breakpoint {
   .flex-grid {
     .lists {
+      width: auto;
       min-width: calc(25% - 20px);
     }
   }
