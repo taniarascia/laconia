@@ -24,19 +24,19 @@
             <div class="flex-small">
                 <div class="card text-center">
                     <h3>MVC</h3>
-                    <p>View, create, edit, delete lists.</p>
+                    <p>Uses Model View Controller architecture.</p>
                 </div>
             </div>
             <div class="flex-small">
                 <div class="card text-center">
                     <h3>Routing</h3>
-                    <p>View your public profile.</p>
+                    <p>Route all your pages through a single entry point.</p>
                 </div>
             </div>
             <div class="flex-small">
                 <div class="card text-center">
                     <h3>Authentication</h3>
-                    <p>Update your settings.</p>
+                    <p>Create secure users with hashed passwords.</p>
                 </div>
             </div>
 
