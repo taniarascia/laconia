@@ -62,9 +62,9 @@ Create a virtual host called `laconia.server`. The server should point to the `/
 Laconia is all set up and ready to use!
 
 ### Or use Docker install
-- Require [docker-compose](https://docs.docker.com/compose/install/) and make command avaible on linux and mac
-- Run `make install-containers` for init docker
-- Run `make install-app` for init app (depencies, database) , go to [localhost:8000](localhost:8000)
+- Require [docker-compose](https://docs.docker.com/compose/install/) and command  make
+- Run `make install-containers` for init containers
+- Run `make install-app` for init app (depencies, database) , app is ready go to [localhost:8000](localhost:8000)
 - Run `make start` you can use for run app, go to [localhost:8000](localhost:8000)
 - Run `make stop` you can use for stop all containers.
 
