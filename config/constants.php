@@ -1,6 +1,6 @@
 <?php
 
-define('PROTOCOL', 'http://');
+define('PROTOCOL', 'https://');
 
 // Site
 define('SITE_NAME', 'Laconia');
