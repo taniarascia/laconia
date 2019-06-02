@@ -61,6 +61,11 @@ Create a virtual host called `laconia.server`. The server should point to the `/
 
 Laconia is all set up and ready to use!
 
+### Or use Docker install
+- Require [docker-compose](https://docs.docker.com/compose/install/) and docker 
+- Run `docker-compose up -d`
+- Docker not include npm, you need run `npm install` and `npm run sass`
+
 ## Project Structure
 
 The entire program flows through `/public/index.php`, and the rest of the project is a directory above public.
