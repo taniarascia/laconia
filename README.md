@@ -62,9 +62,14 @@ Create a virtual host called `laconia.server`. The server should point to the `/
 Laconia is all set up and ready to use!
 
 ### Or use Docker install
-- Require [docker-compose](https://docs.docker.com/compose/install/) and docker 
-- Run `docker-compose up -d`
-- Docker not include npm, you need run `npm install` and `npm run sass`
+- Require [docker-compose](https://docs.docker.com/compose/install/) and make command avaible on linux and mac
+- Run `make install` for first run(init db ect..), go to [localhost:8000](localhost:8000)
+- Run `make start` for run app, go to [localhost:8000](localhost:8000)
+- Run `make stop` for stop all containers.
+
+You need install and run npm 
+- Run `npm install` to use Sass
+- To run Sass, use `npm run sass`
 
 ## Project Structure
 

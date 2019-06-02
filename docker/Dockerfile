@@ -1,5 +1,8 @@
 FROM php:7.2-fpm
 
+# Changing Workdir
+WORKDIR /application
+
 # Installing dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -12,8 +15,6 @@ RUN apt-get update && apt-get install -y \
     zip \
     jpegoptim optipng pngquant gifsicle
 
-RUN php bin/install.php
-
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -23,7 +24,7 @@ RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --wi
 RUN docker-php-ext-install gd
 
 # Installing composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer |  composer install
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Setting locales
 RUN echo fr_FR.UTF-8 UTF-8 > /etc/locale.gen && locale-gen
@@ -31,5 +32,5 @@ RUN echo fr_FR.UTF-8 UTF-8 > /etc/locale.gen && locale-gen
 # Allow container to write on host
 RUN usermod -u 1000 www-data
 
-# Changing Workdir
-WORKDIR /application
+
+

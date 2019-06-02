@@ -33,7 +33,8 @@
     "object-oriented-programming",
     "mysql",
     "pdo",
-    "web app"
+    "web app",
+    "docker"
   ],
   "license": "MIT"
 }
