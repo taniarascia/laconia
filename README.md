@@ -1,8 +1,8 @@
 # Laconia [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A modern MVC framework written in PHP without libraries or frameworks.
+An MVC framework from scratch in PHP.
 
-View the [live site](https://laconia.site) 
+View the [live site](https://laconia.site).
 
 ## Installation
 
