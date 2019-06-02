@@ -14,15 +14,16 @@
  * also includes calls to the password request table.
  */
 namespace Laconia;
+
 use Laconia\Model;
 
 class User extends Model
-{   
+{
     /**
      * Select all data from a single user by user ID.
      * Return a single row.
      */
-    public function getUser($userId) 
+    public function getUser($userId)
     {
         $query = "SELECT * 
                   FROM users 
@@ -31,7 +32,7 @@ class User extends Model
 
         $this->db->query($query);
         $this->db->bind(':id', $userId);
-            
+
         $user = $this->db->result();
 
         return $user;
@@ -41,12 +42,12 @@ class User extends Model
      * Select all user data from all users.
      * Return multiple rows.
      */
-    public function getAllUsers() 
+    public function getAllUsers()
     {
         $query = "SELECT * FROM users";
 
         $this->db->query($query);
-            
+
         $users = $this->db->resultset();
 
         return $users;
@@ -56,7 +57,7 @@ class User extends Model
      * Select all data from a single user by username.
      * Return a single row.
      */
-    public function getUserByUsername($username) 
+    public function getUserByUsername($username)
     {
         $query = "SELECT * 
                   FROM users 
@@ -65,7 +66,7 @@ class User extends Model
 
         $this->db->query($query);
         $this->db->bind(':username', $username);
-            
+
         $user = $this->db->result();
 
         return $user;
@@ -75,7 +76,7 @@ class User extends Model
      * Select all data from a single user by email address.
      * Return a single row.
      */
-    public function getUserByEmail($email) 
+    public function getUserByEmail($email)
     {
         $query = "SELECT * 
                   FROM users 
@@ -84,7 +85,7 @@ class User extends Model
 
         $this->db->query($query);
         $this->db->bind(':email', $email);
-        
+
         $user = $this->db->result();
 
         return $user;
@@ -95,13 +96,13 @@ class User extends Model
      * data into the users table.
      * Returns true if successful.
      */
-    public function registerNewUser($username, $password, $email, $role) 
+    public function registerNewUser($username, $password, $email, $role)
     {
         $query = "INSERT INTO users 
                       (username, password, email, role) 
                   VALUES 
                       (:username, :password, :email, :role)";
-        
+
         $this->db->query($query);
         $this->db->bind(':username', $username);
         $this->db->bind(':password', $password);
@@ -118,7 +119,7 @@ class User extends Model
      * user registration does not override an existing user.
      * Return a boolean.
      */
-    public function isUsernameAvailable($username) 
+    public function isUsernameAvailable($username)
     {
         $username = strtolower($username);
         $query = "SELECT COUNT(username) 
@@ -139,7 +140,7 @@ class User extends Model
      * user registration does not override an existing user.
      * Return a boolean.
      */
-    public function isEmailAvailable($email) 
+    public function isEmailAvailable($email)
     {
         $query = "SELECT COUNT(email) 
                   AS num 
@@ -158,7 +159,7 @@ class User extends Model
      * Update the settings of a user.
      * Return a boolean.
      */
-    public function updateUserSettings($post, $userId) 
+    public function updateUserSettings($post, $userId)
     {
         $query = "UPDATE users 
                   SET fullname = :fullname ,
@@ -166,14 +167,14 @@ class User extends Model
                       email = :email, 
                       description = :description
                   WHERE id = :user_id";
-        
+
         $this->db->query($query);
         $this->db->bind(':fullname', $post['fullname']);
         $this->db->bind(':location', $post['location']);
         $this->db->bind(':email', $post['email']);
         $this->db->bind(':description', $post['description']);
         $this->db->bind(':user_id', $userId);
-    
+
         $result = $this->db->execute();
 
         return $result;
@@ -183,11 +184,11 @@ class User extends Model
      * Delete a user and all associated list items.
      * Return a boolean.
      */
-    public function deleteUser($userId) 
+    public function deleteUser($userId)
     {
         $query = "DELETE FROM users
                   WHERE id = :id";
-        
+
         $this->db->query($query);
         $this->db->bind(':id', $userId);
 
@@ -215,13 +216,13 @@ class User extends Model
      * user registration does not override an existing user.
      * Return a boolean.
      */
-    public function createPasswordRequest($userId, $token) 
+    public function createPasswordRequest($userId, $token)
     {
         $query = "INSERT INTO password_reset_request
                     (user_id, date_requested, token)
                   VALUES
                     (:user_id, :date_requested, :token)";
-        
+
         $this->db->query($query);
         $this->db->bind(':user_id', $userId);
         $this->db->bind(':date_requested', date('Y-m-d H:i:s'));
@@ -238,7 +239,7 @@ class User extends Model
      * based on the GET variables passed through.
      * Return the matching result.
      */
-    public function verifyPasswordRequest($userId, $passwordRequestId, $token) 
+    public function verifyPasswordRequest($userId, $passwordRequestId, $token)
     {
         $query = "SELECT id, user_id, date_requested 
                   FROM password_reset_request
@@ -262,16 +263,16 @@ class User extends Model
      * change.
      * Return a boolean.
      */
-    public function resetUserPassword($passwordHash, $userId) 
+    public function resetUserPassword($passwordHash, $userId)
     {
         $query = "UPDATE users 
                   SET password = :password 
                   WHERE id = :id";
-        
+
         $this->db->query($query);
         $this->db->bind(':password', $passwordHash);
         $this->db->bind(':id', $userId);
-    
+
         $result = $this->db->execute();
 
         return $result;

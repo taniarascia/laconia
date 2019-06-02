@@ -12,7 +12,7 @@ class EditController extends Controller
     public $list;
     public $csrf;
 
-    public function post() 
+    public function post()
     {
         $get = filter_get();
         $post = filter_post();
@@ -23,7 +23,7 @@ class EditController extends Controller
 
         // Proceed if authentication passed
         $this->session->authenticate($listUserId);
-        
+
         // Check if any rows were changed and notify
         $rowsAffected = $this->list->editList($post, $get['list_id']);
 
@@ -40,16 +40,16 @@ class EditController extends Controller
         }
     }
 
-    public function get() 
+    public function get()
     {
         $get = filter_get();
         $this->listTitle = $this->list->getListByListId($get['list_id']);
         $listUserId = $this->listTitle['user_id'];
-        
+
         // Proceed if authentication passed
         $this->session->authenticate($listUserId);
         $this->csrf = $this->session->getSessionValue('csrf');
-        
+
         // Get list values
         $this->editList = $this->list->getListItemsByListId($get['list_id']);
         $this->listTitle = $this->list->getListByListId($get['list_id']);

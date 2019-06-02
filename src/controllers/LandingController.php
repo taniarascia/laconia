@@ -1,11 +1,10 @@
-<?php 
+<?php
 
 use Laconia\Controller;
-use Laconia\Database;
 
-class IndexController extends Controller
+class LandingController extends Controller
 {
-    public $pageTitle = 'A Modern PHP App';
+    public $pageTitle = null;
     public $message;
     public $user;
     public $session;
@@ -14,9 +13,8 @@ class IndexController extends Controller
     public $commentArray = [];
     public $csrf;
 
-    public function post() 
-    {   
-        $db = new Database();
+    public function post()
+    {
         $post = filter_post();
         $this->session->validateCSRF($post['csrf']);
         $this->isLoggedIn = $this->session->isUserLoggedIn();
@@ -24,7 +22,7 @@ class IndexController extends Controller
         $userId = $this->session->getSessionValue('user_id');
 
         $this->user = $this->userControl->getUser($userId);
-        
+
         $lastComment = $this->comment->getLastComment();
 
         if ($lastComment['comment'] === $post['comment']) {
@@ -35,13 +33,12 @@ class IndexController extends Controller
         // Make sure people don't change the POST value to comment as someone else
         if ($this->isLoggedIn && $this->user['username'] === $post['username']) {
             $this->comment->insertComment($post['username'], $post['comment']);
-            
+
             $this->commentArray[0] = $post['username'];
             $this->commentArray[1] = $post['comment'];
 
             print_r(json_encode($this->commentArray));
             exit;
-            
         } else {
             $this->message = USERNAME_NOT_MATCHES;
 
@@ -50,7 +47,7 @@ class IndexController extends Controller
         }
     }
 
-    public function get() 
+    public function get()
     {
         $this->isLoggedIn = $this->session->isUserLoggedIn();
 
@@ -59,6 +56,6 @@ class IndexController extends Controller
         $this->csrf = $this->session->getSessionValue('csrf');
 
         $this->comments = $this->comment->getComments();
-        $this->view('index'); 
+        $this->view('landing');
     }
 }

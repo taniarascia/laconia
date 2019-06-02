@@ -11,7 +11,7 @@ class ForgotPasswordController extends Controller
     public $success = false;
     public $csrf;
 
-    public function post() 
+    public function post()
     {
         $post = filter_post();
         $this->session->validateCSRF($post['csrf']);
@@ -28,7 +28,7 @@ class ForgotPasswordController extends Controller
 
             echo $this->message;
             exit;
-        } 
+        }
         // Email exists, proceed
         else {
             $this->success = true;
@@ -36,7 +36,7 @@ class ForgotPasswordController extends Controller
             // Create a secure token for this forgot password request.
             $token = openssl_random_pseudo_bytes(16);
             $token = bin2hex($token);
-            
+
             $request = $this->userControl->createPasswordRequest($this->user['id'], $token);
             $passwordRequestId = $db->lastInsertId();
 
@@ -44,29 +44,29 @@ class ForgotPasswordController extends Controller
             $url = "http://{$_SERVER['HTTP_HOST']}/reset-password";
             $passwordResetLink = "{$url}?uid={$this->user['id']}&id={$passwordRequestId}&t={$token}";
 
-            // TODO: a better password sending process
-            // @mail(
-            //     $email, 
-            //     'Password Reset', 
-            //     "Here is your password reset link: {$passwordResetLink}", 
-            //     'From: no-reply@taniarascia.com' . "\r\n" .
-            //     'Reply-To: no-reply@taniarascia.com' . "\r\n" .
-            //     'X-Mailer: PHP/' . phpversion(),
-            //     null);
-            
-            $this->message = $passwordResetLink;
+            @mail(
+                $email,
+                'Password Reset',
+                "Here is your password reset link: {$passwordResetLink}",
+                'From: no-reply@laconia.dev' . "\r\n" .
+                    'Reply-To: no-reply@laconia.dev' . "\r\n" .
+                    'X-Mailer: PHP/' . phpversion(),
+                null
+            );
+
+            $this->message = PASSWORD_EMAIL_SENT;
 
             echo $this->message;
         }
     }
 
-    public function get() 
+    public function get()
     {
         $isLoggedIn = $this->session->isUserLoggedIn();
         $this->csrf = $this->session->getSessionValue('csrf');
 
         if ($isLoggedIn) {
-            $this->redirect('home');
+            $this->redirect('dashboard');
         }
 
         $this->view('forgot-password');

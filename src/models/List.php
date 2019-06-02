@@ -10,6 +10,7 @@
  * associated to a list by the `list_id` column. 
  */
 namespace Laconia;
+
 use Laconia\Model;
 
 class ListClass extends Model
@@ -20,7 +21,7 @@ class ListClass extends Model
      * the entire user as a parameter, using the `id` column.
      * Returns multiple results.
      */
-    public function getListsByUser($user) 
+    public function getListsByUser($user)
     {
         $query = "SELECT * 
                   FROM lists 
@@ -29,7 +30,7 @@ class ListClass extends Model
 
         $this->db->query($query);
         $this->db->bind(':user_id', $user['id']);
-            
+
         $lists = $this->db->resultset();
 
         return $lists;
@@ -39,7 +40,7 @@ class ListClass extends Model
      * Retrieve a single list associated with a user. 
      * Returns one result.
      */
-    public function getListByListId($listId) 
+    public function getListByListId($listId)
     {
         $query = "SELECT * 
                   FROM lists
@@ -47,7 +48,7 @@ class ListClass extends Model
 
         $this->db->query($query);
         $this->db->bind(':list_id', $listId);
-            
+
         $list = $this->db->result();
 
         return $list;
@@ -57,7 +58,7 @@ class ListClass extends Model
      * Retrieve all lists by `list_id`.
      * Return multiple results.
      */
-    public function getListItemsByListId($listId) 
+    public function getListItemsByListId($listId)
     {
         $query = "SELECT * 
                   FROM list_items 
@@ -65,7 +66,7 @@ class ListClass extends Model
 
         $this->db->query($query);
         $this->db->bind(':list_id', $listId);
-            
+
         $lists = $this->db->resultset();
 
         return $lists;
@@ -75,7 +76,7 @@ class ListClass extends Model
      * Create a new list and add all associated list items.
      * Returns boolean result of original list creation.
      */
-    public function createList($user, $title, $post) 
+    public function createList($user, $title, $post)
     {
         if (empty($title) || empty($post['list_item_0'])) {
             return false;
@@ -84,7 +85,7 @@ class ListClass extends Model
                         (user_id, title, created) 
                       VALUES 
                         (:user_id, :title, :created)";
-            
+
             $this->db->query($query);
             $this->db->bind(':user_id', $user['id']);
             $this->db->bind(':title', $title);
@@ -102,13 +103,13 @@ class ListClass extends Model
                                 (user_id, list_id, name, created) 
                               VALUES 
                                 (:user_id, :list_id, :name, :created)";
-                    
+
                     $this->db->query($query);
                     $this->db->bind(':user_id', $user['id']);
                     $this->db->bind(':list_id', $listId);
                     $this->db->bind(':name', $value);
                     $this->db->bind(':created', date("Y-m-d H:i:s"));
-            
+
                     $this->db->execute();
                 }
             }
@@ -121,7 +122,7 @@ class ListClass extends Model
      * Edit an existing list.
      * Return number
      */
-    public function editList($post, $listId) 
+    public function editList($post, $listId)
     {
         $query = "UPDATE lists
                   SET title = :title
@@ -138,7 +139,7 @@ class ListClass extends Model
                           SET name = :name
                           WHERE id = :id AND
                                 list_id = :list_id";
-                
+
                 $this->db->query($query);
                 $this->db->bind(':name', $value);
                 $this->db->bind(':id', $key);
@@ -147,7 +148,7 @@ class ListClass extends Model
                 $this->db->execute();
             }
         }
-        
+
         return $this->db->execute();
     }
 
@@ -155,11 +156,11 @@ class ListClass extends Model
      * Delete a list and all associated list items.
      * Return a boolean.
      */
-    public function deleteList($listId) 
+    public function deleteList($listId)
     {
         $query = "DELETE FROM lists
                   WHERE id = :id";
-        
+
         $this->db->query($query);
         $this->db->bind(':id', $listId);
 

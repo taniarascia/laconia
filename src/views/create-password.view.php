@@ -1,13 +1,8 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-<?php include __DIR__ . '/partials/page-header.php'; ?>
-
 <section class="content-section">
-    <div class="small-container">
-
-        <h1>
-            <?= $this->pageTitle; ?>
-        </h1>
+    <div class="form-container">
+        <h3>Create a new password</h3>
         <p>Make sure your password conforms to all proper security standards.</p>
 
         <?php include __DIR__ . '/partials/message.php'; ?>
@@ -19,7 +14,6 @@
 
             <input type="submit" name="create" value="Create Password">
         </form>
-
     </div>
 </section>
 

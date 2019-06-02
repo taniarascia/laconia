@@ -2,98 +2,102 @@
   =============== */
 
 .navigation-outer {
-    background: $accent-color;
-    .navigation {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: $small;
-        display: grid;
-        grid-template-columns: repeat(2, auto);
-        grid-gap: 3%;
-        justify-items: center;
-        align-items: center;
-        padding: 15px 15px;
-        a {
-            text-decoration: none;
-            line-height: 1.2rem;
-        }
-        .navigation-brand {
-            justify-self: start;
-            align-items: center;
-            background: $accent-color;
-            a {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: $heading-font-family;
-                color: $primary-color;
-                font-weight: 700;
-                font-size: 1rem;
-                &:hover {
-                    color: lighten($primary-color, 15%);
-                }
-            }
-        }
-        .navigation-links {
-            display: grid;
-            grid-template-columns: repeat(2, auto);
-            grid-gap: 5%;
-            justify-content: flex-end;
-            justify-self: end;
-            justify-items: flex-start;
-            align-items: center;
-            width: 100%;
-            background: $accent-color;
-            a {
-                display: block;
-                font-size: 1rem;
-                color: $primary-color;
-                font-weight: 700;
-                padding: 5px;
-                &.button {
-                    color: $accent-color;
-                    font-family: $font-family;
-                    margin: 0 2px; 
-                    align-self: center;
-                    padding: 10px;
-                    font-size: .9rem;
-                    width: 100%;
-                    &:hover {
-                        color: $accent-color;
-                    }
-                }
-                &:hover {
-                    color: lighten($primary-color, 15%);
-                }
-            }
-        }
+  background: $accent-color;
+  .navigation {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $large;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 3%;
+    justify-items: center;
+    align-items: center;
+    padding: 15px 15px;
+    a {
+      text-decoration: none;
+      line-height: 1.2rem;
     }
+    .navigation-brand {
+      justify-self: start;
+      align-items: center;
+      background: $accent-color;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $display;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 700;
+        font-size: 1.4rem;
+        img {
+          margin-right: 0.25rem;
+        }
+        &:hover {
+          color: $primary-color;
+        }
+      }
+      .logo {
+        height: 50px;
+        width: 50px;
+      }
+    }
+    .navigation-links {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-gap: 5%;
+      justify-content: flex-end;
+      justify-self: end;
+      justify-items: flex-start;
+      align-items: center;
+      width: 100%;
+      background: $accent-color;
+      a {
+        display: block;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 400;
+        padding: 5px;
+        &.button {
+          font-family: $font-family;
+          margin: 0 2px;
+          align-self: center;
+          padding: 10px;
+          font-size: 0.9rem;
+          width: 100%;
+          color: white !important;
+        }
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
 }
 
 @include small-breakpoint {
-    .navigation-outer {
-        .navigation {
-            grid-gap: 5%;
-            padding: 15px 30px;
-            height: 100px;
-            .navigation-brand {
-                a {
-                    font-size: 1.4rem;
-                }
-            }
-            .navigation-links {
-                display: flex;
-                a {
-                    font-size: 1.2rem;
-                    padding: 15px;
-                    &.button {
-                        margin: 0 5px;
-                        padding: 15px 20px;
-                        font-size: 1.2rem;
-                        width: auto;
-                    }
-                }
-            }
+  .navigation-outer {
+    .navigation {
+      grid-gap: 5%;
+      padding: 15px 30px;
+      height: 80px;
+      .navigation-brand {
+        a {
+          font-size: 1.8rem;
         }
+      }
+      .navigation-links {
+        display: flex;
+        a {
+          font-size: 1.2rem;
+          padding: 15px;
+          &.button {
+            margin: 0 5px;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            width: auto;
+          }
+        }
+      }
     }
+  }
 }

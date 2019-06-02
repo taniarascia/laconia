@@ -1,7 +1,6 @@
 <?php
 
 use Laconia\Controller;
-use Laconia\ListClass;
 
 class CreateController extends Controller
 {
@@ -12,17 +11,16 @@ class CreateController extends Controller
     public $list;
     public $csrf;
 
-    public function post() 
-    { 
+    public function post()
+    {
         $post = filter_post();
         $this->session->validateCSRF($post['csrf']);
 
         // Get user info from session
         $userId = $this->session->getSessionValue('user_id');
         $this->session->authenticate($userId);
-        
         $this->user = $this->userControl->getUser($userId);
-        
+
         // Create a new list
         $result = $this->list->createList($this->user, $post['title'], $post);
 
@@ -36,7 +34,7 @@ class CreateController extends Controller
         exit;
     }
 
-    public function get() 
+    public function get()
     {
         // Get user info from session
         $userId = $this->session->getSessionValue('user_id');

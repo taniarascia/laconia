@@ -2,9 +2,9 @@
 
 use Laconia\Controller;
 
-class ResetPasswordController extends Controller 
+class ResetPasswordController extends Controller
 {
-    public function get() 
+    public function get()
     {
         $get = filter_get();
         $requestInfo = $this->userControl->verifyPasswordRequest($get['uid'], $get['id'], $get['t']);
@@ -15,7 +15,7 @@ class ResetPasswordController extends Controller
         } else {
             // Set session variable
             $this->session->setPasswordRequestId($get['uid']);
-            
+
             // Redirect them to reset password form.
             $this->redirect('create-password');
         }

@@ -1,13 +1,13 @@
 {
   "name": "laconia",
-  "version": "1.0.0",
-  "description": "An MVC framework written without libraries or frameworks (PHP).",
+  "version": "2.0.0",
+  "description": "An MVC framework from scratch in PHP",
   "author": {
     "name": "Tania Rascia",
     "email": "tania@taniarascia.com",
     "url": "https://www.taniarascia.com"
   },
-  "homepage": "https://laconia.site",
+  "homepage": "https://laconia.dev",
   "main": "index.js",
   "repository": "github:taniarascia/laconia",
   "bugs": "https://github.com/taniarascia/laconia/issues",

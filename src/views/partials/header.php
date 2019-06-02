@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= $this->pageTitle  . ' &mdash; ' . SITE_NAME; ?></title>
+    <title><?= $this->pageTitle ? $this->pageTitle  . ' &ndash; ' . SITE_NAME : SITE_NAME  . ' &mdash; MVC Framework'; ?></title>
 
-    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Quattrocento:400,700|Caesar+Dressing:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:800|Mandali" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet">
     <link href="<?= $this->getStylesheet('main'); ?>" rel="stylesheet">
 
@@ -15,6 +15,8 @@
 
 <body>
 
-<?php include __DIR__ . '/navigation.php'; ?>
+    <section class="layout">
 
-    <main>
+        <?php include __DIR__ . '/navigation.php'; ?>
+
+        <main>
