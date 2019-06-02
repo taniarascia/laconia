@@ -2,7 +2,7 @@
 
 An MVC framework from scratch in PHP.
 
-View the [live site](https://laconia.site).
+View the [live site](https://laconia.dev).
 
 ## Installation
 
