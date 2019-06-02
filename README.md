@@ -45,6 +45,12 @@ Create a virtual host called `laconia.server`. The server should point to the `/
 - Run `npm i` to install depencencies to use Sass.
 - To run Sass, use `npm run sass`.
 
+Copy credentials example file to credentials.
+
+```bash
+cp credentials.example.php credentials.php
+```
+
 Laconia is all set up and ready to use!
 
 #### Autoload classes
