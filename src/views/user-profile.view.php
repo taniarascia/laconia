@@ -2,7 +2,7 @@
 
 <section class="content-section content-accent">
     <div class="small-container text-center">
-        <h1>
+        <h1 class="display">
             <?= $this->user['username']; ?>
         </h1>
 
@@ -20,8 +20,6 @@
     <div class="container">
 
         <?php if (!empty($this->lists)) : ?>
-            <h3><?= $this->user['username']; ?>'s lists</h3>
-
             <div class="flex-grid">
                 <?php foreach ($this->lists as $list) : ?>
                     <div class="card lists">

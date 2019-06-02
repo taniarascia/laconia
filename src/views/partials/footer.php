@@ -16,7 +16,6 @@
             <a class="github-button" href="https://github.com/taniarascia" data-size="large" data-show-count="true" aria-label="Star Laconia on GitHub">@taniarascia</a>
         </div>
     </section>
-    <div class="pattern-border"></div>
 </footer>
 
 </section>

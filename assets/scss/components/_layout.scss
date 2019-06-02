@@ -15,13 +15,13 @@ main {
 .lead {
   text-align: center;
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family: $display;
     margin-bottom: 0.5rem;
   }
 
   p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -30,7 +30,14 @@ main {
     h1 {
       font-size: 5rem;
     }
+    p {
+      font-size: 1.4rem;
+    }
   }
+}
+
+.display {
+  font-family: $display;
 }
 
 .pattern-border {
@@ -62,7 +69,6 @@ main {
   }
   .list-title {
     color: $primary-color;
-    text-align: center;
   }
   .list-items {
     padding: 1rem 0;
@@ -85,12 +91,10 @@ main {
   flex-direction: column;
   .items {
     display: flex;
-    margin: 1rem 0;
-    flex-direction: row;
+    flex-direction: column;
     flex: auto;
+    margin: 1rem 0;
     max-width: 100%;
-    justify-content: space-between;
-    align-items: center;
     border-bottom: 1px solid $border-color;
     &:last-of-type {
       border-bottom: 0;
@@ -101,18 +105,33 @@ main {
   }
   .list-item {
     display: block;
+    align-items: center;
     font-size: 1.3rem;
     font-weight: 700;
-    align-items: center;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     line-height: 1.2;
   }
   .list-options {
     display: flex;
-    justify-content: center;
     a,
     input {
       margin: 0 2px;
+    }
+  }
+}
+
+@include small-breakpoint {
+  .flex-list {
+    .items {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .list-options {
+      justify-content: center;
+    }
+    .list-item {
+      margin-bottom: 0;
     }
   }
 }
@@ -163,9 +182,8 @@ main {
 
 .form-container {
   @extend .small-container;
-  @extend .card;
   max-width: 500px;
-  h3 { 
+  h3 {
     margin-top: 0;
     color: $primary-color;
     font-size: 1.5rem;
@@ -213,13 +231,13 @@ main {
 .site-footer {
   padding: 30px 0;
   background: $accent-color;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   p {
     margin-bottom: 0;
     &.summary {
       font-size: 1rem;
       line-height: 1.4;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, .8);
       margin-bottom: 1.5rem;
     }
   }
@@ -241,7 +259,7 @@ main {
       align-items: center;
       justify-content: center;
       font-family: $display;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 1);
       font-weight: 700;
       font-size: 1.4rem;
       margin-bottom: 1rem;
