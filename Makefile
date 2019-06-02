@@ -7,6 +7,9 @@ start:
 stop:
 	docker-compose stop
 
-install:
-	docker-compose up --build 
-	docker-compose exec $(CONTAINER_NAME) /bin/bash php bin/install.php
+install-containers:
+	docker-compose up -d --build 
+
+install-app:
+	docker-compose exec $(CONTAINER_NAME) composer install
+	docker-compose exec $(CONTAINER_NAME) php bin/install.php
