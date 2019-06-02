@@ -41,18 +41,18 @@ class ForgotPasswordController extends Controller
             $passwordRequestId = $db->lastInsertId();
 
             // Create URL for password script
-            $url = "http://{$_SERVER['HTTP_HOST']}/reset-password";
+            $url = PROTOCOL + "{$_SERVER['HTTP_HOST']}/reset-password";
             $passwordResetLink = "{$url}?uid={$this->user['id']}&id={$passwordRequestId}&t={$token}";
 
-            @mail(
-                $email,
-                'Password Reset',
-                "Here is your password reset link: {$passwordResetLink}",
-                'From: no-reply@laconia.dev' . "\r\n" .
-                    'Reply-To: no-reply@laconia.dev' . "\r\n" .
-                    'X-Mailer: PHP/' . phpversion(),
-                null
-            );
+            // @mail(
+            //     $email,
+            //     'Password Reset',
+            //     "Here is your password reset link: {$passwordResetLink}",
+            //     'From: no-reply@laconia.site' . "\r\n" .
+            //         'Reply-To: no-reply@laconia.dev' . "\r\n" .
+            //         'X-Mailer: PHP/' . phpversion(),
+            //     null
+            // );
 
             $this->message = PASSWORD_EMAIL_SENT;
 
