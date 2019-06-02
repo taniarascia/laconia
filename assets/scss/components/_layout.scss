@@ -15,7 +15,7 @@ main {
 .lead {
   text-align: center;
   h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: $display;
     margin-bottom: 0.5rem;
   }
@@ -58,16 +58,24 @@ main {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    min-width: calc(25% - 20px);
+    width: 100%;
   }
   .list-title {
     color: $primary-color;
     text-align: center;
   }
   .list-items {
-    padding: 1rem;
+    padding: 1rem 0;
     ul {
       margin-bottom: 0;
+    }
+  }
+}
+
+@include small-breakpoint {
+  .flex-grid {
+    .lists {
+      min-width: calc(25% - 20px);
     }
   }
 }
@@ -141,14 +149,14 @@ main {
   background: white;
   padding: 2rem;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
-  height: 100%;
+  min-height: 100%;
   h1,
   h2,
   h3 {
     margin-top: 0;
   }
   &.solo {
-    height: auto;
+    min-height: auto;
   }
 }
 
@@ -156,6 +164,7 @@ main {
   @extend .small-container;
   @extend .card;
   max-width: 500px;
+  margin: 0 1rem;
   h3 {
     margin-top: 0;
     color: $primary-color;

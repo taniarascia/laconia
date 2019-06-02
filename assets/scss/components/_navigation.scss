@@ -7,17 +7,13 @@
     margin-left: auto;
     margin-right: auto;
     max-width: $large;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 3%;
-    justify-items: center;
-    align-items: center;
-    padding: 15px 15px;
+    padding: .5rem;
     a {
       text-decoration: none;
       line-height: 1.2rem;
     }
     .navigation-brand {
+      display: flex;
       justify-self: start;
       align-items: center;
       background: $accent-color;
@@ -28,7 +24,7 @@
         font-family: $display;
         color: rgba(255, 255, 255, 0.8);
         font-weight: 700;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         img {
           margin-right: 0.25rem;
         }
@@ -42,12 +38,7 @@
       }
     }
     .navigation-links {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      grid-gap: 5%;
-      justify-content: flex-end;
-      justify-self: end;
-      justify-items: flex-start;
+      display: flex;
       align-items: center;
       width: 100%;
       background: $accent-color;
@@ -56,7 +47,8 @@
         font-size: 1rem;
         color: rgba(255, 255, 255, 1);
         font-weight: 400;
-        padding: 5px;
+        padding: 1rem;
+        flex: 1;
         &.button {
           font-family: $font-family;
           margin: 0 2px;
@@ -77,8 +69,12 @@
 @include small-breakpoint {
   .navigation-outer {
     .navigation {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      justify-items: center;
+      align-items: center;
       grid-gap: 5%;
-      padding: 15px 30px;
+      padding: 1rem 2rem;
       height: 80px;
       .navigation-brand {
         a {
@@ -86,10 +82,11 @@
         }
       }
       .navigation-links {
-        display: flex;
+        justify-content: flex-end;
         a {
           font-size: 1.2rem;
-          padding: 15px;
+          padding: 1rem;
+          flex: none;
           &.button {
             margin: 0 5px;
             padding: 15px 20px;

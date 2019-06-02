@@ -589,7 +589,7 @@ dd {
 
 .container, .tiny-container, .small-container, .form-container, .medium-container {
   max-width: 1150px;
-  padding: 0 30px;
+  padding: 0 1rem;
   margin-left: auto;
   margin-right: auto; }
 
@@ -840,7 +840,7 @@ textarea {
 fieldset {
   border: 1px solid #dedede;
   border-radius: 4px;
-  padding: 30px;
+  padding: 1rem;
   margin: 1.5rem 0; }
 
 legend {
@@ -916,7 +916,7 @@ td {
   padding: 0.5rem; }
 
 caption {
-  padding: 30px 0;
+  padding: 1rem 0;
   caption-side: bottom;
   color: #ababab; }
 
@@ -938,16 +938,12 @@ caption {
     margin-left: auto;
     margin-right: auto;
     max-width: 1150px;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 3%;
-    justify-items: center;
-    align-items: center;
-    padding: 15px 15px; }
+    padding: .5rem; }
     .navigation-outer .navigation a {
       text-decoration: none;
       line-height: 1.2rem; }
     .navigation-outer .navigation .navigation-brand {
+      display: flex;
       justify-self: start;
       align-items: center;
       background: #231f20; }
@@ -958,7 +954,7 @@ caption {
         font-family: "Montserrat Alternates", -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
         color: rgba(255, 255, 255, 0.8);
         font-weight: 700;
-        font-size: 1.4rem; }
+        font-size: 1.2rem; }
         .navigation-outer .navigation .navigation-brand a img {
           margin-right: 0.25rem; }
         .navigation-outer .navigation .navigation-brand a:hover {
@@ -967,12 +963,7 @@ caption {
         height: 50px;
         width: 50px; }
     .navigation-outer .navigation .navigation-links {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      grid-gap: 5%;
-      justify-content: flex-end;
-      justify-self: end;
-      justify-items: flex-start;
+      display: flex;
       align-items: center;
       width: 100%;
       background: #231f20; }
@@ -981,7 +972,8 @@ caption {
         font-size: 1rem;
         color: white;
         font-weight: 400;
-        padding: 5px; }
+        padding: 1rem;
+        flex: 1; }
         .navigation-outer .navigation .navigation-links a.button {
           font-family: "Mandali", -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
           margin: 0 2px;
@@ -995,16 +987,21 @@ caption {
 
 @media (min-width: 750px) {
   .navigation-outer .navigation {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-items: center;
+    align-items: center;
     grid-gap: 5%;
-    padding: 15px 30px;
+    padding: 1rem 2rem;
     height: 80px; }
     .navigation-outer .navigation .navigation-brand a {
       font-size: 1.8rem; }
     .navigation-outer .navigation .navigation-links {
-      display: flex; }
+      justify-content: flex-end; }
       .navigation-outer .navigation .navigation-links a {
         font-size: 1.2rem;
-        padding: 15px; }
+        padding: 1rem;
+        flex: none; }
         .navigation-outer .navigation .navigation-links a.button {
           margin: 0 5px;
           padding: 15px 20px;
@@ -1025,7 +1022,7 @@ main {
 .lead {
   text-align: center; }
   .lead h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: "Montserrat Alternates", -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
     margin-bottom: 0.5rem; }
   .lead p {
@@ -1058,14 +1055,18 @@ main {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    min-width: calc(25% - 20px); }
+    width: 100%; }
   .flex-grid .list-title {
     color: #eb7e49;
     text-align: center; }
   .flex-grid .list-items {
-    padding: 1rem; }
+    padding: 1rem 0; }
     .flex-grid .list-items ul {
       margin-bottom: 0; }
+
+@media (min-width: 750px) {
+  .flex-grid .lists {
+    min-width: calc(25% - 20px); } }
 
 .flex-list {
   flex-direction: column; }
@@ -1123,7 +1124,7 @@ main {
   background: white;
   padding: 2rem;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
-  height: 100%; }
+  min-height: 100%; }
   .card h1, .form-container h1,
   .card h2,
   .form-container h2,
@@ -1131,10 +1132,11 @@ main {
   .form-container h3 {
     margin-top: 0; }
   .card.solo, .solo.form-container {
-    height: auto; }
+    min-height: auto; }
 
 .form-container {
-  max-width: 500px; }
+  max-width: 500px;
+  margin: 0 1rem; }
   .form-container h3 {
     margin-top: 0;
     color: #eb7e49;
@@ -1156,11 +1158,11 @@ main {
     color: #9c2924; }
 
 .content-section {
-  padding: 30px 0; }
+  padding: 2rem 0; }
 
 @media (min-width: 750px) {
   .content-section {
-    padding: 60px 0; } }
+    padding: 4rem 0; } }
 
 .content-accent {
   background: linear-gradient(to bottom left, #ee8e60, #ffdc88); }
