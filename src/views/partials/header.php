@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:800|Mandali|Hind:700" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet">
     <link href="<?= $this->getStylesheet('main'); ?>?<?= date('d-m-Y'); ?>" rel="stylesheet">
+    <link href="<?= $this->getImage('favicon.png'); ?>" rel="icon">
 
 </head>
 

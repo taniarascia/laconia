@@ -13,7 +13,7 @@
   font-family: $button-font-family;
   font-size: $button-font-size;
   text-transform: $button-text-transform;
-  padding: 1rem 1.5rem;
+  padding: .75rem 1rem;
   margin: 0;
   vertical-align: middle;
   text-align: center;
@@ -51,6 +51,12 @@
   &:focus,
   &:active {
     @extend %buttons-focus;
+  }
+}
+
+@include small-breakpoint {
+  #{$buttons} {
+    padding: 1rem 1.5rem;
   }
 }
 

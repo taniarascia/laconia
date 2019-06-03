@@ -69,9 +69,9 @@ main {
   }
   .list-title {
     color: $primary-color;
+    margin-bottom: 1rem;
   }
   .list-items {
-    padding: 1rem 0;
     ul {
       margin-bottom: 0;
     }
@@ -167,7 +167,7 @@ main {
 .card {
   border-radius: $border-radius;
   background: white;
-  padding: 2rem;
+  padding: 1.5rem 1rem;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
   min-height: 100%;
   h1,
@@ -177,6 +177,12 @@ main {
   }
   &.solo {
     min-height: auto;
+  }
+}
+
+@include small-breakpoint {
+  .card {
+    padding: 2rem;
   }
 }
 
