@@ -746,7 +746,7 @@ dd {
   background: #eb7e49;
   color: #ffffff;
   font-weight: 600;
-  font-family: "Mandali", -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 1.1rem;
   text-transform: none;
   padding: .75rem 1rem;

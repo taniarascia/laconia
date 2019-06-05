@@ -17,7 +17,7 @@
 
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email">
-                <small>You can register with a fake email, but will not be able to reset your password if you want to test that functionality.</small>
+                <small>You can register with a fake email.</small>
 
                 <div class="actions">
                     <?php include __DIR__ . '/partials/message.php'; ?>
