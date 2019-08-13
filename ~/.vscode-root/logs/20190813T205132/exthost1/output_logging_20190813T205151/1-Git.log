@@ -79,3 +79,34 @@ Open repository: /home/kevin/laconia
 > git rev-list --left-right feature-dockercompose-integration...refs/remotes/origin/feature-dockercompose-integration
 > git for-each-ref --format %(refname) %(objectname) --sort -committerdate
 > git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse feature-dockercompose-integration
+> git rev-parse --symbolic-full-name feature-dockercompose-integration@{u}
+> git rev-list --left-right feature-dockercompose-integration...refs/remotes/origin/feature-dockercompose-integration
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :config/credentials.php
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse feature-dockercompose-integration
+> git rev-parse --symbolic-full-name feature-dockercompose-integration@{u}
+> git rev-list --left-right feature-dockercompose-integration...refs/remotes/origin/feature-dockercompose-integration
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :config/credentials.php
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse feature-dockercompose-integration
+> git rev-parse --symbolic-full-name feature-dockercompose-integration@{u}
+> git rev-list --left-right feature-dockercompose-integration...refs/remotes/origin/feature-dockercompose-integration
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :config/credentials.php
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse feature-dockercompose-integration
+> git rev-parse --symbolic-full-name feature-dockercompose-integration@{u}
+> git rev-list --left-right feature-dockercompose-integration...refs/remotes/origin/feature-dockercompose-integration
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
