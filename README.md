@@ -68,7 +68,7 @@ Laconia is all set up and ready to use!
 - Run `make start` you can use for run app, go to [localhost:8000](localhost:8000)
 - Run `make stop` you can use for stop all containers.
 
-You need install and run npm 
+You need install and run npm (not integrated in docker at the moment )
 - Run `npm install` to use Sass
 - To run Sass, use `npm run sass`
 
