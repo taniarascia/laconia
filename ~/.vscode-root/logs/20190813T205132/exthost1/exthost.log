@@ -1,0 +1,77 @@
+[2019-08-13 20:51:35.563] [exthost] [info] extension host started
+[2019-08-13 20:51:35.581] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:35.581] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-08-13 20:51:35.585] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:35.585] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/emmet/dist/extension
+[2019-08-13 20:51:35.607] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:35.607] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/git/dist/main
+[2019-08-13 20:51:35.720] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:35.720] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2019-08-13 20:51:35.728] [exthost] [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:35.729] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/esbenp.prettier-vscode-1.9.0/out/src/extension
+[2019-08-13 20:51:35.908] [exthost] [info] ExtensionService#_doActivateExtension vscode-icons-team.vscode-icons {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:35.908] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/vscode-icons-team.vscode-icons-9.2.0/dist/src/vscode-icons.bundle.js
+[2019-08-13 20:51:36.064] [exthost] [info] eager extensions activated
+[2019-08-13 20:51:50.896] [exthost] [info] extension host started
+[2019-08-13 20:51:50.916] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:50.916] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-08-13 20:51:50.923] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:50.923] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/emmet/dist/extension
+[2019-08-13 20:51:50.949] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:50.949] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/git/dist/main
+[2019-08-13 20:51:51.074] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:51.074] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2019-08-13 20:51:51.082] [exthost] [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:51.082] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/esbenp.prettier-vscode-1.9.0/out/src/extension
+[2019-08-13 20:51:51.256] [exthost] [info] ExtensionService#_doActivateExtension vscode-icons-team.vscode-icons {"startup":true,"activationEvent":"*"}
+[2019-08-13 20:51:51.256] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/vscode-icons-team.vscode-icons-9.2.0/dist/src/vscode-icons.bundle.js
+[2019-08-13 20:51:51.705] [exthost] [info] ExtensionService#_doActivateExtension TheNouillet.symfony-vscode {"startup":true,"activationEvent":"workspaceContains:**/composer.json"}
+[2019-08-13 20:51:51.705] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/thenouillet.symfony-vscode-1.0.2/out/extension
+[2019-08-13 20:51:51.787] [exthost] [info] ExtensionService#_doActivateExtension felixfbecker.php-intellisense {"startup":true,"activationEvent":"workspaceContains:**/*.php"}
+[2019-08-13 20:51:51.787] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/felixfbecker.php-intellisense-2.3.10/out/extension
+[2019-08-13 20:51:52.000] [exthost] [info] eager extensions activated
+[2019-08-13 20:52:47.710] [exthost] [info] ExtensionService#_doActivateExtension vscode.php-language-features {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-08-13 20:52:47.710] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/php-language-features/dist/phpMain
+[2019-08-13 20:52:47.725] [exthost] [info] ExtensionService#_doActivateExtension junstyle.php-cs-fixer {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-08-13 20:52:47.725] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/junstyle.php-cs-fixer-0.1.120/extension
+[2019-08-13 20:52:47.865] [exthost] [error] [TheNouillet.symfony-vscode] provider FAILED
+[2019-08-13 20:52:47.866] [exthost] [error] Error: Illegal argument: character must be non-negative
+	at Object.t.illegalArgument (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:12:860)
+	at new m (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:336:574)
+	at new m (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:335:813)
+	at translate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:337:823)
+	at Function.getWordRange (/root/.vscode/extensions/thenouillet.symfony-vscode-1.0.2/out/mvc/editing/EditingUtils.js:8:64)
+	at ServiceDocumentationCodeActionProvider.provideCodeActions (/root/.vscode/extensions/thenouillet.symfony-vscode-1.0.2/out/mvc/editing/codeaction/ServiceDocumentationCodeActionProvider.js:18:69)
+	at define.provideCodeActions.o.asPromise (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:548:394)
+	at t.asPromise.Promise (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:53:995)
+	at new Promise (<anonymous>)
+	at Object.t.asPromise (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:53:967)
+	at S.provideCodeActions (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:548:365)
+	at define.$provideCodeActions._withAdapter.e (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:564:695)
+	at W._withAdapter (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:560:499)
+	at W.$provideCodeActions (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:564:673)
+	at d._doInvokeHandler (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:653:1006)
+	at d._invokeHandler (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:653:698)
+	at d._receiveRequest (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:652:293)
+	at d._receiveOneMessage (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:651:141)
+	at define.constructor._protocol.onMessage.e (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:649:400)
+	at u.fire (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:48:468)
+	at a (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:177:627)
+	at e (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:177:673)
+	at u.fire (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:48:468)
+	at n.constructor.e.onMessage.e (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:758:621)
+	at u.fire (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:48:468)
+	at a (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:177:627)
+	at e (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:177:673)
+	at u.fire (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:48:468)
+	at y._receiveMessage (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:186:545)
+	at define.constructor._socketDisposables.push._socketReader.onMessage.e (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:183:860)
+	at u.fire (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:48:468)
+	at f.acceptChunk (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:180:393)
+	at define.constructor._register._socket.onData.e (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:179:731)
+	at Socket.t (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:188:22)
+	at Socket.emit (events.js:182:13)
+	at addChunk (_stream_readable.js:283:12)
+	at readableAddChunk (_stream_readable.js:264:11)
+	at Socket.Readable.push (_stream_readable.js:219:10)
+	at Pipe.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
