@@ -3,6 +3,9 @@ FROM php:7.2-fpm
 # Changing Workdir
 WORKDIR /application
 
+# init docker credential for database connection
+COPY docker/credentials.php /application/config/
+
 # Installing dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -31,6 +34,8 @@ RUN echo fr_FR.UTF-8 UTF-8 > /etc/locale.gen && locale-gen
 
 # Allow container to write on host
 RUN usermod -u 1000 www-data
+
+
 
 
 

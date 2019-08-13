@@ -6,23 +6,22 @@ version: '3'
 
 services:
   my_app:
-    build: ./docker
+    build: .
     image: my_app
     depends_on:
-      - my_mysql
+      - database
       - my_reddis
     volumes:
       - ./:/application
-
-  my_mysql:
+  database:
     image: mysql:5.7
     ports:
       - "3312:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=laconia
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=root
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
     volumes:
       - ./storage/tmp/db:/var/lib/mysql
 
@@ -35,7 +34,6 @@ services:
       - ./:/application
     depends_on:
       - my_app
-
   my_reddis:
     image: redis
     ports:
