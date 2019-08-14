@@ -1,7 +1,6 @@
 /vendor
 /node_modules
-.DS_Store
+/.DS_Store
 /config/credentials.php
-/config/credentials_back.php
 /storage
 ~
