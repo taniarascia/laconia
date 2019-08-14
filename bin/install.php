@@ -1,6 +1,6 @@
 <?php
 
-require '/../config/credentials.php';
+require '../config/credentials.php';
 
 $options = [
     PDO::ATTR_PERSISTENT => true,  
