@@ -9,7 +9,7 @@ $options = [
 
 try {
 	$connection = new PDO('mysql:host=' . DB_HOST, DB_USER, DB_PASS, $options);
-	$sql = file_get_contents('/../data/init.sql');
+	$sql = file_get_contents('../data/init.sql');
 	$connection->exec($sql);
 	
 	echo 'Success! Laconia is ready to use.' . "\n";
