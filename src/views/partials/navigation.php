@@ -2,8 +2,8 @@
     <section class="navigation">
         <div class="navigation-brand">
             <a href="/">
+                <img src="<?= $this->getImage('amphora.png'); ?>" class="logo">
                 <span>
-                <i class="fas fa-sun"></i>
                     <?= SITE_NAME; ?>
                 </span>
             </a>
@@ -11,12 +11,14 @@
         <div class="navigation-links">
 
             <?php if ($this->session->isUserLoggedIn()) : ?>
-                <a href="/home">Home</a>
-                <a href="/create">Create List</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/<?= $this->user['username']; ?>">Profile</a>
+                <a href="/lists">Lists</a>
                 <a href="/settings">Settings</a>
                 <a href="/logout" class="button">Logout</a>
             <?php else : ?>
-                <a href="/login" class="button">Login</a>
+                <a href="https://github.com/taniarascia/laconia" target="_blank">Source</a>
+                <a href="/login">Log In</a>
                 <a href="/register" class="button">Register</a>
             <?php endif; ?>
 

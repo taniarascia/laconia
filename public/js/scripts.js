@@ -105,7 +105,7 @@ if (forms) {
                             if (data !== 'Proceed') {
                                 showMessage(data);
                             } else {
-                                window.location.href = '/home';
+                                window.location.href = '/dashboard';
                             }
                             break;
                         case 'form-forgot-password':

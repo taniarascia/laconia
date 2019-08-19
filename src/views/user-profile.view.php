@@ -1,63 +1,48 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-<?php include __DIR__ . '/partials/page-header.php'; ?>
-
-<section class="content-section">
-    <div class="small-container">
-
+<section class="content-section content-accent">
+    <div class="small-container text-center">
         <h1>
             <?= $this->user['username']; ?>
         </h1>
-        <?php if (!empty($this->user['fullname'])) : ?>
-        <div>
-            <strong>Full Name</strong>:
-            <?= $this->user['fullname']; ?>
-        </div>
-        <?php endif; ?>
 
         <?php if (!empty($this->user['description'])) : ?>
-        <div>
-            <strong>About</strong>:
             <?= $this->user['description']; ?>
-        </div>
         <?php endif; ?>
 
-        <?php if (!empty($this->user['location'])) : ?>
-        <div>
-            <strong>Location</strong>:
-            <?= $this->user['location']; ?>
-        </div>
+        <?php if (empty($this->user['description'])) : ?>
+            <div> Welcome to the <?= $this->user['username']; ?>'s public Laconia page! <?= $this->user['username']; ?> has not written a description yet. Please check back later.</div>
         <?php endif; ?>
-
     </div>
+</section>
 
-    <div class="small-container">
+<section class="content-section">
+    <div class="container">
 
         <?php if (!empty($this->lists)) : ?>
-        <h2>Lists</h2>
-        <p>Check out the lists
-            <?= $this->user['username']; ?> made!</p>
+            <div class="flex-grid">
+                <?php foreach ($this->lists as $list) : ?>
+                    <div class="card lists">
+                        <h3 class="list-title">
+                            <?= $list['title']; ?>
+                        </h3>
 
-        <div class="flex-grid">
-            <?php foreach ($this->lists as $list) : ?>
-            <div class="items">
-                <div class="list-title">
-                    <?= $list['title']; ?>
-                </div>
-
-                <div class="list-items">
-                    <ul>
-                        <?php foreach ($this->list->getListItemsByListId($list['id']) as $listItem) : ?>
-                        <li>
-                            <?= $listItem['name']; ?>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-
+                        <div class="list-items">
+                            <ul>
+                                <?php foreach ($this->list->getListItemsByListId($list['id']) as $listItem) : ?>
+                                    <li>
+                                        <?= $listItem['name']; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                <?php endforeach ?>
             </div>
-            <?php endforeach ?>
-        </div>
+        <?php else : ?>
+            <div class="card text-center">
+                <h3 class="no-margin-bottom"><?= $this->user['username']; ?> hasn't made any lists yet.</h3>
+            </div>
         <?php endif; ?>
 
     </div>

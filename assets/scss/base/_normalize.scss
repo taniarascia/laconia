@@ -7,10 +7,10 @@
  */
 
 html {
-    -ms-text-size-adjust: 100%;
-    /* 2 */
-    -webkit-text-size-adjust: 100%;
-    /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
 }
 
 /**
@@ -18,7 +18,7 @@ html {
  */
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 /* HTML5 display definitions
@@ -43,7 +43,7 @@ menu,
 nav,
 section,
 summary {
-    display: block;
+  display: block;
 }
 
 /**
@@ -55,10 +55,10 @@ audio,
 canvas,
 progress,
 video {
-    display: inline-block;
-    /* 1 */
-    vertical-align: baseline;
-    /* 2 */
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
 }
 
 /**
@@ -67,8 +67,8 @@ video {
  */
 
 audio:not([controls]) {
-    display: none;
-    height: 0;
+  display: none;
+  height: 0;
 }
 
 /**
@@ -78,7 +78,7 @@ audio:not([controls]) {
 
 [hidden],
 template {
-    display: none;
+  display: none;
 }
 
 /* Links
@@ -99,7 +99,7 @@ a {
 
 a:active,
 a:hover {
-    outline: 0;
+  outline: 0;
 }
 
 /* Text-level semantics
@@ -120,7 +120,7 @@ abbr[title] {
 
 b,
 strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /**
@@ -164,18 +164,18 @@ small {
 
 sub,
 sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sup {
-    top: -0.5em;
+  top: -0.5em;
 }
 
 sub {
-    bottom: -0.25em;
+  bottom: -0.25em;
 }
 
 /* Embedded content
@@ -186,7 +186,7 @@ sub {
  */
 
 img {
-    border: 0;
+  border: 0;
 }
 
 /**
@@ -194,7 +194,7 @@ img {
  */
 
 svg:not(:root) {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* Grouping content
@@ -213,8 +213,8 @@ figure {
  */
 
 hr {
-    box-sizing: content-box;
-    height: 0;
+  box-sizing: content-box;
+  height: 0;
 }
 
 /**
@@ -222,7 +222,7 @@ hr {
  */
 
 pre {
-    overflow: auto;
+  overflow: auto;
 }
 
 /**
@@ -315,7 +315,7 @@ input[type="submit"] {
 
 button[disabled],
 html input[disabled] {
-    cursor: default;
+  cursor: default;
 }
 
 /**
@@ -324,8 +324,8 @@ html input[disabled] {
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 /**

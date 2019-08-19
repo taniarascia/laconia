@@ -60,16 +60,16 @@ class Router
         $username = $userControl->getUserByUsername($uri);
 
         // If uri contains edit, go to edit controller
-        if (($pos = strpos($uri, '/')) !== false) { 
+        if (($pos = strpos($uri, '/')) !== false) {
             if (strpos($uri, 'edit') !== false) {
-                $param = substr($uri, $pos+1); 
+                $param = substr($uri, $pos + 1);
                 $uri = 'edit';
-            } 
+            }
         }
         // Gather all users from the database and compare against uri 
         elseif ($username) {
             $uri = 'user';
-        } 
+        }
 
         if (array_key_exists($uri, $this->routes[$requestType])) {
             return $this->callAction(

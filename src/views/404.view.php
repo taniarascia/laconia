@@ -1,15 +1,11 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-<?php include __DIR__ . '/partials/page-header.php'; ?>
-
 <section class="content-section">
-    <div class="small-container">
-
+    <div class="small-container text-center">
         <h1>
             <?= $this->pageTitle; ?>
         </h1>
         <p>Not found.</p>
-
     </div>
 </section>
 

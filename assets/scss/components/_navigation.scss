@@ -2,98 +2,108 @@
   =============== */
 
 .navigation-outer {
-    background: $accent-color;
-    .navigation {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: $small;
-        display: grid;
-        grid-template-columns: repeat(2, auto);
-        grid-gap: 3%;
-        justify-items: center;
-        align-items: center;
-        padding: 15px 15px;
-        a {
-            text-decoration: none;
-            line-height: 1.2rem;
-        }
-        .navigation-brand {
-            justify-self: start;
-            align-items: center;
-            background: $accent-color;
-            a {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: $heading-font-family;
-                color: $primary-color;
-                font-weight: 700;
-                font-size: 1rem;
-                &:hover {
-                    color: lighten($primary-color, 15%);
-                }
-            }
-        }
-        .navigation-links {
-            display: grid;
-            grid-template-columns: repeat(2, auto);
-            grid-gap: 5%;
-            justify-content: flex-end;
-            justify-self: end;
-            justify-items: flex-start;
-            align-items: center;
-            width: 100%;
-            background: $accent-color;
-            a {
-                display: block;
-                font-size: 1rem;
-                color: $primary-color;
-                font-weight: 700;
-                padding: 5px;
-                &.button {
-                    color: $accent-color;
-                    font-family: $font-family;
-                    margin: 0 2px; 
-                    align-self: center;
-                    padding: 10px;
-                    font-size: .9rem;
-                    width: 100%;
-                    &:hover {
-                        color: $accent-color;
-                    }
-                }
-                &:hover {
-                    color: lighten($primary-color, 15%);
-                }
-            }
-        }
+  background: $accent-color;
+  .navigation {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $large;
+    padding: 0.75rem;
+    a {
+      text-decoration: none;
+      line-height: 1.2rem;
     }
+    .navigation-brand {
+      display: flex;
+      justify-self: start;
+      align-items: center;
+      margin-bottom: .5rem;
+      background: $accent-color;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $display;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 700;
+        font-size: 1.2rem;
+        img {
+          margin-right: 0.25rem;
+        }
+        &:hover {
+          color: $primary-color;
+        }
+      }
+      .logo {
+        height: 25px;
+        width: 25px;
+      }
+    }
+    .navigation-links {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: $accent-color;
+      a {
+        display: block;
+        font-size: .95rem;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 400;
+        padding: 0.5rem;
+        text-align: center;
+        &.button {
+          align-self: flex-end;
+          max-width: 100px;
+          font-family: $font-family;
+          margin: 0 2px;
+          align-self: center;
+          padding: 8px 10px;
+          font-size: 0.9rem;
+          width: 100%;
+          color: white !important;
+          margin-left: auto;
+        }
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
 }
 
 @include small-breakpoint {
-    .navigation-outer {
-        .navigation {
-            grid-gap: 5%;
-            padding: 15px 30px;
-            height: 100px;
-            .navigation-brand {
-                a {
-                    font-size: 1.4rem;
-                }
-            }
-            .navigation-links {
-                display: flex;
-                a {
-                    font-size: 1.2rem;
-                    padding: 15px;
-                    &.button {
-                        margin: 0 5px;
-                        padding: 15px 20px;
-                        font-size: 1.2rem;
-                        width: auto;
-                    }
-                }
-            }
+  .navigation-outer {
+    .navigation {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      justify-items: center;
+      align-items: center;
+      grid-gap: 5%;
+      padding: 1rem;
+      height: 80px;
+      .navigation-brand {
+        margin-bottom: 0;
+        a {
+          font-size: 1.8rem;
         }
+        .logo {
+          height: 50px;
+          width: 50px;
+        }
+      }
+      .navigation-links {
+        justify-content: flex-end;
+        a {
+          font-size: 1.1rem;
+          padding: 0.75rem;
+          flex: none;
+          &.button {
+            margin: 0 0 0 .75rem;
+            padding: .75rem 1rem;
+            font-size: 1.1rem;
+            width: auto;
+          }
+        }
+      }
     }
+  }
 }

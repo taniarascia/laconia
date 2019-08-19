@@ -1,28 +1,31 @@
 <?php
 
+define('PROTOCOL', 'https://');
+
 // Site
 define('SITE_NAME', 'Laconia');
 
 // Reserved names
 define('DISALLOWED_USERNAMES', [
     'create',
-    'create-list',
     'create-password',
+    'lists',
     'edit',
-    'edit-list',
     '404',
     'login',
     'logout',
     'settings',
     'admin',
-    'view-users',
+    'users',
+    'user',
     'user-profile',
-    'home',
+    'dashboard',
     'index',
+    'landing',
     'register',
     'forgot-password',
     'forgot-password-process',
-    'reset-password'
+    'reset-password',
 ]);
 
 // Login

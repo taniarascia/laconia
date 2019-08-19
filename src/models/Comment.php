@@ -6,21 +6,22 @@
  * Interact with comments.
  */
 namespace Laconia;
+
 use Laconia\Model;
 
 class Comment extends Model
-{   
+{
     /**
      * Select all comments.
      * Returns multiple rows.
      */
-    public function getComments() 
+    public function getComments()
     {
         $query = "SELECT * 
                   FROM comments";
 
         $this->db->query($query);
-            
+
         $comments = $this->db->resultset();
 
         return $comments;
@@ -30,7 +31,8 @@ class Comment extends Model
      * Check for spam by getting the last comment.
      * Return a result.
      */
-    public function getLastComment() {
+    public function getLastComment()
+    {
         $query = "SELECT * 
                   FROM comments
                   ORDER BY id DESC LIMIT 1";
@@ -46,13 +48,13 @@ class Comment extends Model
      * Insert a new comment.
      * Returns a Boolean.
      */
-    public function insertComment($username, $comment) 
+    public function insertComment($username, $comment)
     {
         $query = "INSERT INTO comments 
                       (username, comment, created) 
                   VALUES 
                       (:username, :comment, :created)";
-        
+
         $this->db->query($query);
         $this->db->bind(':username', $username);
         $this->db->bind(':comment', $comment);

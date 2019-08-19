@@ -1,34 +1,37 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-<?php include __DIR__ . '/partials/page-header.php'; ?>
-
 <section class="content-section">
     <div class="small-container">
+        <div class="card">
+            <h1>
+                <?= $this->pageTitle; ?>
+            </h1>
+            <p>Create your list! A list is simply a title and some associated entries. Lists are visible on <a href="/<?= strtolower($this->user['username']); ?>">your profile</a>.</p>
 
-        <h1>
-            <?= $this->pageTitle; ?>
-        </h1>
-        <p>Create your top five list!</p>
+            <?php include __DIR__ . '/partials/message.php'; ?>
 
-        <?php include __DIR__ . '/partials/message.php'; ?>
+            <form id="form-create-list">
+                <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
 
-        <form id="form-create-list">
-            <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
+                <label for="list-items">List items</label>
+                <div id="list-items">
 
-            <label for="list-items">List items</label>
-            <div id="list-items">
-            <?php for ($i = 0; $i < 5; $i++) : ?>
-                <div class="input-group" id="first-group">
-                    <input type="text" id="<?= $i; ?>" name="list_item_<?= $i; ?>">
+                    <?php for ($i = 0; $i < 3; $i++) : ?>
+                        <div class="input-group" id="first-group">
+                            <input type="text" id="<?= $i; ?>" name="list_item_<?= $i; ?>">
+                        </div>
+                    <?php endfor; ?>
+
                 </div>
-            <?php endfor; ?>
-            </div>
 
-            <input type="submit" value="Create">
-        </form>
-
+                <div class="actions">
+                    <input type="submit" value="Create">
+                    <a class="button accent-button" href="/lists">Back to Lists</a>
+                </div>
+            </form>
+        </div>
     </div>
 </section>
 

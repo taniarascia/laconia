@@ -10,15 +10,19 @@
  * as $this->db.
  */
 namespace Laconia;
+
 use \PDO;
+
 class Database
 {
     private $host = DB_HOST;
     private $user = DB_USER;
     private $pass = DB_PASS;
     private $dbname = DB_NAME;
+
     private $handler;
     private $error;
+
     private $statement;
     /**
      * Initialize the PDO connection. Set the handler as
@@ -32,12 +36,14 @@ class Database
             PDO::ATTR_PERSISTENT => true,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
+
         try {
             $this->handler = new PDO($dsn, $this->user, $this->pass, $options);
         } catch (PDOException $e) {
             $this->error = $e->getMessage();
         }
     }
+
     /**
      * Prepare a statement.
      */
@@ -45,6 +51,7 @@ class Database
     {
         $this->statement = $this->handler->prepare($query);
     }
+
     /**
      * Bind the variables to the proper type. Allows
      * for integer, string, null, and boolean.
@@ -68,6 +75,7 @@ class Database
         }
         $this->statement->bindValue($param, $value, $type);
     }
+
     /**
      * Execute a prepared statement.
      */
@@ -79,22 +87,27 @@ class Database
             $this->error = $e->getMessage();
         }
     }
+
     /**
      * Fetch a single row as a result of a query.
      */
     public function result()
     {
         $this->execute();
+
         return $this->statement->fetch(PDO::FETCH_ASSOC);
     }
+
     /**
      * Fetch a set of rows as a result of a query.
      */
     public function resultset()
     {
         $this->execute();
+
         return $this->statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
     /**
      * Get the row count of the statement.
      */
@@ -102,6 +115,7 @@ class Database
     {
         return $this->statement->rowCount();
     }
+
     /**
      * Get the id of the last inserted item into the database.
      */

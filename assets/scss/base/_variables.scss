@@ -3,58 +3,60 @@
  *
  * All variables and most of the configuration is defined on this page. */
 
-
 /* Containers */
 
-$x-small: 500px;
-$small: 650px;
+$x-small: 600px;
+$small: 750px;
 $medium: 1000px;
-$large: 1400px;
+$large: 1150px;
 
 /* Breakpoints */
 
-$mobile: $x-small;
+$mobile: $small;
 $desktop: $medium;
 
 /* Colors */
 
-$background: white; 
-$primary-color: #c96645;
-$secondary-color: #FFDC88;
-$tertiary-color: #9C2924;
-$accent-color: #231F20;
+$background: #231f20;
+$primary-color: #eb7e49;
+$secondary-color: #ffdc88;
+$tertiary-color: #9c2924;
+$accent-color: #231f20;
 $light: #f0f0f0;
 $alternate-background: #f0f0f0;
 $alternate-color: #404040;
 $link-color: $primary-color;
 $link-hover-color: darken($link-color, 15%);
 $highlight: #ffeea8;
-$error: #9C2924;
+$error: #9c2924;
 $bq-border: 16px solid #f0f0f0;
 
 /* Typography */
 
 // Body font
 $font-size: 1rem;
-$body-font-size: 1.1rem;
+$body-font-size: 1.15rem;
 $font-style: normal;
 $font-variant: normal;
 $font-weight: normal;
-$font-color: #231F20;
-$font-family: 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+$font-color: #231f20;
+$font-family: 'Mandali', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial,
+  sans-serif;
 $line-height: 1.6;
 
 // Headings
-$heading-font-color: #0e0c0c;
-$heading-font-weight: 700; 
-$heading-font-family: 'Quattrocento', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-$heading-line-height: 1.3; 
-$display: 'Caesar Dressing', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+$heading-font-color: $accent-color;
+$heading-font-weight: 700;
+$heading-font-family: 'Hind', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial,
+  sans-serif;
+$heading-line-height: 1.3;
+$display: 'Montserrat Alternates', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
+  Arial, sans-serif;
 
 // Mobile heading font size
 $h1-mobile: 1.75rem;
-$h2-mobile: 1.5rem;
-$h3-mobile: 1.25rem;
+$h2-mobile: 1.6rem;
+$h3-mobile: 1.4rem;
 $h4-mobile: 1.1rem;
 $h5-mobile: 1rem;
 
@@ -67,55 +69,45 @@ $h5: 1.25rem;
 
 /* Padding */
 
-$padding: 30px;
+$padding: 1rem;
 $margins: 1.5rem;
-$content-padding: 40px 0;
-$content-padding-mobile: 20px 0;
+$content-padding: 4rem 0;
+$content-padding-mobile: 2rem 0;
 
 /* Borders */
 
 $border-width: 1px;
 $border-style: solid;
 $border-color: #dedede;
-$border-radius: 0;
+$border-radius: 4px;
 $borders: $border-width $border-style $border-color;
 
 /* Buttons */
 
 $button-background: $primary-color;
-$button-background-hover: lighten($button-background, 10%);
+$button-background-hover: darken($button-background, 8%);
 $button-color: #ffffff;
-$button-font-weight: 600; 
-$button-font-family: 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+$button-font-weight: 600;
+$button-font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial,
+  sans-serif;
 $button-font-size: 1.1rem;
-$button-border-width: 0px;
+$button-border-width: 2px;
 $button-border-style: solid;
 $button-border-color: $button-background;
-$button-border-radius: $border-radius;
+$button-border-radius: 4px;
 $button-text-transform: none;
-
-// Accent buttons
-$accent-button-background: $secondary-color;
-$accent-button-color: #ffffff;
-$accent-button-color-hover: #ffffff;
-
-// Muted Buttons
-$muted-border: 1px solid $accent-color;
-$muted-border-hover: 1px solid darken($accent-color, 30%);
-$muted-background: transparent;
-$muted-background-hover: transparent;
-$muted-color: darken($accent-color, 50%);
-$muted-color-hover: darken($accent-color, 50%);
 
 // Round Buttons
 $round-buttons: 40px;
 
 /* Forms */
 
-$forms: ('[type=color], [type=date], [type=datetime], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea');
+$forms: (
+  '[type=color], [type=date], [type=datetime], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea'
+);
 $buttons: ('.button, a.button, button, [type=submit], [type=reset], [type=button]');
 $input-background: transparent;
-$placeholder: darken($accent-color, 20%);
+$placeholder: $accent-color;
 $form-border: 1px solid #cdcdcd;
 $form-border-hover: 1px solid darken(#cdcdcd, 10%);
 $form-border-focus: 1px solid $link-color;

@@ -15,7 +15,7 @@ class RegisterController extends Controller
      * Make sure password passes proper testing, username does not
      * contain special characters, and email is valid.
      */
-    public function validateNewUser($username, $password, $email) 
+    public function validateNewUser($username, $password, $email)
     {
         $this->validatePassword($password);
         $this->validateUsername($username);
@@ -32,14 +32,14 @@ class RegisterController extends Controller
         // Email already exists in the database
         elseif ($emailSearchResults > 0) {
             $this->errors[] = EMAIL_EXISTS;
-        } 
+        }
         // Username does matches with a disallowed username
         elseif (!$isApprovedUsername) {
             $this->errors[] = USERNAME_NOT_APPROVED;
-        } 
+        }
     }
 
-    public function post() 
+    public function post()
     {
         $post = filter_post();
         $this->session->validateCSRF($post['csrf']);
@@ -55,14 +55,14 @@ class RegisterController extends Controller
         if (!empty($this->errors)) {
             $this->errorList = $this->getErrors($this->errors);
             $this->message = $this->errorList;
-            
+
             echo $this->message;
             exit;
         } else {
             // Hash the password
             $passwordHash = $this->encryptPassword($password);
             $result = $this->userControl->registerNewUser($username, $passwordHash, $email, 'user');
-            
+
             // User registration successful
             if ($result) {
                 $this->user = $this->userControl->getUserByUsername($username);
@@ -77,15 +77,15 @@ class RegisterController extends Controller
         $this->view('register');
     }
 
-    public function get() 
+    public function get()
     {
         $isLoggedIn = $this->session->isUserLoggedIn();
         $this->csrf = $this->session->getSessionValue('csrf');
 
         if ($isLoggedIn) {
-            $this->redirect('home');
+            $this->redirect('dashboard');
         }
-        
+
         $this->view('register');
     }
 }

@@ -1,31 +1,30 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
 
-<?php include __DIR__ . '/partials/page-header.php'; ?>
-  
 <section class="content-section">
-    <div class="small-container">
+    <div class="form-container">
+        <div class="card">
+            <form id="form-register">
+                <h3>Sign up for Laconia</h3>
 
-        <h1>
-            <?= $this->pageTitle; ?>
-        </h1>
-        <p>Thanks for signing up! I appreciate it.</p>
+                <p>This website is a demo. You're not signing up for any product, just testing out the front end of Laconia. Your password is securely encrypted, and you can fully delete all your information at any time.</p>
 
-        <?php include __DIR__ . '/partials/message.php'; ?>
+                <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
 
-        <form id="form-register">
-            <input name="csrf" type="hidden" value="<?= $this->csrf; ?>">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <small>You can register with a fake email.</small>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email">
-
-            <input type="submit" value="Register">
-        </form>
-
+                <div class="actions">
+                    <?php include __DIR__ . '/partials/message.php'; ?>
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
     </div>
 </section>
 
