@@ -1,10 +1,6 @@
 /vendor
 /node_modules
 .DS_Store
-<<<<<<< HEAD
 /config/credentials.php
 /storage
 ~
-=======
-/config/credentials.php
->>>>>>> a113c4332848f5d53d1d14c29de79bf5e6b905ed

@@ -20,7 +20,7 @@ class LandingController extends Controller
         $this->isLoggedIn = $this->session->isUserLoggedIn();
 
         $userId = $this->session->getSessionValue('user_id');
-        
+
         $this->user = $this->userControl->getUser($userId);
 
         $lastComment = $this->comment->getLastComment();
