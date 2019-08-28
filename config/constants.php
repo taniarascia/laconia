@@ -1,6 +1,7 @@
 <?php
 
-define('PROTOCOL', 'https://');
+// Change this in production for HTTP Secure
+define('PROTOCOL', 'http://'); 
 
 // Site
 define('SITE_NAME', 'Laconia');

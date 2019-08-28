@@ -1,5 +1,5 @@
 {
-  "name": "laconia",
+  "name": "taniarascia/laconia",
   "type": "project",
   "description": "An MVC framework written without libraries or frameworks (PHP).",
   "keywords": [
@@ -29,8 +29,14 @@
     "source": "https://github.com/taniarascia/laconia"
   },
   "autoload": {
-    "classmap": [ "src/" ],
-    "files": [ "config/credentials.php", "config/constants.php", "config/utility.php" ]
+    "classmap": [
+      "src/"
+    ],
+    "files": [
+      "config/credentials.php",
+      "config/constants.php",
+      "config/utility.php"
+    ]
   },
   "require": {
     "php": ">=7.0"
