@@ -1,6 +1,6 @@
 {
   "name": "laconia",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "An MVC framework from scratch in PHP",
   "author": {
     "name": "Tania Rascia",
@@ -15,7 +15,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.12.0"
   },
   "scripts": {
     "sass": "node-sass -w -r ./assets/scss/ -o ./public/css/"
@@ -32,7 +32,8 @@
     "object-oriented-programming",
     "mysql",
     "pdo",
-    "web app"
+    "web app",
+    "docker"
   ],
   "license": "MIT"
 }

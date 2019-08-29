@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  my_app:
+    build: .
+    image: my_app
+    depends_on:
+      - mysql
+    volumes:
+      - ./:/app
+  mysql:
+    image: mysql:5.7
+    ports:
+      - '3312:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=laconia
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    volumes:
+      - ./storage/tmp/db:/var/lib/mysql
+  my_nginx:
+    image: nginx
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:cached
+      - ./:/app
+    depends_on:
+      - my_app

@@ -9,6 +9,7 @@
  * 
  * @link https://github.com/laracasts/The-PHP-Practitioner-Full-Source-Code/blob/master/core/Router.php
  */
+
 use Laconia\Session;
 use Laconia\ListClass;
 use Laconia\User;
@@ -62,13 +63,12 @@ class Router
         // If uri contains edit, go to edit controller
         if (($pos = strpos($uri, '/')) !== false) {
             if (strpos($uri, 'edit') !== false) {
-                $param = substr($uri, $pos + 1);
                 $uri = 'edit';
             }
         }
         // Gather all users from the database and compare against uri 
         elseif ($username) {
-            $uri = 'user';
+            $uri = 'user-profile';
         }
 
         if (array_key_exists($uri, $this->routes[$requestType])) {

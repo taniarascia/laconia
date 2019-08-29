@@ -36,7 +36,6 @@ $router->post('edit', 'EditController@post');
 
 $router->get('users', 'UsersController@get');
 
-$router->get('user', 'UserProfileController@get');
-$router->post('user', 'UserProfile@post');
+$router->get('user-profile', 'UserProfileController@get');
 
 $router->get('404', 'ExceptionNotFoundController@get');

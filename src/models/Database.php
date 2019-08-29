@@ -1,5 +1,4 @@
 <?php
-
 /** 
  * Database Class
  * 
@@ -25,7 +24,6 @@ class Database
     private $error;
 
     private $statement;
-
     /**
      * Initialize the PDO connection. Set the handler as
      * the new instance to be used throughout each additional

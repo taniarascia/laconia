@@ -6,7 +6,7 @@ View the [live site](https://laconia.dev).
 
 ## Installation
 
-Install a local copy with the instructions below.
+Install a local copy with the instructions below, or follow the [Docker instructions](#docker-instructions).
 
 ### Install Apache, MySQL, and PHP
 
@@ -43,7 +43,7 @@ Create a virtual host called `laconia.server`. The server should point to the `/
 - Run `php bin/install.php` in the root directory to initialize the database.
 - Run `composer install` to autoload classes and configuration.
 - Run `npm i` to install depencencies to use Sass.
-- To run Sass, use `npm run sass`.
+- Run `npm run sass` to run sass.
 
 Copy credentials example file to credentials.
 
@@ -52,6 +52,17 @@ cp credentials.example.php credentials.php
 ```
 
 Laconia is all set up and ready to use!
+
+### Docker Instructions
+
+- Requires [docker-compose](https://docs.docker.com/compose/install/).
+- Run `make init` to build all containers.
+- Run `make install` to init app.
+
+`npm` and `sass` are not integrated in docker at the moment.
+
+- Run `npm i` to install depencencies to use Sass.
+- Run `npm run sass` to run sass.
 
 #### Autoload classes
 
@@ -67,31 +78,35 @@ The entire program flows through `/public/index.php`, and the rest of the projec
 
 ```bash
 laconia/
-  .git              # Git source directory
-  assets/           # Uncompiled raw SCSS, JavaScript
-  bin/              # Command line scripts
-  config/           # Database credentials, utility helpers, and other configuration
-  data/             # SQL database files
-  node_modules/     # Node.js front end dependencies
-  public/           # Publicly accessible files
-      css/          # Compiled, ready-to-use styles
-      js/           # Compiled, ready-to-use scripts
-      index.php     # Main entry point for the entire application
-  src/              # PHP source code
-      app           # Router code
-      controllers/  # Controller classes
-      models/       # Model classes
-      views/        # Views
-  tests/            # Unit tests
-  vendor/           # Composer files and 3rd party packages
-  .gitignore        # Files to be ignored in the repository
-  composer.json     # Composer dependency file
-  composer.lock     # Composer lockfile
-  install.php       # Database installation script
-  LICENSE           # MIT License file
-  package.json      # npm dependency file
-  package-lock.json # Dependency lockfile
-  README.md         # Brief documentation
+  .git               # Git source directory
+  assets/            # Uncompiled raw SCSS
+  bin/               # Command line scripts
+      install.php    # Database installation script
+  config/            # Database credentials, utility helpers, and other configuration
+  data/              # SQL database files
+  node_modules/      # Node.js front end dependencies
+  docker/            # Contains Docker environment variables
+  public/            # Publicly accessible files
+      css/           # Compiled, ready-to-use styles
+      js/            # Compiled, ready-to-use scripts
+      index.php      # Main entry point for the entire application
+  src/               # PHP source code
+      app            # Router code
+      controllers/   # Controller classes
+      models/        # Model classes
+      views/         # Views
+  tests/             # Unit tests
+  vendor/            # Composer files and 3rd party packages
+  .gitignore         # Files to be ignored in the repository
+  composer.json      # Composer dependency file
+  composer.lock      # Composer lockfile
+  docker-compose.yml # Docker configuration
+  Dockerfile         # Docker configuration
+  LICENSE            # MIT License file
+  Makefile           # Docker instructions
+  package.json       # npm dependency file
+  package-lock.json  # Dependency lockfile
+  README.md          # Brief documentation
 ```
 
 ## Usage
