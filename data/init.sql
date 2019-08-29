@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS `laconia`;
+
 CREATE DATABASE IF NOT EXISTS `laconia`;
 
 USE `laconia`;
@@ -50,9 +52,9 @@ CREATE TABLE `users` (
   `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `location` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `fullname` varchar(100) COLLATE utf8_unicode_ci,
+  `location` varchar(100) COLLATE utf8_unicode_ci,
+  `description` text COLLATE utf8_unicode_ci,
   `role` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
