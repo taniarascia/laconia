@@ -13,7 +13,6 @@ class SettingsController extends Controller
 
     public function post()
     {
-        $get = filter_get();
         $post = filter_post();
 
         // Get user by session value
