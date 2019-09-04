@@ -7,7 +7,9 @@ services:
     depends_on:
       - mysql
     volumes:
-      - ./:/app
+      - .:/app
+    expose:
+      - 9000
   mysql:
     image: mysql:5.7
     ports:
@@ -22,9 +24,9 @@ services:
   my_nginx:
     image: nginx
     ports:
-      - '8000:8000'
+      - "8080:80"
     volumes:
-      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:cached
-      - ./:/app
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+      - .:/app
     depends_on:
       - my_app
