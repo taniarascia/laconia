@@ -59,7 +59,7 @@ Laconia is all set up and ready to use!
 
 - Requires [docker-compose](https://docs.docker.com/compose/install/).
 - Run `make init` to build all containers.
-- Run `make install` to init app.
+- Run `make install` to init app (if you have problem with datatbase try to restart containers with `make start`).
 
 `npm` and `sass` are not integrated in docker at the moment.
 
