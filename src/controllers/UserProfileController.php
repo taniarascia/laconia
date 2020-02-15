@@ -17,7 +17,7 @@ class UserProfileController extends Controller
         $this->user = $this->userControl->getUserByUsername($get['username-router']);
         $this->lists = $this->list->getListsByUser($this->user);
         $this->pageTitle = $this->user['username'];
-
+       
         $this->view('user-profile');
     }
 }
