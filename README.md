@@ -60,6 +60,7 @@ Laconia is all set up and ready to use!
 - Requires [docker-compose](https://docs.docker.com/compose/install/).
 - Run `make init` to build all containers.
 - Run `make install` to init app.
+Go to [laconia](127.0.0.1:8080 )
 
 `npm` and `sass` are not integrated in docker at the moment.
 
