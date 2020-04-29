@@ -1,4 +1,4 @@
-# 🏺 Laconia 
+# 🏺 Laconia
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -57,12 +57,10 @@ Laconia is all set up and ready to use!
 
 ### Docker Instructions
 
-- Requires [docker-compose](https://docs.docker.com/compose/install/).
 - Run `make init` to build all containers.
-- Run `make install` to init app.
-Go to [laconia](127.0.0.1:8080 )
+- Run `make install` to run the install script.
 
-`npm` and `sass` are not integrated in docker at the moment.
+`npm` and `sass` are not integrated in Docker at the moment.
 
 - Run `npm i` to install depencencies to use Sass.
 - Run `npm run sass` to run sass.
