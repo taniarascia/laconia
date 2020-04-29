@@ -1,0 +1,4 @@
+<VirtualHost *:80>
+    DocumentRoot "/var/www/laconia/public"
+    ServerName laconia.server
+</VirtualHost>
