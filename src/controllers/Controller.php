@@ -158,7 +158,7 @@ abstract class Controller
                 $this->errors[] = USERNAME_TOO_LONG;
             }
             // Match a-z, A-Z, 1-9, -, _.
-            if (!preg_match("/^[a-zA-Z\d-_]+$/i", $username)) {
+            if (!preg_match("/^[a-zA-Z\d\-_]+$/i", $username)) {
                 $this->errors[] = USERNAME_CONTAINS_DISALLOWED;
             }
         } else {
