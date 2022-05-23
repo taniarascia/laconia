@@ -48,6 +48,8 @@ Copy credentials example file to credentials.
 cp credentials.example.php credentials.php
 ```
 
+Update the credentials.php with your database credentials
+
 - Run `php bin/install.php` in the root directory to initialize the database.
 - Run `composer install` to autoload classes and configuration.
 - Run `npm i` to install depencencies to use Sass.
