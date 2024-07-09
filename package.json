@@ -3,7 +3,6 @@
   "version": "2.0.1",
   "description": "An MVC framework from scratch in PHP",
   "author": "Tania Rascia",
-  "homepage": "https://laconia.dev",
   "main": "index.js",
   "repository": "github:taniarascia/laconia",
   "bugs": "https://github.com/taniarascia/laconia/issues",

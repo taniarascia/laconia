@@ -4,8 +4,6 @@
 
 An MVC framework from scratch in PHP.
 
-### [View the demo](https://laconia.dev)
-
 ## Installation
 
 Install a local copy with the instructions below, or follow the [Docker instructions](#docker-instructions).

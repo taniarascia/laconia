@@ -49,7 +49,7 @@ class ForgotPasswordController extends Controller
             //     'Password Reset',
             //     "Here is your password reset link: {$passwordResetLink}",
             //     'From: no-reply@laconia.site' . "\r\n" .
-            //         'Reply-To: no-reply@laconia.dev' . "\r\n" .
+            //         'Reply-To: no-reply@laconia' . "\r\n" .
             //         'X-Mailer: PHP/' . phpversion(),
             //     null
             // );
