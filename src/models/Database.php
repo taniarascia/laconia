@@ -1,4 +1,10 @@
 <?php
+
+namespace Laconia;
+
+use PDO;
+use PDOException;
+
 /** 
  * Database Class
  * 
@@ -9,10 +15,6 @@
  * rest of the model classes will access it by extending the Model class,
  * as $this->db.
  */
-namespace Laconia;
-
-use \PDO;
-
 class Database
 {
     private $host = DB_HOST;

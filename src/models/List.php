@@ -1,5 +1,9 @@
 <?php
 
+namespace Laconia;
+
+use Laconia\Model;
+
 /** 
  * List Class
  * 
@@ -9,10 +13,6 @@
  * and each entry is inserted into the `list_items` table. List items are
  * associated to a list by the `list_id` column. 
  */
-namespace Laconia;
-
-use Laconia\Model;
-
 class ListClass extends Model
 {
 

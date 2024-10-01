@@ -1,5 +1,9 @@
 <?php
 
+namespace Laconia;
+
+use Laconia\Model;
+
 /** 
  * User Class
  * 
@@ -13,10 +17,6 @@
  * username, or email, or we can get a list of all users. This class
  * also includes calls to the password request table.
  */
-namespace Laconia;
-
-use Laconia\Model;
-
 class User extends Model
 {
     /**

@@ -1,14 +1,14 @@
 <?php
 
+namespace Laconia;
+
+use Laconia\Model;
+
 /** 
  * Comment Class
  * 
  * Interact with comments.
  */
-namespace Laconia;
-
-use Laconia\Model;
-
 class Comment extends Model
 {
     /**
@@ -48,7 +48,7 @@ class Comment extends Model
      * Insert a new comment.
      * Returns a Boolean.
      */
-    public function insertComment($username, $comment)
+    public function insertComment(string $username, string $comment)
     {
         $query = "INSERT INTO comments 
                       (username, comment, created) 
